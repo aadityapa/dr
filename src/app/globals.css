@@ -7,6 +7,10 @@
   --color-sage-dark: #2f4d3b;
   --color-soft-green: #dce7d5;
   --color-terracotta: #be7a62;
+  --color-sun: #f5cf79;
+  --color-sky: #b9ddec;
+  --color-lavender: #d8cdea;
+  --color-peach: #f4c9b7;
   --color-muted: #67766d;
   --color-border: #d9d9cd;
 }
@@ -23,9 +27,17 @@ body {
 }
 
 body {
-  background: linear-gradient(180deg, #fbf8f2 0%, #f3f7ef 100%);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(245, 207, 121, 0.16), transparent 26%),
+    radial-gradient(circle at 90% 8%, rgba(185, 221, 236, 0.18), transparent 28%),
+    linear-gradient(180deg, #fbf8f2 0%, #f3f7ef 100%);
   color: var(--color-sage-dark);
   font-family: var(--font-inter), sans-serif;
+}
+
+.playful-dots {
+  background-image: radial-gradient(rgba(125, 146, 127, 0.16) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
 }
 
 @keyframes fadeUp {
