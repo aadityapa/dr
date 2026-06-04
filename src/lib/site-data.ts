@@ -1,8 +1,9 @@
 export const siteConfig = {
-  name: "Dr. Sharuja Sarap Pediatric Occupational Therapy",
-  shortName: "Dr. Sharuja Sarap",
+  name: "Thrive with sharuja",
+  shortName: "Thrive with sharuja",
+  tagline: "Belonging without boundaries. Thriving without limits.",
   description:
-    "Compassionate pediatric occupational therapy designed to nurture confidence, independence, and joyful participation in everyday life.",
+    "Belonging without boundaries. Thriving without limits. Compassionate pediatric occupational therapy designed to nurture confidence, independence, and joyful participation in everyday life.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharujasarap.com",
   email: "hello@drsharujasarap.com",
   phone: "+91 98765 43210",

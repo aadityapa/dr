@@ -4,10 +4,11 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Card, CardContent } from "@/components/ui/card";
+import { siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Meet Dr. Sharuja Sarap, her mission, and the therapy philosophy guiding every child-centered intervention.",
+  description: `Meet ${siteConfig.shortName} — ${siteConfig.tagline} Learn about our mission and child-centered therapy philosophy.`,
 };
 
 export default function AboutPage() {
@@ -15,9 +16,9 @@ export default function AboutPage() {
     <main>
       <Section>
         <SectionHeading
-          kicker="About Dr. Sharuja Sarap"
+          kicker={`About ${siteConfig.shortName}`}
           title="A warm, evidence-based approach to pediatric occupational therapy"
-          description="With over a decade of clinical experience, Dr. Sharuja supports children and families through compassionate, deeply personalized therapy pathways."
+          description={`${siteConfig.tagline} With over a decade of clinical experience, Dr. Sharuja supports children and families through compassionate, deeply personalized therapy pathways.`}
         />
       </Section>
 

@@ -15,7 +15,7 @@ import { ServiceIcon } from "@/components/shared/service-icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cldImage } from "@/lib/cloudinary";
-import { conditions, services, therapyFlow, trustStats } from "@/lib/site-data";
+import { conditions, services, siteConfig, therapyFlow, trustStats } from "@/lib/site-data";
 
 const ContactForm = dynamic(() => import("@/components/forms/contact-form").then((mod) => mod.ContactForm), {
   loading: () => <div className="h-72 animate-pulse rounded-3xl bg-[color:var(--color-soft-green)]/50" />,
@@ -82,13 +82,16 @@ export function HomeContent() {
         <Section className="relative grid items-center gap-10 md:grid-cols-2 md:py-28">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[color:var(--color-sage)]">
-              Gentle Pediatric Occupational Therapy
+              Pediatric Occupational Therapy
             </p>
             <h1 className="mt-4 font-[family-name:var(--font-serif)] text-4xl leading-tight text-[color:var(--color-sage-dark)] md:text-6xl">
-              A calm, playful place where children feel safe to grow
+              {siteConfig.shortName}
             </h1>
             <p className="mt-5 max-w-xl text-lg text-[color:var(--color-muted)]">
-              Helping Children Regulate, Connect, Participate & Thrive through joyful occupational therapy that feels
+              {siteConfig.tagline}
+            </p>
+            <p className="mt-4 max-w-xl text-base text-[color:var(--color-muted)]">
+              Helping children regulate, connect, participate, and thrive through joyful occupational therapy that feels
               like meaningful play and gives parents clear guidance.
             </p>
             <div className="mt-6 grid max-w-xl grid-cols-2 gap-2">

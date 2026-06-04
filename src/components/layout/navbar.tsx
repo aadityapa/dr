@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { navItems } from "@/lib/site-data";
+import { navItems, siteConfig } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -17,7 +17,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)] bg-[color:var(--color-cream)]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
         <Link href="/" className="font-[family-name:var(--font-serif)] text-xl text-[color:var(--color-sage-dark)]">
-          Dr. Sharuja Sarap
+          {siteConfig.shortName}
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (

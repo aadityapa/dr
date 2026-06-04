@@ -24,8 +24,8 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Dr. Sharuja Sarap | Pediatric Occupational Therapist",
-    template: "%s | Dr. Sharuja Sarap",
+    default: "Thrive with sharuja | Pediatric Occupational Therapy",
+    template: "%s | Thrive with sharuja",
   },
   description: siteConfig.description,
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Pediatric Therapy Clinic",
   ],
   openGraph: {
-    title: "Dr. Sharuja Sarap | Pediatric Occupational Therapy",
+    title: "Thrive with sharuja | Pediatric Occupational Therapy",
     description: siteConfig.description,
     type: "website",
     url: siteConfig.url,
