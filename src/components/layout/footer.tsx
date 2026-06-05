@@ -4,7 +4,7 @@ import { navItems, siteConfig } from "@/lib/site-data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[color:var(--color-border)] bg-white/70">
+    <footer className="bg-white/70 shadow-[0_-8px_30px_-20px_rgba(47,77,59,0.12)]">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-3 md:px-8">
         <div>
           <h3 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">

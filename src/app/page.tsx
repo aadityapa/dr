@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { HomeContent } from "@/components/home/home-content";
+import { StitchHomePage } from "@/components/stitch/home-page";
 import { siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <HomeContent />;
+  return <StitchHomePage />;
 }
