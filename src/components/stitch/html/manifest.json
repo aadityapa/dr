@@ -1,11 +1,11 @@
 {
-  "syncedAt": "2026-06-05T05:41:39.153Z",
+  "syncedAt": "2026-06-05T05:50:12.652Z",
   "pages": [
     {
       "page": "home",
-      "screenId": "e57ef8000d064af2a26a3d92cb9bb44c",
+      "screenId": "7d7e1799d7ff4678974ab2aefe26db60",
       "outPath": "src/components/stitch/html/home.html",
-      "bytes": 20455
+      "bytes": 21688
     },
     {
       "page": "about",

@@ -1,0 +1,156 @@
+/* Stitch home screen (7d7e1799) — Holistic Pediatric Care landing */
+
+.stitch-landing.stitch-home {
+  --color-primary: #364939;
+  --color-primary-container: #4d6150;
+  --color-primary-fixed: #d2e8d3;
+  --color-on-primary-fixed: #0d1f12;
+  --color-background: #fbf9f6;
+  --color-surface: #fbf9f6;
+  --color-surface-container-low: #f5f3f0;
+  --color-surface-container: #efeeeb;
+  --color-secondary-container: #e6e2da;
+  --color-tertiary: #3b4557;
+  --color-tertiary-fixed: #d9e3fa;
+  --color-on-surface: #1b1c1a;
+  --color-on-surface-variant: #434843;
+  --color-on-secondary-container: #66645e;
+  --spacing-gutter: 24px;
+  --spacing-xl: 64px;
+  --spacing-lg: 40px;
+  --spacing-md: 24px;
+  --spacing-sm: 12px;
+  --spacing-xs: 4px;
+}
+
+.stitch-home .glass-panel {
+  background: rgba(251, 249, 246, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: none;
+  box-shadow: 0 8px 32px rgba(54, 73, 57, 0.08);
+}
+
+.stitch-home .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stitch-home .reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stitch-home .reveal.delay-100 { transition-delay: 0.1s; }
+.stitch-home .reveal.delay-200 { transition-delay: 0.2s; }
+.stitch-home .reveal.delay-300 { transition-delay: 0.3s; }
+
+.stitch-home .floating-element {
+  transition: transform 0.1s ease-out;
+  pointer-events: none;
+}
+
+.stitch-home .bento-item:hover .hover-lift {
+  transform: translateY(-8px);
+}
+
+.stitch-home .text-display-lg {
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+.stitch-home .font-display-lg { font-family: var(--font-playfair), "Playfair Display", serif; }
+
+.stitch-home .max-w-container-max {
+  max-width: 1280px;
+}
+
+.stitch-home .px-gutter {
+  padding-left: var(--spacing-gutter);
+  padding-right: var(--spacing-gutter);
+}
+
+.stitch-home .py-xl { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+.stitch-home .mb-xl { margin-bottom: var(--spacing-xl); }
+.stitch-home .mb-lg { margin-bottom: var(--spacing-lg); }
+.stitch-home .mb-md { margin-bottom: var(--spacing-md); }
+.stitch-home .mb-sm { margin-bottom: var(--spacing-sm); }
+.stitch-home .mb-xs { margin-bottom: var(--spacing-xs); }
+.stitch-home .mt-xl { margin-top: var(--spacing-xl); }
+.stitch-home .mt-lg { margin-top: var(--spacing-lg); }
+.stitch-home .mt-md { margin-top: var(--spacing-md); }
+.stitch-home .gap-xl { gap: var(--spacing-xl); }
+.stitch-home .gap-lg { gap: var(--spacing-lg); }
+.stitch-home .gap-md { gap: var(--spacing-md); }
+.stitch-home .gap-sm { gap: var(--spacing-sm); }
+.stitch-home .gap-xs { gap: var(--spacing-xs); }
+.stitch-home .p-lg { padding: var(--spacing-lg); }
+.stitch-home .p-md { padding: var(--spacing-md); }
+.stitch-home .p-sm { padding: var(--spacing-sm); }
+.stitch-home .px-lg { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+.stitch-home .px-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.stitch-home .px-xl { padding-left: 48px; padding-right: 48px; }
+.stitch-home .py-md { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+.stitch-home .py-sm { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+.stitch-home .py-xs { padding-top: var(--spacing-xs); padding-bottom: var(--spacing-xs); }
+
+.stitch-home .text-headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+.stitch-home .text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+.stitch-home .text-headline-sm {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  font-family: var(--font-playfair), "Playfair Display", serif;
+}
+
+.stitch-home .text-body-lg { font-size: 18px; line-height: 28px; }
+.stitch-home .text-body-md { font-size: 16px; line-height: 24px; }
+.stitch-home .text-label-md { font-size: 14px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em; }
+.stitch-home .text-caption { font-size: 12px; line-height: 16px; font-weight: 500; }
+
+.stitch-home .bg-primary { background-color: var(--color-primary); }
+.stitch-home .bg-primary-container { background-color: var(--color-primary-container); }
+.stitch-home .bg-primary-fixed { background-color: var(--color-primary-fixed); }
+.stitch-home .bg-background { background-color: var(--color-background); }
+.stitch-home .bg-surface { background-color: var(--color-surface); }
+.stitch-home .bg-surface-container-low { background-color: var(--color-surface-container-low); }
+.stitch-home .bg-secondary-container { background-color: var(--color-secondary-container); }
+.stitch-home .bg-tertiary-fixed { background-color: var(--color-tertiary-fixed); }
+.stitch-home .bg-white { background-color: #fff; }
+
+.stitch-home .text-primary { color: var(--color-primary); }
+.stitch-home .text-on-primary { color: #fff; }
+.stitch-home .text-on-primary-container { color: var(--color-on-primary-fixed); }
+.stitch-home .text-on-primary-fixed { color: var(--color-on-primary-fixed); }
+.stitch-home .text-on-surface { color: var(--color-on-surface); }
+.stitch-home .text-on-surface-variant { color: var(--color-on-surface-variant); }
+.stitch-home .text-on-secondary-container { color: var(--color-on-secondary-container); }
+.stitch-home .text-tertiary { color: var(--color-tertiary); }
+.stitch-home .text-white { color: #fff; }
+
+.stitch-home .border-primary { border-color: var(--color-primary); }
+
+.stitch-home img {
+  max-width: 100%;
+  height: auto;
+}
+
+.stitch-home #top-nav {
+  border: none;
+}

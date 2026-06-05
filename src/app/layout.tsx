@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter, Playfair_Display } from "next/font/google";
 
-import { Footer } from "@/components/layout/footer";
-import { FloatingWhatsapp } from "@/components/layout/floating-whatsapp";
-import { Navbar } from "@/components/layout/navbar";
+import { SiteChrome } from "@/components/layout/site-chrome";
 import { ClientEnhancements } from "@/components/providers/client-enhancements";
 import { ScrollProgress } from "@/components/providers/scroll-progress";
 import { localBusinessSchema, organizationSchema } from "@/lib/schema";
@@ -62,10 +60,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
         <ScrollProgress />
         <ClientEnhancements />
-        <Navbar />
-        {children}
-        <Footer />
-        <FloatingWhatsapp />
+        <SiteChrome>{children}</SiteChrome>
         <Script
           id="org-schema"
           type="application/ld+json"

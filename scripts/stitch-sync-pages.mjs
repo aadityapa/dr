@@ -1,7 +1,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 
 const stitchScreenMap = {
-  home: "e57ef8000d064af2a26a3d92cb9bb44c",
+  home: "7d7e1799d7ff4678974ab2aefe26db60",
   about: "eb18c3820e9345808d3dc29313379227",
   services: "013f1b368b9047db9cdb6ee59e298bcb",
   conditions: "96624b6b778d4a00952b63dea43e6b04",
@@ -35,20 +35,50 @@ function extractBody(html) {
   return bodyMatch[1];
 }
 
-function stripChrome(html) {
-  return html
+const fullPageRoutes = new Set(["home"]);
+
+function stripChrome(html, page) {
+  let out = html
     .replace(/<!--[\s\S]*?-->/g, "")
-    .replace(/<nav[\s\S]*?<\/nav>/gi, "")
-    .replace(/<footer[\s\S]*?<\/footer>/gi, "")
     .replace(/<script[\s\S]*?<\/script>/gi, "");
+
+  if (!fullPageRoutes.has(page)) {
+    out = out.replace(/<nav[\s\S]*?<\/nav>/gi, "").replace(/<footer[\s\S]*?<\/footer>/gi, "");
+  }
+
+  return out;
 }
 
-function fixLinks(html) {
+function fixLinks(html, page) {
   let out = html;
   for (const [from, to] of Object.entries(routeLinks)) {
     out = out.replaceAll(`href="${from}"`, `href="${to}"`);
     out = out.replaceAll(`href='${from}'`, `href='${to}'`);
   }
+
+  const textLinks = [
+    ["Services", "/services"],
+    ["Conditions", "/conditions"],
+    ["Milestones", "/testimonials-milestones"],
+    ["About", "/about"],
+    ["All Services", "/services"],
+    ["Approach", "/about"],
+    ["Contact Support", "/contact"],
+    ["FAQ", "/contact"],
+  ];
+
+  for (const [label, href] of textLinks) {
+    out = out.replace(new RegExp(`href="#">${label}</a>`, "gi"), `href="${href}">${label}</a>`);
+    out = out.replace(new RegExp(`href='#'>${label}</a>`, "gi"), `href='${href}'>${label}</a>`);
+  }
+
+  if (page === "home") {
+    out = out.replace(/href="#">Book Now/gi, 'href="/appointment">Book Now');
+    out = out.replace(/href="#">Schedule a Call/gi, 'href="/appointment">Schedule a Call');
+    out = out.replace(/href="#">Start the Journey/gi, 'href="/appointment">Start the Journey');
+    out = out.replace(/href="#">View Our Services/gi, 'href="/services">View Our Services');
+  }
+
   out = out.replace(/href="#"/g, 'href="/appointment"');
   return out;
 }
@@ -69,8 +99,8 @@ async function main() {
     const styles = extractStyles(html);
     if (styles) allStyles.add(styles);
 
-    let body = stripChrome(extractBody(html));
-    body = fixLinks(body);
+    let body = stripChrome(extractBody(html), page);
+    body = fixLinks(body, page);
 
     if (page === "contact") {
       body = body.replace(/<form[\s\S]*?<\/form>/i, '<div data-stitch-form-slot="contact"></div>');

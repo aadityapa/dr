@@ -1,18 +1,24 @@
-.material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            display: inline-block;
-            vertical-align: middle;
+.glass-panel {
+            background: rgba(251, 249, 246, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(195, 200, 192, 0.3);
         }
-        .serene-shadow {
-            box-shadow: 0 4px 16px rgba(45, 49, 46, 0.06);
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .hero-gradient {
-            background: linear-gradient(135deg, #f7faf5 0%, #e8f0e9 100%);
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(232, 240, 233, 0.8);
+        .floating-element {
+            transition: transform 0.1s ease-out;
+            pointer-events: none;
+        }
+        .bento-item:hover .hover-lift {
+            transform: translateY(-8px);
         }
 
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
