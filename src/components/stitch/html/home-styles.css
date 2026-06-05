@@ -117,26 +117,12 @@
   font-family: var(--font-inter), Inter, sans-serif;
 }
 
-/* Reveal animations — visible by default; hidden only after JS enables them */
-.stitch-landing .reveal {
+/* Reveal sections — always visible (no JS-dependent opacity) */
+.stitch-landing .reveal,
+.stitch-landing .reveal.active {
   opacity: 1;
   transform: none;
 }
-
-.stitch-landing.stitch-reveal-ready .reveal:not(.active) {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.stitch-landing.stitch-reveal-ready .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stitch-landing .reveal.delay-100 { transition-delay: 0.1s; }
-.stitch-landing .reveal.delay-200 { transition-delay: 0.2s; }
-.stitch-landing .reveal.delay-300 { transition-delay: 0.3s; }
 
 .stitch-landing .glass-panel {
   background: rgba(251, 249, 246, 0.78);
@@ -159,10 +145,3 @@
   border: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .stitch-landing .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}

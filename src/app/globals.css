@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap");
 @import "tailwindcss";
 @import "../components/stitch/stitch-tailwind.css";
+@import "../components/stitch/stitch-theme.css";
+@import "../components/stitch/stitch-layout.css";
+@import "../components/stitch/html/inline-styles.css";
+@import "../components/stitch/html/home-styles.css";
 
 .material-symbols-outlined {
   font-family: "Material Symbols Outlined";

@@ -9,11 +9,6 @@ import { ContactForm } from "@/components/forms/contact-form";
 import type { StitchPageKey } from "./stitch-screen-map";
 import { stitchHtmlByPage } from "./html/content";
 
-import "./stitch-theme.css";
-import "./stitch-layout.css";
-import "./html/inline-styles.css";
-import "./html/home-styles.css";
-
 type StitchHtmlPageProps = {
   page: StitchPageKey;
   fullPage?: boolean;
@@ -159,30 +154,9 @@ function wireConditionBubbles(root: HTMLElement) {
 }
 
 function setupRevealAnimations(root: HTMLElement) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    },
-    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
-  );
-
   root.querySelectorAll(".reveal").forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      el.classList.add("active");
-    }
-    revealObserver.observe(el);
+    el.classList.add("active");
   });
-
-  requestAnimationFrame(() => {
-    root.classList.add("stitch-reveal-ready");
-  });
-
-  return revealObserver;
 }
 
 export function StitchHtmlPage({ page, fullPage = page === "home" }: StitchHtmlPageProps) {
@@ -193,7 +167,7 @@ export function StitchHtmlPage({ page, fullPage = page === "home" }: StitchHtmlP
     const root = rootRef.current;
     if (!root) return;
 
-    const revealObserver = setupRevealAnimations(root);
+    setupRevealAnimations(root);
 
     const hosts: { contact?: Element; appointment?: Element } = {};
     const contactSlot = root.querySelector('[data-stitch-form-slot="contact"]');
@@ -222,16 +196,9 @@ export function StitchHtmlPage({ page, fullPage = page === "home" }: StitchHtmlP
       document.addEventListener("mousemove", onMouseMove);
 
       return () => {
-        revealObserver.disconnect();
-        root.classList.remove("stitch-reveal-ready");
         document.removeEventListener("mousemove", onMouseMove);
       };
     }
-
-    return () => {
-      revealObserver.disconnect();
-      root.classList.remove("stitch-reveal-ready");
-    };
   }, [page, fullPage]);
 
   return (

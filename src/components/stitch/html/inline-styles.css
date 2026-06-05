@@ -215,13 +215,3 @@
         .rotate-y-hover:hover {
             transform: rotateY(10deg) scale(1.02);
         }
-
-.stitch-landing.stitch-reveal-ready .reveal:not(.active) {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.stitch-landing.stitch-reveal-ready .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
