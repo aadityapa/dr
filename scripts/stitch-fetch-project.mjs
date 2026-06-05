@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { stitch } from "@google/stitch-sdk";
 
 const projectId = "16093142512687109662";
-const outDir = "src/components/saas/stitch/fetched";
+const outDir = "stitch-source/fetched";
 
 async function main() {
   const project = stitch.project(projectId);

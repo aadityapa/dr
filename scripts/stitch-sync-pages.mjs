@@ -11,7 +11,7 @@ const stitchScreenMap = {
   appointment: "cd919464a2a64c2d8737d35d3ac18dfd",
 };
 
-const fetchedDir = "src/components/saas/stitch/fetched";
+const fetchedDir = "stitch-source/fetched";
 const outDir = "src/components/stitch/html";
 
 const routeLinks = {
@@ -20,6 +20,8 @@ const routeLinks = {
   "/services": "/services",
   "/conditions": "/conditions",
   "/gallery": "/gallery",
+  "/milestones": "/testimonials-milestones",
+  "/testimonials": "/testimonials-milestones",
   "/testimonials-milestones": "/testimonials-milestones",
   "/contact": "/contact",
   "/appointment": "/appointment",
@@ -27,6 +29,10 @@ const routeLinks = {
   "#about": "/about",
   "#pricing": "/appointment",
   "#how-it-works": "/about",
+  "#contact": "/contact",
+  "#gallery": "/gallery",
+  "#conditions": "/conditions",
+  "#milestones": "/testimonials-milestones",
 };
 
 function extractBody(html) {
@@ -35,18 +41,40 @@ function extractBody(html) {
   return bodyMatch[1];
 }
 
-const fullPageRoutes = new Set(["home"]);
-
 function stripChrome(html, page) {
   let out = html
     .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/<script[\s\S]*?<\/script>/gi, "");
 
-  if (!fullPageRoutes.has(page)) {
-    out = out.replace(/<nav[\s\S]*?<\/nav>/gi, "").replace(/<footer[\s\S]*?<\/footer>/gi, "");
+  if (page === "home") {
+    out = out
+      .replace(/<nav[^>]*id="top-nav"[\s\S]*?<\/nav>/gi, "")
+      .replace(/<footer[\s\S]*?<\/footer>/gi, "");
+    return out;
   }
 
+  out = out
+    .replace(/<nav[\s\S]*?<\/nav>/gi, "")
+    .replace(/<header[\s\S]*?<\/header>/gi, "")
+    .replace(/<footer[\s\S]*?<\/footer>/gi, "");
+
   return out;
+}
+
+function normalizeHeroLayouts(html) {
+  return html
+    .replace(
+      /class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2/g,
+      'class="max-w-container-max mx-auto px-gutter w-full grid grid-cols-1 lg:grid-cols-2',
+    )
+    .replace(
+      /class="grid lg:grid-cols-2 gap-xl items-center"/g,
+      'class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center w-full"',
+    )
+    .replace(
+      /class="relative z-10 max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2/g,
+      'class="relative z-10 max-w-container-max mx-auto px-gutter w-full grid grid-cols-1 lg:grid-cols-2',
+    );
 }
 
 function fixLinks(html, page) {
@@ -57,14 +85,19 @@ function fixLinks(html, page) {
   }
 
   const textLinks = [
+    ["Home", "/"],
     ["Services", "/services"],
     ["Conditions", "/conditions"],
     ["Milestones", "/testimonials-milestones"],
+    ["Gallery", "/gallery"],
+    ["Contact", "/contact"],
+    ["Appointment", "/appointment"],
     ["About", "/about"],
     ["All Services", "/services"],
     ["Approach", "/about"],
     ["Contact Support", "/contact"],
     ["FAQ", "/contact"],
+    ["Thrive with Sharuja", "/"],
   ];
 
   for (const [label, href] of textLinks) {
@@ -73,13 +106,80 @@ function fixLinks(html, page) {
   }
 
   if (page === "home") {
-    out = out.replace(/href="#">Book Now/gi, 'href="/appointment">Book Now');
     out = out.replace(/href="#">Schedule a Call/gi, 'href="/appointment">Schedule a Call');
     out = out.replace(/href="#">Start the Journey/gi, 'href="/appointment">Start the Journey');
     out = out.replace(/href="#">View Our Services/gi, 'href="/services">View Our Services');
+    out = out.replace(
+      /<button class="bg-primary text-on-primary([^"]*)">\s*Start the Journey\s*<\/button>/gi,
+      '<a href="/appointment" class="bg-primary text-on-primary$1">Start the Journey</a>',
+    );
+    out = out.replace(
+      /<button class="border border-primary text-primary([^"]*)">\s*View Our Services\s*<\/button>/gi,
+      '<a href="/services" class="border border-primary text-primary$1">View Our Services</a>',
+    );
   }
 
-  out = out.replace(/href="#"/g, 'href="/appointment"');
+  if (page === "about") {
+    out = out.replace(
+      /href="\/about" class="text-primary[^"]*border-b-2[^"]*">About<\/a>/gi,
+      'href="/about" class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-300">About</a>',
+    );
+  }
+
+  out = out.replace(/href="#"/g, 'href="/"');
+  return out;
+}
+
+function stripDeadHandlers(html) {
+  return html.replace(/\s+onclick="[^"]*"/gi, "");
+}
+
+function simplifyAppointmentPage(html) {
+  return html.replace(
+    /<div class="flex justify-between items-center max-w-4xl mx-auto mb-xl relative px-md">[\s\S]*?<\/div>\s*<\/section>/,
+    "</section>",
+  ).replace(
+    /<section class="max-w-container-max mx-auto px-gutter mb-xl">[\s\S]*?<\/section>/,
+    `<section class="max-w-container-max mx-auto px-gutter mb-xl">
+<div class="max-w-2xl mx-auto rounded-3xl border border-outline-variant/20 bg-white/90 p-6 shadow-[0_12px_40px_-16px_rgba(47,77,59,0.18)] md:p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-lg">Tell us about your child</h3>
+<div data-stitch-form-slot="appointment"></div>
+</div>
+</section>`,
+  );
+}
+
+function fixButtons(html) {
+  const buttonRoutes = [
+    ["Start the Journey", "/appointment"],
+    ["View Our Services", "/services"],
+    ["View All Programs", "/services"],
+    ["Schedule a Consultation", "/appointment"],
+    ["Schedule Appointment", "/appointment"],
+    ["Book a Free Screening", "/appointment"],
+    ["Schedule Consultation", "/appointment"],
+    ["Sign Up Free", "/appointment"],
+    ["Start Tracking", "/testimonials-milestones"],
+    ["View Demo", "/contact"],
+    ["Meet Our Team", "/about"],
+    ["Watch Our Story", "/about"],
+    ["Explore Conditions", "/conditions"],
+    ["Parent Resources", "/contact"],
+    ["View Milestone Guide", "/testimonials-milestones"],
+    ["Contact Support", "/contact"],
+    ["Download Guide", "/contact"],
+    ["View Pricing", "/appointment"],
+    ["Start Viewing", "/gallery"],
+  ];
+
+  let out = html;
+  for (const [label, href] of buttonRoutes) {
+    const escaped = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    out = out.replace(
+      new RegExp(`<button([^>]*)>\\s*${escaped}[^<]*</button>`, "gi"),
+      `<a href="${href}"$1>${label}</a>`,
+    );
+  }
   return out;
 }
 
@@ -100,13 +200,16 @@ async function main() {
     if (styles) allStyles.add(styles);
 
     let body = stripChrome(extractBody(html), page);
+    body = normalizeHeroLayouts(body);
+    body = stripDeadHandlers(body);
     body = fixLinks(body, page);
+    body = fixButtons(body);
 
     if (page === "contact") {
       body = body.replace(/<form[\s\S]*?<\/form>/i, '<div data-stitch-form-slot="contact"></div>');
     }
     if (page === "appointment") {
-      body = body.replace(/<form[\s\S]*?<\/form>/gi, '<div data-stitch-form-slot="appointment"></div>');
+      body = simplifyAppointmentPage(body);
     }
 
     const outPath = `${outDir}/${page}.html`;
@@ -115,7 +218,23 @@ async function main() {
     console.log(`Synced ${page} <- ${screenId} (${body.length} bytes)`);
   }
 
-  await writeFile(`${outDir}/inline-styles.css`, [...allStyles].join("\n\n"), "utf8");
+  let inlineStyles = [...allStyles].join("\n\n");
+  inlineStyles = inlineStyles
+    .replace(/\.reveal\s*\{[^}]*\}/g, "")
+    .replace(/\.reveal\.active\s*\{[^}]*\}/g, "");
+  inlineStyles += `
+
+.stitch-landing.stitch-reveal-ready .reveal:not(.active) {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stitch-landing.stitch-reveal-ready .reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+`;
+  await writeFile(`${outDir}/inline-styles.css`, inlineStyles, "utf8");
   await writeFile(
     `${outDir}/manifest.json`,
     JSON.stringify({ syncedAt: new Date().toISOString(), pages: exports }, null, 2),

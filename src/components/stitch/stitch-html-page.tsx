@@ -10,6 +10,7 @@ import type { StitchPageKey } from "./stitch-screen-map";
 import { stitchHtmlByPage } from "./html/content";
 
 import "./stitch-theme.css";
+import "./stitch-layout.css";
 import "./html/inline-styles.css";
 import "./html/home-styles.css";
 
@@ -18,11 +19,170 @@ type StitchHtmlPageProps = {
   fullPage?: boolean;
 };
 
+const ROUTE_MAP: Record<string, string> = {
+  "/": "/",
+  "/about": "/about",
+  "/services": "/services",
+  "/conditions": "/conditions",
+  "/gallery": "/gallery",
+  "/milestones": "/testimonials-milestones",
+  "/testimonials": "/testimonials-milestones",
+  "/testimonials-milestones": "/testimonials-milestones",
+  "/contact": "/contact",
+  "/appointment": "/appointment",
+  "#services": "/services",
+  "#about": "/about",
+  "#pricing": "/appointment",
+  "#how-it-works": "/about",
+  "#contact": "/contact",
+  "#gallery": "/gallery",
+  "#conditions": "/conditions",
+  "#milestones": "/testimonials-milestones",
+};
+
+const TEXT_ROUTES: [string, string][] = [
+  ["book", "/appointment"],
+  ["schedule", "/appointment"],
+  ["consultation", "/appointment"],
+  ["start the journey", "/appointment"],
+  ["discovery call", "/appointment"],
+  ["sign up", "/appointment"],
+  ["screening", "/appointment"],
+  ["view our services", "/services"],
+  ["all services", "/services"],
+  ["view all programs", "/services"],
+  ["contact support", "/contact"],
+  ["send us a message", "/contact"],
+  ["parent resources", "/contact"],
+  ["view demo", "/contact"],
+  ["download guide", "/contact"],
+  ["start tracking", "/testimonials-milestones"],
+  ["milestone guide", "/testimonials-milestones"],
+  ["explore conditions", "/conditions"],
+  ["meet our team", "/about"],
+  ["watch our story", "/about"],
+  ["start viewing", "/gallery"],
+];
+
 function mountForm(slot: Element) {
   const host = document.createElement("div");
-  host.className = "stitch-form-host rounded-[1.5rem] bg-white/90 p-6 shadow-[0_12px_40px_-16px_rgba(47,77,59,0.18)] md:p-8";
+  host.className =
+    "stitch-form-host rounded-[1.5rem] bg-white/90 p-6 shadow-[0_12px_40px_-16px_rgba(47,77,59,0.18)] md:p-8";
   slot.replaceWith(host);
   return host;
+}
+
+function normalizeHref(href: string | null) {
+  if (!href) return null;
+  const trimmed = href.trim();
+  if (ROUTE_MAP[trimmed]) return ROUTE_MAP[trimmed];
+  if (trimmed === "#" || trimmed === "") return null;
+  return trimmed;
+}
+
+function resolveTextRoute(text: string) {
+  const lower = text.toLowerCase();
+  for (const [needle, route] of TEXT_ROUTES) {
+    if (lower.includes(needle)) return route;
+  }
+  return null;
+}
+
+function wireStitchLinks(root: HTMLElement) {
+  root.querySelectorAll("a[href]").forEach((el) => {
+    const anchor = el as HTMLAnchorElement;
+    const normalized = normalizeHref(anchor.getAttribute("href"));
+    if (!normalized) return;
+    if (normalized !== anchor.getAttribute("href")) {
+      anchor.setAttribute("href", normalized);
+    }
+  });
+
+  root.querySelectorAll("a, button").forEach((el) => {
+    if (el.closest("form")) return;
+
+    const anchor = el as HTMLAnchorElement;
+    if (el.tagName === "A") {
+      const href = normalizeHref(anchor.getAttribute("href"));
+      if (href?.startsWith("/")) return;
+    }
+
+    const text = el.textContent?.toLowerCase() ?? "";
+    const route = resolveTextRoute(text);
+    if (!route) return;
+
+    el.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.location.href = route;
+    });
+  });
+}
+
+function wireGalleryFilters(root: HTMLElement) {
+  const buttons = [...root.querySelectorAll<HTMLButtonElement>(".filter-btn")];
+  const items = [...root.querySelectorAll<HTMLElement>(".gallery-item")];
+  if (!buttons.length || !items.length) return;
+
+  const setActive = (active: HTMLButtonElement) => {
+    buttons.forEach((btn) => {
+      btn.classList.remove("active", "bg-primary-container", "text-on-primary-container", "shadow-md");
+      btn.classList.add("bg-surface-container", "text-on-surface-variant");
+    });
+    active.classList.add("active", "bg-primary-container", "text-on-primary-container", "shadow-md");
+    active.classList.remove("bg-surface-container", "text-on-surface-variant");
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const label = btn.textContent?.trim() ?? "";
+      const category = label === "All Moments" ? "all" : label;
+      setActive(btn);
+      items.forEach((item) => {
+        const cat = item.getAttribute("data-category");
+        item.style.display = category === "all" || cat === category ? "" : "none";
+      });
+    });
+  });
+}
+
+function wireConditionBubbles(root: HTMLElement) {
+  root.querySelectorAll<HTMLButtonElement>("button.bubble-float").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const popup = btn.querySelector<HTMLElement>("[id^='bubble-']");
+      if (!popup) return;
+      const isHidden = popup.classList.contains("hidden");
+      root.querySelectorAll<HTMLElement>("[id^='bubble-']").forEach((el) => el.classList.add("hidden"));
+      if (isHidden) popup.classList.remove("hidden");
+    });
+  });
+}
+
+function setupRevealAnimations(root: HTMLElement) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+  );
+
+  root.querySelectorAll(".reveal").forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add("active");
+    }
+    revealObserver.observe(el);
+  });
+
+  requestAnimationFrame(() => {
+    root.classList.add("stitch-reveal-ready");
+  });
+
+  return revealObserver;
 }
 
 export function StitchHtmlPage({ page, fullPage = page === "home" }: StitchHtmlPageProps) {
@@ -33,18 +193,18 @@ export function StitchHtmlPage({ page, fullPage = page === "home" }: StitchHtmlP
     const root = rootRef.current;
     if (!root) return;
 
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
+    const revealObserver = setupRevealAnimations(root);
 
-    root.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+    const hosts: { contact?: Element; appointment?: Element } = {};
+    const contactSlot = root.querySelector('[data-stitch-form-slot="contact"]');
+    const appointmentSlot = root.querySelector('[data-stitch-form-slot="appointment"]');
+    if (contactSlot) hosts.contact = mountForm(contactSlot);
+    if (appointmentSlot) hosts.appointment = mountForm(appointmentSlot);
+    setFormHosts(hosts);
+
+    wireStitchLinks(root);
+    wireGalleryFilters(root);
+    wireConditionBubbles(root);
 
     if (fullPage) {
       const elements = root.querySelectorAll(".floating-element");
@@ -59,85 +219,19 @@ export function StitchHtmlPage({ page, fullPage = page === "home" }: StitchHtmlP
         });
       };
 
-      const nav = root.querySelector("#top-nav");
-      const onScroll = () => {
-        if (!nav) return;
-        if (window.scrollY > 20) {
-          nav.classList.add("py-xs", "shadow-lg");
-          nav.classList.remove("py-sm", "shadow-sm");
-        } else {
-          nav.classList.add("py-sm", "shadow-sm");
-          nav.classList.remove("py-xs", "shadow-lg");
-        }
-      };
-
       document.addEventListener("mousemove", onMouseMove);
-      window.addEventListener("scroll", onScroll);
-      onScroll();
-
-      const hosts: { contact?: Element; appointment?: Element } = {};
-      const contactSlot = root.querySelector('[data-stitch-form-slot="contact"]');
-      const appointmentSlot = root.querySelector('[data-stitch-form-slot="appointment"]');
-      if (contactSlot) hosts.contact = mountForm(contactSlot);
-      if (appointmentSlot) hosts.appointment = mountForm(appointmentSlot);
-      setFormHosts(hosts);
-
-      root.querySelectorAll("a, button").forEach((el) => {
-        const text = el.textContent?.toLowerCase() ?? "";
-        if (
-          text.includes("book") ||
-          text.includes("schedule") ||
-          text.includes("start the journey") ||
-          text.includes("consultation")
-        ) {
-          el.addEventListener("click", (event) => {
-            if (el.closest("form")) return;
-            if (el.tagName === "A" && (el as HTMLAnchorElement).getAttribute("href")?.startsWith("/")) return;
-            event.preventDefault();
-            window.location.href = "/appointment";
-          });
-        }
-        if (text.includes("view our services") || text.includes("all services")) {
-          el.addEventListener("click", (event) => {
-            if ((el as HTMLAnchorElement).getAttribute("href")?.startsWith("/")) return;
-            event.preventDefault();
-            window.location.href = "/services";
-          });
-        }
-        if (text.includes("contact support")) {
-          el.addEventListener("click", (event) => {
-            event.preventDefault();
-            window.location.href = "/contact";
-          });
-        }
-      });
 
       return () => {
         revealObserver.disconnect();
+        root.classList.remove("stitch-reveal-ready");
         document.removeEventListener("mousemove", onMouseMove);
-        window.removeEventListener("scroll", onScroll);
       };
     }
 
-    const hosts: { contact?: Element; appointment?: Element } = {};
-    const contactSlot = root.querySelector('[data-stitch-form-slot="contact"]');
-    const appointmentSlot = root.querySelector('[data-stitch-form-slot="appointment"]');
-    if (contactSlot) hosts.contact = mountForm(contactSlot);
-    if (appointmentSlot) hosts.appointment = mountForm(appointmentSlot);
-    setFormHosts(hosts);
-
-    root.querySelectorAll("button").forEach((btn) => {
-      const text = btn.textContent?.toLowerCase() ?? "";
-      if (text.includes("book") || text.includes("get started") || text.includes("consultation")) {
-        btn.addEventListener("click", (e) => {
-          if (btn.closest("form")) return;
-          e.preventDefault();
-          window.location.href = "/appointment";
-        });
-      }
-    });
-
-    return () => revealObserver.disconnect();
+    return () => {
+      revealObserver.disconnect();
+      root.classList.remove("stitch-reveal-ready");
+    };
   }, [page, fullPage]);
 
   return (
