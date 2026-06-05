@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery | Thrive with Sharuja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f2f0ee",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#121c2c",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fbf9f6",
+                    "outline": "#737872",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1c1a",
+                    "surface": "#fbf9f6",
+                    "on-secondary-fixed-variant": "#484741",
+                    "surface-dim": "#dbdad7",
+                    "tertiary-container": "#525c6f",
+                    "secondary": "#605e58",
+                    "surface-cream": "#fbf9f6",
+                    "tertiary-fixed": "#d9e3fa",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#4d6150",
+                    "secondary-container": "#e6e2da",
+                    "surface-container-highest": "#e4e2df",
+                    "on-surface-variant": "#434843",
+                    "surface-container-high": "#e9e8e5",
+                    "inverse-surface": "#30312f",
+                    "soft-blue-fixed": "#d9e3f9",
+                    "on-primary-fixed": "#0d1f12",
+                    "on-primary-container": "#c4dbc6",
+                    "tertiary": "#3b4557",
+                    "primary-fixed": "#d2e8d3",
+                    "inverse-primary": "#b6ccb7",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#bdc7dd",
+                    "secondary-fixed": "#e6e2da",
+                    "on-tertiary-container": "#cad5eb",
+                    "surface-tint": "#4f6352",
+                    "sage-fixed-dim": "#b6ccb7",
+                    "primary-fixed-dim": "#b6ccb7",
+                    "on-secondary-container": "#66645e",
+                    "error-red": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#3d4759",
+                    "surface-container": "#efeeeb",
+                    "sage-container": "#657a68",
+                    "outline-variant": "#c3c8c0",
+                    "on-secondary-fixed": "#1c1c17",
+                    "background": "#fbf9f6",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1b1c1a",
+                    "on-primary-fixed-variant": "#384b3b",
+                    "surface-container-low": "#f5f3f0",
+                    "primary": "#364939",
+                    "surface-variant": "#e4e2df"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "xl": "64px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "lg": "40px",
+                    "md": "24px",
+                    "container-max": "1280px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "caption": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bokeh-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            background: #fbf9f6;
+        }
+        .bokeh-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: move linear infinite;
+        }
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 100px); }
+        }
+        .masonry-grid {
+            columns: 1;
+        }
+        @media (min-width: 768px) { .masonry-grid { columns: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { columns: 3; } }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(195, 200, 192, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Bokeh Background -->
+<div class="bokeh-container" id="bokeh-bg"></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 z-50 w-full bg-surface/70 backdrop-blur-xl dark:bg-surface-dim/70 shadow-sm shadow-primary/10">
+<nav class="flex justify-between items-center w-full px-gutter py-sm max-w-container-max mx-auto">
+<a class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed" href="/">Thrive with Sharuja</a>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant dark:text-on-secondary-container font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Services</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Conditions</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Milestones</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container font-label-md text-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">About</a>
+<button class="bg-primary-container text-on-primary-container px-md py-sm rounded-full font-label-md text-label-md active:scale-95 transition-transform duration-200">Book Now</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-[100px] px-gutter max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="text-center mb-xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-md">Our Healing Spaces</h1>
+<p class="max-w-2xl mx-auto text-body-lg font-body-lg text-on-surface-variant">
+                Explore our state-of-the-art facilities designed to foster growth, exploration, and clinical excellence in a warm, welcoming environment.
+            </p>
+</section>
+<!-- Filters -->
+<section class="flex flex-wrap justify-center gap-sm mb-lg">
+<button class="filter-btn active bg-primary-container text-on-primary-container px-lg py-sm rounded-full font-label-md text-label-md transition-all shadow-md" onclick="filterGallery('all')">All Moments</button>
+<button class="filter-btn bg-surface-container text-on-surface-variant px-lg py-sm rounded-full font-label-md text-label-md hover:bg-primary-fixed transition-all" onclick="filterGallery('Space')">Space</button>
+<button class="filter-btn bg-surface-container text-on-surface-variant px-lg py-sm rounded-full font-label-md text-label-md hover:bg-primary-fixed transition-all" onclick="filterGallery('Activities')">Activities</button>
+<button class="filter-btn bg-surface-container text-on-surface-variant px-lg py-sm rounded-full font-label-md text-label-md hover:bg-primary-fixed transition-all" onclick="filterGallery('Community')">Community</button>
+</section>
+<!-- Masonry Grid -->
+<div class="masonry-grid" id="gallery-grid">
+<!-- Item 1: Space -->
+<div class="gallery-item group relative cursor-pointer" data-category="Space" onclick="openLightbox(0)">
+<div class="overflow-hidden rounded-3xl shadow-sm hover:shadow-lg transition-all duration-500 bg-surface-container-low">
+<img class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A wide-angle shot of a bright, modern pediatric sensory gym with soft sage green flooring and natural wood play structures. The room is filled with soft natural light from large windows, creating a calming organic modernism aesthetic. Various tactile equipment like climbing walls and foam pits are visible, emphasizing professional clinical warmth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA79cJAmtLdSx0b822x31t77ABNVo2UpWxWBOmFfakt3tQ6owyMMw8r8TtBUXYGzROV9xodjRQ6I_RpH7Tr7zp3R6ITT-ao-rBDZbC-7d3w68luZv0d7z7iXAyc2zOWAb8xneDXsX_KwkJCn7waH_kip3cct7Opxf-iYKl-bZ4OjkREohRNNxVZ3tdmNQp-YO5MlWs4W2SJRlshpMFw26UNnyju34Gq3T1IzaWXkY7_NHvWO_1JfB7LocCtKP8aKLlOf67GxWfmqfI"/>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-label-md text-label-md">Main Sensory Gym</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Activities -->
+<div class="gallery-item group relative cursor-pointer" data-category="Activities" onclick="openLightbox(1)">
+<div class="overflow-hidden rounded-3xl shadow-sm hover:shadow-lg transition-all duration-500 bg-surface-container-low">
+<img class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A heartwarming close-up of a therapist gently guiding a child through a tactile art activity using colorful sensory beads. The scene is shot with a shallow depth of field, highlighting the human connection and empathetic care. The lighting is warm and soft, reinforcing the brand's focus on family-centered pediatric support." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTSJYqGP4ZDAQBW0-oPfkYghYzvfxHvsEWhu8KzsylbqGPox4UrcJ3azQWAXFh2ID0Nb5CsovbuhWvy3E9ZPtH5JS64hDFGe_PkqPVGq_3ScR98I1E8g_X8tXnMPfMYUWysC3WAaUJYHPnqUXChXG1UyY6H2gl2KZKAqhbxUeRr0yGU46zADH4BU0W0pCdU0cdu5q-MCiakRZs2qtX1ylXTih5D34N1vjEMLYK_tqPZWFMg_wy9e3_2Y3qoYuKfyr07yeOcn0o0wQ"/>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-label-md text-label-md">Occupational Therapy Session</span>
+</div>
+</div>
+</div>
+<!-- Item 3: 3D Viewer Placeholder (Interactive Equipment) -->
+<div class="gallery-item group relative" data-category="Space">
+<div class="glass-card p-md rounded-3xl h-[400px] flex flex-col items-center justify-center text-center">
+<div class="w-24 h-24 bg-primary-fixed rounded-full flex items-center justify-center mb-md animate-bounce">
+<span class="material-symbols-outlined text-primary text-4xl">deployed_code</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Interactive Viewer</h3>
+<p class="text-body-md px-md">Explore our specialized Adaptive Swing in 360 degrees.</p>
+<button class="mt-md px-lg py-sm border border-primary text-primary rounded-full hover:bg-primary-fixed transition-colors font-label-md text-label-md">Start Viewing</button>
+</div>
+</div>
+<!-- Item 4: Community -->
+<div class="gallery-item group relative cursor-pointer" data-category="Community" onclick="openLightbox(2)">
+<div class="overflow-hidden rounded-3xl shadow-sm hover:shadow-lg transition-all duration-500 bg-surface-container-low">
+<img class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A group of smiling parents and therapists engaged in a collaborative workshop within a bright community room. The walls are a soft sage, and the furniture is modern and ergonomic. The atmosphere is supportive and professional, showcasing the center's role as a hub for specialized pediatric support and education." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjLCk4g0JyIoYmZxDXKdf2KMNDQ4gWE0eV9l1rnTmdmT9cFHZ_O_5XWkci6h5OXPa4bizmvb_Y1RcJxS83mvCRJDHlT5BZHm-TwhQdyW_hb68Cn6rb5LnE0mg9bGY3tzl93Zzwz0yAY27v3hKbUTmWIoGnBWEtmY8xIEHwOoPat64_3ZkJ4TrttqnavuBdmsnrlRyaCdQUgDjl9ItBMKNW5rOmFcq8FZc62XWzrFz3W7L-P70X5SxgOBhapkiFmZsbBc69yHeEfYI"/>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-label-md text-label-md">Parent Support Group</span>
+</div>
+</div>
+</div>
+<!-- Item 5: Space -->
+<div class="gallery-item group relative cursor-pointer" data-category="Space" onclick="openLightbox(3)">
+<div class="overflow-hidden rounded-3xl shadow-sm hover:shadow-lg transition-all duration-500 bg-surface-container-low">
+<img class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A tranquil therapy room designed for focused one-on-one sessions, featuring minimalist decor, comfortable seating, and shelves organized with clinical tools. The color palette is a soothing mix of creams and soft greens. The high-key lighting creates an airy, unhurried feel, perfect for a modern pediatric clinic specializing in calming therapy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcAszxr_aw7t2MBMC5q7Zdqqdz8C8Ha0zWn8ssz-mL9RU0cThEtPr055IlAYzGk-RFbotjgKGOCTNig_SQTeYmHk-bj-qhRzbsLVjUTMhgjMY8pOKrOaY0QxZOw9OreLZ2JpXVi2reTXBYgW_28gLkkmEO52fFiD2pCy4WIQea6LsvLKIC7SIVOe18xylTbcBE2DEj1dfNiBzZcSD9qe0AWaRbyc1O-a6GhdqvB9XaS7WZa-lZfF8ef6_59aDZcckn1vkLedvBlK4"/>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-label-md text-label-md">Private Consultation Suite</span>
+</div>
+</div>
+</div>
+<!-- Item 6: Activities -->
+<div class="gallery-item group relative cursor-pointer" data-category="Activities" onclick="openLightbox(4)">
+<div class="overflow-hidden rounded-3xl shadow-sm hover:shadow-lg transition-all duration-500 bg-surface-container-low">
+<img class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" data-alt="A child energetically playing on a specialized indoor climbing wall with brightly colored grips. The gym background is slightly blurred, emphasizing the child's movement and joy. The lighting is crisp and clear, reflecting a professional yet fun clinical setting focused on active pediatric rehabilitation and sensory integration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1tGtJdDw-86lEdpx-I69_MlMGwrBW_XudUkEM3fusMOYLjKWRBGhxlQXcJR4mhDJxpx1ySvxAwQEZqUlk3JHxsG-gqsmEzKKnkQRTL3KY3UcxWGUXiear5U9ppi84HnEiKs3cgsp3IMON5-swfmKiIeu3u3pukQyWIxAxcI8Sfthn2m04HLMGiBml4ymcem3d8o8PDYtb7ZQ-kZSY9iWaPfjay2RoYV5RT-o-EU5zjCZx1gof8J8eAj0oIRssT38aasQo6NxrRSc"/>
+<div class="absolute bottom-0 left-0 right-0 p-md bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-label-md text-label-md">Climbing Therapy</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Lightbox Overlay -->
+<div class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-md transition-opacity duration-500 opacity-0" id="lightbox">
+<button class="absolute top-gutter right-gutter text-white hover:text-primary transition-colors" onclick="closeLightbox()">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<button class="absolute left-gutter text-white hover:text-primary transition-colors" onclick="prevImage()">
+<span class="material-symbols-outlined text-5xl">chevron_left</span>
+</button>
+<div class="max-w-4xl w-full flex flex-col items-center">
+<img class="max-h-[819px] w-auto rounded-xl shadow-2xl" data-alt="Lightbox viewing state showing an expanded view of our clinical space." id="lightbox-img" src=""/>
+<p class="mt-md text-white font-headline-md text-headline-md" id="lightbox-caption"></p>
+</div>
+<button class="absolute right-gutter text-white hover:text-primary transition-colors" onclick="nextImage()">
+<span class="material-symbols-outlined text-5xl">chevron_right</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-secondary-container dark:bg-surface-container-highest mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter py-xl max-w-container-max mx-auto text-on-secondary-container dark:text-on-surface">
+<div class="flex flex-col gap-sm">
+<span class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed">Thrive with Sharuja</span>
+<p class="text-caption font-caption opacity-80">Nurturing growth through expert clinical care and heartfelt empathy.</p>
+</div>
+<div class="flex flex-col gap-xs">
+<h4 class="font-bold mb-xs">Explore</h4>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-xs">
+<h4 class="font-bold mb-xs">Contact</h4>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">FAQ</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Locations</a>
+</div>
+<div class="flex flex-col gap-xs">
+<h4 class="font-bold mb-xs">Connect</h4>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Careers</a>
+<p class="text-caption font-caption mt-sm">© 2024 Thrive with Sharuja. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Bokeh Effect Logic
+        const bokehContainer = document.getElementById('bokeh-bg');
+        const colors = ['#d2e8d3', '#e6e2da', '#d9e3fa', '#f5f3f0'];
+        
+        for (let i = 0; i < 20; i++) {
+            const circle = document.createElement('div');
+            circle.className = 'bokeh-circle';
+            const size = Math.random() * 300 + 100;
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+            circle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            circle.style.left = `${Math.random() * 100}%`;
+            circle.style.top = `${Math.random() * 100}%`;
+            circle.style.animationDuration = `${Math.random() * 20 + 20}s`;
+            circle.style.animationDelay = `-${Math.random() * 20}s`;
+            circle.style.animationDirection = i % 2 === 0 ? 'alternate' : 'alternate-reverse';
+            bokehContainer.appendChild(circle);
+        }
+
+        // Gallery Filter Logic
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const btns = document.querySelectorAll('.filter-btn');
+            
+            btns.forEach(btn => {
+                btn.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-md');
+                btn.classList.add('bg-surface-container', 'text-on-surface-variant');
+            });
+            event.target.classList.remove('bg-surface-container', 'text-on-surface-variant');
+            event.target.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-md');
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 10);
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(() => item.style.display = 'none', 300);
+                }
+            });
+        }
+
+        // Lightbox Logic
+        let currentImageIndex = 0;
+        const galleryImages = [
+            { src: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop', caption: 'Main Sensory Gym' },
+            { src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop', caption: 'Occupational Therapy Session' },
+            { src: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2070&auto=format&fit=crop', caption: 'Parent Support Group' },
+            { src: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=2038&auto=format&fit=crop', caption: 'Private Consultation Suite' },
+            { src: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=2070&auto=format&fit=crop', caption: 'Climbing Therapy' }
+        ];
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('hidden');
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightbox.classList.add('opacity-100');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('opacity-100');
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => lightbox.classList.add('hidden'), 500);
+        }
+
+        function updateLightbox() {
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = galleryImages[currentImageIndex].src;
+                cap.innerText = galleryImages[currentImageIndex].caption;
+                img.style.opacity = '1';
+            }, 200);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightbox();
+        }
+
+        // Close on Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    </script>
+</body></html>

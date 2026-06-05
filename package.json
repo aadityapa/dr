@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "stitch:fetch": "node scripts/stitch-fetch-project.mjs",
+    "stitch:sync": "node scripts/stitch-sync-pages.mjs"
   },
   "dependencies": {
     "@google/stitch-sdk": "^0.3.5",

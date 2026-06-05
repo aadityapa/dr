@@ -1,1 +1,7 @@
-export { ThriveStitchLanding as StitchHomePage } from "@/components/saas/stitch/thrive-stitch-landing";
+"use client";
+
+import { StitchHtmlPage } from "./stitch-html-page";
+
+export function StitchHomePage() {
+  return <StitchHtmlPage page="home" />;
+}

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Thrive with Sharuja</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f2f0ee",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#121c2c",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fbf9f6",
+                        "outline": "#737872",
+                        "secondary-fixed-dim": "#cac6bf",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1b1c1a",
+                        "surface": "#fbf9f6",
+                        "on-secondary-fixed-variant": "#484741",
+                        "surface-dim": "#dbdad7",
+                        "tertiary-container": "#525c6f",
+                        "secondary": "#605e58",
+                        "surface-cream": "#fbf9f6",
+                        "tertiary-fixed": "#d9e3fa",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#4d6150",
+                        "secondary-container": "#e6e2da",
+                        "surface-container-highest": "#e4e2df",
+                        "on-surface-variant": "#434843",
+                        "surface-container-high": "#e9e8e5",
+                        "inverse-surface": "#30312f",
+                        "soft-blue-fixed": "#d9e3f9",
+                        "on-primary-fixed": "#0d1f12",
+                        "on-primary-container": "#c4dbc6",
+                        "tertiary": "#3b4557",
+                        "primary-fixed": "#d2e8d3",
+                        "inverse-primary": "#b6ccb7",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#bdc7dd",
+                        "secondary-fixed": "#e6e2da",
+                        "on-tertiary-container": "#cad5eb",
+                        "surface-tint": "#4f6352",
+                        "sage-fixed-dim": "#b6ccb7",
+                        "primary-fixed-dim": "#b6ccb7",
+                        "on-secondary-container": "#66645e",
+                        "error-red": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#3d4759",
+                        "surface-container": "#efeeeb",
+                        "sage-container": "#657a68",
+                        "outline-variant": "#c3c8c0",
+                        "on-secondary-fixed": "#1c1c17",
+                        "background": "#fbf9f6",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#1b1c1a",
+                        "on-primary-fixed-variant": "#384b3b",
+                        "surface-container-low": "#f5f3f0",
+                        "primary": "#364939",
+                        "surface-variant": "#e4e2df"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xl": "64px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "sm": "12px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.02) rotateX(2deg);
+            box-shadow: 0 20px 40px -10px rgba(77, 97, 80, 0.2);
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .path-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background: repeating-linear-gradient(to right, #4d6150, #4d6150 5px, transparent 5px, transparent 10px);
+            z-index: -1;
+        }
+        .path-step:last-child::after { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface-dim/70 docked full-width top-0 sticky z-50 shadow-sm shadow-primary/10">
+<nav class="flex justify-between items-center w-full px-gutter py-sm max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Thrive with Sharuja</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-primary pb-1 font-bold transition-colors duration-300" href="#">Services</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Conditions</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Milestones</a>
+<a class="text-on-surface-variant dark:text-on-secondary-container hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">About</a>
+</div>
+<button class="bg-primary text-on-primary rounded-2xl px-lg py-sm font-label-md text-label-md hover:scale-105 active:scale-95 transition-all duration-200">
+                Book Now
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[716px] flex items-center overflow-hidden pt-xl">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20" data-alt="A bright and airy pediatric therapy room filled with soft sunlight, featuring natural wood furniture and organic-shaped sensory toys. In the foreground, a professional therapist gently interacts with a smiling child, creating a mood of clinical warmth and empathetic care. The color palette is dominated by soft sage greens and creamy whites, reflecting a professional yet emotionally accessible healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt40--__XBSeY_usAEMjdHbxaXKLBCsXEEVX16twdwMTjemYNaNiXdlk_I6Xm6Yb_a08A532NigfrwN_JfiRg_rMoUW6DBdC5IeXCsHhHUyvnSK8P1WtCOBLRTusCOROhRGNrlSU6R4a5o2hq4giiKBbSke6Jbxphq5dUOJxLDR-P7aIKV4Q34We5XMeS-ucXwz4M0YVU63uu8p2dW8IFoWabzqzKMuXx8N2bNKKCD8iwyhWutDLfaqxL-W31jdrD41ZkfUTYoBRU"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/0 via-background/60 to-background"></div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10 w-full text-center">
+<span class="bg-primary-fixed text-on-primary-fixed px-md py-xs rounded-full font-label-md text-label-md inline-block mb-md">Our Services</span>
+<h1 class="font-display-lg text-display-lg text-primary max-w-4xl mx-auto mb-md leading-tight">
+                    Specialized Care for Every Milestone
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-lg">
+                    We provide high-end, personalized pediatric therapy that balances professional expertise with empathetic, family-centered support.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md justify-center items-center">
+<button class="bg-primary text-on-primary rounded-2xl px-lg py-md font-label-md text-label-md hover:scale-105 transition-all shadow-lg">View All Programs</button>
+<button class="border border-primary text-primary rounded-2xl px-lg py-md font-label-md text-label-md hover:bg-primary-fixed/30 transition-all">Download Guide</button>
+</div>
+</div>
+</section>
+<!-- Bento Grid Services -->
+<section class="py-xl max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Early Intervention (Large 7-col) -->
+<div class="md:col-span-7 service-card bg-surface-container-low rounded-xl overflow-hidden group border border-outline-variant/30">
+<div class="flex flex-col h-full">
+<div class="relative h-64 md:h-80 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A focused high-angle shot of a young child's hands playing with large, colorful textured blocks on a clean wooden table. The lighting is soft and natural, emphasizing tactile exploration. The scene is set in a modern, minimalist pediatric clinic with a calming sage green and white aesthetic, suggesting a safe and nurturing environment for developmental growth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHDbmCLdhGvUFM2NM3AGnyZNKWDmsXVmP6G7Nj758IhAI5LmADIt6ZifAN90J-C9xpYsny6twZUyiUmFIwq8p-svWNpdUzNDF-KxLdyg_rjynAzwaRvCo9-THe-1g-lM5JEFZYt5KXM90od4sWsiyfdoMKiGTv3snOouxtrwkKI-b_Cs4PscSMAB68qcTIsc29an9QSEhW0heyXYDXeiVCHldJRVTLnHwo_GuwRaGMi4Q2vOWbUeMdkG9wybq-L8lZJJNgamIy6l4"/>
+<div class="absolute top-md left-md glass-panel p-sm rounded-lg flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary" data-weight="fill">child_care</span>
+<span class="font-label-md text-label-md text-primary">Ages 0-3</span>
+</div>
+</div>
+<div class="p-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Early Intervention</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Nurturing developmental foundations during critical growth windows with research-backed techniques and compassionate family coaching.</p>
+<a class="text-primary font-label-md flex items-center gap-xs group/link" href="#">
+                                Learn More 
+                                <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Sensory Integration (Small 5-col) -->
+<div class="md:col-span-5 service-card bg-surface-container-lowest rounded-xl p-lg border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 bg-soft-blue-fixed rounded-2xl flex items-center justify-center mb-lg shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-3xl" style="font-variation-settings: 'FILL' 1;">waves</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Sensory Integration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Helping children process and respond to the world around them through structured, play-based sensory challenges.</p>
+</div>
+<img class="mt-lg rounded-lg h-48 w-full object-cover shadow-sm" data-alt="A high-quality close-up of various sensory therapy tools like soft-textured balls, wooden beads, and weighted cushions arranged artistically on a neutral background. The lighting is soft-key and warm, creating a serene, non-alarming atmosphere typical of a high-end pediatric clinic. Subtle sage and cream tones maintain the brand's clinical warmth identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD64jn5OFwenkccgK2NlqJOvDh9H9CxtBDZhju6lbekQ8OIi_-WJfZhTCup3Hj3RRP1rro1sfhBsHWkqVcWYUnQnvmVkjpAiputk_ytiPQRxf1QwvrpkXhdl196BO9KLUuLeK-QP6460pPQjyyMlu6k1UTRNa84k3Kj2RwPb-BBS6XUtw6oi9t_fDSBTpLfMQv4v1TFE8hUbKJVXHajE2MNqTAHbWV3Wh91B7SaC0AHMfBC0Klyok_BwrPOHRaL2tpQQ9mcpWXutRw"/>
+</div>
+<!-- Motor Skills (Small 4-col) -->
+<div class="md:col-span-4 service-card bg-surface-container-lowest rounded-xl p-lg border border-outline-variant/30">
+<div class="w-14 h-14 bg-primary-fixed rounded-2xl flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">directions_run</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Motor Skills</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Refining gross and fine motor coordination to empower independence in daily tasks and athletic activities.</p>
+</div>
+<!-- Social-Emotional Support (Medium 4-col) -->
+<div class="md:col-span-4 service-card bg-secondary-container/30 rounded-xl p-lg border border-outline-variant/30">
+<div class="w-14 h-14 bg-tertiary-fixed rounded-2xl flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-tertiary text-2xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Social-Emotional</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Building confidence, emotional regulation, and social navigating skills for meaningful relationships.</p>
+</div>
+<!-- Developmental Coaching (Small 4-col) -->
+<div class="md:col-span-4 service-card bg-surface-container-lowest rounded-xl p-lg border border-outline-variant/30">
+<div class="w-14 h-14 bg-sage-fixed-dim/30 rounded-2xl flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Developmental Coaching</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Expert guidance for parents to navigate the complexities of their child's unique growth journey.</p>
+</div>
+</div>
+</section>
+<!-- How it Works: Step-by-Step Path -->
+<section class="py-xl bg-surface-container">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-sm">A Transparent Journey to Growth</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Our systematic approach ensures your family is supported at every turn.</p>
+</div>
+<div class="flex flex-col md:flex-row justify-between gap-xl relative">
+<!-- Step 1 -->
+<div class="flex-1 text-center path-step relative flex flex-col items-center">
+<div class="w-20 h-20 bg-primary text-on-primary rounded-full flex items-center justify-center mb-md shadow-lg border-4 border-surface-container-lowest z-10 transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-xs">Initial Consult</h4>
+<p class="font-body-md text-body-md text-on-surface-variant px-md">A gentle conversation to understand your child's unique needs and history.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex-1 text-center path-step relative flex flex-col items-center">
+<div class="w-20 h-20 bg-primary text-on-primary rounded-full flex items-center justify-center mb-md shadow-lg border-4 border-surface-container-lowest z-10 transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-3xl">assignment</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-xs">Full Assessment</h4>
+<p class="font-body-md text-body-md text-on-surface-variant px-md">Comprehensive clinical evaluation across multiple developmental domains.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex-1 text-center path-step relative flex flex-col items-center">
+<div class="w-20 h-20 bg-primary text-on-primary rounded-full flex items-center justify-center mb-md shadow-lg border-4 border-surface-container-lowest z-10 transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-3xl">brush</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-xs">Custom Care Plan</h4>
+<p class="font-body-md text-body-md text-on-surface-variant px-md">A tailored roadmap of therapeutic interventions and family goals.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex-1 text-center path-step relative flex flex-col items-center">
+<div class="w-20 h-20 bg-primary text-on-primary rounded-full flex items-center justify-center mb-md shadow-lg border-4 border-surface-container-lowest z-10 transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-primary mb-xs">Thrive &amp; Progress</h4>
+<p class="font-body-md text-body-md text-on-surface-variant px-md">Regular therapy sessions with continuous progress tracking and adjustments.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="bg-primary-container rounded-xl p-xl relative overflow-hidden flex flex-col md:flex-row items-center gap-lg">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary-fixed rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+</div>
+<div class="relative z-10 flex-1">
+<h2 class="font-display-lg text-display-lg text-on-primary-container mb-md">Ready to begin their journey?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container/80 mb-lg">Schedule a discovery call with Sharuja to discuss how we can support your child's developmental path.</p>
+<div class="flex flex-wrap gap-md">
+<button class="bg-primary-fixed text-on-primary-fixed rounded-full px-xl py-md font-label-md text-label-md hover:scale-105 transition-all">Schedule Appointment</button>
+<button class="border border-on-primary-container text-on-primary-container rounded-full px-xl py-md font-label-md text-label-md hover:bg-white/10 transition-all">View Pricing</button>
+</div>
+</div>
+<div class="relative z-10 w-full md:w-1/3">
+<div class="glass-panel p-md rounded-xl border border-white/20">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container">verified</span>
+</div>
+<div class="text-on-primary-container">
+<div class="font-label-md">Next Available</div>
+<div class="text-headline-md font-bold">Tomorrow, 10:00 AM</div>
+</div>
+</div>
+<div class="h-[1px] bg-white/20 mb-md"></div>
+<div class="flex -space-x-2">
+<img alt="avatar" class="w-8 h-8 rounded-full border-2 border-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZcPmrMFRlR9DgrQtsbC7hMnfQy0ykumfPEVnjR8TJKrYHYnMaveqg15eSOtJzh7zVKj7it38Gm91Fs4YKWwFCosiLcsR_mGUOYXkr5X5J6D0d-bOQ0EWSjq08GyiVIyyYPMl3eCbMjQa4ULpCdrjB-1ArqxoUiEdpvw4EfA5Q8t5hFlvFpPJtsF-kZsuIuSeMO2ThEikhaUk0U1UJKtAfYthYIsITNA_MrHYDm0EWBloxrVJMbmTYcVuSb8bjLSHuq2TwH4bR7dY"/>
+<img alt="avatar" class="w-8 h-8 rounded-full border-2 border-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF8WIYv3RAuI_95PYZuwObF7ayfcN5hU-TTPTbs2BgdUxsTt3U3dxA10mpVDh0cK_rpbosr6505gHqqVRYIY32qqn9oUlFnsH7SISOQE5JllqKqj9Q9N23l2cuEcZLv-7uLqC8rpCb_vmo4Q30ueN2s0deTMRXIs28egbWcmWoForJx3_252xFzpKbrckfABA4djT5nDwU2DWUcsYbWyko8IM5lcoda4DKEqoJbI7XthH629XMfinp0Ac2P_LTBwrUFjI2eW3AXUk"/>
+<img alt="avatar" class="w-8 h-8 rounded-full border-2 border-primary-container" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApc1wyDWxyYTITi8JM3nanCCrngdeUjlpG873in2v9fVNH5W-VQGdFIToscGSdWwyAnj9O-UBu2Y4ecAX9LWSVDidPYM-9NgGerCVkfuwJzmjN0zpUkQZW3--37IEBG-II1B6StiXoRj5fvejg_841LzbaPSyDdH_3bk44ceJilNkjBboh7XcrOmqyO_YTkCZC-7e0J-BD2wq3AB2UxESUxjp_uBebYEocghwS0-eWE-vuOS7WFD2HTEdFpkFs4ZdVMdqjch6cymw"/>
+<div class="w-8 h-8 rounded-full bg-on-primary-container text-primary-container flex items-center justify-center text-caption font-bold border-2 border-primary-container">12+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-secondary-container dark:bg-surface-container-highest mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter py-xl max-w-container-max mx-auto">
+<div class="flex flex-col gap-md">
+<div class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed">Thrive with Sharuja</div>
+<p class="font-body-md text-on-secondary-container/80">Premium pediatric occupational therapy focusing on natural growth and family-centered care.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-primary">Services</h5>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Early Intervention</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Sensory Integration</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Motor Skills</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-primary">Company</h5>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Careers</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Locations</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">FAQ</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-primary">Connect</h5>
+<div class="flex gap-md">
+<a class="w-10 h-10 bg-on-secondary-container/10 rounded-full flex items-center justify-center hover:bg-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-primary">share</span>
+</a>
+<a class="w-10 h-10 bg-on-secondary-container/10 rounded-full flex items-center justify-center hover:bg-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined text-primary">mail</span>
+</a>
+</div>
+<p class="font-caption text-caption text-on-secondary-container/60 mt-md">© 2024 Thrive with Sharuja. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .path-step').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+
+        // Interactive 3D Card Hover Logic
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)`;
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,53 @@
+{
+  "syncedAt": "2026-06-05T05:41:39.153Z",
+  "pages": [
+    {
+      "page": "home",
+      "screenId": "e57ef8000d064af2a26a3d92cb9bb44c",
+      "outPath": "src/components/stitch/html/home.html",
+      "bytes": 20455
+    },
+    {
+      "page": "about",
+      "screenId": "eb18c3820e9345808d3dc29313379227",
+      "outPath": "src/components/stitch/html/about.html",
+      "bytes": 15662
+    },
+    {
+      "page": "services",
+      "screenId": "013f1b368b9047db9cdb6ee59e298bcb",
+      "outPath": "src/components/stitch/html/services.html",
+      "bytes": 13656
+    },
+    {
+      "page": "conditions",
+      "screenId": "96624b6b778d4a00952b63dea43e6b04",
+      "outPath": "src/components/stitch/html/conditions.html",
+      "bytes": 15267
+    },
+    {
+      "page": "gallery",
+      "screenId": "53ba6c9e2b594240aaedc314d0bce3ab",
+      "outPath": "src/components/stitch/html/gallery.html",
+      "bytes": 9824
+    },
+    {
+      "page": "milestones",
+      "screenId": "a80f27f83f87458287b392c8ad350a57",
+      "outPath": "src/components/stitch/html/milestones.html",
+      "bytes": 13293
+    },
+    {
+      "page": "contact",
+      "screenId": "552b2090152345fb92f1cc41fd00847c",
+      "outPath": "src/components/stitch/html/contact.html",
+      "bytes": 7819
+    },
+    {
+      "page": "appointment",
+      "screenId": "cd919464a2a64c2d8737d35d3ac18dfd",
+      "outPath": "src/components/stitch/html/appointment.html",
+      "bytes": 13497
+    }
+  ]
+}

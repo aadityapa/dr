@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book a Consultation | Thrive with Sharuja</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#f2f0ee",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#121c2c",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#fbf9f6",
+                    "outline": "#737872",
+                    "secondary-fixed-dim": "#cac6bf",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1b1c1a",
+                    "surface": "#fbf9f6",
+                    "on-secondary-fixed-variant": "#484741",
+                    "surface-dim": "#dbdad7",
+                    "tertiary-container": "#525c6f",
+                    "secondary": "#605e58",
+                    "surface-cream": "#fbf9f6",
+                    "tertiary-fixed": "#d9e3fa",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#4d6150",
+                    "secondary-container": "#e6e2da",
+                    "surface-container-highest": "#e4e2df",
+                    "on-surface-variant": "#434843",
+                    "surface-container-high": "#e9e8e5",
+                    "inverse-surface": "#30312f",
+                    "soft-blue-fixed": "#d9e3f9",
+                    "on-primary-fixed": "#0d1f12",
+                    "on-primary-container": "#c4dbc6",
+                    "tertiary": "#3b4557",
+                    "primary-fixed": "#d2e8d3",
+                    "inverse-primary": "#b6ccb7",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#bdc7dd",
+                    "secondary-fixed": "#e6e2da",
+                    "on-tertiary-container": "#cad5eb",
+                    "surface-tint": "#4f6352",
+                    "sage-fixed-dim": "#b6ccb7",
+                    "primary-fixed-dim": "#b6ccb7",
+                    "on-secondary-container": "#66645e",
+                    "error-red": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#3d4759",
+                    "surface-container": "#efeeeb",
+                    "sage-container": "#657a68",
+                    "outline-variant": "#c3c8c0",
+                    "on-secondary-fixed": "#1c1c17",
+                    "background": "#fbf9f6",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1b1c1a",
+                    "on-primary-fixed-variant": "#384b3b",
+                    "surface-container-low": "#f5f3f0",
+                    "primary": "#364939",
+                    "surface-variant": "#e4e2df"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "xl": "64px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "lg": "40px",
+                    "md": "24px",
+                    "container-max": "1280px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "caption": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-transition {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .step-hidden {
+            opacity: 0;
+            transform: translateX(50px);
+            pointer-events: none;
+            position: absolute;
+        }
+        .step-active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .shadow-soft {
+            box-shadow: 0 4px 20px -2px rgba(77, 97, 80, 0.15);
+        }
+        .perspective-lg {
+            perspective: 1000px;
+        }
+        .rotate-y-hover:hover {
+            transform: rotateY(10deg) scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface/70 backdrop-blur-xl dark:bg-surface-dim/70 docked full-width top-0 sticky z-50 shadow-sm shadow-primary/10">
+<div class="flex justify-between items-center w-full px-gutter py-sm max-w-container-max mx-auto">
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Thrive with Sharuja</div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Conditions</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">Milestones</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#">About</a>
+<button class="bg-primary-container text-white px-lg py-md rounded-2xl font-label-md text-label-md hover:scale-105 active:scale-95 transition-all">Book Now</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative pt-xl pb-lg px-gutter max-w-container-max mx-auto text-center">
+<div class="absolute -top-20 -left-20 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl -z-10"></div>
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-soft-blue-fixed/20 rounded-full blur-3xl -z-10"></div>
+<h1 class="font-display-lg text-display-lg text-primary mb-sm">Book a Consultation</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-xl">Take the first step towards personalized pediatric care. Our experts are here to guide your child's growth and development journey.</p>
+<!-- Progress Indicator -->
+<div class="flex justify-between items-center max-w-4xl mx-auto mb-xl relative px-md">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-outline-variant/30 -translate-y-1/2 -z-10"></div>
+<div class="absolute top-1/2 left-0 w-0 h-1 bg-primary-container -translate-y-1/2 -z-10 transition-all duration-500" id="progress-bar"></div>
+<!-- Step 1 -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-primary-container text-white flex items-center justify-center shadow-soft ring-4 ring-background transition-all duration-300" id="step-node-1">
+<span class="material-symbols-outlined" data-weight="fill">medical_services</span>
+</div>
+<span class="font-label-md text-label-md text-primary">Service</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shadow-soft ring-4 ring-background transition-all duration-300" id="step-node-2">
+<span class="material-symbols-outlined">person</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Therapist</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shadow-soft ring-4 ring-background transition-all duration-300" id="step-node-3">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Date &amp; Time</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shadow-soft ring-4 ring-background transition-all duration-300" id="step-node-4">
+<span class="material-symbols-outlined">description</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Details</span>
+</div>
+</div>
+</section>
+<!-- Booking Flow Canvas -->
+<section class="max-w-container-max mx-auto px-gutter mb-xl">
+<div class="relative min-h-[600px] overflow-hidden">
+<!-- Step 1: Service Selection -->
+<div class="step-transition step-active w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md" id="step-1">
+<div class="glass-card p-lg rounded-3xl shadow-soft border border-outline-variant/20 hover:border-primary-container transition-all cursor-pointer group rotate-y-hover" onclick="nextStep(2)">
+<div class="w-16 h-16 bg-primary-fixed rounded-2xl flex items-center justify-center text-primary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">child_care</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Pediatric Assessment</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Comprehensive neurodevelopmental evaluation for children ages 0-12.</p>
+<div class="flex justify-between items-center text-primary font-label-md">
+<span>60 Minutes</span>
+<span>$150</span>
+</div>
+</div>
+<div class="glass-card p-lg rounded-3xl shadow-soft border border-outline-variant/20 hover:border-primary-container transition-all cursor-pointer group rotate-y-hover" onclick="nextStep(2)">
+<div class="w-16 h-16 bg-soft-blue-fixed rounded-2xl flex items-center justify-center text-tertiary mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Speech Therapy</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Targeted sessions to improve communication, articulation, and language skills.</p>
+<div class="flex justify-between items-center text-primary font-label-md">
+<span>45 Minutes</span>
+<span>$120</span>
+</div>
+</div>
+<div class="glass-card p-lg rounded-3xl shadow-soft border border-outline-variant/20 hover:border-primary-container transition-all cursor-pointer group rotate-y-hover" onclick="nextStep(2)">
+<div class="w-16 h-16 bg-primary-fixed-dim rounded-2xl flex items-center justify-center text-on-primary-fixed-variant mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]">play_circle</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-xs">Occupational Therapy</h3>
+<p class="text-on-surface-variant font-body-md mb-md">Enhancing sensory processing and fine motor skills through playful intervention.</p>
+<div class="flex justify-between items-center text-primary font-label-md">
+<span>50 Minutes</span>
+<span>$135</span>
+</div>
+</div>
+</div>
+<!-- Step 2: Therapist Selection -->
+<div class="step-transition step-hidden w-full grid grid-cols-1 md:grid-cols-2 gap-lg" id="step-2">
+<div class="glass-card p-md rounded-3xl shadow-soft flex gap-md items-center border border-outline-variant/20 hover:bg-primary-fixed/20 transition-all cursor-pointer group" onclick="nextStep(3)">
+<img class="w-32 h-32 rounded-2xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="A professional female pediatric therapist with a warm and welcoming smile. She is wearing a soft green professional blouse, standing against a clean, light-colored medical office background with soft natural lighting. The image conveys clinical expertise combined with empathetic, family-centered care in an organic modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRu8Pf04iAcQKn6yYM0RmMXB5f5JPc-BZODLNaEYGcoOvaw1cBAs5SsImtlamvBNRy_71dCY2qgpN_-kQdZibBcMduMmFXJJnDfYoQpOybxRaXbyTFkw1YN38CqSt03ZH--PbZEK0vZGy2OR3tf8eYS14U-c8nKIz5XmgJHZd2HdLdFPSVX076RHgIUTkDVd3KJ1bHnWSXjsitxaysBHsz8yqhnpycQ0-izgW4NIwCeLFKEu7SN-rHRH5XqBjYfiOdceHsWDzj5o8"/>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface">Dr. Sharuja V.</h3>
+<p class="font-label-md text-label-md text-primary mb-xs">Senior Developmental Pediatrician</p>
+<p class="text-on-surface-variant text-caption line-clamp-2">15+ years experience in neurodevelopmental assessments and holistic child wellness.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+<div class="glass-card p-md rounded-3xl shadow-soft flex gap-md items-center border border-outline-variant/20 hover:bg-primary-fixed/20 transition-all cursor-pointer group" onclick="nextStep(3)">
+<img class="w-32 h-32 rounded-2xl object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="A friendly male therapist wearing a professional navy scrub top. He has a kind expression and is seated in a modern, brightly lit clinic room with minimalist decor and soft sage accents. The atmosphere is professional yet calming and accessible for parents and children." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_WD_GvicwIJycr7khZWPGpGEo7njz5lyabaUJ3ffx9D5w1ejdmKCmtXh2oegfLoVVPSImaV9FQ7sI5JvYz6k3zHfdB66f5XKBHX9ErT5g4LEfiLL7a3CnwyvOGStYTt0dCY2_43AHcmSBx7a8HrRp0lu9NZ7sftfXi-tFXGBZnOr4pk_Zaf6QNsp_Mg6jHDuPtkClV017FuVkZJTnxBhB4MZd0ZrN_Uw21zmu0eXm4N-jYdVDiCVJklP4qzUdDg_8nSB3GRPn-_Y"/>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface">Mark Thompson</h3>
+<p class="font-label-md text-label-md text-primary mb-xs">Speech &amp; Language Pathologist</p>
+<p class="text-on-surface-variant text-caption line-clamp-2">Specializes in early intervention and sensory-integrated communication strategies.</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Step 3: Date & Time -->
+<div class="step-transition step-hidden w-full" id="step-3">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg h-full">
+<div class="lg:col-span-8 bg-surface-container-low rounded-3xl p-lg shadow-soft border border-outline-variant/10">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-md text-headline-md text-primary">October 2024</h3>
+<div class="flex gap-sm">
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-sm text-center">
+<div class="font-label-md text-label-md text-outline py-xs">Mon</div>
+<div class="font-label-md text-label-md text-outline py-xs">Tue</div>
+<div class="font-label-md text-label-md text-outline py-xs">Wed</div>
+<div class="font-label-md text-label-md text-outline py-xs">Thu</div>
+<div class="font-label-md text-label-md text-outline py-xs">Fri</div>
+<div class="font-label-md text-label-md text-outline py-xs">Sat</div>
+<div class="font-label-md text-label-md text-outline py-xs">Sun</div>
+<!-- Empty days -->
+<div class="h-20"></div><div class="h-20"></div>
+<!-- Days -->
+<div class="h-20 bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-primary-fixed hover:scale-105 transition-all shadow-sm border border-outline-variant/10 group">
+<span class="font-headline-md text-on-surface">1</span>
+</div>
+<div class="h-20 bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-primary-fixed hover:scale-105 transition-all shadow-sm border border-outline-variant/10">
+<span class="font-headline-md text-on-surface">2</span>
+</div>
+<div class="h-20 bg-primary-container rounded-2xl flex flex-col items-center justify-center cursor-default shadow-soft scale-105 ring-4 ring-primary-fixed">
+<span class="font-headline-md text-white">3</span>
+<span class="text-[8px] text-white/80 font-label-md">TODAY</span>
+</div>
+<div class="h-20 bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-primary-fixed hover:scale-105 transition-all shadow-sm border border-outline-variant/10">
+<span class="font-headline-md text-on-surface">4</span>
+</div>
+<div class="h-20 bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-primary-fixed hover:scale-105 transition-all shadow-sm border border-outline-variant/10">
+<span class="font-headline-md text-on-surface">5</span>
+</div>
+<!-- Add more as needed -->
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-md">
+<h4 class="font-headline-sm font-semibold text-on-surface">Available Times</h4>
+<div class="grid grid-cols-2 gap-sm">
+<button class="p-md rounded-2xl border border-outline-variant/30 text-on-surface font-label-md hover:bg-primary-fixed transition-all" onclick="selectTime(this)">09:00 AM</button>
+<button class="p-md rounded-2xl border border-outline-variant/30 text-on-surface font-label-md hover:bg-primary-fixed transition-all" onclick="selectTime(this)">10:30 AM</button>
+<button class="p-md rounded-2xl border border-outline-variant/30 bg-primary-fixed-dim text-primary font-bold" onclick="selectTime(this)">01:00 PM</button>
+<button class="p-md rounded-2xl border border-outline-variant/30 text-on-surface font-label-md hover:bg-primary-fixed transition-all" onclick="selectTime(this)">02:30 PM</button>
+<button class="p-md rounded-2xl border border-outline-variant/30 text-on-surface font-label-md hover:bg-primary-fixed transition-all" onclick="selectTime(this)">04:00 PM</button>
+</div>
+<button class="mt-auto bg-primary-container text-white py-md rounded-2xl font-bold shadow-soft hover:scale-[1.02] transition-transform" onclick="nextStep(4)">Confirm Date &amp; Time</button>
+</div>
+</div>
+</div>
+<!-- Step 4: Details -->
+<div class="step-transition step-hidden w-full max-w-2xl mx-auto glass-card p-xl rounded-3xl shadow-soft border border-outline-variant/20" id="step-4">
+<h3 class="font-headline-md text-headline-md text-primary mb-lg">Tell us about your child</h3>
+<form class="space-y-md" onsubmit="finishBooking(event)">
+<div class="grid grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Child's Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl p-md focus:ring-2 focus:ring-primary-container outline-none transition-all" placeholder="Full Name" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Age</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl p-md focus:ring-2 focus:ring-primary-container outline-none transition-all" placeholder="Years" type="number"/>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Parent/Guardian Email</label>
+<input class="w-full bg-surface-container-low border-none rounded-2xl p-md focus:ring-2 focus:ring-primary-container outline-none transition-all" placeholder="example@email.com" type="email"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Reason for Consultation</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-2xl p-md focus:ring-2 focus:ring-primary-container outline-none transition-all resize-none" placeholder="Briefly describe your concerns..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary-container text-white py-lg rounded-full font-bold shadow-soft hover:scale-[1.02] transition-transform mt-lg" type="submit">Complete Booking</button>
+</form>
+</div>
+<!-- Success Screen -->
+<div class="step-transition step-hidden w-full flex flex-col items-center justify-center py-xl text-center" id="success-screen">
+<div class="w-32 h-32 bg-primary-fixed rounded-full flex items-center justify-center text-primary mb-lg animate-bounce shadow-soft scale-125">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-primary mb-sm">Booking Confirmed!</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-xl">Your consultation has been successfully scheduled. We've sent a confirmation email with all the details to your inbox.</p>
+<div class="flex gap-md">
+<button class="bg-primary-container text-white px-xl py-md rounded-2xl font-bold hover:scale-105 transition-all">Add to Calendar</button>
+<button class="border border-primary text-primary px-xl py-md rounded-2xl font-bold hover:bg-primary-fixed transition-all">Manage Appointment</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-secondary-container dark:bg-surface-container-highest full-width mt-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg px-gutter py-xl max-w-container-max mx-auto text-on-secondary-container dark:text-on-surface">
+<div class="space-y-md">
+<div class="text-headline-sm font-headline-sm text-primary dark:text-primary-fixed">Thrive with Sharuja</div>
+<p class="text-caption font-caption opacity-80">Empowering children and families through specialized neurodevelopmental care and holistic therapeutic support.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-wider mb-xs">Quick Links</h4>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Privacy Policy</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Terms of Service</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">FAQ</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-md text-label-md uppercase tracking-wider mb-xs">Contact</h4>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Locations</a>
+<a class="text-on-secondary-container/80 hover:text-primary transition-all hover:underline decoration-primary/30" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-md">
+<h4 class="font-label-md text-label-md uppercase tracking-wider">Stay Connected</h4>
+<div class="flex gap-sm">
+<div class="w-10 h-10 rounded-full bg-on-secondary-container/10 flex items-center justify-center cursor-pointer hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-on-secondary-container/10 flex items-center justify-center cursor-pointer hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+</div>
+<p class="text-caption font-caption mt-auto">© 2024 Thrive with Sharuja. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        let currentStep = 1;
+
+        function updateProgress(step) {
+            const progressBar = document.getElementById('progress-bar');
+            const progressPercentage = ((step - 1) / 3) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+
+            for (let i = 1; i <= 4; i++) {
+                const node = document.getElementById(`step-node-${i}`);
+                if (i < step) {
+                    node.classList.remove('bg-surface-container-highest', 'bg-primary-container', 'text-on-surface-variant');
+                    node.classList.add('bg-primary-container', 'text-white');
+                    node.innerHTML = '<span class="material-symbols-outlined">check</span>';
+                } else if (i === step) {
+                    node.classList.remove('bg-surface-container-highest', 'text-on-surface-variant');
+                    node.classList.add('bg-primary-container', 'text-white', 'ring-4', 'ring-background');
+                    // Reset icon to original
+                    const icons = ['medical_services', 'person', 'calendar_today', 'description'];
+                    node.innerHTML = `<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">${icons[i-1]}</span>`;
+                } else {
+                    node.classList.remove('bg-primary-container', 'text-white');
+                    node.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+                    const icons = ['medical_services', 'person', 'calendar_today', 'description'];
+                    node.innerHTML = `<span class="material-symbols-outlined">${icons[i-1]}</span>`;
+                }
+            }
+        }
+
+        function nextStep(step) {
+            const currentEl = document.getElementById(`step-${currentStep}`);
+            const nextEl = document.getElementById(`step-${step}`);
+
+            currentEl.classList.remove('step-active');
+            currentEl.classList.add('step-hidden', 'absolute');
+            
+            setTimeout(() => {
+                nextEl.classList.remove('step-hidden', 'absolute');
+                nextEl.classList.add('step-active');
+                currentStep = step;
+                updateProgress(step);
+            }, 50);
+        }
+
+        function selectTime(btn) {
+            const buttons = btn.parentElement.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.classList.remove('bg-primary-fixed-dim', 'text-primary', 'font-bold');
+                b.classList.add('text-on-surface', 'font-label-md');
+            });
+            btn.classList.remove('text-on-surface', 'font-label-md');
+            btn.classList.add('bg-primary-fixed-dim', 'text-primary', 'font-bold');
+        }
+
+        function finishBooking(e) {
+            e.preventDefault();
+            const currentEl = document.getElementById('step-4');
+            const successEl = document.getElementById('success-screen');
+
+            currentEl.classList.remove('step-active');
+            currentEl.classList.add('step-hidden', 'absolute');
+            
+            setTimeout(() => {
+                successEl.classList.remove('step-hidden', 'absolute');
+                successEl.classList.add('step-active');
+                updateProgress(5); // Highlight all steps
+            }, 50);
+        }
+    </script>
+</body></html>
