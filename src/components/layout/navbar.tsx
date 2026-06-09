@@ -20,7 +20,7 @@ export function Navbar() {
           <span className="block font-[family-name:var(--font-serif)] text-lg text-[color:var(--color-sage-dark)] md:text-xl">
             {siteConfig.shortName}
           </span>
-          <span className="hidden text-xs text-[color:var(--color-muted)] sm:block">{siteConfig.title}</span>
+          <span className="hidden text-xs italic text-[color:var(--color-terracotta)] sm:block">{siteConfig.tagline}</span>
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (

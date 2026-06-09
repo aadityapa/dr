@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: seoKeywords,
   openGraph: {
-    title: `${siteConfig.name} | ${siteConfig.title}`,
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.heroSubheadline,
     type: "website",
     url: siteConfig.url,

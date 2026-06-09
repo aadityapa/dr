@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Thrive with sharuja",
   doctorName: "Dr. Sharuja Sarap",
   title: "Pediatric Occupational Therapist",
-  tagline: "Belonging Without Boundaries.",
+  tagline: "Belonging Without Boundaries",
   heroHeadline: "Helping Children Regulate, Connect, Participate & Thrive",
   heroSubheadline:
     "Compassionate Pediatric Occupational Therapy helping children build confidence, independence, participation, and joyful everyday experiences.",
