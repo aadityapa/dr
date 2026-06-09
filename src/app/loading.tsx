@@ -1,14 +1,13 @@
 export default function Loading() {
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-20 md:px-8">
-      <div className="h-10 w-56 animate-pulse rounded-xl bg-[color:var(--color-soft-green)]" />
-      <div className="mt-6 h-4 w-full animate-pulse rounded bg-[color:var(--color-soft-green)]/70" />
-      <div className="mt-3 h-4 w-4/5 animate-pulse rounded bg-[color:var(--color-soft-green)]/70" />
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
-        {Array.from({ length: 3 }).map((_, idx) => (
-          <div key={idx} className="h-52 animate-pulse rounded-3xl bg-[color:var(--color-soft-green)]/60" />
-        ))}
+    <div className="flex min-h-[60vh] flex-col items-center justify-center px-4">
+      <div className="relative h-16 w-16">
+        <div className="absolute inset-0 animate-ping rounded-full bg-[color:var(--color-sage)]/20" />
+        <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[color:var(--color-soft-green)]">
+          <span className="font-[family-name:var(--font-serif)] text-lg text-[color:var(--color-sage-dark)]">Tw</span>
+        </div>
       </div>
+      <p className="mt-6 text-sm text-[color:var(--color-muted)]">Loading...</p>
     </div>
   );
 }

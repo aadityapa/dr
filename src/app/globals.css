@@ -1,25 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap");
 @import "tailwindcss";
-@import "../components/stitch/stitch-tailwind.css";
-@import "../components/stitch/stitch-theme.css";
-@import "../components/stitch/stitch-layout.css";
-@import "../components/stitch/html/inline-styles.css";
-@import "../components/stitch/html/home-styles.css";
-
-.material-symbols-outlined {
-  font-family: "Material Symbols Outlined";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-}
 
 :root {
   --color-cream: #f7f3eb;
@@ -59,6 +38,10 @@ body {
 .playful-dots {
   background-image: radial-gradient(rgba(125, 146, 127, 0.16) 1.2px, transparent 1.2px);
   background-size: 18px 18px;
+}
+
+.organic-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
 
 @keyframes fadeUp {

@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey);
     await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL ?? "Clinic <onboarding@resend.dev>",
-      to: process.env.RESEND_TO_EMAIL ?? "hello@drsharujasarap.com",
+      to: process.env.RESEND_TO_EMAIL ?? "sharujasaraf@gmail.com",
       subject: `New Contact Form: ${parsed.data.parentName}`,
       text: `Name: ${parsed.data.parentName}\nEmail: ${parsed.data.email}\nPhone: ${parsed.data.phone}\nMessage: ${parsed.data.message}`,
     });

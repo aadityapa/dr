@@ -5,8 +5,8 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { SiteChrome } from "@/components/layout/site-chrome";
 import { ClientEnhancements } from "@/components/providers/client-enhancements";
 import { ScrollProgress } from "@/components/providers/scroll-progress";
-import { localBusinessSchema, organizationSchema } from "@/lib/schema";
-import { siteConfig } from "@/lib/site-data";
+import { localBusinessSchema, organizationSchema, physicianSchema } from "@/lib/schema";
+import { seoKeywords, siteConfig } from "@/lib/site-data";
 import "./globals.css";
 
 const inter = Inter({
@@ -22,25 +22,24 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Thrive with sharuja | Pediatric Occupational Therapy",
-    template: "%s | Thrive with sharuja",
+    default: `${siteConfig.name} | Pediatric Occupational Therapist Mumbai`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: [
-    "Pediatric Occupational Therapist",
-    "Sensory Integration Therapy",
-    "Occupational Therapy for Autism",
-    "Child Development Therapy",
-    "Pediatric Therapy Clinic",
-  ],
+  keywords: seoKeywords,
   openGraph: {
-    title: "Thrive with sharuja | Pediatric Occupational Therapy",
-    description: siteConfig.description,
+    title: `${siteConfig.name} | ${siteConfig.title}`,
+    description: siteConfig.heroSubheadline,
     type: "website",
     url: siteConfig.url,
+    locale: "en_IN",
   },
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -64,6 +63,11 @@ export default function RootLayout({
           id="local-business-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema()) }}
+        />
+        <Script
+          id="physician-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema()) }}
         />
       </body>
     </html>

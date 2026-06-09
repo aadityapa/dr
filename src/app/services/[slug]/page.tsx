@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   if (!service) return {};
 
   return {
-    title: service.title,
+    title: `${service.title} Mumbai`,
     description: service.summary,
   };
 }
@@ -34,19 +34,35 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
 
+  const listItems =
+    "areasAddressed" in service
+      ? service.areasAddressed
+      : "brainGymSupports" in service
+        ? service.brainGymSupports
+        : "skillsDeveloped" in service
+          ? service.skillsDeveloped
+          : service.benefits;
+
+  const listTitle =
+    "areasAddressed" in service
+      ? "Areas Addressed"
+      : "brainGymSupports" in service
+        ? "Brain Gym® Supports"
+        : "skillsDeveloped" in service
+          ? "Skills Developed"
+          : "Benefits";
+
   return (
     <main>
-      <Section>
-        <SectionHeading kicker="Service Detail" title={service.title} description={service.summary} />
+      <Section className="pt-8">
+        <SectionHeading kicker="Service" title={service.title} description={service.headline} />
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <Card className="md:col-span-2">
             <CardContent className="p-6">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--color-soft-green)]">
                 <ServiceIcon name={service.icon} className="h-6 w-6 text-[color:var(--color-sage-dark)]" />
               </div>
-              <p className="text-sm text-[color:var(--color-muted)]">
-                Detailed, relationship-based occupational therapy designed to improve child participation at home, school, and social environments.
-              </p>
+              <p className="leading-relaxed text-[color:var(--color-muted)]">{service.content}</p>
               <p className="mt-4 text-sm text-[color:var(--color-sage-dark)]">
                 <strong>Age group:</strong> {service.ageGroups}
               </p>
@@ -69,9 +85,11 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         <div className="grid gap-4 md:grid-cols-2">
           <Card>
             <CardContent className="p-6">
-              <h3 className="font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">Benefits</h3>
+              <h3 className="font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">
+                {listTitle}
+              </h3>
               <ul className="mt-4 space-y-3 text-sm text-[color:var(--color-muted)]">
-                {service.benefits.map((item) => (
+                {listItems?.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
@@ -79,7 +97,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </Card>
           <Card>
             <CardContent className="p-6">
-              <h3 className="font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">Process</h3>
+              <h3 className="font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">
+                Our Process
+              </h3>
               <ul className="mt-4 space-y-3 text-sm text-[color:var(--color-muted)]">
                 {service.process.map((item) => (
                   <li key={item}>• {item}</li>

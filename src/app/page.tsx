@@ -1,13 +1,36 @@
 import type { Metadata } from "next";
 
-import { StitchHomePage } from "@/components/stitch/home-page";
-import { siteConfig } from "@/lib/site-data";
+import { AgeBanner } from "@/components/home/age-banner";
+import { ConditionsPreview } from "@/components/home/conditions-preview";
+import { CtaSection } from "@/components/home/cta-section";
+import { HeroSection } from "@/components/home/hero-section";
+import { PhilosophySection } from "@/components/home/philosophy-section";
+import { ServicesPreview } from "@/components/home/services-preview";
+import { TestimonialsPreview } from "@/components/home/testimonials-preview";
+import { TrustSection } from "@/components/home/trust-section";
+import { seoKeywords, siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: `${siteConfig.tagline} ${siteConfig.name} — pediatric occupational therapy helping children regulate, connect, participate, and thrive.`,
+  title: "Pediatric Occupational Therapist Mumbai",
+  description: siteConfig.description,
+  keywords: seoKeywords,
+  openGraph: {
+    title: `${siteConfig.name} | ${siteConfig.title}`,
+    description: siteConfig.heroSubheadline,
+  },
 };
 
 export default function Home() {
-  return <StitchHomePage />;
+  return (
+    <main>
+      <HeroSection />
+      <TrustSection />
+      <PhilosophySection />
+      <ServicesPreview />
+      <AgeBanner />
+      <ConditionsPreview />
+      <TestimonialsPreview />
+      <CtaSection />
+    </main>
+  );
 }

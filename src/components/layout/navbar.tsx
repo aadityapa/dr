@@ -16,8 +16,11 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-[color:var(--color-cream)]/90 shadow-[0_8px_30px_-20px_rgba(47,77,59,0.15)] backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 md:px-8">
-        <Link href="/" className="font-[family-name:var(--font-serif)] text-xl text-[color:var(--color-sage-dark)]">
-          {siteConfig.shortName}
+        <Link href="/" className="leading-tight">
+          <span className="block font-[family-name:var(--font-serif)] text-lg text-[color:var(--color-sage-dark)] md:text-xl">
+            {siteConfig.shortName}
+          </span>
+          <span className="hidden text-xs text-[color:var(--color-muted)] sm:block">{siteConfig.title}</span>
         </Link>
         <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
