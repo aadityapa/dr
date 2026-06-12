@@ -12,7 +12,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/lib/site-data";
 
+const appointmentTypes = [
+  { value: "initial-assessment", label: "Initial Assessment", duration: "60–90 min" },
+  { value: "therapy-session", label: "Therapy Session", duration: "45–60 min" },
+  { value: "parent-consultation", label: "Parent Consultation", duration: "30–45 min" },
+] as const;
+
 const appointmentSchema = z.object({
+  appointmentType: z.string().min(1, "Please select an appointment type"),
   parentName: z.string().min(2, "Parent name is required"),
   childName: z.string().min(2, "Child name is required"),
   childAge: z.string().min(1, "Child age is required"),
@@ -56,7 +63,7 @@ export function AppointmentForm() {
 
   const whatsappMessage = success
     ? encodeURIComponent(
-        `Hello ${siteConfig.doctorName}, I would like to confirm my appointment request.\n\nParent: ${success.parentName}\nChild: ${success.childName} (Age ${success.childAge})\nDate: ${success.date}\nTime: ${success.timeSlot}\nConcern: ${success.concerns}`,
+        `Hello ${siteConfig.doctorName}, I would like to confirm my appointment request.\n\nType: ${appointmentTypes.find((t) => t.value === success.appointmentType)?.label ?? success.appointmentType}\nParent: ${success.parentName}\nChild: ${success.childName} (Age ${success.childAge})\nDate: ${success.date}\nTime: ${success.timeSlot}\nConcern: ${success.concerns}`,
       )
     : "";
 
@@ -83,6 +90,30 @@ export function AppointmentForm() {
 
   return (
     <form className="grid gap-4 md:grid-cols-2" onSubmit={handleSubmit(onSubmit)}>
+      <div className="md:col-span-2">
+        <label className="mb-2 block text-sm font-medium text-[color:var(--color-sage-dark)]">
+          Appointment type *
+        </label>
+        <div className="grid gap-2 sm:grid-cols-3">
+          {appointmentTypes.map((type) => (
+            <label
+              key={type.value}
+              className="flex cursor-pointer flex-col rounded-2xl border border-[color:var(--color-border)] bg-white px-3 py-3 text-sm"
+            >
+              <span className="flex items-center gap-2">
+                <input type="radio" value={type.value} className="shrink-0" {...register("appointmentType")} />
+                <span className="font-medium text-[color:var(--color-sage-dark)]">{type.label}</span>
+              </span>
+              <span className="ml-6 text-xs text-[color:var(--color-muted)]">{type.duration}</span>
+            </label>
+          ))}
+        </div>
+        <p className="text-xs text-red-600">{errors.appointmentType?.message}</p>
+        <p className="mt-2 text-xs text-[color:var(--color-muted)]">
+          Consultation timings — Online: 11 AM – 1 PM · Offline: 9 AM – 5 PM · Monday – Saturday · By prior appointment
+          only
+        </p>
+      </div>
       <div>
         <Input placeholder="Parent name *" {...register("parentName")} />
         <p className="text-xs text-red-600">{errors.parentName?.message}</p>

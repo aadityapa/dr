@@ -12,7 +12,7 @@ export function TrustSection() {
       <SectionHeading
         kicker="Trust & Credentials"
         title="A clinician parents can rely on"
-        description="Evidence-based pediatric occupational therapy backed by 16+ years of dedicated practice and specialized international certifications."
+        description="Evidence-based pediatric occupational therapy backed by 18+ years of dedicated practice and advanced international certifications."
         center
       />
 

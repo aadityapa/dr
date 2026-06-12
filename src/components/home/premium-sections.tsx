@@ -10,8 +10,8 @@ import { siteConfig } from "@/lib/site-data";
 const reasons = [
   {
     icon: Award,
-    title: "16+ Years of Expertise",
-    description: `Dr. ${siteConfig.doctorName.replace("Dr. ", "")} brings deep pediatric OT experience with 8+ specialized certifications including Brain Gym, HWT, and Aquatherapy.`,
+    title: "18+ Years of Expertise",
+    description: `Dr. ${siteConfig.doctorName.replace("Dr. ", "")} brings deep pediatric OT experience with 8+ advanced certifications including Brain Gym, HWT, and Aquatherapy.`,
   },
   {
     icon: Heart,
@@ -151,20 +151,49 @@ export function DevelopmentalChecklistCta() {
   );
 }
 
+export function ClinicIntroductionSection() {
+  return (
+    <Section className="rounded-[2rem] bg-white/70">
+      <div className="mx-auto max-w-3xl text-center">
+        <SectionHeading
+          kicker="Our Centre"
+          title="Where Potential Meets Possibility"
+          center
+        />
+        <p className="mt-6 leading-relaxed text-[color:var(--color-muted)]">
+          At our Occupational Therapy Centre, we are committed to helping every child thrive through evidence-based,
+          child-centered intervention.
+        </p>
+        <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
+          Our state-of-the-art clinic is equipped with the latest research-backed therapeutic equipment and designed to
+          provide a safe, engaging, and nurturing environment for children and their families.
+        </p>
+        <p className="mt-6 font-[family-name:var(--font-serif)] text-xl text-[color:var(--color-sage-dark)]">
+          Because every child deserves the opportunity to learn, grow, and reach their fullest potential.
+        </p>
+      </div>
+    </Section>
+  );
+}
+
 export function ParentReassuranceSection() {
   return (
     <Section className="rounded-[2rem] bg-[color:var(--color-soft-green)]/30">
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">
-          You Are Not Alone
+          A Message For Parents
         </h2>
-        <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
-          Seeking therapy for your child is one of the most loving decisions a parent can make. At Thrive with sharuja,
-          over 500 Mumbai families have found hope, practical strategies, and measurable progress. Every child&apos;s
-          journey is unique — and every step forward, however small, is worth celebrating.
+        <p className="mt-6 leading-relaxed text-[color:var(--color-muted)]">
+          We cannot promise what the future will look like, but we can promise that we will work together to help your
+          child grow, learn, participate, and reach their fullest potential.
         </p>
-        <p className="mt-4 font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--color-terracotta)]">
-          Belonging Without Boundaries
+        <div className="mt-8 space-y-3 font-[family-name:var(--font-serif)] text-lg text-[color:var(--color-sage-dark)]">
+          <p>Every child has strengths.</p>
+          <p>Every child can make progress.</p>
+          <p>Every child deserves the opportunity to thrive.</p>
+        </div>
+        <p className="mt-8 font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--color-terracotta)]">
+          {siteConfig.tagline}
         </p>
       </div>
     </Section>

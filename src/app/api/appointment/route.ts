@@ -3,6 +3,7 @@ import { z } from "zod";
 import { Resend } from "resend";
 
 const schema = z.object({
+  appointmentType: z.string().min(1),
   parentName: z.string().min(2),
   childName: z.string().min(2),
   childAge: z.string().min(1),
@@ -27,7 +28,7 @@ export async function POST(request: Request) {
       from: process.env.RESEND_FROM_EMAIL ?? "Clinic <onboarding@resend.dev>",
       to: process.env.RESEND_TO_EMAIL ?? "sharujasaraf@gmail.com",
       subject: `Appointment Request: ${parsed.data.childName}`,
-      text: `Parent: ${parsed.data.parentName}\nChild: ${parsed.data.childName}\nAge: ${parsed.data.childAge}\nDate: ${parsed.data.date}\nTime: ${parsed.data.timeSlot}\nEmail: ${parsed.data.email}\nPhone: ${parsed.data.phone}\nConcerns: ${parsed.data.concerns}`,
+      text: `Type: ${parsed.data.appointmentType}\nParent: ${parsed.data.parentName}\nChild: ${parsed.data.childName}\nAge: ${parsed.data.childAge}\nDate: ${parsed.data.date}\nTime: ${parsed.data.timeSlot}\nEmail: ${parsed.data.email}\nPhone: ${parsed.data.phone}\nConcerns: ${parsed.data.concerns}`,
     });
   }
 

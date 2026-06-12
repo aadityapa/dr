@@ -1,3 +1,5 @@
+import { additionalConditionsContent } from "./conditions-content-additional";
+
 export type ConditionContent = {
   slug: string;
   title: string;
@@ -486,6 +488,8 @@ export const conditionsContent: ConditionContent[] = [
   },
 ];
 
+export const allConditionsContent = [...conditionsContent, ...additionalConditionsContent];
+
 export function getConditionContent(slug: string) {
-  return conditionsContent.find((c) => c.slug === slug);
+  return allConditionsContent.find((c) => c.slug === slug);
 }

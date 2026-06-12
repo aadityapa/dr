@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { articles } from "@/lib/articles";
-import { conditionsContent } from "@/lib/conditions-content";
+import { allConditionsContent } from "@/lib/conditions-content";
 import { locationPages } from "@/lib/locations";
 import { services, siteConfig } from "@/lib/site-data";
 
@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/testimonials-milestones", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/appointment", priority: 0.95, changeFrequency: "monthly" as const },
+    { path: "/therapy-outcomes", priority: 0.85, changeFrequency: "monthly" as const },
+    { path: "/screening", priority: 0.9, changeFrequency: "monthly" as const },
   ];
 
   const serviceRoutes = services.map((s) => ({
@@ -27,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly" as const,
   }));
 
-  const conditionRoutes = conditionsContent.map((c) => ({
+  const conditionRoutes = allConditionsContent.map((c) => ({
     path: `/conditions/${c.slug}`,
     priority: 0.8,
     changeFrequency: "weekly" as const,

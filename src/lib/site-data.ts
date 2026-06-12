@@ -3,10 +3,10 @@ export const siteConfig = {
   shortName: "Thrive with sharuja",
   doctorName: "Dr. Sharuja Sarap",
   title: "Pediatric Occupational Therapist",
-  tagline: "Belonging Without Boundaries",
-  heroHeadline: "Helping Children Regulate, Connect, Participate & Thrive",
+  tagline: "Belonging Without Boundaries.",
+  heroHeadline: "Building Abilities. Inspiring Confidence. Transforming Lives.",
   heroSubheadline:
-    "Compassionate Pediatric Occupational Therapy helping children build confidence, independence, participation, and joyful everyday experiences.",
+    "A state-of-the-art Occupational Therapy Centre providing evidence-based care, advanced therapeutic interventions, and compassionate support to help every child reach their fullest potential.",
   description:
     "Thrive with sharuja offers evidence-based pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap — sensory-integrative, movement-based care for children from birth to 14 years.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharujasarap.vercel.app",
@@ -15,7 +15,7 @@ export const siteConfig = {
   phoneDisplay: "9820525197",
   whatsapp: "919820525197",
   registrationNumber: "051388",
-  experienceYears: 16,
+  experienceYears: 18,
   ageRange: "0 – 14 Years",
   address: {
     line1: "Manhar Medical And Jeet Child Development Centre",
@@ -42,9 +42,9 @@ export const doctorProfile = {
     "RMTI (Rhythmic Movement Training Integration)",
     "HWT (Handwriting Without Tears)",
     "OPT (Oral Placement Therapy)",
-    "Aquatherapy (IATF)",
+    "Aquatherapy (IATF, WST, BRRM)",
     "PIASTM (Pediatric Instrument Assisted Soft Tissue Mobilization)",
-    "KT (Kinesio Taping – KTI 3)",
+    "KT Level 1–3 (Kinesio Taping)",
     "MNRI (Masgutova Neurosensorimotor Reflex Integration)",
     "KDCT (Kinesio Dry Cupping Therapy)",
   ],
@@ -55,26 +55,26 @@ export const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Conditions", href: "/conditions" },
+  { label: "Outcomes", href: "/therapy-outcomes" },
+  { label: "Screening", href: "/screening" },
   { label: "FAQs", href: "/faqs" },
-  { label: "Resources", href: "/resources" },
   { label: "Therapy Journey", href: "/therapy-journey" },
-  { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
   { label: "Appointment", href: "/appointment" },
 ];
 
 export const trustBadges = [
-  "16+ Years Experience",
+  "18+ Years Experience",
   "Registration No. 051388",
   "Certified Pediatric Occupational Therapist",
   "Evidence-Based Therapy Programs",
 ];
 
 export const trustStats = [
-  { label: "Years Experience", value: 16, suffix: "+", icon: "Clock" as const },
-  { label: "Specialized Certifications", value: 8, suffix: "+", icon: "Award" as const },
+  { label: "Years Experience", value: 18, suffix: "+", icon: "Clock" as const },
+  { label: "Advanced Certifications", value: 8, suffix: "+", icon: "Award" as const },
+  { label: "Therapy Sessions", value: 1000, suffix: "+", icon: "HeartHandshake" as const },
   { label: "Families Supported", value: 500, suffix: "+", icon: "Users" as const },
-  { label: "Therapy Sessions Conducted", value: 1000, suffix: "+", icon: "HeartHandshake" as const },
 ];
 
 export const googleReviews = {
@@ -111,7 +111,7 @@ export const googleReviews = {
 };
 
 export const doctorTimeline = [
-  { year: "2008+", title: "Pediatric OT Practice Begins", description: "Started dedicated pediatric occupational therapy practice in Mumbai." },
+  { year: "2006+", title: "Pediatric OT Practice Begins", description: "Started dedicated pediatric occupational therapy practice in Mumbai." },
   { year: "2012", title: "Master's in Pediatric OT", description: "Advanced specialization in pediatric occupational therapy." },
   { year: "2015", title: "Brain Gym Certification", description: "Certified Brain Gym Instructor & Practitioner for learning readiness." },
   { year: "2018", title: "International Certifications", description: "HWT, Aquatherapy (IATF), MNRI, OPT, PIASTM, and Kinesio Taping credentials." },
@@ -129,44 +129,37 @@ export const therapyFlow = [
 export const therapyJourneySteps = [
   {
     step: 1,
-    title: "Initial Contact",
+    title: "Appointment",
     description:
       "Reach out via phone, WhatsApp, or our online form. Share your concerns and we'll schedule a convenient consultation at our Kandivali clinic.",
     icon: "Phone",
   },
   {
     step: 2,
-    title: "Comprehensive Evaluation",
+    title: "Evaluation",
     description:
       "A child-friendly assessment across sensory, motor, cognitive, and daily living domains to understand your child's unique strengths and needs.",
     icon: "ClipboardCheck",
   },
   {
     step: 3,
-    title: "Personalized Care Plan",
-    description:
-      "Together we set clear, measurable goals and design a therapy plan tailored to your child's age, interests, and family priorities.",
-    icon: "Target",
-  },
-  {
-    step: 4,
     title: "Therapy Sessions",
     description:
       "Play-based, evidence-informed sessions with Dr. Sharuja Sarap — building skills through engagement, not pressure.",
     icon: "HeartHandshake",
   },
   {
-    step: 5,
-    title: "Home & School Integration",
+    step: 4,
+    title: "Progress Tracking",
     description:
-      "Practical home programs, school recommendations, and parent coaching ensure progress carries beyond the clinic.",
-    icon: "Home",
+      "Regular goal reviews, home programs, and school coordination ensure measurable progress and adjusted plans as your child grows.",
+    icon: "Target",
   },
   {
-    step: 6,
-    title: "Progress Review & Thriving",
+    step: 5,
+    title: "Functional Independence",
     description:
-      "Regular goal reviews celebrate milestones and adjust the plan as your child grows — because every step forward matters.",
+      "Celebrating milestones as your child gains confidence, participation, and independence in daily life — because every step forward matters.",
     icon: "Sparkles",
   },
 ];
@@ -339,6 +332,234 @@ export const services = [
     ],
     relatedConditions: ["Handwriting Difficulties", "Learning Difficulties", "Motor Coordination Challenges"],
   },
+  {
+    slug: "rmti",
+    title: "RMTI",
+    headline: "Rhythmic Movement for Nervous System Development",
+    summary:
+      "Rhythmic Movement Training Integration supports primitive reflex integration, postural stability, and emotional regulation through gentle, rhythmic movements.",
+    content:
+      "RMTI (Rhythmic Movement Training Integration) uses innate rhythmic movements to stimulate brain development, integrate retained primitive reflexes, and support postural and emotional foundations. Dr. Sharuja Sarap applies RMTI within a holistic pediatric OT framework for children who struggle with coordination, attention, emotional regulation, or developmental foundations.",
+    icon: "Sparkles",
+    ageGroups: "Birth to 14 years",
+    areasAddressed: [
+      "Primitive Reflex Integration",
+      "Postural Stability",
+      "Emotional Regulation",
+      "Motor Coordination",
+      "Attention & Focus",
+      "Reading Readiness",
+      "Balance & Bilateral Integration",
+      "Nervous System Organization",
+    ],
+    benefits: [
+      "Improved postural control and motor coordination",
+      "Better emotional regulation and reduced anxiety",
+      "Enhanced attention and learning readiness",
+      "Foundation for reading, writing, and classroom success",
+    ],
+    process: [
+      "Reflex and movement pattern assessment",
+      "Individualized rhythmic movement program",
+      "Home practice routines with parent guidance",
+      "Progress review and program advancement",
+    ],
+    faqs: [
+      { q: "What is RMTI?", a: "Rhythmic Movement Training Integration uses gentle, rhythmic movements to support brain development and integrate retained primitive reflexes." },
+      { q: "Who benefits from RMTI?", a: "Children with coordination difficulties, attention challenges, emotional dysregulation, or signs of retained primitive reflexes." },
+    ],
+    relatedConditions: ["Motor Coordination Challenges", "Attention Difficulties", "Learning Difficulties"],
+  },
+  {
+    slug: "opt",
+    title: "OPT",
+    headline: "Oral Placement Therapy for Feeding & Speech Readiness",
+    summary:
+      "Oral Placement Therapy addresses oral-motor skills, feeding challenges, and speech articulation foundations through targeted sensory-motor activities.",
+    content:
+      "OPT (Oral Placement Therapy) is a specialized approach that uses tools and exercises to develop the oral-motor skills needed for safe feeding, speech articulation, and oral sensory tolerance. Dr. Sharuja Sarap is certified in OPT and integrates it with occupational therapy for children with feeding difficulties, oral aversions, and speech-related motor challenges.",
+    icon: "Utensils",
+    ageGroups: "Birth to 14 years",
+    areasAddressed: [
+      "Oral-Motor Strength",
+      "Feeding & Swallowing Safety",
+      "Tongue & Jaw Coordination",
+      "Oral Sensory Tolerance",
+      "Speech Articulation Foundations",
+      "Picky Eating & Food Aversions",
+      "Cup & Straw Drinking Skills",
+      "Chewing & Biting Patterns",
+    ],
+    benefits: [
+      "Safer, more enjoyable mealtimes",
+      "Expanded food acceptance and oral tolerance",
+      "Improved oral-motor strength for speech readiness",
+      "Reduced mealtime stress for families",
+    ],
+    process: [
+      "Oral-motor and feeding assessment",
+      "Targeted OPT exercises and sensory activities",
+      "Home mealtime strategies and practice routines",
+      "Coordination with speech therapists when needed",
+    ],
+    faqs: [
+      { q: "Is OPT the same as speech therapy?", a: "OPT addresses oral-motor foundations. It complements speech therapy and is often integrated within OT for feeding and oral sensory challenges." },
+      { q: "Can OPT help picky eaters?", a: "Yes. OPT addresses oral sensory aversions, motor skills, and mealtime routines that contribute to selective eating." },
+    ],
+    relatedConditions: ["Autism Spectrum Disorder", "Developmental Delay", "Sensory Processing Difficulties"],
+  },
+  {
+    slug: "piastm",
+    title: "PIASTM",
+    headline: "Pediatric Soft Tissue Mobilization for Movement",
+    summary:
+      "PIASTM uses instrument-assisted soft tissue techniques adapted for children to improve mobility, reduce tension, and support motor function.",
+    content:
+      "PIASTM (Pediatric Instrument Assisted Soft Tissue Mobilization) applies gentle, instrument-assisted techniques to address soft tissue restrictions that limit movement, posture, and functional participation. Dr. Sharuja Sarap uses PIASTM as part of a comprehensive pediatric OT approach for children with muscle tension, postural challenges, and movement restrictions.",
+    icon: "Hand",
+    ageGroups: "2 to 14 years",
+    areasAddressed: [
+      "Soft Tissue Mobility",
+      "Postural Alignment",
+      "Muscle Tension Release",
+      "Range of Motion",
+      "Motor Function Support",
+      "Recovery After Injury",
+      "Chronic Tightness Patterns",
+      "Movement Efficiency",
+    ],
+    benefits: [
+      "Improved range of motion and movement quality",
+      "Reduced muscle tension and discomfort",
+      "Better postural alignment for daily activities",
+      "Enhanced participation in play and physical tasks",
+    ],
+    process: [
+      "Movement and soft tissue assessment",
+      "Gentle PIASTM techniques within therapy sessions",
+      "Stretching and strengthening home program",
+      "Integration with OT motor goals",
+    ],
+    faqs: [
+      { q: "Is PIASTM safe for children?", a: "Yes. Pediatric PIASTM uses gentle, child-appropriate pressure and is always applied within a playful, trusting therapeutic relationship." },
+      { q: "What conditions benefit from PIASTM?", a: "Children with muscle tightness, postural challenges, cerebral palsy, or movement restrictions often benefit." },
+    ],
+    relatedConditions: ["Cerebral Palsy", "Motor Coordination Challenges", "Developmental Delay"],
+  },
+  {
+    slug: "kinesio-taping",
+    title: "Kinesio Taping",
+    headline: "KT Level 1–3 Support for Posture & Function",
+    summary:
+      "Kinesio Taping provides sensory and postural support through elastic therapeutic tape — certified KT Level 1–3 application for pediatric needs.",
+    content:
+      "Kinesio Taping (KT Level 1–3) uses elastic therapeutic tape to support muscles and joints, provide proprioceptive input, and assist postural alignment without restricting movement. Dr. Sharuja Sarap applies pediatric-appropriate taping techniques to support functional goals in daily activities, sports, and school participation.",
+    icon: "Award",
+    ageGroups: "3 to 14 years",
+    areasAddressed: [
+      "Postural Support",
+      "Proprioceptive Input",
+      "Muscle Activation",
+      "Joint Stability",
+      "Pain & Discomfort Management",
+      "Sports & Play Participation",
+      "Hand & Wrist Support",
+      "Sensory Awareness",
+    ],
+    benefits: [
+      "Improved postural awareness and alignment",
+      "Enhanced proprioceptive feedback for motor control",
+      "Support during physical activities and sports",
+      "Complement to ongoing OT and motor training",
+    ],
+    process: [
+      "Functional and postural assessment",
+      "Taping application tailored to daily goals",
+      "Parent education on wear time and care",
+      "Reassessment and technique adjustment",
+    ],
+    faqs: [
+      { q: "How long does Kinesio tape stay on?", a: "Typically 3–5 days depending on activity level and skin sensitivity. Dr. Sharuja Sarap provides full care instructions." },
+      { q: "Is taping painful for children?", a: "No. Pediatric Kinesio taping is gentle and most children adapt quickly. Hypoallergenic tape options are available." },
+    ],
+    relatedConditions: ["Cerebral Palsy", "Motor Coordination Challenges", "Handwriting Difficulties"],
+  },
+  {
+    slug: "mnri",
+    title: "MNRI",
+    headline: "Masgutova Neurosensorimotor Reflex Integration",
+    summary:
+      "MNRI uses reflex integration techniques to rebuild nervous system foundations for movement, regulation, and learning.",
+    content:
+      "MNRI (Masgutova Neurosensorimotor Reflex Integration) is a specialized reflex integration approach that addresses retained or emerging primitive reflexes affecting motor, sensory, and emotional development. Dr. Sharuja Sarap integrates MNRI within pediatric OT for children whose nervous system foundations need support for confident participation.",
+    icon: "Brain",
+    ageGroups: "Birth to 14 years",
+    areasAddressed: [
+      "Primitive Reflex Integration",
+      "Nervous System Regulation",
+      "Motor Planning & Coordination",
+      "Sensory Processing",
+      "Emotional & Behavioral Regulation",
+      "Postural & Core Stability",
+      "Learning Readiness",
+      "Trauma & Stress Recovery",
+    ],
+    benefits: [
+      "Stronger nervous system foundations for learning and movement",
+      "Improved emotional regulation and stress resilience",
+      "Better motor planning and coordination",
+      "Enhanced readiness for academic and social demands",
+    ],
+    process: [
+      "Reflex pattern and neurosensorimotor assessment",
+      "Individualized MNRI protocol within sessions",
+      "Home reflex integration activities",
+      "Regular progress monitoring and program updates",
+    ],
+    faqs: [
+      { q: "What are primitive reflexes?", a: "Automatic movement patterns present in infancy that should integrate as the brain matures. Retained reflexes can affect posture, coordination, and learning." },
+      { q: "How is MNRI different from RMTI?", a: "Both address reflex integration. MNRI uses specific Masgutova protocols; Dr. Sharuja Sarap selects the most appropriate approach for each child." },
+    ],
+    relatedConditions: ["Motor Coordination Challenges", "Attention Difficulties", "Sensory Processing Difficulties"],
+  },
+  {
+    slug: "kdct",
+    title: "KDCT",
+    headline: "Kinesio Dry Cupping Therapy for Pediatric Recovery",
+    summary:
+      "KDCT uses gentle dry cupping techniques adapted for children to support tissue health, circulation, and movement recovery.",
+    content:
+      "KDCT (Kinesio Dry Cupping Therapy) applies gentle cupping techniques to support soft tissue health, circulation, and recovery from movement challenges. Dr. Sharuja Sarap uses pediatric-adapted KDCT as a complementary technique within occupational therapy for children with muscle tension, postural strain, or recovery needs.",
+    icon: "HeartHandshake",
+    ageGroups: "4 to 14 years",
+    areasAddressed: [
+      "Soft Tissue Recovery",
+      "Circulation Support",
+      "Muscle Tension Relief",
+      "Postural Strain",
+      "Movement Recovery",
+      "Chronic Tightness",
+      "Sports-Related Discomfort",
+      "Complementary OT Support",
+    ],
+    benefits: [
+      "Reduced muscle tension and improved tissue mobility",
+      "Support for recovery alongside motor training",
+      "Gentle, child-appropriate therapeutic technique",
+      "Enhanced comfort during daily activities",
+    ],
+    process: [
+      "Assessment of tissue and movement needs",
+      "Gentle KDCT application within therapy context",
+      "Integration with stretching and strengthening",
+      "Parent guidance on complementary home care",
+    ],
+    faqs: [
+      { q: "Is dry cupping safe for children?", a: "Yes, when applied by a certified practitioner using pediatric-appropriate techniques and pressure levels." },
+      { q: "Does cupping leave marks?", a: "Mild circular marks may appear temporarily. Dr. Sharuja Sarap uses gentle pressure appropriate for children." },
+    ],
+    relatedConditions: ["Cerebral Palsy", "Motor Coordination Challenges", "Developmental Delay"],
+  },
 ] as const;
 
 export const conditions = [
@@ -405,6 +626,62 @@ export const conditions = [
     description:
       "Brain Gym® and OT strategies help children sustain focus, manage distractions, and build learning readiness.",
     reassurance: "Attention skills can be strengthened through movement, structure, and compassionate support.",
+  },
+  {
+    slug: "primitive-reflex-retention",
+    title: "Primitive Reflex Retention",
+    description:
+      "RMTI and MNRI-based interventions help integrate retained reflexes that affect posture, coordination, attention, and emotional regulation.",
+    reassurance: "With targeted reflex integration, nervous system foundations can strengthen at any age.",
+  },
+  {
+    slug: "emotional-regulation-difficulties",
+    title: "Emotional Regulation Difficulties",
+    description:
+      "Sensory-integrative OT and movement-based strategies help children understand, express, and manage emotions for calmer daily participation.",
+    reassurance: "Regulation is a skill that grows with the right support, structure, and compassionate guidance.",
+  },
+  {
+    slug: "school-readiness-concerns",
+    title: "School Readiness Concerns",
+    description:
+      "Comprehensive OT prepares children for classroom success — pencil grip, sitting tolerance, self-regulation, and social participation.",
+    reassurance: "School readiness builds gradually; early support creates confident, capable learners.",
+  },
+  {
+    slug: "down-syndrome",
+    title: "Down Syndrome",
+    description:
+      "Family-centered OT supports motor development, self-care skills, sensory regulation, and meaningful participation for children with Down syndrome.",
+    reassurance: "Every child with Down syndrome has unique strengths — therapy celebrates progress at every step.",
+  },
+  {
+    slug: "feeding-oral-motor-challenges",
+    title: "Feeding & Oral Motor Challenges",
+    description:
+      "OPT-certified intervention addresses picky eating, oral aversions, chewing difficulties, and mealtime stress through sensory-motor strategies.",
+    reassurance: "Mealtimes can become enjoyable again with patient, specialized oral-motor support.",
+  },
+  {
+    slug: "social-participation-challenges",
+    title: "Social Participation Challenges",
+    description:
+      "OT builds the sensory, motor, and regulation foundations children need for confident peer interaction, play, and group activities.",
+    reassurance: "Social confidence grows when children feel regulated, capable, and supported.",
+  },
+  {
+    slug: "fine-motor-challenges",
+    title: "Fine Motor Challenges",
+    description:
+      "Targeted OT develops hand strength, dexterity, tool use, and precision for writing, self-care, and classroom tasks.",
+    reassurance: "Fine motor skills improve steadily with purposeful, play-based practice.",
+  },
+  {
+    slug: "gross-motor-difficulties",
+    title: "Gross Motor Difficulties",
+    description:
+      "OT and aquatic therapy improve balance, strength, coordination, and confidence in large movement activities and physical play.",
+    reassurance: "With practice and support, children gain the physical confidence to participate fully.",
   },
 ];
 

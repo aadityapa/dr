@@ -10,7 +10,7 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { conditionsContent, getConditionContent } from "@/lib/conditions-content";
+import { allConditionsContent, getConditionContent } from "@/lib/conditions-content";
 import { buildPageMetadata } from "@/lib/metadata";
 import { faqPageSchema, serviceSchema } from "@/lib/schema";
 import { services, siteConfig } from "@/lib/site-data";
@@ -20,7 +20,7 @@ type ConditionPageProps = {
 };
 
 export function generateStaticParams() {
-  return conditionsContent.map((c) => ({ slug: c.slug }));
+  return allConditionsContent.map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: ConditionPageProps): Promise<Metadata> {

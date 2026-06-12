@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/home/hero-section";
 import { PhilosophySection } from "@/components/home/philosophy-section";
 import {
   ClinicEnvironmentSection,
+  ClinicIntroductionSection,
   DevelopmentalChecklistCta,
   DownloadableGuidesSection,
   ParentReassuranceSection,
@@ -37,6 +38,7 @@ export default function Home() {
       <HeroSection />
       <DoctorAuthoritySection />
       <TrustSection />
+      <ClinicIntroductionSection />
       <WhyParentsChooseSection />
       <PhilosophySection />
       <ServicesPreview />

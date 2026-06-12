@@ -86,7 +86,7 @@ export const faqCategories: FaqCategory[] = [
     faqs: [
       { q: "What is Brain Gym®?", a: "Brain Gym® is a movement-based program that supports learning, attention, coordination, and emotional well-being through specific physical activities that integrate brain and body." },
       { q: "Who is Brain Gym suitable for?", a: "Children aged 4–14 who struggle with focus, reading, writing, coordination, or learning readiness — with or without a formal diagnosis." },
-      { q: "Is Dr. Sharuja Sarap certified in Brain Gym?", a: "Yes. Dr. Sharuja Sarap is a Certified Brain Gym Instructor & Practitioner with 16+ years of pediatric experience in Mumbai." },
+      { q: "Is Dr. Sharuja Sarap certified in Brain Gym?", a: "Yes. Dr. Sharuja Sarap is a Certified Brain Gym Instructor & Practitioner with 18+ years of pediatric experience in Mumbai." },
       { q: "How is Brain Gym different from regular exercise?", a: "Brain Gym uses targeted movements designed to activate specific neural pathways for learning, not general fitness." },
       { q: "Can Brain Gym help with reading difficulties?", a: "Yes. Activities address eye tracking, midline crossing, and bilateral coordination — foundational skills for fluent reading." },
       { q: "How long before Brain Gym shows results?", a: "Many families notice improved focus within 4–8 weeks of consistent practice, both in sessions and at home." },
@@ -132,6 +132,24 @@ export const faqCategories: FaqCategory[] = [
       { q: "How do I know if my child has sensory processing difficulties?", a: "Signs include extreme reactions to textures, sounds, or movement; seeking constant motion; difficulty with transitions; or meltdowns in busy environments." },
       { q: "What is the age range for therapy at Thrive with sharuja?", a: "We support children from birth to 14 years with programs tailored to each developmental stage." },
       { q: "How does early intervention help?", a: "The brain is most adaptable in early childhood. Timely therapy can reshape neural pathways, improving long-term independence and participation." },
+    ],
+  },
+  {
+    id: "rmti-opt",
+    title: "RMTI & OPT",
+    faqs: [
+      { q: "What is RMTI therapy?", a: "RMTI (Rhythmic Movement Training Integration) uses gentle rhythmic movements to support brain development, integrate retained primitive reflexes, and improve postural and emotional foundations." },
+      { q: "What is OPT therapy?", a: "OPT (Oral Placement Therapy) uses targeted exercises and tools to develop oral-motor skills for safe feeding, speech readiness, and oral sensory tolerance." },
+      { q: "Who benefits from RMTI?", a: "Children with coordination difficulties, attention challenges, emotional dysregulation, or signs of retained primitive reflexes." },
+      { q: "Can OPT help picky eaters?", a: "Yes. OPT addresses oral sensory aversions, motor skills, and mealtime routines that contribute to selective eating." },
+      { q: "Is Dr. Sharuja Sarap certified in RMTI and OPT?", a: "Yes. She holds certifications in both RMTI and OPT, integrating them within her pediatric OT framework." },
+      { q: "How is RMTI different from MNRI?", a: "Both address reflex integration using different protocols. Dr. Sharuja Sarap selects the most appropriate approach for each child." },
+      { q: "Does OPT replace speech therapy?", a: "OPT addresses oral-motor foundations. It complements speech therapy when articulation is affected by oral-motor weakness." },
+      { q: "How long does RMTI take to show results?", a: "Many families notice foundational changes within 8–16 weeks of consistent practice at home and clinic." },
+      { q: "Is OPT safe for young children?", a: "Yes. OPT uses child-appropriate tools and exercises within a playful, trusting therapeutic relationship." },
+      { q: "Can RMTI help with reading difficulties?", a: "Yes. Retained reflexes can affect eye tracking and coordination needed for reading. RMTI addresses these foundations." },
+      { q: "Will OPT force my child to eat new foods?", a: "Never. OPT uses gradual, child-led exposure in a safe therapeutic context." },
+      { q: "Can RMTI and OPT be combined with regular OT?", a: "Absolutely. They are integrated within Dr. Sharuja Sarap's comprehensive pediatric OT programs." },
     ],
   },
   {
