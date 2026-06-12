@@ -9,15 +9,18 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { doctorProfile, siteConfig } from "@/lib/site-data";
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { Award, GraduationCap } from "lucide-react";
 
 const PORTRAIT =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDqme4z4q7U9PFUK64TAVhA4QWFLHvL0wqKUfcBcSwsRDn8b7TDNvjK3Lkf0sUaVOpqUpNryt8RxKeEAlz66__rEYyIIXbo4G0LzQ7JCHlGeaz85vpJ8r0FwZtAhDB-7sjXWavcfD3L4DQXZdq08z3pYB4nHAJe3YvGXX4ui66_QbrI4gvYHLCO-Tp_chdk02RRU_7SEeiExzW3YQrGpBTN8-yAUkGloVI40V-yxVpN3PeLtBWZKWpmo27TcZVMW3N4ewkttEcDvh0";
 
-export const metadata: Metadata = {
-  title: "About Dr. Sharuja Sarap",
+export const metadata: Metadata = buildPageMetadata({
+  title: `About ${siteConfig.doctorName}`,
   description: doctorProfile.bio,
-};
+  path: "/about",
+  keywords: mumbaiKeywords("pediatric occupational therapist Mumbai", "Dr. Sharuja Sarap OT"),
+});
 
 export default function AboutPage() {
   return (

@@ -20,7 +20,7 @@ export function buildPageMetadata({
   noIndex = false,
 }: PageMetadataOptions): Metadata {
   const url = `${siteConfig.url}${path}`;
-  const image = ogImage ?? `${siteConfig.url}/og-default.jpg`;
+  const image = ogImage ?? `${siteConfig.url}/opengraph-image`;
 
   return {
     title,

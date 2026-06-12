@@ -21,7 +21,7 @@ export function organizationSchema() {
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/og-default.jpg`,
+    logo: `${siteConfig.url}/opengraph-image`,
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
@@ -85,7 +85,7 @@ export function localBusinessSchema(overrides?: { name?: string; description?: s
     openingHours: "Mo-Sa 09:00-17:00",
     areaServed: overrides?.areaServed ?? ["Mumbai", "Kandivali West", "Borivali", "Malad", "Goregaon"],
     priceRange: "$$",
-    image: `${siteConfig.url}/og-default.jpg`,
+    image: `${siteConfig.url}/opengraph-image`,
   };
 }
 

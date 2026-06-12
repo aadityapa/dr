@@ -8,11 +8,19 @@ import { ServiceIcon } from "@/components/shared/service-icon";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { services, siteConfig } from "@/lib/site-data";
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Pediatric Therapy Services Mumbai",
-  description: `Explore occupational therapy, aquatic therapy, Brain Gym®, and handwriting training with ${siteConfig.name}.`,
-};
+  description: `Explore occupational therapy, aquatic therapy, Brain Gym®, and handwriting training with ${siteConfig.doctorName} at ${siteConfig.name}.`,
+  path: "/services",
+  keywords: mumbaiKeywords(
+    "occupational therapy Mumbai",
+    "aquatic therapy Mumbai",
+    "Brain Gym Mumbai",
+    "handwriting therapy Mumbai",
+  ),
+});
 
 export default function ServicesPage() {
   return (

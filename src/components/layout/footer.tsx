@@ -74,6 +74,11 @@ export function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link href="/locations" className="text-sm font-medium text-[color:var(--color-sage-dark)] hover:underline">
+                All locations →
+              </Link>
+            </li>
           </ul>
           <h4 className="mt-6 text-sm font-semibold uppercase tracking-wide text-[color:var(--color-sage-dark)]">Contact</h4>
           <ul className="mt-3 space-y-2 text-sm text-[color:var(--color-muted)]">

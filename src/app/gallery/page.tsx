@@ -4,10 +4,15 @@ import { GalleryGrid } from "@/components/gallery/gallery-grid";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 
-export const metadata: Metadata = {
-  title: "Gallery",
-  description: "Explore our therapy rooms, assessment areas, aquatic therapy facilities, and child-friendly environments.",
-};
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Therapy Gallery & Clinic Environment",
+  description:
+    "Explore therapy rooms, assessment areas, aquatic therapy facilities, and child-friendly environments at Thrive with sharuja in Kandivali West, Mumbai.",
+  path: "/gallery",
+  keywords: mumbaiKeywords("pediatric therapy clinic Mumbai", "OT clinic Kandivali"),
+});
 
 export default function GalleryPage() {
   return (

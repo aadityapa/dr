@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 
 import { PageHero } from "@/components/shared/page-hero";
 import { JourneyTimeline } from "@/components/therapy-journey/journey-timeline";
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Therapy Journey",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Your Child's Therapy Journey",
   description:
-    "Understand the therapy process — from appointment booking to comprehensive evaluation and personalized therapy sessions.",
-};
+    "Understand the therapy process at Thrive with sharuja — from appointment and evaluation to personalized sessions and progress review in Mumbai.",
+  path: "/therapy-journey",
+  keywords: mumbaiKeywords("pediatric therapy process", "OT evaluation Mumbai"),
+});
 
 export default function TherapyJourneyPage() {
   return (

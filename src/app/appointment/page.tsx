@@ -6,11 +6,14 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { Card, CardContent } from "@/components/ui/card";
 import { siteConfig } from "@/lib/site-data";
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Book Appointment",
-  description: `Book a pediatric occupational therapy consultation with ${siteConfig.name} in Mumbai.`,
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Book Pediatric OT Consultation",
+  description: `Book a pediatric occupational therapy consultation with ${siteConfig.doctorName} at ${siteConfig.name}, Kandivali West, Mumbai.`,
+  path: "/appointment",
+  keywords: mumbaiKeywords("book occupational therapist Mumbai", "pediatric OT appointment Kandivali"),
+});
 
 export default function AppointmentPage() {
   return (

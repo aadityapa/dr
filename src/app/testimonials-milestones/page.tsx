@@ -8,12 +8,16 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { milestones, testimonials } from "@/lib/site-data";
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { Sparkles, Star, Video } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Milestones & Testimonials",
-  description: "Celebrate the milestones families have achieved and read heartfelt testimonials from parents.",
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Milestones & Parent Testimonials",
+  description:
+    "Read success stories and milestones celebrated by families at Thrive with sharuja — pediatric occupational therapy in Mumbai.",
+  path: "/testimonials-milestones",
+  keywords: mumbaiKeywords("pediatric OT testimonials Mumbai", "child therapy success stories"),
+});
 
 export default function TestimonialsMilestonesPage() {
   return (
