@@ -1,4 +1,4 @@
-import { doctorProfile, services, siteConfig } from "@/lib/site-data";
+import { doctorProfile, googleReviews, services, siteConfig } from "@/lib/site-data";
 
 export type BreadcrumbItem = { name: string; url: string };
 export type FaqItem = { q: string; a: string };
@@ -196,5 +196,43 @@ export function articleSchema(article: {
     dateModified: article.updatedAt ?? article.publishedAt,
     mainEntityOfPage: `${siteConfig.url}/resources/${article.slug}`,
     inLanguage: "en-IN",
+  };
+}
+
+export function aggregateRatingSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": `${siteConfig.url}/#medicalclinic`,
+    name: `${siteConfig.name} — ${siteConfig.title}`,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: "47",
+      reviewCount: "47",
+    },
+  };
+}
+
+export function reviewListSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": `${siteConfig.url}/#medicalclinic`,
+    name: siteConfig.name,
+    review: googleReviews.reviews.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author },
+      datePublished: r.date,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(r.rating),
+        bestRating: "5",
+        worstRating: "1",
+      },
+      reviewBody: r.text,
+    })),
   };
 }

@@ -153,6 +153,8 @@ export const faqCategories: FaqCategory[] = [
       { q: "How do I book a consultation with Dr. Sharuja Sarap?", a: "Call 9820525197, WhatsApp us, email sharujasaraf@gmail.com, or use the appointment form on our website." },
       { q: "What are your clinic timings?", a: "Monday to Saturday, 9:00 AM – 5:00 PM at Kandivali West, Mumbai." },
       { q: "Do you offer online consultations?", a: "Initial consultations and parent guidance sessions may be available online. Hands-on therapy sessions are in-person at our Kandivali clinic." },
+      { q: "What is Thrive with sharuja's therapy philosophy?", a: "Belonging Without Boundaries — we celebrate each child's strengths while building skills for meaningful participation at home, school, and in the community." },
+      { q: "How quickly can I get an appointment?", a: "We typically offer consultations within 3–5 business days. Call 9820525197 or WhatsApp for the earliest available slot." },
     ],
   },
 ];

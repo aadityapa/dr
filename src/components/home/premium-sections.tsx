@@ -160,7 +160,7 @@ export function ParentReassuranceSection() {
         </h2>
         <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
           Seeking therapy for your child is one of the most loving decisions a parent can make. At Thrive with sharuja,
-          over 2,000 Mumbai families have found hope, practical strategies, and measurable progress. Every child&apos;s
+          over 500 Mumbai families have found hope, practical strategies, and measurable progress. Every child&apos;s
           journey is unique — and every step forward, however small, is worth celebrating.
         </p>
         <p className="mt-4 font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--color-terracotta)]">

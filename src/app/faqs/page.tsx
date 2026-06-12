@@ -27,7 +27,7 @@ export default function FaqsPage() {
       <PageHero
         kicker="FAQs"
         title="Questions Parents Ask Us"
-        description={`Honest, helpful answers from ${siteConfig.doctorName} — covering occupational therapy, autism, ADHD, aquatic therapy, Brain Gym, handwriting, and child development in Mumbai.`}
+        description={`Honest, helpful answers from ${siteConfig.doctorName} — ${allFaqs.length}+ questions covering occupational therapy, autism, ADHD, aquatic therapy, Brain Gym, handwriting, and child development in Mumbai.`}
       />
       <Section>
         <FaqAccordion />

@@ -3,13 +3,14 @@ import type { Metadata } from "next";
 import { AgeBanner } from "@/components/home/age-banner";
 import { ConditionsPreview } from "@/components/home/conditions-preview";
 import { CtaSection } from "@/components/home/cta-section";
+import { DoctorAuthoritySection } from "@/components/home/doctor-authority-section";
+import { GoogleReviewsSection } from "@/components/home/google-reviews-section";
 import { HeroSection } from "@/components/home/hero-section";
 import { PhilosophySection } from "@/components/home/philosophy-section";
 import {
   ClinicEnvironmentSection,
   DevelopmentalChecklistCta,
   DownloadableGuidesSection,
-  MeetDoctorPreviewSection,
   ParentReassuranceSection,
   WhyParentsChooseSection,
 } from "@/components/home/premium-sections";
@@ -34,14 +35,15 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <DoctorAuthoritySection />
       <TrustSection />
       <WhyParentsChooseSection />
       <PhilosophySection />
-      <MeetDoctorPreviewSection />
       <ServicesPreview />
       <AgeBanner />
       <ConditionsPreview />
       <ClinicEnvironmentSection />
+      <GoogleReviewsSection />
       <TestimonialsPreview />
       <ParentReassuranceSection />
       <AfterContactSection />

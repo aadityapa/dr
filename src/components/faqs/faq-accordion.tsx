@@ -12,6 +12,9 @@ export function FaqAccordion() {
 
   return (
     <div>
+      <div className="mb-4 text-sm text-[color:var(--color-muted)]">
+        {faqCategories.reduce((sum, cat) => sum + cat.faqs.length, 0)} questions across {faqCategories.length} categories
+      </div>
       <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="FAQ categories">
         {faqCategories.map((cat) => (
           <button

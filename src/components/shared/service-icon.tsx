@@ -1,11 +1,16 @@
 import {
+  Award,
   Brain,
   Calendar,
   ClipboardCheck,
+  Clock,
   Hand,
   HeartHandshake,
+  Home,
   PenLine,
+  Phone,
   Sparkles,
+  Target,
   Users,
   Utensils,
   Waves,
@@ -27,6 +32,11 @@ const iconMap = {
   PenLine,
   Calendar,
   ClipboardCheck,
+  Clock,
+  Award,
+  Phone,
+  Target,
+  Home,
 } as const;
 
 export function ServiceIcon({ name, ...props }: ServiceIconProps) {

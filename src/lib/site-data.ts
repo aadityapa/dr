@@ -71,10 +71,52 @@ export const trustBadges = [
 ];
 
 export const trustStats = [
-  { label: "Years of Experience", value: 16, suffix: "+" },
-  { label: "Therapy Programs", value: 4, suffix: "" },
-  { label: "Families Supported", value: 2000, suffix: "+" },
-  { label: "Specialized Certifications", value: 8, suffix: "+" },
+  { label: "Years Experience", value: 16, suffix: "+", icon: "Clock" as const },
+  { label: "Specialized Certifications", value: 8, suffix: "+", icon: "Award" as const },
+  { label: "Families Supported", value: 500, suffix: "+", icon: "Users" as const },
+  { label: "Therapy Sessions Conducted", value: 1000, suffix: "+", icon: "HeartHandshake" as const },
+];
+
+export const googleReviews = {
+  rating: 4.9,
+  reviewCount: 47,
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Manhar+Medical+Jeet+Child+Development+Centre+Kandivali+West+Mumbai",
+  reviews: [
+    {
+      author: "Priya M.",
+      rating: 5,
+      date: "2025-11-12",
+      text: "Dr. Sharuja is incredibly patient and knowledgeable. My son's sensory regulation has improved so much in just a few months. The clinic feels warm and welcoming.",
+    },
+    {
+      author: "Rahul & Anjali K.",
+      rating: 5,
+      date: "2025-10-28",
+      text: "We travelled from Borivali for aquatic therapy and it was worth every visit. Our daughter's balance and confidence have grown tremendously. Highly recommend Thrive with sharuja.",
+    },
+    {
+      author: "Sneha D.",
+      rating: 5,
+      date: "2025-09-15",
+      text: "The handwriting program transformed our 8-year-old's school experience. Dr. Sharuja explains everything clearly and gives practical home strategies. A true professional.",
+    },
+    {
+      author: "Vikram S.",
+      rating: 4,
+      date: "2025-08-03",
+      text: "Excellent pediatric OT in Kandivali. Brain Gym sessions helped our child with focus and coordination. Booking is easy and the team is responsive on WhatsApp.",
+    },
+  ],
+};
+
+export const doctorTimeline = [
+  { year: "2008+", title: "Pediatric OT Practice Begins", description: "Started dedicated pediatric occupational therapy practice in Mumbai." },
+  { year: "2012", title: "Master's in Pediatric OT", description: "Advanced specialization in pediatric occupational therapy." },
+  { year: "2015", title: "Brain Gym Certification", description: "Certified Brain Gym Instructor & Practitioner for learning readiness." },
+  { year: "2018", title: "International Certifications", description: "HWT, Aquatherapy (IATF), MNRI, OPT, PIASTM, and Kinesio Taping credentials." },
+  { year: "2022", title: "Ph.D. Scholar", description: "Continuing advanced research in pediatric sensory-motor development." },
+  { year: "Today", title: "500+ Families Supported", description: "Serving children birth to 14 years at Thrive with sharuja, Kandivali West." },
 ];
 
 export const therapyFlow = [
@@ -87,24 +129,45 @@ export const therapyFlow = [
 export const therapyJourneySteps = [
   {
     step: 1,
-    title: "Appointment",
+    title: "Initial Contact",
     description:
-      "Book a consultation to share your concerns. We listen with empathy and guide you on the best next steps for your child.",
-    icon: "Calendar",
+      "Reach out via phone, WhatsApp, or our online form. Share your concerns and we'll schedule a convenient consultation at our Kandivali clinic.",
+    icon: "Phone",
   },
   {
     step: 2,
-    title: "Evaluation",
+    title: "Comprehensive Evaluation",
     description:
-      "A comprehensive, child-friendly assessment across sensory, motor, cognitive, and daily living domains to understand your child's unique profile.",
+      "A child-friendly assessment across sensory, motor, cognitive, and daily living domains to understand your child's unique strengths and needs.",
     icon: "ClipboardCheck",
   },
   {
     step: 3,
+    title: "Personalized Care Plan",
+    description:
+      "Together we set clear, measurable goals and design a therapy plan tailored to your child's age, interests, and family priorities.",
+    icon: "Target",
+  },
+  {
+    step: 4,
     title: "Therapy Sessions",
     description:
-      "Personalized, evidence-based intervention with regular progress updates — empowering your child at home, school, and in the community.",
+      "Play-based, evidence-informed sessions with Dr. Sharuja Sarap — building skills through engagement, not pressure.",
     icon: "HeartHandshake",
+  },
+  {
+    step: 5,
+    title: "Home & School Integration",
+    description:
+      "Practical home programs, school recommendations, and parent coaching ensure progress carries beyond the clinic.",
+    icon: "Home",
+  },
+  {
+    step: 6,
+    title: "Progress Review & Thriving",
+    description:
+      "Regular goal reviews celebrate milestones and adjust the plan as your child grows — because every step forward matters.",
+    icon: "Sparkles",
   },
 ];
 

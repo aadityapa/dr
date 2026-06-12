@@ -1,7 +1,7 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { useInView, useReducedMotion } from "framer-motion";
 
 type AnimatedCounterProps = {
   value: number;
@@ -11,16 +11,35 @@ type AnimatedCounterProps = {
 
 export function AnimatedCounter({ value, suffix = "", duration = 1.8 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
   const reduced = useReducedMotion();
   const [display, setDisplay] = useState(reduced ? value : 0);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
-    if (!inView) return;
     if (reduced) {
       setDisplay(value);
       return;
     }
+
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2, rootMargin: "-20px 0px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [reduced, value]);
+
+  useEffect(() => {
+    if (!started || reduced) return;
 
     let start: number | null = null;
     let frame: number;
@@ -35,12 +54,17 @@ export function AnimatedCounter({ value, suffix = "", duration = 1.8 }: Animated
 
     frame = requestAnimationFrame(step);
     return () => cancelAnimationFrame(frame);
-  }, [inView, value, duration, reduced]);
+  }, [started, value, duration, reduced]);
 
   return (
-    <span ref={ref}>
+    <motion.span
+      ref={ref}
+      className="inline-block min-w-[2ch] tabular-nums"
+      animate={started || reduced ? { opacity: 1 } : { opacity: 0.5 }}
+      transition={{ duration: 0.3 }}
+    >
       {display}
       {suffix}
-    </span>
+    </motion.span>
   );
 }

@@ -41,6 +41,8 @@ export const servicesExtendedContent: ServiceExtendedContent[] = [
       { q: "How is pediatric OT at Thrive with sharuja different?", a: "Dr. Sharuja Sarap combines 16+ years of experience with certifications in Brain Gym, HWT, Aquatherapy, MNRI, and sensory integration for truly holistic care." },
       { q: "Do you coordinate with my child's school?", a: "Yes. We provide written recommendations and are happy to speak with teachers when families request it." },
       { q: "What is your therapy philosophy?", a: "Belonging Without Boundaries — we celebrate each child's strengths while building skills for meaningful participation." },
+      { q: "How many sessions will my child need?", a: "This varies by goals and severity. After evaluation, Dr. Sharuja Sarap provides a realistic timeline — typically 8–24 weeks for focused goals, with longer support for complex profiles." },
+      { q: "Can siblings attend therapy sessions?", a: "Parents are always welcome. Sibling attendance depends on session focus — discuss with us when booking." },
     ],
   },
   {
