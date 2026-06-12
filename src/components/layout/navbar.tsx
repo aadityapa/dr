@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ export function Navbar() {
           </span>
           <span className="hidden text-xs italic text-[color:var(--color-terracotta)] sm:block">{siteConfig.tagline}</span>
         </Link>
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -38,21 +38,39 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={`tel:${siteConfig.phone}`}
+            className="text-sm font-medium text-[color:var(--color-sage-dark)] hover:underline"
+            aria-label={`Call ${siteConfig.phoneDisplay}`}
+          >
+            {siteConfig.phoneDisplay}
+          </a>
           <Button asChild size="sm">
             <Link href="/appointment">Book Consultation</Link>
           </Button>
         </div>
-        <button
-          type="button"
-          className="rounded-xl border border-[color:var(--color-border)] p-2 lg:hidden"
-          onClick={() => setOpen((prev) => !prev)}
-          aria-label="Toggle mobile menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href={`tel:${siteConfig.phone}`}
+            className="rounded-xl border border-[color:var(--color-border)] p-2"
+            aria-label={`Call ${siteConfig.phoneDisplay}`}
+          >
+            <Phone className="h-5 w-5 text-[color:var(--color-sage-dark)]" />
+          </a>
+          <button
+            type="button"
+            className="rounded-xl border border-[color:var(--color-border)] p-2"
+            onClick={() => setOpen((prev) => !prev)}
+            aria-label={open ? "Close mobile menu" : "Open mobile menu"}
+            aria-expanded={open}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
       <nav
+        aria-label="Mobile navigation"
         className={cn(
           "grid overflow-hidden border-t border-[color:var(--color-border)] bg-white transition-[grid-template-rows,opacity] duration-300 lg:hidden",
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
@@ -70,6 +88,11 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <Button asChild className="mt-2">
+              <Link href="/appointment" onClick={() => setOpen(false)}>
+                Book Consultation
+              </Link>
+            </Button>
           </div>
         </div>
       </nav>

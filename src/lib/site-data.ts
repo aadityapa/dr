@@ -55,9 +55,10 @@ export const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Conditions", href: "/conditions" },
+  { label: "FAQs", href: "/faqs" },
+  { label: "Resources", href: "/resources" },
   { label: "Therapy Journey", href: "/therapy-journey" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Milestones", href: "/testimonials-milestones" },
   { label: "Contact", href: "/contact" },
   { label: "Appointment", href: "/appointment" },
 ];

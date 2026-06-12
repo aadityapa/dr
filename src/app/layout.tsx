@@ -5,7 +5,13 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { SiteChrome } from "@/components/layout/site-chrome";
 import { ClientEnhancements } from "@/components/providers/client-enhancements";
 import { ScrollProgress } from "@/components/providers/scroll-progress";
-import { localBusinessSchema, organizationSchema, physicianSchema } from "@/lib/schema";
+import {
+  localBusinessSchema,
+  medicalClinicSchema,
+  organizationSchema,
+  physicianSchema,
+  websiteSchema,
+} from "@/lib/schema";
 import { seoKeywords, siteConfig } from "@/lib/site-data";
 import "./globals.css";
 
@@ -33,6 +39,12 @@ export const metadata: Metadata = {
     type: "website",
     url: siteConfig.url,
     locale: "en_IN",
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | ${siteConfig.tagline}`,
+    description: siteConfig.heroSubheadline,
   },
   alternates: {
     canonical: "/",
@@ -51,6 +63,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[color:var(--color-sage-dark)] focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to main content
+        </a>
         <ScrollProgress />
         <ClientEnhancements />
         <SiteChrome>{children}</SiteChrome>
@@ -58,6 +76,16 @@ export default function RootLayout({
           id="org-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+        />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+        />
+        <Script
+          id="medical-clinic-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalClinicSchema()) }}
         />
         <Script
           id="local-business-schema"

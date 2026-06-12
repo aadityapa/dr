@@ -3,23 +3,29 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/forms/contact-form";
+import { AfterContactSection } from "@/components/shared/after-contact-section";
+import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-data";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: `Contact ${siteConfig.name} in Kandivali West, Mumbai. Call ${siteConfig.phoneDisplay} or book a consultation.`,
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Contact — Kandivali West Clinic",
+  description: `Contact ${siteConfig.name} in Kandivali West, Mumbai. Call ${siteConfig.phoneDisplay} or book a consultation with ${siteConfig.doctorName}.`,
+  path: "/contact",
+  keywords: mumbaiKeywords("pediatric OT contact Kandivali", "occupational therapist Mumbai contact"),
+});
 
 export default function ContactPage() {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.mapsQuery)}`;
 
   return (
     <main>
+      <Breadcrumbs items={[{ name: "Contact", url: `${siteConfig.url}/contact` }]} />
       <PageHero
         kicker="Contact"
         title="We're here to support your family"
@@ -50,8 +56,9 @@ export default function ContactPage() {
                 <a
                   href={`tel:${siteConfig.phone}`}
                   className="flex items-center gap-4 rounded-2xl border border-[color:var(--color-border)] bg-white/80 p-5 transition-all hover:shadow-md"
+                  aria-label={`Call ${siteConfig.phoneDisplay}`}
                 >
-                  <Phone className="h-5 w-5 text-[color:var(--color-sage)]" />
+                  <Phone className="h-5 w-5 text-[color:var(--color-sage)]" aria-hidden="true" />
                   <div>
                     <p className="text-xs text-[color:var(--color-muted)]">Call us</p>
                     <p className="font-semibold text-[color:var(--color-sage-dark)]">{siteConfig.phoneDisplay}</p>
@@ -62,8 +69,9 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 rounded-2xl border border-[color:var(--color-border)] bg-white/80 p-5 transition-all hover:shadow-md"
+                  aria-label="WhatsApp Thrive with sharuja"
                 >
-                  <Phone className="h-5 w-5 text-[color:var(--color-sage)]" />
+                  <Phone className="h-5 w-5 text-[color:var(--color-sage)]" aria-hidden="true" />
                   <div>
                     <p className="text-xs text-[color:var(--color-muted)]">WhatsApp</p>
                     <p className="font-semibold text-[color:var(--color-sage-dark)]">{siteConfig.phoneDisplay}</p>
@@ -72,8 +80,9 @@ export default function ContactPage() {
                 <a
                   href={`mailto:${siteConfig.email}`}
                   className="flex items-center gap-4 rounded-2xl border border-[color:var(--color-border)] bg-white/80 p-5 transition-all hover:shadow-md sm:col-span-2 lg:col-span-1"
+                  aria-label={`Email ${siteConfig.email}`}
                 >
-                  <Mail className="h-5 w-5 text-[color:var(--color-sage)]" />
+                  <Mail className="h-5 w-5 text-[color:var(--color-sage)]" aria-hidden="true" />
                   <div>
                     <p className="text-xs text-[color:var(--color-muted)]">Email</p>
                     <p className="font-semibold text-[color:var(--color-sage-dark)]">{siteConfig.email}</p>
@@ -83,10 +92,10 @@ export default function ContactPage() {
 
               <div className="rounded-2xl border border-[color:var(--color-border)] bg-white/80 p-5">
                 <div className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[color:var(--color-sage)]" />
+                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[color:var(--color-sage)]" aria-hidden="true" />
                   <div>
                     <p className="font-semibold text-[color:var(--color-sage-dark)]">{siteConfig.address.line1}</p>
-                    <p className="mt-1 text-sm text-[color:var(--color-muted)]">{siteConfig.address.full}</p>
+                    <address className="mt-1 text-sm not-italic text-[color:var(--color-muted)]">{siteConfig.address.full}</address>
                     <p className="mt-2 text-sm text-[color:var(--color-muted)]">{siteConfig.timings}</p>
                     <Button asChild variant="outline" size="sm" className="mt-4">
                       <Link href={mapsUrl} target="_blank" rel="noopener noreferrer">
@@ -110,6 +119,8 @@ export default function ContactPage() {
           </Reveal>
         </div>
       </Section>
+
+      <AfterContactSection />
     </main>
   );
 }
