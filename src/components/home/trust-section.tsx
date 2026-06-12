@@ -28,9 +28,11 @@ export function TrustSection() {
       </div>
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {trustStats.map((stat, i) => (
-          <Reveal key={stat.label} delay={i * 0.08}>
-            <div className="group relative overflow-hidden rounded-3xl border border-[color:var(--color-border)]/60 bg-gradient-to-br from-white via-white to-[color:var(--color-soft-green)]/40 p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+        {trustStats.map((stat) => (
+            <div
+              key={stat.label}
+              className="group relative overflow-hidden rounded-3xl border border-[color:var(--color-border)]/60 bg-gradient-to-br from-white via-white to-[color:var(--color-soft-green)]/40 p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[color:var(--color-sage)]/10 text-[color:var(--color-sage-dark)] transition-colors group-hover:bg-[color:var(--color-sage)]/20">
                 <ServiceIcon name={stat.icon} className="h-6 w-6" />
               </div>
@@ -39,7 +41,6 @@ export function TrustSection() {
               </p>
               <p className="mt-2 text-sm font-medium text-[color:var(--color-muted)]">{stat.label}</p>
             </div>
-          </Reveal>
         ))}
       </div>
 

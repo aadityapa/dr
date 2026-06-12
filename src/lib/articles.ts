@@ -128,7 +128,7 @@ export const articles: Article[] = [
       "Many autistic children experience sensory processing differences that make everyday environments overwhelming. OT addresses these through sensory integration therapy — guided activities in a sensory-rich gym that help the nervous system organize input more efficiently. Combined with personalized sensory diets, many families see reduced meltdowns and increased tolerance of malls, classrooms, and social gatherings.",
       "Daily living skills — dressing, feeding, grooming, toileting — are core OT domains. Structured, play-based intervention helps autistic children build independence in routines that reduce family stress and increase autonomy. Fine and gross motor skills support classroom participation, from pencil grip to playground engagement.",
       "Social participation is supported through guided play, turn-taking activities, and building the regulation skills that make social connection possible. OT does not teach social scripts — it builds the foundational skills that enable authentic interaction.",
-      "Dr. Sharuja Sarap brings 16+ years of experience working with autistic children in Mumbai, with certifications in sensory integration, MNRI, OPT, and more. If your child has autism or you suspect sensory-motor challenges, a consultation at our Kandivali West clinic can clarify how OT can support your family's goals.",
+      "Dr. Sharuja Sarap brings 18+ years of experience working with autistic children in Mumbai, with certifications in sensory integration, MNRI, OPT, and more. If your child has autism or you suspect sensory-motor challenges, a consultation at our Kandivali West clinic can clarify how OT can support your family's goals.",
     ],
   },
   {

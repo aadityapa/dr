@@ -43,7 +43,7 @@ export const locationPages: LocationPage[] = [
     metaDescription: "Expert pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap. Sensory integration, Brain Gym, aquatic & handwriting therapy for children 0–14.",
     keywords: ["occupational therapist Mumbai", "pediatric OT Mumbai", "child OT Mumbai"],
     headline: "Pediatric Occupational Therapist in Mumbai",
-    intro: "Families across Mumbai trust Dr. Sharuja Sarap for compassionate, evidence-based pediatric occupational therapy. Based in Kandivali West, Thrive with sharuja serves children from Borivali, Malad, Goregaon, Andheri, and beyond — offering sensory-integrative care that helps children regulate, connect, participate, and thrive. With 16+ years of experience and 8+ specialized certifications including Brain Gym, Handwriting Without Tears, and Aquatherapy, Dr. Sharuja provides individualized programs that address the whole child — not just a diagnosis.",
+    intro: "Families across Mumbai trust Dr. Sharuja Sarap for compassionate, evidence-based pediatric occupational therapy. Based in Kandivali West, Thrive with sharuja serves children from Borivali, Malad, Goregaon, Andheri, and beyond — offering sensory-integrative care that helps children regulate, connect, participate, and thrive. With 18+ years of experience and 8+ specialized certifications including Brain Gym, Handwriting Without Tears, and Aquatherapy, Dr. Sharuja provides individualized programs that address the whole child — not just a diagnosis.",
     whyChoose: [
       "Central Kandivali West location accessible from across Mumbai",
       "Comprehensive pediatric OT with 8+ specialized certifications",
@@ -56,7 +56,7 @@ export const locationPages: LocationPage[] = [
     localFaqs: [
       { q: "Do you serve families outside Kandivali?", a: "Yes. Families travel from across Mumbai including Borivali, Malad, Goregaon, Andheri, and Dahisar for Dr. Sharuja Sarap's specialized care." },
       { q: "Is parking available near the clinic?", a: "Street parking is available near S.V.P. Road, Kandivali West. We recommend arriving 10 minutes early." },
-      { q: "What makes Thrive with sharuja different?", a: "Dr. Sharuja Sarap combines 16+ years of experience with certifications in Brain Gym, HWT, Aquatherapy, MNRI, and sensory integration for holistic pediatric care." },
+      { q: "What makes Thrive with sharuja different?", a: "Dr. Sharuja Sarap combines 18+ years of experience with certifications in Brain Gym, HWT, Aquatherapy, MNRI, and sensory integration for holistic pediatric care." },
     ],
   },
   {
