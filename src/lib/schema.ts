@@ -27,7 +27,7 @@ export function organizationSchema() {
     telephone: siteConfig.phone,
     address: postalAddress(),
     founder: personSchema(),
-    sameAs: [],
+    sameAs: [googleReviews.mapsUrl],
   };
 }
 
@@ -86,6 +86,7 @@ export function localBusinessSchema(overrides?: { name?: string; description?: s
     areaServed: overrides?.areaServed ?? ["Mumbai", "Kandivali West", "Borivali", "Malad", "Goregaon"],
     priceRange: "$$",
     image: `${siteConfig.url}/opengraph-image`,
+    sameAs: [googleReviews.mapsUrl],
   };
 }
 
