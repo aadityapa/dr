@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { NewsletterSignup } from "@/components/forms/newsletter-signup";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
@@ -67,6 +68,10 @@ export default function ResourcesPage() {
               </Card>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-12">
+          <NewsletterSignup className="mx-auto max-w-2xl" />
         </div>
       </Section>
     </main>
