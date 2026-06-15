@@ -61,7 +61,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           { name: condition.title, url: `${siteConfig.url}/conditions/${slug}` },
         ]}
       />
-      <PageHero kicker="Condition Guide" title={condition.title} description={condition.intro} />
+      <PageHero kicker="For parents" title={condition.title} description={condition.intro} />
 
       <Section>
         <div className="prose-custom mx-auto max-w-4xl space-y-12">
@@ -72,7 +72,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           ))}
 
           <article>
-            <SectionHeading title="Signs & Symptoms" />
+            <SectionHeading title="You might notice..." />
             <ul className="mt-4 space-y-2">
               {condition.symptoms.map((s) => (
                 <li key={s} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -84,7 +84,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           </article>
 
           <article>
-            <SectionHeading title="Common Challenges for Families" />
+            <SectionHeading title="What this can feel like at home" />
             <ul className="mt-4 space-y-2">
               {condition.challenges.map((c) => (
                 <li key={c} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -96,7 +96,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           </article>
 
           <article>
-            <SectionHeading title="How Occupational Therapy Helps" />
+            <SectionHeading title="How we walk alongside you" />
             <ul className="mt-4 space-y-2">
               {condition.therapyRole.map((t) => (
                 <li key={t} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -108,7 +108,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           </article>
 
           <article>
-            <SectionHeading title="Benefits of Therapy" />
+            <SectionHeading title="What families often see" />
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {condition.benefits.map((b) => (
                 <Card key={b}>
@@ -120,7 +120,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
 
           <article className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6">
             <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-              When to See a Doctor or Therapist
+              When to reach out
             </h2>
             <ul className="mt-4 space-y-2">
               {(depth?.whenToSeeDoctor ?? []).map((item) => (
@@ -141,7 +141,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
 
           {depth && (
             <article>
-              <SectionHeading title="Success Outcomes We See" />
+              <SectionHeading title="Progress we're grateful to witness" />
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {depth.successOutcomes.map((outcome) => (
                   <Card key={outcome}>

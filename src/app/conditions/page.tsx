@@ -22,9 +22,9 @@ export default function ConditionsPage() {
     <main>
       <Breadcrumbs items={[{ name: "Conditions", url: `${siteConfig.url}/conditions` }]} />
       <PageHero
-        kicker="Conditions"
-        title="Understanding your child's unique journey"
-        description="Every child blooms on their own timeline. We meet you with warmth, clarity, and the expertise to support your family."
+        kicker="For parents"
+        title="When something feels harder than it should"
+        description="You don't need a diagnosis to have questions. Whether it's meltdowns, handwriting, attention, or simply a gut feeling — we're here to listen and help you understand what support might look like."
       />
 
       <Section>
@@ -32,7 +32,7 @@ export default function ConditionsPage() {
 
         <Reveal className="mt-12 text-center">
           <Button asChild size="lg">
-            <Link href="/appointment">Schedule a Consultation</Link>
+            <Link href="/appointment">Start With a Conversation</Link>
           </Button>
         </Reveal>
       </Section>

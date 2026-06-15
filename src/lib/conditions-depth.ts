@@ -8,7 +8,7 @@ export type ConditionDepthContent = {
 
 function baseExplanation(condition: string): string[] {
   return [
-    `If you are researching ${condition} for your child, you are taking an important step. Dr. Sharuja Sarap provides compassionate pediatric occupational therapy at Thrive With Sharuja in Kandivali West, Mumbai.`,
+    `If you're reading about ${condition}, you're probably carrying worry you haven't said out loud yet. That's okay. Dr. Sharuja has walked alongside hundreds of Mumbai families who felt exactly the same.`,
   ];
 }
 

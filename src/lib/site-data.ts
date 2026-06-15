@@ -132,12 +132,12 @@ export const googleReviews = {
 };
 
 export const doctorTimeline = [
-  { year: "2006+", title: "Pediatric OT Practice Begins", description: "Started dedicated pediatric occupational therapy practice in Mumbai." },
-  { year: "2012", title: "Master's in Pediatric OT", description: "Advanced specialization in pediatric occupational therapy." },
-  { year: "2015", title: "Brain Gym Certification", description: "Certified Brain Gym Instructor & Practitioner for learning readiness." },
-  { year: "2018", title: "International Certifications", description: "HWT, Aquatherapy (IATF), MNRI, OPT, PIASTM, and Kinesio Taping credentials." },
-  { year: "2022", title: "Ph.D. Scholar", description: "Continuing advanced research in pediatric sensory-motor development." },
-  { year: "Today", title: "500+ Families Supported", description: "Serving children birth to 14 years at Thrive With Sharuja, Kandivali West." },
+  { year: "2006+", title: "Pediatric practice begins", description: "Dedicated to children and families in Mumbai — one child at a time." },
+  { year: "2012", title: "Master's in Pediatric OT", description: "Advanced training to support children more deeply." },
+  { year: "2015", title: "Brain Gym certification", description: "Movement tools for children who struggle to focus and learn." },
+  { year: "2018", title: "International certifications", description: "Handwriting, aquatics, reflex integration, feeding, and more — to meet each child where they are." },
+  { year: "2022", title: "Ph.D. scholar", description: "Continuing research in how children grow, move, and learn." },
+  { year: "Today", title: "500+ families supported", description: "Still in Kandivali West — still listening first." },
 ];
 
 export const therapyFlow = [
@@ -588,121 +588,121 @@ export const conditions = [
     slug: "autism-spectrum-disorder",
     title: "Autism Spectrum Disorder",
     description:
-      "We support children with ASD in sensory regulation, communication readiness, social participation, and daily routine independence through structured, play-led interventions.",
+      "We honour how your child experiences the world — and build skills for calmer days, easier routines, and more confident participation.",
     reassurance:
-      "Every child's unique way of learning is respected, celebrated, and nurtured with consistency and warmth.",
+      "Your child's way of being is respected here. We focus on what makes daily life easier — for them and for you.",
   },
   {
     slug: "adhd",
     title: "ADHD",
     description:
-      "Therapy focuses on attention regulation, impulse modulation, executive function, and emotional self-management to improve school and home functioning.",
-    reassurance: "With the right strategies, children with ADHD can channel their strengths beautifully.",
+      "We work with your child's energy — not against it — to build focus, routines, and confidence at home and school.",
+    reassurance: "Your child isn't lazy. With the right support, they can feel capable again.",
   },
   {
     slug: "cerebral-palsy",
     title: "Cerebral Palsy",
     description:
-      "We address posture, motor planning, adaptive skills, and functional participation with collaborative family-centered care.",
-    reassurance: "Small functional gains create meaningful confidence for children and parents alike.",
+      "We focus on what matters: dressing, eating, playing, learning — with patience and celebration at every step.",
+    reassurance: "Every small gain is a real win. We notice them — and so will you.",
   },
   {
     slug: "developmental-delay",
     title: "Developmental Delay",
     description:
-      "Early, goal-focused intervention supports foundational milestones in movement, play, communication readiness, and self-care routines.",
-    reassurance: "Timely support can significantly improve long-term independence and participation.",
+      "Your child is on their own timeline. Gentle, early support can make that path feel less lonely.",
+    reassurance: "Trust your instinct. You don't have to wait for a label to ask for help.",
   },
   {
     slug: "sensory-processing-difficulties",
     title: "Sensory Processing Difficulties",
     description:
-      "We help children understand and regulate sensory input to reduce overwhelm, improve behavior, and increase daily engagement.",
-    reassurance: "A calmer nervous system opens the door to learning, connection, and joyful growth.",
+      "When the world feels too loud, too scratchy, or too much — we help your child's nervous system find calm.",
+    reassurance: "It's not bad behaviour. It's a body that needs understanding.",
   },
   {
     slug: "learning-difficulties",
     title: "Learning Difficulties",
     description:
-      "Movement-based and sensory-integrative approaches support reading, writing, processing, and classroom participation.",
-    reassurance: "Learning becomes possible when the body and brain work together with confidence.",
+      "When tutoring isn't enough, we look at what's blocking learning — and build foundations that last.",
+    reassurance: "Bright children struggle too. That doesn't mean they can't succeed.",
   },
   {
     slug: "motor-coordination-challenges",
     title: "Motor Coordination Challenges",
     description:
-      "Targeted intervention improves balance, motor planning, bilateral coordination, and confidence in physical activities.",
-    reassurance: "With practice and the right support, coordination skills grow steadily over time.",
+      "Clumsy, hesitant, or avoiding sports? We build balance and coordination through play — so movement feels safer.",
+    reassurance: "Coordination grows with practice. We make that practice feel like fun, not failure.",
   },
   {
     slug: "handwriting-difficulties",
     title: "Handwriting Difficulties",
     description:
-      "Certified HWT-based training addresses grip, formation, speed, and the underlying motor skills needed for fluent writing.",
-    reassurance: "Clear, confident handwriting is achievable with the right foundation and practice.",
+      "When writing hurts, looks messy, or takes forever — we fix the foundations, not just the letters.",
+    reassurance: "Legible, comfortable writing is possible. We've seen it happen many times.",
   },
   {
     slug: "attention-difficulties",
     title: "Attention Difficulties",
     description:
-      "Brain Gym® and OT strategies help children sustain focus, manage distractions, and build learning readiness.",
-    reassurance: "Attention skills can be strengthened through movement, structure, and compassionate support.",
+      "When focus won't stick — we use movement and structure to help your child's brain stay with the task.",
+    reassurance: "Attention is a skill. It can be built, gently and steadily.",
   },
   {
     slug: "primitive-reflex-retention",
     title: "Primitive Reflex Retention",
     description:
-      "RMTI and MNRI-based interventions help integrate retained reflexes that affect posture, coordination, attention, and emotional regulation.",
-    reassurance: "With targeted reflex integration, nervous system foundations can strengthen at any age.",
+      "Sometimes the body holds onto early reflexes that make sitting, writing, and calming down harder than they need to be.",
+    reassurance: "These foundations can be strengthened — at any age.",
   },
   {
     slug: "emotional-regulation-difficulties",
     title: "Emotional Regulation Difficulties",
     description:
-      "Sensory-integrative OT and movement-based strategies help children understand, express, and manage emotions for calmer daily participation.",
-    reassurance: "Regulation is a skill that grows with the right support, structure, and compassionate guidance.",
+      "Big feelings that come fast and stay long — we help your child (and you) find calmer ground.",
+    reassurance: "Meltdowns aren't manipulation. They're a nervous system asking for help.",
   },
   {
     slug: "school-readiness-concerns",
     title: "School Readiness Concerns",
     description:
-      "Comprehensive OT prepares children for classroom success — pencil grip, sitting tolerance, self-regulation, and social participation.",
-    reassurance: "School readiness builds gradually; early support creates confident, capable learners.",
+      "Not sure they're ready for the classroom? We build the sitting, writing, and self-regulation skills school quietly expects.",
+    reassurance: "Readiness isn't a date on the calendar. It's skills — and we can build them together.",
   },
   {
     slug: "down-syndrome",
     title: "Down Syndrome",
     description:
-      "Family-centered OT supports motor development, self-care skills, sensory regulation, and meaningful participation for children with Down syndrome.",
-    reassurance: "Every child with Down syndrome has unique strengths — therapy celebrates progress at every step.",
+      "We celebrate your child's strengths while building the motor, sensory, and daily-life skills that matter to your family.",
+    reassurance: "Progress looks different for every child. We honour every step.",
   },
   {
     slug: "feeding-oral-motor-challenges",
     title: "Feeding & Oral Motor Challenges",
     description:
-      "OPT-certified intervention addresses picky eating, oral aversions, chewing difficulties, and mealtime stress through sensory-motor strategies.",
-    reassurance: "Mealtimes can become enjoyable again with patient, specialized oral-motor support.",
+      "Picky eating, gagging, or mealtime battles — we work patiently toward safer, happier eating.",
+    reassurance: "Mealtimes can get easier. We've helped many families get there.",
   },
   {
     slug: "social-participation-challenges",
     title: "Social Participation Challenges",
     description:
-      "OT builds the sensory, motor, and regulation foundations children need for confident peer interaction, play, and group activities.",
-    reassurance: "Social confidence grows when children feel regulated, capable, and supported.",
+      "When play dates feel hard and friendships feel far away — we build the regulation and confidence underneath.",
+    reassurance: "Social skills grow from feeling safe in your own body first.",
   },
   {
     slug: "fine-motor-challenges",
     title: "Fine Motor Challenges",
     description:
-      "Targeted OT develops hand strength, dexterity, tool use, and precision for writing, self-care, and classroom tasks.",
-    reassurance: "Fine motor skills improve steadily with purposeful, play-based practice.",
+      "Buttons, scissors, pencils — when small tasks feel big, we strengthen hands through play.",
+    reassurance: "Small muscles respond to patient, purposeful practice.",
   },
   {
     slug: "gross-motor-difficulties",
     title: "Gross Motor Difficulties",
     description:
-      "OT and aquatic therapy improve balance, strength, coordination, and confidence in large movement activities and physical play.",
-    reassurance: "With practice and support, children gain the physical confidence to participate fully.",
+      "Running, climbing, keeping up on the playground — we build strength and confidence in big movement.",
+    reassurance: "Physical confidence opens doors to play, sport, and belonging.",
   },
 ];
 

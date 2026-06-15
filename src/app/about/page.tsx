@@ -10,16 +10,15 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { getCardPastel } from "@/lib/pastel-palette";
+import { aboutVoice } from "@/lib/parent-voice-conditions";
 import { doctorProfile, siteConfig } from "@/lib/site-data";
+import { getSiteImage } from "@/lib/site-images";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { GraduationCap } from "lucide-react";
 
-const PORTRAIT =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDqme4z4q7U9PFUK64TAVhA4QWFLHvL0wqKUfcBcSwsRDn8b7TDNvjK3Lkf0sUaVOpqUpNryt8RxKeEAlz66__rEYyIIXbo4G0LzQ7JCHlGeaz85vpJ8r0FwZtAhDB-7sjXWavcfD3L4DQXZdq08z3pYB4nHAJe3YvGXX4ui66_QbrI4gvYHLCO-Tp_chdk02RRU_7SEeiExzW3YQrGpBTN8-yAUkGloVI40V-yxVpN3PeLtBWZKWpmo27TcZVMW3N4ewkttEcDvh0";
-
 export const metadata: Metadata = buildPageMetadata({
   title: `About ${siteConfig.doctorName}`,
-  description: doctorProfile.bio,
+  description: aboutVoice.heroDescription,
   path: "/about",
   keywords: mumbaiKeywords("pediatric occupational therapist Mumbai", "Dr. Sharuja Sarap OT"),
 });
@@ -28,12 +27,12 @@ export default function AboutPage() {
   return (
     <main>
       <PageHero
-        kicker="About"
-        title={`Meet ${siteConfig.doctorName}`}
-        description={doctorProfile.bio}
+        kicker={aboutVoice.heroKicker}
+        title={aboutVoice.heroTitle}
+        description={aboutVoice.heroDescription}
       >
         <Button asChild>
-          <Link href="/appointment">Book a Consultation</Link>
+          <Link href="/appointment">Book a Conversation</Link>
         </Button>
       </PageHero>
 
@@ -42,8 +41,8 @@ export default function AboutPage() {
           <Reveal>
             <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
               <Image
-                src={PORTRAIT}
-                alt="Dr. Sharuja Sarap, Pediatric Occupational Therapist, with a warm, professional expression"
+                src={getSiteImage("doctorPortrait")}
+                alt="Dr. Sharuja Sarap — pediatric occupational therapist in Kandivali, Mumbai"
                 width={600}
                 height={750}
                 sizes="(max-width: 1024px) 100vw, 600px"
@@ -57,17 +56,23 @@ export default function AboutPage() {
                 {siteConfig.title}
               </p>
               <h2 className="mt-2 font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">
-                Expertise with heartfelt care
+                {aboutVoice.storyTitle}
               </h2>
-              <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">{doctorProfile.bio}</p>
+              <div className="mt-4 space-y-4">
+                {aboutVoice.storyParagraphs.map((para) => (
+                  <p key={para.slice(0, 48)} className="leading-relaxed text-[color:var(--color-muted)]">
+                    {para}
+                  </p>
+                ))}
+              </div>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl p-4" style={{ backgroundColor: "#D6E8F5", border: "1px solid #A8CCE8" }}>
                   <p className="text-2xl font-bold text-[#1E4A6E]">{siteConfig.experienceYears}+</p>
-                  <p className="text-sm text-[color:var(--color-muted)]">Years of Experience</p>
+                  <p className="text-sm text-[color:var(--color-muted)]">Years walking with families</p>
                 </div>
                 <div className="rounded-2xl p-4" style={{ backgroundColor: "#E4DDF5", border: "1px solid #C9BCE8" }}>
-                  <p className="text-2xl font-bold text-[#4A3570]">10+</p>
-                  <p className="text-sm text-[color:var(--color-muted)]">Specialized Programs</p>
+                  <p className="text-2xl font-bold text-[#4A3570]">500+</p>
+                  <p className="text-sm text-[color:var(--color-muted)]">Families supported</p>
                 </div>
               </div>
             </div>
@@ -76,7 +81,12 @@ export default function AboutPage() {
       </Section>
 
       <Section className="rounded-[2rem] bg-[color:var(--color-almond)]">
-        <SectionHeading kicker="Qualifications" title="Education & credentials" center />
+        <SectionHeading
+          kicker="Background"
+          title={aboutVoice.qualificationsTitle}
+          description={aboutVoice.qualificationsDescription}
+          center
+        />
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {doctorProfile.qualifications.map((q, i) => {
             const pastel = getCardPastel(i);
@@ -100,8 +110,8 @@ export default function AboutPage() {
       <Section>
         <SectionHeading
           kicker="Certifications"
-          title="Specialized certifications"
-          description="Advanced international training across sensory integration, aquatic therapy, reflex integration, and more."
+          title={aboutVoice.certificationsTitle}
+          description={aboutVoice.certificationsDescription}
           center
         />
         <Reveal className="mt-10">

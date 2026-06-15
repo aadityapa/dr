@@ -2,15 +2,16 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { getCardPastel } from "@/lib/pastel-palette";
+import { aboutVoice } from "@/lib/parent-voice-conditions";
 import { doctorTimeline } from "@/lib/site-data";
 
 export function ProfessionalJourneySection() {
   return (
     <Section className="rounded-[2rem] bg-white/70">
       <SectionHeading
-        kicker="Professional Journey"
-        title="A career built on pediatric expertise"
-        description="From early practice in Mumbai to advanced international certifications — a path dedicated to helping children thrive."
+        kicker={aboutVoice.journeyKicker}
+        title={aboutVoice.journeyTitle}
+        description={aboutVoice.journeyDescription}
         center
       />
       <div className="mx-auto mt-10 max-w-3xl space-y-3">

@@ -1,4 +1,5 @@
 import { additionalConditionsContent } from "./conditions-content-additional";
+import { applyParentVoiceToCondition } from "./parent-voice-conditions";
 
 export type ConditionContent = {
   slug: string;
@@ -491,5 +492,7 @@ export const conditionsContent: ConditionContent[] = [
 export const allConditionsContent = [...conditionsContent, ...additionalConditionsContent];
 
 export function getConditionContent(slug: string) {
-  return allConditionsContent.find((c) => c.slug === slug);
+  const condition = allConditionsContent.find((c) => c.slug === slug);
+  if (!condition) return undefined;
+  return applyParentVoiceToCondition(condition);
 }
