@@ -10,7 +10,7 @@ import { services } from "@/lib/site-data";
 
 export function ServicesPreview() {
   return (
-    <Section id="services" className="bg-white">
+    <Section id="services" compact className="bg-white">
       <SectionHeading
         kicker="Our Services"
         title="Programs designed around your child"

@@ -9,7 +9,7 @@ import { conditions } from "@/lib/site-data";
 
 export function WhoWeHelpSection() {
   return (
-    <Section id="who-we-help" className="bg-[color:var(--color-snow)]">
+    <Section id="who-we-help" compact className="bg-[color:var(--color-snow)]">
       <SectionHeading
         kicker="Who We Help"
         title="Every child&apos;s story is different — and every one matters"

@@ -1,3 +1,5 @@
+import { getSiteImage } from "@/lib/site-images";
+
 export const siteConfig = {
   name: "Thrive With Sharuja",
   shortName: "Thrive With Sharuja",
@@ -112,7 +114,7 @@ export const googleReviews = {
       author: "Rahul & Anjali K.",
       rating: 5,
       date: "2025-10-28",
-      text: "We travelled from Borivali for aquatic therapy and it was worth every visit. Our daughter's balance and confidence have grown tremendously. Highly recommend Thrive with sharuja.",
+      text: "We travelled from Borivali for aquatic therapy and it was worth every visit. Our daughter's balance and confidence have grown tremendously. Highly recommend Thrive With Sharuja.",
     },
     {
       author: "Sneha D.",
@@ -755,43 +757,37 @@ export const galleryItems = [
     title: "Warm Therapy Room",
     category: "Therapy Room",
     alt: "Calm, naturally lit pediatric occupational therapy room with soft seating and organized therapy tools",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAcAszxr_aw7t2MBMC5q7Zdqqdz8C8Ha0zWn8ssz-mL9RU0cThEtPr055IlAYzGk-RFbotjgKGOCTNig_SQTeYmHk-bj-qhRzbsLVjUTMhgjMY8pOKrOaY0QxZOw9OreLZ2JpXVi2reTXBYgW_28gLkkmEO52fFiD2pCy4WIQea6LsvLKIC7SIVOe18xylTbcBE2DEj1dfNiBzZcSD9qe0AWaRbyc1O-a6GhdqvB9XaS7WZa-lZfF8ef6_59aDZcckn1vkLedvBlK4",
+    image: getSiteImage("sensoryGym"),
   },
   {
     title: "Assessment & Evaluation Space",
     category: "Assessment Area",
     alt: "Child-friendly assessment and evaluation area used for developmental and sensory-motor screening",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCeoZkBYzn93ZY5eHYUUVXZKScDqSl4PilFvk0YMZi7yu3lIqh9KXLHADwpsnMvceBYYu6UR2bZUrv9KQYVwNvnE92ZZpbHcJLKLCxB80CEA13jwP7A6sjZ0GT5LFUn9d7OrsX3MK6-1eKi69xngkuoLl7Wos_8Xva82ZTiFzWKb2696wF702noRassWo_iPwVmpbj-45zzcxcBBvWZUtJN0h7QSWmYY-VGxNoSADl7wzyN0wF6jajP7hmQsjvg7pULU-fceNNYYUc",
+    image: getSiteImage("doctorPortrait"),
   },
   {
     title: "Aquatic Therapy Session",
     category: "Aquatic Therapy",
     alt: "Supervised pediatric aquatic therapy session supporting balance, strength, and sensory regulation in water",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA1tGtJdDw-86lEdpx-I69_MlMGwrBW_XudUkEM3fusMOYLjKWRBGhxlQXcJR4mhDJxpx1ySvxAwQEZqUlk3JHxsG-gqsmEzKKnkQRTL3KY3UcxWGUXiear5U9ppi84HnEiKs3cgsp3IMON5-swfmKiIeu3u3pukQyWIxAxcI8Sfthn2m04HLMGiBml4ymcem3d8o8PDYtb7ZQ-kZSY9iWaPfjay2RoYV5RT-o-EU5zjCZx1gof8J8eAj0oIRssT38aasQo6NxrRSc",
+    image: getSiteImage("aquaticArea"),
   },
   {
     title: "Sensory Equipment",
     category: "Therapy Equipment",
     alt: "Pediatric sensory integration equipment including swings, textured tools, and weighted supports",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD64jn5OFwenkccgK2NlqJOvDh9H9CxtBDZhju6lbekQ8OIi_-WJfZhTCup3Hj3RRP1rro1sfhBsHWkqVcWYUnQnvmVkjpAiputk_ytiPQRxf1QwvrpkXhdl196BO9KLUuLeK-QP6460pPQjyyMlu6k1UTRNa84k3Kj2RwPb-BBS6XUtw6oi9t_fDSBTpLfMQv4v1TFE8hUbKJVXHajE2MNqTAHbWV3Wh91B7SaC0AHMfBC0Klyok_BwrPOHRaL2tpQQ9mcpWXutRw",
+    image: getSiteImage("sensoryTools"),
   },
   {
     title: "Child-Friendly Play Zone",
     category: "Child-Friendly Environment",
     alt: "Bright, child-friendly play zone designed to make therapy feel safe, playful, and engaging",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAm8al5naOx-QQ-lNFcajeZGEjjiIGhO-kj_rAIxSvkEFrAW-2DEaxpjwDUhEfYFwZ40gTWfaq2Uz3DCzE2YUT9ndY30fpKW0PcTojUJpU6-QpyvGQKA4rkSV6IHdFxxPyZBf3QlQRnykgsxKp2-zyhQn3Z5aNOgUacjeoBbm7fu6xhG2CNF0Ng-o1Hrq2y2D4Udu_MV4nirnsKhnlACWz4PO6xOvZBv5skM9KrBsONS02KWLcGnAYAxCn4MlEnlwO2HsJ_rlwgb5g",
+    image: getSiteImage("heroMain"),
   },
   {
     title: "Sensory Gym",
     category: "Therapy Room",
     alt: "Indoor pediatric sensory gym with climbing structures and movement equipment for motor development",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA79cJAmtLdSx0b822x31t77ABNVo2UpWxWBOmFfakt3tQ6owyMMw8r8TtBUXYGzROV9xodjRQ6I_RpH7Tr7zp3R6ITT-ao-rBDZbC-7d3w68luZv0d7z7iXAyc2zOWAb8xneDXsX_KwkJCn7waH_kip3cct7Opxf-iYKl-bZ4OjkREohRNNxVZ3tdmNQp-YO5MlWs4W2SJRlshpMFw26UNnyju34Gq3T1IzaWXkY7_NHvWO_1JfB7LocCtKP8aKLlOf67GxWfmqfI",
+    image: getSiteImage("reception"),
   },
 ];
 

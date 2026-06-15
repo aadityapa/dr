@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 import { ClinicTourSection } from "@/components/home/clinic-tour-section";
 import { DoctorAuthoritySection } from "@/components/home/doctor-authority-section";
+import { GoogleReviewsSection } from "@/components/home/google-reviews-section";
 import { HeroSection } from "@/components/home/hero-section";
-import { HomeStorySceneLazy } from "@/components/home/home-story-scene-lazy";
+import { HomeCertificationsPreview } from "@/components/home/home-certifications-preview";
 import { HomeContactSection } from "@/components/home/home-contact-section";
 import { HomeFaqSection } from "@/components/home/home-faq-section";
 import { ServicesPreview } from "@/components/home/services-preview";
@@ -24,11 +25,12 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <HomeStorySceneLazy />
       <DoctorAuthoritySection />
-      <WhoWeHelpSection />
+      <HomeCertificationsPreview />
       <ServicesPreview />
+      <WhoWeHelpSection />
       <TherapyJourneyHome />
+      <GoogleReviewsSection />
       <SuccessStoriesSection />
       <ClinicTourSection />
       <HomeFaqSection />

@@ -3,20 +3,23 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/shared/json-ld";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { faqCategories } from "@/lib/faqs";
+import { faqPageSchema } from "@/lib/schema";
 
 const HOME_FAQS = faqCategories.slice(0, 3).flatMap((cat) => cat.faqs.slice(0, 2));
 
 export function HomeFaqSection() {
   return (
-    <Section id="faq" className="bg-[color:var(--color-snow)]">
+    <Section id="faq" compact className="bg-[color:var(--color-snow)]">
+      <JsonLd data={faqPageSchema(HOME_FAQS)} id="home-faq-schema" />
       <SectionHeading
         kicker="FAQ"
         title="Questions parents ask us most"
-        description="Quick answers — with the option to explore everything in our full FAQ library."
+        description="Quick answers — explore 100+ FAQs in our full library."
         center
       />
 

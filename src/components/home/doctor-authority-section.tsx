@@ -1,36 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GraduationCap } from "lucide-react";
+import { Award, GraduationCap, ShieldCheck, Stethoscope } from "lucide-react";
 
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { doctorProfile, siteConfig } from "@/lib/site-data";
+import { getSiteImage } from "@/lib/site-images";
 
-const DOCTOR_IMAGE =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCeoZkBYzn93ZY5eHYUUVXZKScDqSl4PilFvk0YMZi7yu3lIqh9KXLHADwpsnMvceBYYu6UR2bZUrv9KQYVwNvnE92ZZpbHcJLKLCxB80CEA13jwP7A6sjZ0GT5LFUn9d7OrsX3MK6-1eKi69xngkuoLl7Wos_8Xva82ZTiFzWKb2696wF702noRassWo_iPwVmpbj-45zzcxcBBvWZUtJN0h7QSWmYY-VGxNoSADl7wzyN0wF6jajP7hmQsjvg7pULU-fceNNYYUc";
+const AUTHORITY_STATS = [
+  { icon: Stethoscope, value: `${siteConfig.experienceYears}+`, label: "Years Experience" },
+  { icon: ShieldCheck, value: `Reg. ${siteConfig.registrationNumber}`, label: "Allied Health Council" },
+  { icon: GraduationCap, value: "Ph.D. Scholar", label: "Pediatric OT Research" },
+  { icon: Award, value: "10+ Programs", label: "International Certs" },
+] as const;
 
 export function DoctorAuthoritySection() {
   return (
-    <Section id="meet-doctor" className="bg-[color:var(--color-almond)]">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <Section id="meet-doctor" compact className="bg-[color:var(--color-almond)]">
+      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal>
           <div className="relative mx-auto max-w-md lg:mx-0">
             <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
               <Image
-                src={DOCTOR_IMAGE}
+                src={getSiteImage("doctorPortrait")}
                 alt={`${siteConfig.doctorName} — Pediatric Occupational Therapist in Kandivali, Mumbai`}
                 width={480}
                 height={560}
                 className="aspect-[5/6] w-full object-cover"
               />
-            </div>
-            <div className="absolute -bottom-4 -right-4 rounded-2xl border border-white/80 bg-white px-5 py-4 shadow-xl">
-              <p className="text-2xl font-[family-name:var(--font-serif)] text-[color:var(--color-sage-dark)]">
-                {siteConfig.experienceYears}+
-              </p>
-              <p className="text-xs font-medium text-[color:var(--color-muted)]">Years Experience</p>
             </div>
           </div>
         </Reveal>
@@ -38,20 +37,32 @@ export function DoctorAuthoritySection() {
         <div>
           <Reveal>
             <SectionHeading
-              kicker="Meet Your Therapist"
-              title={`Meet ${siteConfig.doctorName}`}
-              description="Ph.D. Scholar · Master's in Pediatric OT · Certified Brain Gym Instructor"
+              kicker="Meet Dr Sharuja"
+              title={siteConfig.doctorName}
+              description="Pediatric Occupational Therapy Specialist · Kandivali West, Mumbai"
             />
             <p className="mt-4 max-w-prose leading-relaxed text-[color:var(--color-muted)]">{doctorProfile.bio}</p>
           </Reveal>
 
-          <Reveal delay={0.06} className="mt-6 flex flex-wrap gap-2">
-            {doctorProfile.qualifications.map((item) => (
+          <Reveal delay={0.05} className="mt-6 grid grid-cols-2 gap-3">
+            {AUTHORITY_STATS.map(({ icon: Icon, value, label }) => (
+              <div
+                key={label}
+                className="rounded-xl border border-[color:var(--color-border)]/70 bg-white px-4 py-3 shadow-sm"
+              >
+                <Icon className="mb-1.5 h-4 w-4 text-[color:var(--color-sage)]" aria-hidden="true" />
+                <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">{value}</p>
+                <p className="text-[11px] text-[color:var(--color-muted)]">{label}</p>
+              </div>
+            ))}
+          </Reveal>
+
+          <Reveal delay={0.08} className="mt-6 flex flex-wrap gap-2">
+            {doctorProfile.qualifications.slice(0, 4).map((item) => (
               <span
                 key={item}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[color:var(--color-border)] bg-white px-3 py-1.5 text-xs font-medium text-[color:var(--color-sage-dark)]"
+                className="inline-flex items-center rounded-full border border-[color:var(--color-border)] bg-white px-3 py-1.5 text-xs font-medium text-[color:var(--color-sage-dark)]"
               >
-                <GraduationCap className="h-3.5 w-3.5 text-[color:var(--color-sage)]" aria-hidden="true" />
                 {item}
               </span>
             ))}

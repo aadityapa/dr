@@ -6,7 +6,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "Primitive Reflex Retention",
     metaDescription: "RMTI & MNRI reflex integration therapy in Mumbai. Dr. Sharuja Sarap helps children integrate retained primitive reflexes in Kandivali.",
     keywords: ["primitive reflex therapy Mumbai", "reflex integration Kandivali", "RMTI MNRI Mumbai"],
-    intro: "Primitive reflexes are automatic movement patterns present in infancy that should integrate as the brain matures. When these reflexes remain active beyond expected ages, they can affect posture, coordination, attention, reading readiness, and emotional regulation. At Thrive with sharuja, Dr. Sharuja Sarap uses RMTI and MNRI reflex integration approaches to help children in Kandivali West build stronger nervous system foundations.",
+    intro: "Primitive reflexes are automatic movement patterns present in infancy that should integrate as the brain matures. When these reflexes remain active beyond expected ages, they can affect posture, coordination, attention, reading readiness, and emotional regulation. At Thrive With Sharuja, Dr. Sharuja Sarap uses RMTI and MNRI reflex integration approaches to help children in Kandivali West build stronger nervous system foundations.",
     symptoms: [
       "Poor posture — slumping, W-sitting, or head lag",
       "Difficulty with midline crossing and bilateral coordination",
@@ -58,7 +58,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "Emotional Regulation Difficulties",
     metaDescription: "OT for emotional regulation in children Mumbai. Dr. Sharuja Sarap helps kids manage emotions through sensory-motor strategies in Kandivali.",
     keywords: ["emotional regulation therapy Mumbai", "child emotional support Kandivali", "sensory regulation OT"],
-    intro: "Emotional regulation difficulties affect a child's ability to manage feelings, recover from upsets, and respond appropriately to daily challenges. Often linked to sensory processing, motor planning, or nervous system immaturity, these challenges can disrupt family life, school participation, and social relationships. Dr. Sharuja Sarap at Thrive with sharuja provides compassionate, sensory-integrative occupational therapy that helps children build practical regulation skills.",
+    intro: "Emotional regulation difficulties affect a child's ability to manage feelings, recover from upsets, and respond appropriately to daily challenges. Often linked to sensory processing, motor planning, or nervous system immaturity, these challenges can disrupt family life, school participation, and social relationships. Dr. Sharuja Sarap at Thrive With Sharuja provides compassionate, sensory-integrative occupational therapy that helps children build practical regulation skills.",
     symptoms: [
       "Intense emotional reactions disproportionate to triggers",
       "Difficulty calming down after upset or excitement",
@@ -110,7 +110,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "School Readiness Concerns",
     metaDescription: "School readiness OT in Mumbai & Kandivali. Dr. Sharuja Sarap prepares children for classroom success through pediatric occupational therapy.",
     keywords: ["school readiness therapy Mumbai", "pre-school OT Kandivali", "classroom readiness Mumbai"],
-    intro: "School readiness encompasses far more than knowing letters and numbers — it requires pencil control, sitting tolerance, self-regulation, social skills, and the motor foundations for classroom participation. When children enter school without these foundations, frustration and disengagement often follow. Dr. Sharuja Sarap at Thrive with sharuja provides comprehensive school readiness support for families in Kandivali West and across Mumbai.",
+    intro: "School readiness encompasses far more than knowing letters and numbers — it requires pencil control, sitting tolerance, self-regulation, social skills, and the motor foundations for classroom participation. When children enter school without these foundations, frustration and disengagement often follow. Dr. Sharuja Sarap at Thrive With Sharuja provides comprehensive school readiness support for families in Kandivali West and across Mumbai.",
     symptoms: [
       "Poor pencil grip and pre-writing skills for age",
       "Difficulty sitting still during table activities",
@@ -162,7 +162,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "Down Syndrome",
     metaDescription: "Pediatric OT for Down syndrome in Mumbai. Dr. Sharuja Sarap supports motor, sensory & daily living skills in Kandivali West.",
     keywords: ["Down syndrome occupational therapy Mumbai", "OT Down syndrome Kandivali", "pediatric OT Down syndrome"],
-    intro: "Children with Down syndrome benefit enormously from early, individualized occupational therapy that addresses low muscle tone, sensory processing, fine and gross motor development, and daily living independence. At Thrive with sharuja, Dr. Sharuja Sarap provides warm, strength-based pediatric OT that celebrates each child's unique abilities while building the skills for confident participation at home, school, and in the community.",
+    intro: "Children with Down syndrome benefit enormously from early, individualized occupational therapy that addresses low muscle tone, sensory processing, fine and gross motor development, and daily living independence. At Thrive With Sharuja, Dr. Sharuja Sarap provides warm, strength-based pediatric OT that celebrates each child's unique abilities while building the skills for confident participation at home, school, and in the community.",
     symptoms: [
       "Low muscle tone (hypotonia) affecting posture and movement",
       "Delayed fine and gross motor milestones",
@@ -214,7 +214,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "Feeding & Oral Motor Challenges",
     metaDescription: "OPT feeding therapy for children in Mumbai. Dr. Sharuja Sarap addresses picky eating, oral aversions & mealtime challenges in Kandivali.",
     keywords: ["feeding therapy Mumbai", "picky eating OT Kandivali", "oral motor therapy children Mumbai"],
-    intro: "Feeding and oral-motor challenges affect a child's nutrition, growth, family mealtimes, and overall wellbeing. Whether caused by sensory aversions, oral-motor weakness, or developmental differences, these difficulties require specialized, patient intervention. Dr. Sharuja Sarap — certified in Oral Placement Therapy (OPT) — provides compassionate feeding support at Thrive with sharuja in Kandivali West.",
+    intro: "Feeding and oral-motor challenges affect a child's nutrition, growth, family mealtimes, and overall wellbeing. Whether caused by sensory aversions, oral-motor weakness, or developmental differences, these difficulties require specialized, patient intervention. Dr. Sharuja Sarap — certified in Oral Placement Therapy (OPT) — provides compassionate feeding support at Thrive With Sharuja in Kandivali West.",
     symptoms: [
       "Extremely limited food variety — fewer than 10–15 foods",
       "Gagging or refusal with certain textures or temperatures",
@@ -266,7 +266,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "Social Participation Challenges",
     metaDescription: "OT for social participation in children Mumbai. Dr. Sharuja Sarap builds confidence for peer play & group activities in Kandivali.",
     keywords: ["social skills OT Mumbai", "peer play therapy Kandivali", "social participation children"],
-    intro: "Social participation challenges affect a child's ability to engage with peers, join group activities, and build meaningful friendships. These difficulties often stem from underlying sensory, motor, attention, or regulation challenges rather than a lack of desire to connect. Dr. Sharuja Sarap at Thrive with sharuja helps children in Mumbai develop the foundational skills for confident social engagement.",
+    intro: "Social participation challenges affect a child's ability to engage with peers, join group activities, and build meaningful friendships. These difficulties often stem from underlying sensory, motor, attention, or regulation challenges rather than a lack of desire to connect. Dr. Sharuja Sarap at Thrive With Sharuja helps children in Mumbai develop the foundational skills for confident social engagement.",
     symptoms: [
       "Preference for solitary play over peer interaction",
       "Difficulty with turn-taking and sharing",
@@ -318,7 +318,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "Fine Motor Challenges",
     metaDescription: "Fine motor therapy for children in Mumbai. Dr. Sharuja Sarap develops hand skills, dexterity & tool use in Kandivali West.",
     keywords: ["fine motor therapy Mumbai", "hand skills OT Kandivali", "fine motor development children"],
-    intro: "Fine motor challenges affect a child's ability to use their hands precisely for writing, cutting, buttoning, feeding, and countless daily tasks. When fine motor skills lag behind peers, children may avoid activities, fall behind academically, and lose confidence. Dr. Sharuja Sarap provides targeted fine motor occupational therapy at Thrive with sharuja in Kandivali West.",
+    intro: "Fine motor challenges affect a child's ability to use their hands precisely for writing, cutting, buttoning, feeding, and countless daily tasks. When fine motor skills lag behind peers, children may avoid activities, fall behind academically, and lose confidence. Dr. Sharuja Sarap provides targeted fine motor occupational therapy at Thrive With Sharuja in Kandivali West.",
     symptoms: [
       "Weak pencil grip and poor handwriting",
       "Difficulty using scissors, utensils, or tools",
@@ -370,7 +370,7 @@ export const additionalConditionsContent: ConditionContent[] = [
     title: "Gross Motor Difficulties",
     metaDescription: "Gross motor therapy for children in Mumbai. Dr. Sharuja Sarap improves balance, strength & coordination in Kandivali through OT & aquatics.",
     keywords: ["gross motor therapy Mumbai", "balance coordination children Kandivali", "motor skills OT Mumbai"],
-    intro: "Gross motor difficulties affect a child's ability to use large muscle groups for running, jumping, balancing, climbing, and participating in physical play. These challenges impact playground participation, sports, PE classes, and overall physical confidence. Dr. Sharuja Sarap at Thrive with sharuja provides gross motor occupational therapy and aquatic therapy for children across Mumbai.",
+    intro: "Gross motor difficulties affect a child's ability to use large muscle groups for running, jumping, balancing, climbing, and participating in physical play. These challenges impact playground participation, sports, PE classes, and overall physical confidence. Dr. Sharuja Sarap at Thrive With Sharuja provides gross motor occupational therapy and aquatic therapy for children across Mumbai.",
     symptoms: [
       "Delayed walking, running, or jumping for age",
       "Poor balance — frequent falling or unsteadiness",

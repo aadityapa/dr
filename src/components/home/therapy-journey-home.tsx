@@ -36,7 +36,7 @@ export function TherapyJourneyHome() {
   );
 
   return (
-    <Section className="bg-white">
+    <Section compact className="bg-white">
       <SectionHeading
         kicker="Therapy Journey"
         title="What happens when you reach out"

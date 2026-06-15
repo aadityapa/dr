@@ -21,7 +21,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Autism Spectrum Disorder",
     metaDescription: "Pediatric OT for autism in Mumbai & Kandivali. Dr. Sharuja Sarap supports sensory regulation, daily routines & social participation for children with ASD.",
     keywords: ["autism occupational therapy Mumbai", "ASD therapy Kandivali", "sensory therapy autism Mumbai"],
-    intro: "Autism Spectrum Disorder (ASD) affects how children perceive, process, and respond to the world around them. At Thrive with sharuja in Kandivali West, Mumbai, Dr. Sharuja Sarap provides compassionate, evidence-informed occupational therapy that honors each child's unique way of learning, communicating, and connecting. Rather than trying to change who your child is, our approach builds the sensory, motor, and daily living foundations that help children with ASD participate more fully in family life, school, and community.",
+    intro: "Autism Spectrum Disorder (ASD) affects how children perceive, process, and respond to the world around them. At Thrive With Sharuja in Kandivali West, Mumbai, Dr. Sharuja Sarap provides compassionate, evidence-informed occupational therapy that honors each child's unique way of learning, communicating, and connecting. Rather than trying to change who your child is, our approach builds the sensory, motor, and daily living foundations that help children with ASD participate more fully in family life, school, and community.",
     symptoms: [
       "Difficulty with sensory processing — over- or under-reacting to sounds, textures, lights, or movement",
       "Challenges with transitions and changes in routine",
@@ -65,7 +65,7 @@ export const conditionsContent: ConditionContent[] = [
     faqs: [
       { q: "Does my child need an autism diagnosis before starting OT?", a: "No. Therapy can begin based on observed sensory, motor, or participation challenges while diagnostic processes continue." },
       { q: "How is OT for autism different from ABA?", a: "OT addresses sensory-motor foundations for daily participation. ABA focuses on behavior modification. Many families benefit from both approaches." },
-      { q: "Will therapy try to make my child 'normal'?", a: "Never. Our philosophy — Belonging Without Boundaries — celebrates each child's strengths while building skills for meaningful participation." },
+      { q: "Will therapy try to make my child 'normal'?", a: "Never. We build sensory, motor, and daily living skills that help your child participate more fully — while respecting who they are." },
     ],
     relatedServices: ["occupational-therapy", "brain-gym", "handwriting-training"],
   },
@@ -74,7 +74,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "ADHD",
     metaDescription: "ADHD occupational therapy in Mumbai. Dr. Sharuja Sarap helps children with attention, impulse control & executive function through OT and Brain Gym in Kandivali.",
     keywords: ["ADHD occupational therapy Mumbai", "attention therapy Kandivali", "Brain Gym ADHD Mumbai"],
-    intro: "Attention Deficit Hyperactivity Disorder (ADHD) affects a child's ability to sustain focus, regulate impulses, and manage the executive functions needed for school, home, and social life. At Thrive with sharuja, Dr. Sharuja Sarap combines pediatric occupational therapy with Brain Gym® movement strategies to help children with ADHD channel their energy productively, build attention stamina, and develop the self-management skills that lead to lasting confidence.",
+    intro: "Attention Deficit Hyperactivity Disorder (ADHD) affects a child's ability to sustain focus, regulate impulses, and manage the executive functions needed for school, home, and social life. At Thrive With Sharuja, Dr. Sharuja Sarap combines pediatric occupational therapy with Brain Gym® movement strategies to help children with ADHD channel their energy productively, build attention stamina, and develop the self-management skills that lead to lasting confidence.",
     symptoms: [
       "Difficulty sustaining attention during tasks or conversations",
       "Easily distracted by external stimuli or internal thoughts",
@@ -126,7 +126,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Cerebral Palsy",
     metaDescription: "Pediatric OT for cerebral palsy in Mumbai. Dr. Sharuja Sarap supports posture, motor planning & daily participation in Kandivali West.",
     keywords: ["cerebral palsy occupational therapy Mumbai", "CP therapy Kandivali", "pediatric OT cerebral palsy"],
-    intro: "Cerebral palsy affects movement, posture, and motor coordination due to early brain injury or development differences. At Thrive with sharuja in Kandivali West, Dr. Sharuja Sarap provides family-centered occupational therapy that focuses on what matters most — your child's ability to participate in daily life, play, and learning with greater independence and confidence.",
+    intro: "Cerebral palsy affects movement, posture, and motor coordination due to early brain injury or development differences. At Thrive With Sharuja in Kandivali West, Dr. Sharuja Sarap provides family-centered occupational therapy that focuses on what matters most — your child's ability to participate in daily life, play, and learning with greater independence and confidence.",
     symptoms: [
       "Muscle stiffness (spasticity) or floppiness (hypotonia)",
       "Asymmetric posture or favoring one side of the body",
@@ -178,7 +178,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Developmental Delay",
     metaDescription: "Early intervention for developmental delay in Mumbai. Dr. Sharuja Sarap provides pediatric OT in Kandivali for motor, sensory & daily living milestones.",
     keywords: ["developmental delay therapy Mumbai", "early intervention Kandivali", "pediatric OT developmental delay"],
-    intro: "Developmental delay occurs when a child takes longer than expected to reach milestones in movement, communication, play, or self-care. Early, targeted intervention at Thrive with sharuja can significantly improve a child's trajectory. Dr. Sharuja Sarap provides warm, play-based occupational therapy in Kandivali West that meets each child where they are and builds the foundational skills for independence and joyful participation.",
+    intro: "Developmental delay occurs when a child takes longer than expected to reach milestones in movement, communication, play, or self-care. Early, targeted intervention at Thrive With Sharuja can significantly improve a child's trajectory. Dr. Sharuja Sarap provides warm, play-based occupational therapy in Kandivali West that meets each child where they are and builds the foundational skills for independence and joyful participation.",
     symptoms: [
       "Late achievement of motor milestones — rolling, sitting, crawling, walking",
       "Delayed fine motor skills — grasping, pointing, using utensils",
@@ -230,7 +230,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Sensory Processing Difficulties",
     metaDescription: "Sensory integration therapy in Mumbai & Kandivali. Dr. Sharuja Sarap helps children regulate sensory input for calmer, more confident daily participation.",
     keywords: ["sensory integration therapy Mumbai", "sensory processing disorder Kandivali", "sensory OT Mumbai"],
-    intro: "Sensory processing difficulties occur when the brain struggles to organize and respond appropriately to everyday sensory input — touch, sound, movement, taste, and visual information. For many children, this leads to meltdowns, avoidance behaviors, or constant sensory seeking that disrupts family life and learning. At Thrive with sharuja, Dr. Sharuja Sarap specializes in sensory integration therapy that helps children in Kandivali and across Mumbai build a calmer, more regulated nervous system.",
+    intro: "Sensory processing difficulties occur when the brain struggles to organize and respond appropriately to everyday sensory input — touch, sound, movement, taste, and visual information. For many children, this leads to meltdowns, avoidance behaviors, or constant sensory seeking that disrupts family life and learning. At Thrive With Sharuja, Dr. Sharuja Sarap specializes in sensory integration therapy that helps children in Kandivali and across Mumbai build a calmer, more regulated nervous system.",
     symptoms: [
       "Extreme reactions to clothing tags, socks, or certain textures",
       "Covering ears or distress in noisy environments",
@@ -283,7 +283,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Learning Difficulties",
     metaDescription: "OT for learning difficulties in Mumbai. Dr. Sharuja Sarap uses movement-based approaches & Brain Gym in Kandivali to support reading, writing & classroom success.",
     keywords: ["learning difficulties occupational therapy Mumbai", "learning support Kandivali", "Brain Gym learning Mumbai"],
-    intro: "Learning difficulties affect a child's ability to acquire, process, and demonstrate academic skills despite adequate intelligence and instruction. Often, underlying sensory-motor and processing challenges contribute to struggles with reading, writing, math, and classroom participation. Dr. Sharuja Sarap at Thrive with sharuja addresses these foundational gaps through occupational therapy and Brain Gym® in Kandivali West, helping children access their full learning potential.",
+    intro: "Learning difficulties affect a child's ability to acquire, process, and demonstrate academic skills despite adequate intelligence and instruction. Often, underlying sensory-motor and processing challenges contribute to struggles with reading, writing, math, and classroom participation. Dr. Sharuja Sarap at Thrive With Sharuja addresses these foundational gaps through occupational therapy and Brain Gym® in Kandivali West, helping children access their full learning potential.",
     symptoms: [
       "Difficulty with reading fluency, comprehension, or decoding",
       "Persistent spelling and writing errors despite practice",
@@ -335,7 +335,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Motor Coordination Challenges",
     metaDescription: "Motor coordination therapy for children in Mumbai. Dr. Sharuja Sarap improves balance, motor planning & physical confidence in Kandivali West.",
     keywords: ["motor coordination therapy Mumbai", "dyspraxia OT Kandivali", "coordination therapy children Mumbai"],
-    intro: "Motor coordination challenges — sometimes called dyspraxia or developmental coordination disorder — affect a child's ability to plan, execute, and learn new physical movements. This impacts everything from playground participation to handwriting and self-care. At Thrive with sharuja, Dr. Sharuja Sarap uses targeted occupational therapy and aquatic therapy to help children in Mumbai build the motor planning, balance, and coordination skills for confident physical participation.",
+    intro: "Motor coordination challenges — sometimes called dyspraxia or developmental coordination disorder — affect a child's ability to plan, execute, and learn new physical movements. This impacts everything from playground participation to handwriting and self-care. At Thrive With Sharuja, Dr. Sharuja Sarap uses targeted occupational therapy and aquatic therapy to help children in Mumbai build the motor planning, balance, and coordination skills for confident physical participation.",
     symptoms: [
       "Clumsiness — frequent tripping, bumping into objects",
       "Difficulty learning new physical skills — riding bike, swimming, sports",
@@ -387,7 +387,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Handwriting Difficulties",
     metaDescription: "Handwriting therapy for children in Mumbai. Dr. Sharuja Sarap is HWT-certified, helping kids build legible writing & classroom confidence in Kandivali.",
     keywords: ["handwriting therapy Mumbai", "Handwriting Without Tears Kandivali", "handwriting OT Mumbai"],
-    intro: "Handwriting is one of the most complex skills a child develops — requiring coordination of visual, motor, sensory, cognitive, and postural systems simultaneously. When handwriting is illegible, slow, or painful, it affects academic performance, self-esteem, and classroom participation. Dr. Sharuja Sarap at Thrive with sharuja is certified in Handwriting Without Tears® (HWT) and provides specialized handwriting training for children in Kandivali West and across Mumbai.",
+    intro: "Handwriting is one of the most complex skills a child develops — requiring coordination of visual, motor, sensory, cognitive, and postural systems simultaneously. When handwriting is illegible, slow, or painful, it affects academic performance, self-esteem, and classroom participation. Dr. Sharuja Sarap at Thrive With Sharuja is certified in Handwriting Without Tears® (HWT) and provides specialized handwriting training for children in Kandivali West and across Mumbai.",
     symptoms: [
       "Illegible letter formation or inconsistent sizing",
       "Poor pencil grip — too tight, too loose, or awkward hold",
@@ -439,7 +439,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Attention Difficulties",
     metaDescription: "Attention & focus therapy for children in Mumbai. Dr. Sharuja Sarap uses OT & Brain Gym in Kandivali to build learning readiness & sustained focus.",
     keywords: ["attention therapy children Mumbai", "focus therapy Kandivali", "learning readiness OT Mumbai"],
-    intro: "Attention difficulties affect a child's ability to focus, filter distractions, and sustain effort on tasks — impacting learning, play, and social interactions. While often associated with ADHD, many children experience attention challenges without a formal diagnosis. At Thrive with sharuja, Dr. Sharuja Sarap uses occupational therapy and Brain Gym® movement strategies to help children in Kandivali West build the attention stamina and self-regulation skills for confident learning and participation.",
+    intro: "Attention difficulties affect a child's ability to focus, filter distractions, and sustain effort on tasks — impacting learning, play, and social interactions. While often associated with ADHD, many children experience attention challenges without a formal diagnosis. At Thrive With Sharuja, Dr. Sharuja Sarap uses occupational therapy and Brain Gym® movement strategies to help children in Kandivali West build the attention stamina and self-regulation skills for confident learning and participation.",
     symptoms: [
       "Difficulty sustaining focus beyond a few minutes",
       "Easily distracted by sounds, movement, or thoughts",

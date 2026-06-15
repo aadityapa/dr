@@ -15,6 +15,8 @@ import { faqPageSchema, serviceSchema } from "@/lib/schema";
 import { getServiceExtendedContent } from "@/lib/services-content";
 import { getServiceDepthContent } from "@/lib/services-depth";
 import { conditions, services, siteConfig } from "@/lib/site-data";
+import { getSeoExpansion } from "@/lib/seo/expansions";
+import { SeoExpansionBlocks } from "@/components/seo/seo-expansion-blocks";
 import { SectionCta } from "@/components/shared/section-cta";
 
 type ServicePageProps = {
@@ -45,6 +47,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   const extended = getServiceExtendedContent(slug);
   const depth = getServiceDepthContent(slug);
+  const seoExpansion = getSeoExpansion(slug, "service");
   const allFaqs = [...service.faqs, ...(extended?.additionalFaqs ?? [])];
 
   const listItems =
@@ -280,6 +283,14 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </ul>
           </Section>
         </>
+      )}
+
+      {seoExpansion && (
+        <Section>
+          <div className="prose-custom mx-auto max-w-4xl space-y-12">
+            <SeoExpansionBlocks expansion={seoExpansion} />
+          </div>
+        </Section>
       )}
 
       {relatedConditionItems.length > 0 && (

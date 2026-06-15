@@ -8,15 +8,12 @@ export type ServiceDepthContent = {
   whenToSeekHelp: string;
 };
 
-const clinic = "Thrive with sharuja";
+const clinic = "Thrive With Sharuja";
 const doctor = "Dr. Sharuja Sarap";
 
-function sharedOverview(serviceName: string): string[] {
+function clinicIntro(serviceName: string): string[] {
   return [
-    `${serviceName} at ${clinic} in Kandivali West, Mumbai represents the intersection of clinical expertise and compassionate, child-centered care. ${doctor} brings 18+ years of dedicated pediatric practice and advanced international certifications to every session. Families travel from across Mumbai — Borivali, Malad, Goregaon, Andheri, and beyond — because they trust our evidence-informed, play-based approach.`,
-    `Our clinic philosophy — Belonging Without Boundaries — guides every intervention. We do not pathologize childhood differences. Instead, we build the sensory, motor, cognitive, and emotional foundations that help children participate meaningfully in the life they choose. Therapy sessions take place in a warm, child-friendly environment equipped with sensory gym equipment, assessment areas, and specialized therapeutic tools.`,
-    `Every program begins with comprehensive assessment. ${doctor} conducts child-friendly evaluations that respect each child's communication style, sensory preferences, and developmental stage. Goals are co-created with parents, reviewed regularly, and adjusted as children grow. Home programs and school coordination ensure progress extends beyond the clinic walls.`,
-    `Research consistently demonstrates that early, individualized intervention yields the strongest outcomes for pediatric developmental challenges. Whether your child has a formal diagnosis or you simply notice skills falling behind peers, a consultation can clarify whether ${serviceName.toLowerCase()} is appropriate and what realistic outcomes to expect.`,
+    `${serviceName} at ${clinic} in Kandivali West, Mumbai. ${doctor} provides evidence-informed, play-based pediatric care with 18+ years of experience and advanced international certifications.`,
   ];
 }
 
@@ -24,9 +21,9 @@ export const servicesDepthContent: ServiceDepthContent[] = [
   {
     slug: "occupational-therapy",
     overview: [
-      ...sharedOverview("Pediatric Occupational Therapy"),
+      ...clinicIntro("Pediatric Occupational Therapy"),
       "Pediatric occupational therapy addresses the 'occupations' of childhood — play, learning, self-care, social participation, and rest. When any of these domains is disrupted by sensory processing differences, motor delays, attention challenges, or emotional dysregulation, OT provides structured, evidence-based support tailored to each child's profile.",
-      "At Thrive with sharuja, OT integrates Ayres Sensory Integration®-informed therapy, movement-based strategies, fine and gross motor development, executive function training, and daily living skills coaching. Sessions are play-led — children engage in activities that feel like fun while building real functional skills.",
+      "At Thrive With Sharuja, OT integrates Ayres Sensory Integration®-informed therapy, movement-based strategies, fine and gross motor development, executive function training, and daily living skills coaching. Sessions are play-led — children engage in activities that feel like fun while building real functional skills.",
       "Parents frequently report that OT transforms not just their child's abilities but the entire family's daily experience. Reduced meltdowns, smoother morning routines, improved school participation, and greater child confidence are common outcomes when therapy is consistent and home strategies are applied.",
     ],
     signsYourChildMayNeed: [
@@ -70,7 +67,7 @@ export const servicesDepthContent: ServiceDepthContent[] = [
   {
     slug: "aquatic-therapy",
     overview: [
-      ...sharedOverview("Aquatic Therapy"),
+      ...clinicIntro("Aquatic Therapy"),
       "Water provides a unique therapeutic medium where buoyancy reduces gravity's impact, hydrostatic pressure delivers calming deep touch, and warmth relaxes muscles. These properties create conditions where children who resist land-based therapy often engage eagerly and make rapid motor progress.",
       "Dr. Sharuja Sarap holds IATF (International Aquatic Therapy Foundation) certification and integrates aquatic sessions with land-based OT for comprehensive development. Sessions are fully supervised, adapted to each child's comfort level, and designed to be joyful — not intimidating.",
     ],
@@ -109,7 +106,7 @@ export const servicesDepthContent: ServiceDepthContent[] = [
   {
     slug: "brain-gym",
     overview: [
-      ...sharedOverview("Brain Gym®"),
+      ...clinicIntro("Brain Gym®"),
       "Brain Gym® is a movement-based program that activates neural pathways supporting learning, attention, coordination, and emotional regulation. As a Certified Brain Gym Instructor & Practitioner, Dr. Sharuja Sarap integrates specific physical activities that prepare the body-brain system for focused work.",
       "The principle is straightforward: specific movements integrate left and right brain hemispheres, improve eye tracking, enhance midline crossing, and build the neurological foundations essential for reading, writing, and classroom participation.",
     ],
@@ -148,7 +145,7 @@ export const servicesDepthContent: ServiceDepthContent[] = [
   {
     slug: "handwriting-training",
     overview: [
-      ...sharedOverview("Handwriting Training"),
+      ...clinicIntro("Handwriting Training"),
       "Handwriting is one of the most complex skills children develop — requiring simultaneous coordination of visual perception, fine motor control, sensory processing, postural stability, and cognitive planning. When any system is underdeveloped, handwriting suffers regardless of practice effort.",
       "Dr. Sharuja Sarap is Handwriting Without Tears® (HWT) certified and uses multisensory techniques — wood pieces for letter building, wet-dry-try on chalkboards, and structured progression — to teach formation systematically rather than through repetitive copying.",
     ],
@@ -189,7 +186,7 @@ export const servicesDepthContent: ServiceDepthContent[] = [
 function generateGenericDepth(slug: string, title: string): ServiceDepthContent {
   return {
     slug,
-    overview: sharedOverview(title),
+    overview: clinicIntro(title),
     signsYourChildMayNeed: [
       `Developmental or functional challenges related to ${title.toLowerCase()} affecting daily participation`,
       "Difficulty keeping pace with same-age peers in relevant skill areas",

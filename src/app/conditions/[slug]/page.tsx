@@ -15,6 +15,8 @@ import { getConditionDepthContent } from "@/lib/conditions-depth";
 import { buildPageMetadata } from "@/lib/metadata";
 import { faqPageSchema, serviceSchema } from "@/lib/schema";
 import { services, siteConfig } from "@/lib/site-data";
+import { getSeoExpansion } from "@/lib/seo/expansions";
+import { SeoExpansionBlocks } from "@/components/seo/seo-expansion-blocks";
 import { SectionCta } from "@/components/shared/section-cta";
 
 type ConditionPageProps = {
@@ -44,6 +46,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
   if (!condition) notFound();
 
   const depth = getConditionDepthContent(slug);
+  const seoExpansion = getSeoExpansion(slug, "condition");
   const relatedServiceItems = services.filter((s) => condition.relatedServices.includes(s.slug));
 
   return (
@@ -165,6 +168,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
               </div>
             </article>
           )}
+          {seoExpansion && <SeoExpansionBlocks expansion={seoExpansion} />}
         </div>
       </Section>
 

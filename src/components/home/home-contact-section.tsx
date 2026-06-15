@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-data";
 
 export function HomeContactSection() {
   return (
-    <Section id="contact" className="bg-white">
+    <Section id="contact" compact className="bg-white">
       <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
         <div>
           <SectionHeading

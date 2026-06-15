@@ -26,14 +26,14 @@ function StarRating({ rating }: { rating: number }) {
 
 export function GoogleReviewsSection() {
   return (
-    <Section id="reviews" className="rounded-[2rem] bg-white/70">
+    <Section id="reviews" compact className="rounded-[2rem] bg-white/70">
       <JsonLd data={aggregateRatingSchema()} id="aggregate-rating-schema" />
       <JsonLd data={reviewListSchema()} id="review-list-schema" />
 
       <SectionHeading
         kicker="Google Reviews"
         title="Trusted by Mumbai Families"
-        description={`See why parents recommend ${siteConfig.doctorName} and Thrive with sharuja for pediatric occupational therapy in Kandivali.`}
+        description={`See why parents recommend ${siteConfig.doctorName} and ${siteConfig.name} for pediatric occupational therapy in Kandivali.`}
         center
       />
 

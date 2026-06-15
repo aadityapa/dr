@@ -52,7 +52,7 @@ export function ClinicTourSection() {
   }
 
   return (
-    <Section id="clinic-tour" className="bg-[color:var(--color-almond)]">
+    <Section id="clinic-tour" compact className="bg-[color:var(--color-almond)]">
       <SectionHeading
         kicker="Clinic Tour"
         title="Walk through our space before you visit"

@@ -8,10 +8,7 @@ export type ConditionDepthContent = {
 
 function baseExplanation(condition: string): string[] {
   return [
-    `If you are a parent researching ${condition}, you are already taking an important step toward supporting your child. At Thrive with sharuja in Kandivali West, Mumbai, Dr. Sharuja Sarap has spent 18+ years helping families understand ${condition} through evidence-informed, compassionate pediatric occupational therapy.`,
-    `${condition} affects each child differently. There is no single profile, timeline, or outcome — and that uncertainty can feel overwhelming. Our approach honors your child's unique strengths while building the sensory, motor, and daily living skills that enable meaningful participation at home, school, and in the community.`,
-    `Occupational therapy does not try to eliminate ${condition.toLowerCase()}. Instead, it addresses the functional challenges that often accompany it — sensory regulation, motor coordination, self-care independence, attention, handwriting, and social participation. When these foundations improve, children and families experience greater freedom and confidence in daily life.`,
-    `Dr. Sharuja Sarap combines advanced certifications — RMTI, HWT, OPT, Aquatherapy, PIASTM, KT Level 1–3, MNRI, and KDCT — with a play-based, child-led philosophy. Parents are active partners with home programs, school coordination, and transparent progress tracking at every step.`,
+    `If you are researching ${condition} for your child, you are taking an important step. Dr. Sharuja Sarap provides compassionate pediatric occupational therapy at Thrive With Sharuja in Kandivali West, Mumbai.`,
   ];
 }
 
