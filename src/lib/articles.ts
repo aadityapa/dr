@@ -1,3 +1,5 @@
+import { generateExpandedArticles } from "./articles-expanded";
+
 export type Article = {
   slug: string;
   title: string;
@@ -11,7 +13,7 @@ export type Article = {
   content: string[];
 };
 
-export const articles: Article[] = [
+const seedArticles: Article[] = [
   {
     slug: "signs-your-child-may-need-occupational-therapy",
     title: "7 Signs Your Child May Need Occupational Therapy",
@@ -149,6 +151,8 @@ export const articles: Article[] = [
     ],
   },
 ];
+
+export const articles: Article[] = [...seedArticles, ...generateExpandedArticles()];
 
 export function getArticle(slug: string) {
   return articles.find((a) => a.slug === slug);

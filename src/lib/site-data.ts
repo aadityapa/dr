@@ -55,6 +55,8 @@ export const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Conditions", href: "/conditions" },
+  { label: "Resources", href: "/resources" },
+  { label: "Library", href: "/library" },
   { label: "Outcomes", href: "/therapy-outcomes" },
   { label: "Screening", href: "/screening" },
   { label: "FAQs", href: "/faqs" },
@@ -65,6 +67,7 @@ export const navItems = [
 
 export const trustBadges = [
   "18+ Years Experience",
+  "10+ Specialized Programs",
   "Registration No. 051388",
   "Certified Pediatric Occupational Therapist",
   "Evidence-Based Therapy Programs",
@@ -72,7 +75,7 @@ export const trustBadges = [
 
 export const trustStats = [
   { label: "Years Experience", value: 18, suffix: "+", icon: "Clock" as const },
-  { label: "Advanced Certifications", value: 8, suffix: "+", icon: "Award" as const },
+  { label: "Specialized Programs", value: 10, suffix: "+", icon: "Award" as const },
   { label: "Therapy Sessions", value: 1000, suffix: "+", icon: "HeartHandshake" as const },
   { label: "Families Supported", value: 500, suffix: "+", icon: "Users" as const },
 ];

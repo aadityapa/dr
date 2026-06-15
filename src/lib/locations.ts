@@ -43,10 +43,10 @@ export const locationPages: LocationPage[] = [
     metaDescription: "Expert pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap. Sensory integration, Brain Gym, aquatic & handwriting therapy for children 0–14.",
     keywords: ["occupational therapist Mumbai", "pediatric OT Mumbai", "child OT Mumbai"],
     headline: "Pediatric Occupational Therapist in Mumbai",
-    intro: "Families across Mumbai trust Dr. Sharuja Sarap for compassionate, evidence-based pediatric occupational therapy. Based in Kandivali West, Thrive with sharuja serves children from Borivali, Malad, Goregaon, Andheri, and beyond — offering sensory-integrative care that helps children regulate, connect, participate, and thrive. With 18+ years of experience and 8+ specialized certifications including Brain Gym, Handwriting Without Tears, and Aquatherapy, Dr. Sharuja provides individualized programs that address the whole child — not just a diagnosis.",
+    intro: "Families across Mumbai trust Dr. Sharuja Sarap for compassionate, evidence-based pediatric occupational therapy. Based in Kandivali West, Thrive with sharuja serves children from Borivali, Malad, Goregaon, Andheri, and beyond — offering sensory-integrative care that helps children regulate, connect, participate, and thrive. With 18+ years of experience and 10+ specialized programs including Brain Gym, Handwriting Without Tears, and Aquatherapy, Dr. Sharuja provides individualized programs that address the whole child — not just a diagnosis.",
     whyChoose: [
       "Central Kandivali West location accessible from across Mumbai",
-      "Comprehensive pediatric OT with 8+ specialized certifications",
+      "Comprehensive pediatric OT with 10+ specialized programs",
       "Warm, child-friendly clinic environment",
       "Family-centered approach with home program support",
       "500+ families supported over 18 years",
@@ -169,7 +169,7 @@ export const locationPages: LocationPage[] = [
     services: ["Occupational Therapy", "Aquatic Therapy", "Brain Gym", "Handwriting Training", "RMTI", "OPT", "MNRI"],
     areaServed: ["Kandivali West", "Kandivali East", "Borivali", "Malad", "Goregaon"],
     localFaqs: [
-      { q: "What makes Dr. Sharuja Sarap different?", a: "18+ years experience with 8+ advanced certifications including Brain Gym, HWT, Aquatherapy, RMTI, OPT, and MNRI." },
+      { q: "What makes Dr. Sharuja Sarap different?", a: "18+ years experience with 10+ advanced certifications including Brain Gym, HWT, Aquatherapy, RMTI, OPT, and MNRI." },
       { q: "What age children do you treat?", a: "Birth to 14 years with programs tailored to each developmental stage." },
     ],
   },

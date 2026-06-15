@@ -38,8 +38,8 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/resources" className="text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]">
-                Parent Resources
+              <Link href="/library" className="text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]">
+                Digital Library
               </Link>
             </li>
           </ul>

@@ -13,7 +13,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { faqPageSchema, serviceSchema } from "@/lib/schema";
 import { getServiceExtendedContent } from "@/lib/services-content";
+import { getServiceDepthContent } from "@/lib/services-depth";
 import { conditions, services, siteConfig } from "@/lib/site-data";
+import { SectionCta } from "@/components/shared/section-cta";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -42,6 +44,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   if (!service) notFound();
 
   const extended = getServiceExtendedContent(slug);
+  const depth = getServiceDepthContent(slug);
   const allFaqs = [...service.faqs, ...(extended?.additionalFaqs ?? [])];
 
   const listItems =
@@ -114,6 +117,72 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           </Card>
         </div>
       </Section>
+
+      {depth && (
+        <>
+          <Section>
+            <SectionHeading kicker="Deep Dive" title="Comprehensive Overview" />
+            <div className="prose-custom mx-auto mt-6 max-w-4xl space-y-4">
+              {depth.overview.map((para) => (
+                <p key={para.slice(0, 40)} className="leading-relaxed text-[color:var(--color-muted)]">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </Section>
+
+          <Section className="rounded-[2rem] bg-white/70">
+            <SectionHeading title="Signs Your Child May Need This Program" />
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {depth.signsYourChildMayNeed.map((sign) => (
+                <li key={sign} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
+                  <span className="mt-0.5 text-[color:var(--color-terracotta)]">•</span>
+                  {sign}
+                </li>
+              ))}
+            </ul>
+          </Section>
+
+          <Section>
+            <SectionHeading title="Parent Guide" />
+            <ul className="mt-4 space-y-3">
+              {depth.parentGuide.map((tip) => (
+                <li key={tip} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
+                  <span className="text-[color:var(--color-sage-dark)]">→</span>
+                  {tip}
+                </li>
+              ))}
+            </ul>
+          </Section>
+
+          <Section className="rounded-[2rem] bg-[color:var(--color-soft-green)]/30">
+            <SectionHeading title="Research & Evidence" />
+            <ul className="mt-4 space-y-3">
+              {depth.researchReferences.map((ref) => (
+                <li key={ref.title} className="text-sm text-[color:var(--color-muted)]">
+                  <strong className="text-[color:var(--color-sage-dark)]">{ref.title}</strong>
+                  <span className="block text-xs">— {ref.source}</span>
+                </li>
+              ))}
+            </ul>
+          </Section>
+
+          <Section>
+            <SectionHeading title="Expected Outcomes" />
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {depth.outcomes.map((outcome) => (
+                <Card key={outcome}>
+                  <CardContent className="p-4 text-sm text-[color:var(--color-muted)]">✓ {outcome}</CardContent>
+                </Card>
+              ))}
+            </div>
+            <div className="mt-6 rounded-2xl border border-[color:var(--color-border)]/60 bg-white/70 p-6">
+              <h3 className="font-semibold text-[color:var(--color-sage-dark)]">When to Seek Help</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">{depth.whenToSeekHelp}</p>
+            </div>
+          </Section>
+        </>
+      )}
 
       {extended && (
         <Section className="rounded-[2rem] bg-white/70">
@@ -247,6 +316,9 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <Button asChild variant="outline">
             <Link href="/faqs">View All FAQs</Link>
           </Button>
+        </div>
+        <div className="mt-8">
+          <SectionCta />
         </div>
       </Section>
     </main>

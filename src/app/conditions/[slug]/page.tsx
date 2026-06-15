@@ -11,9 +11,11 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { allConditionsContent, getConditionContent } from "@/lib/conditions-content";
+import { getConditionDepthContent } from "@/lib/conditions-depth";
 import { buildPageMetadata } from "@/lib/metadata";
 import { faqPageSchema, serviceSchema } from "@/lib/schema";
 import { services, siteConfig } from "@/lib/site-data";
+import { SectionCta } from "@/components/shared/section-cta";
 
 type ConditionPageProps = {
   params: Promise<{ slug: string }>;
@@ -41,6 +43,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
   const condition = getConditionContent(slug);
   if (!condition) notFound();
 
+  const depth = getConditionDepthContent(slug);
   const relatedServiceItems = services.filter((s) => condition.relatedServices.includes(s.slug));
 
   return (
@@ -59,6 +62,12 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
 
       <Section>
         <div className="prose-custom mx-auto max-w-4xl space-y-12">
+          {depth?.parentExplanation.map((para) => (
+            <p key={para.slice(0, 40)} className="leading-relaxed text-[color:var(--color-muted)]">
+              {para}
+            </p>
+          ))}
+
           <article>
             <SectionHeading title="Signs & Symptoms" />
             <ul className="mt-4 space-y-2">
@@ -108,10 +117,54 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
 
           <article className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6">
             <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
+              When to See a Doctor or Therapist
+            </h2>
+            <ul className="mt-4 space-y-2">
+              {(depth?.whenToSeeDoctor ?? []).map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
+                  <span className="mt-1 text-[color:var(--color-terracotta)]">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6">
+            <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
               When to Begin
             </h2>
             <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">{condition.whenToBegin}</p>
           </article>
+
+          {depth && (
+            <article>
+              <SectionHeading title="Success Outcomes We See" />
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {depth.successOutcomes.map((outcome) => (
+                  <Card key={outcome}>
+                    <CardContent className="p-4 text-sm text-[color:var(--color-muted)]">✓ {outcome}</CardContent>
+                  </Card>
+                ))}
+              </div>
+            </article>
+          )}
+
+          {depth && (
+            <article>
+              <SectionHeading title="Related Resources" />
+              <div className="mt-4 flex flex-wrap gap-3">
+                {depth.internalLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2 text-sm text-[color:var(--color-sage-dark)] hover:bg-[color:var(--color-soft-green)]/40"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </article>
+          )}
         </div>
       </Section>
 
@@ -149,6 +202,9 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           <Button asChild variant="outline" size="lg">
             <Link href="/faqs">View All FAQs</Link>
           </Button>
+        </div>
+        <div className="mt-8">
+          <SectionCta />
         </div>
       </Section>
     </main>

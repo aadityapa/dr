@@ -80,6 +80,20 @@ export function DoctorAuthoritySection() {
           </Reveal>
 
           <Reveal delay={0.16} className="mt-8">
+            <div className="rounded-2xl border border-[color:var(--color-border)]/60 bg-white/80 p-6">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
+                Evidence-Based Care
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                Every intervention at Thrive with sharuja is grounded in occupational therapy best practices — Ayres
+                Sensory Integration®-informed therapy, Handwriting Without Tears®, Brain Gym®, and internationally
+                recognized certifications. Dr. Sharuja Sarap integrates research-backed approaches with compassionate,
+                child-led care that respects each child&apos;s unique profile.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.18} className="mt-8">
             <div className="space-y-4 border-l-2 border-[color:var(--color-sage)]/30 pl-6">
               {doctorTimeline.map((item) => (
                 <div key={item.title} className="relative">

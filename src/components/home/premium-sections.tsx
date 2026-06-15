@@ -11,7 +11,7 @@ const reasons = [
   {
     icon: Award,
     title: "18+ Years of Expertise",
-    description: `Dr. ${siteConfig.doctorName.replace("Dr. ", "")} brings deep pediatric OT experience with 8+ advanced certifications including Brain Gym, HWT, and Aquatherapy.`,
+    description: `Dr. ${siteConfig.doctorName.replace("Dr. ", "")} brings deep pediatric OT experience with 10+ specialized programs including Brain Gym, HWT, Aquatherapy, RMTI, OPT, and MNRI.`,
   },
   {
     icon: Heart,
@@ -140,7 +140,7 @@ export function DevelopmentalChecklistCta() {
           point for conversations with your pediatrician or therapist.
         </p>
         <Link
-          href="/contact"
+          href="/library"
           className="mt-6 inline-block rounded-full bg-white px-8 py-3 text-sm font-semibold text-[color:var(--color-sage-dark)] transition hover:bg-[color:var(--color-cream)]"
         >
           Request Your Free Checklist
@@ -187,6 +187,29 @@ export function ParentReassuranceSection() {
           We cannot promise what the future will look like, but we can promise that we will work together to help your
           child grow, learn, participate, and reach their fullest potential.
         </p>
+
+        <div className="mt-10 rounded-2xl border border-[color:var(--color-border)]/60 bg-white/70 p-8 text-left">
+          <h3 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
+            Will My Child Be Okay?
+          </h3>
+          <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
+            This is the question every parent carries — sometimes quietly, sometimes in the middle of the night. The
+            honest answer is that every child&apos;s journey is unique, and no therapist can predict the future. What we
+            can tell you is this: children are remarkably resilient when given the right support at the right time.
+          </p>
+          <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
+            At Thrive with sharuja, we have walked alongside hundreds of families through uncertainty, fear, and
+            hope. We have seen children who struggled to write their name go on to thrive in school. We have seen
+            sensory overwhelm transform into confident participation. We have seen parents who felt lost find clarity,
+            community, and practical strategies that work.
+          </p>
+          <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
+            Your child already has strengths — they may just need the right environment, tools, and therapeutic
+            support to express them. Early intervention, consistent therapy, and your love as a parent create the
+            conditions for meaningful progress. You are not alone in this journey.
+          </p>
+        </div>
+
         <div className="mt-8 space-y-3 font-[family-name:var(--font-serif)] text-lg text-[color:var(--color-sage-dark)]">
           <p>Every child has strengths.</p>
           <p>Every child can make progress.</p>
@@ -202,9 +225,9 @@ export function ParentReassuranceSection() {
 
 export function DownloadableGuidesSection() {
   const guides = [
-    { title: "Sensory Strategies at Home", status: "Coming Soon" },
-    { title: "School Readiness Checklist", status: "Coming Soon" },
-    { title: "Handwriting Practice Guide", status: "Coming Soon" },
+    { title: "Sensory Screening Questionnaire", href: "/library" },
+    { title: "School Readiness Checklist", href: "/library" },
+    { title: "Handwriting Practice Guide", href: "/library" },
   ];
 
   return (
@@ -217,16 +240,19 @@ export function DownloadableGuidesSection() {
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         {guides.map((guide, i) => (
           <Reveal key={guide.title} delay={i * 0.06}>
-            <div className="rounded-2xl border border-dashed border-[color:var(--color-border)] bg-white/50 p-6">
+            <Link
+              href={guide.href}
+              className="block rounded-2xl border border-[color:var(--color-border)] bg-white/70 p-6 transition hover:-translate-y-1 hover:shadow-lg"
+            >
               <h3 className="font-medium text-[color:var(--color-sage-dark)]">{guide.title}</h3>
-              <p className="mt-2 text-xs text-[color:var(--color-muted)]">{guide.status}</p>
-            </div>
+              <p className="mt-2 text-xs text-[color:var(--color-muted)]">Free download · Lead capture required</p>
+            </Link>
           </Reveal>
         ))}
       </div>
       <p className="mt-6 text-center text-sm text-[color:var(--color-muted)]">
-        <Link href="/resources" className="font-semibold text-[color:var(--color-sage-dark)] hover:underline">
-          Browse parent resources →
+        <Link href="/library" className="font-semibold text-[color:var(--color-sage-dark)] hover:underline">
+          Browse full digital library →
         </Link>
       </p>
     </Section>
