@@ -12,13 +12,11 @@ export function CtaSection() {
           <div className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -right-20 h-80 w-80 rounded-full bg-[color:var(--color-terracotta)]/20 blur-3xl" />
           <div className="relative">
-            <p className="text-sm uppercase tracking-widest text-white/70">{siteConfig.tagline}</p>
-            <h2 className="mt-4 font-[family-name:var(--font-serif)] text-3xl md:text-5xl">
-              Ready to help your child thrive?
+            <h2 className="font-[family-name:var(--font-serif)] text-3xl md:text-5xl">
+              Ready to take the first step?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/85">
-              Take the first step. Book a consultation with {siteConfig.doctorName} and discover how personalized therapy
-              can unlock your child&apos;s full potential.
+              Book a consultation with {siteConfig.doctorName} — we&apos;d love to hear about your child and answer your questions.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" variant="warm">

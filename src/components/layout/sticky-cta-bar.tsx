@@ -12,7 +12,7 @@ export function StickyCtaBar() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-[color:var(--color-border)] bg-[color:var(--color-cream)]/95 px-3 py-3 shadow-[0_-4px_20px_-8px_rgba(47,77,59,0.15)] backdrop-blur-xl md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 border-t border-[color:var(--color-border)] bg-[color:var(--color-snow)]/95 px-3 py-3 shadow-[0_-4px_20px_-8px_rgba(47,77,59,0.15)] backdrop-blur-xl md:hidden"
       role="complementary"
       aria-label="Quick actions"
     >

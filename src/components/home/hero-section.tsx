@@ -45,7 +45,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-[90vh] items-center overflow-hidden px-4 py-20 md:px-8 md:py-24"
+      className="relative flex min-h-[85vh] items-center overflow-hidden bg-[color:var(--color-snow)] px-4 py-20 md:px-8 md:py-24"
     >
       <FloatingNature />
       <div className="organic-blob pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[color:var(--color-sage)]/10 blur-3xl" />

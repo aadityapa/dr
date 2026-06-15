@@ -84,15 +84,12 @@ export function Navbar() {
   const allNavItems = [...primaryNavItems, ...secondaryNavItems];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)]/40 bg-[color:var(--color-cream)]/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)]/60 bg-[color:var(--color-snow)]/95 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-[4.25rem] sm:gap-4 md:px-6 lg:px-8">
         {/* Logo — fixed width, never overlaps nav */}
         <Link href="/" className="shrink-0 leading-tight">
           <span className="block truncate font-[family-name:var(--font-serif)] text-base font-semibold text-[color:var(--color-sage-dark)] sm:text-lg">
             {siteConfig.shortName}
-          </span>
-          <span className="hidden truncate text-[10px] italic leading-snug text-[color:var(--color-terracotta)] sm:block sm:text-xs">
-            {messages.hero.tagline}
           </span>
         </Link>
 

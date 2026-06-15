@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Award, BadgeCheck, GraduationCap, MapPin } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
+import { CertificationWall } from "@/components/home/certification-wall";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -13,11 +14,11 @@ const DOCTOR_IMAGE =
 
 export function DoctorAuthoritySection() {
   return (
-    <Section id="meet-doctor" className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-[color:var(--color-soft-green)]/30 via-white/80 to-[color:var(--color-cream)]">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <Section id="meet-doctor" className="bg-[color:var(--color-almond)]">
+      <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <div className="relative mx-auto max-w-md lg:mx-0">
-            <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[color:var(--color-sage)]/15">
+          <div className="relative mx-auto max-w-md lg:mx-0 lg:sticky lg:top-24">
+            <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
               <Image
                 src={DOCTOR_IMAGE}
                 alt={`${siteConfig.doctorName} — Pediatric Occupational Therapist in Kandivali, Mumbai`}
@@ -25,13 +26,13 @@ export function DoctorAuthoritySection() {
                 height={560}
                 className="aspect-[5/6] w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-sage-dark)]/30 to-transparent" />
             </div>
-            <div className="absolute -bottom-4 -right-4 rounded-2xl border border-white/70 bg-white/95 p-4 shadow-xl backdrop-blur-sm">
+            <div className="absolute -bottom-4 -right-4 rounded-2xl border border-white/80 bg-white px-5 py-4 shadow-xl">
               <p className="text-2xl font-[family-name:var(--font-serif)] text-[color:var(--color-sage-dark)]">
                 {siteConfig.experienceYears}+
               </p>
               <p className="text-xs font-medium text-[color:var(--color-muted)]">Years Experience</p>
+              <p className="mt-1 text-[10px] text-[color:var(--color-muted)]">Reg. {siteConfig.registrationNumber}</p>
             </div>
           </div>
         </Reveal>
@@ -41,19 +42,16 @@ export function DoctorAuthoritySection() {
             <SectionHeading
               kicker="Meet Your Therapist"
               title={`Meet ${siteConfig.doctorName}`}
-              description={`${siteConfig.title} · Kandivali West, Mumbai · Reg. No. ${siteConfig.registrationNumber}`}
+              description="Ph.D. Scholar · Master's in Pediatric OT · Certified Brain Gym Instructor"
             />
-            <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">{doctorProfile.bio}</p>
-            <p className="mt-3 font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--color-terracotta)]">
-              &ldquo;{siteConfig.tagline}&rdquo;
-            </p>
+            <p className="mt-4 max-w-prose leading-relaxed text-[color:var(--color-muted)]">{doctorProfile.bio}</p>
           </Reveal>
 
-          <Reveal delay={0.08} className="mt-6 flex flex-wrap gap-2">
+          <Reveal delay={0.06} className="mt-6 flex flex-wrap gap-2">
             {doctorProfile.qualifications.map((item) => (
               <span
                 key={item}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[color:var(--color-border)] bg-white/80 px-3 py-1.5 text-xs font-medium text-[color:var(--color-sage-dark)]"
+                className="inline-flex items-center gap-1.5 rounded-full border border-[color:var(--color-border)] bg-white px-3 py-1.5 text-xs font-medium text-[color:var(--color-sage-dark)]"
               >
                 <GraduationCap className="h-3.5 w-3.5 text-[color:var(--color-sage)]" aria-hidden="true" />
                 {item}
@@ -61,64 +59,37 @@ export function DoctorAuthoritySection() {
             ))}
           </Reveal>
 
-          <Reveal delay={0.12} className="mt-6">
-            <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
-              <Award className="h-4 w-4 text-[color:var(--color-terracotta)]" aria-hidden="true" />
-              Specialized Certifications
+          <Reveal delay={0.1} className="mt-8">
+            <CertificationWall />
+          </Reveal>
+
+          <Reveal delay={0.14} className="mt-8">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
+              Professional Journey
             </h3>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {doctorProfile.certifications.map((cert) => (
-                <span
-                  key={cert}
-                  className="inline-flex items-center gap-1 rounded-lg bg-[color:var(--color-sage)]/10 px-2.5 py-1 text-xs text-[color:var(--color-sage-dark)]"
-                >
-                  <BadgeCheck className="h-3 w-3 shrink-0" aria-hidden="true" />
-                  {cert}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.16} className="mt-8">
-            <div className="rounded-2xl border border-[color:var(--color-border)]/60 bg-white/80 p-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
-                Evidence-Based Care
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                Every intervention at Thrive with sharuja is grounded in occupational therapy best practices — Ayres
-                Sensory Integration®-informed therapy, Handwriting Without Tears®, Brain Gym®, and internationally
-                recognized certifications. Dr. Sharuja Sarap integrates research-backed approaches with compassionate,
-                child-led care that respects each child&apos;s unique profile.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.18} className="mt-8">
-            <div className="space-y-4 border-l-2 border-[color:var(--color-sage)]/30 pl-6">
+            <div className="mt-4 space-y-3">
               {doctorTimeline.map((item) => (
-                <div key={item.title} className="relative">
-                  <span className="absolute -left-[calc(1.5rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full bg-[color:var(--color-terracotta)]" />
-                  <p className="text-xs font-bold uppercase tracking-wider text-[color:var(--color-terracotta)]">
-                    {item.year}
-                  </p>
-                  <p className="font-semibold text-[color:var(--color-sage-dark)]">{item.title}</p>
-                  <p className="text-sm text-[color:var(--color-muted)]">{item.description}</p>
+                <div
+                  key={item.title}
+                  className="flex gap-4 rounded-xl border border-[color:var(--color-border)]/50 bg-white p-4"
+                >
+                  <span className="shrink-0 text-xs font-bold text-[color:var(--color-terracotta)]">{item.year}</span>
+                  <div>
+                    <p className="font-semibold text-[color:var(--color-sage-dark)]">{item.title}</p>
+                    <p className="text-sm text-[color:var(--color-muted)] line-clamp-2">{item.description}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </Reveal>
 
-          <Reveal delay={0.2} className="mt-8 flex flex-wrap items-center gap-4">
+          <Reveal delay={0.18} className="mt-8 flex flex-wrap gap-3">
             <Button asChild>
               <Link href="/about">Full Profile</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/appointment">Book Consultation</Link>
             </Button>
-            <span className="flex items-center gap-1.5 text-sm text-[color:var(--color-muted)]">
-              <MapPin className="h-4 w-4" aria-hidden="true" />
-              Kandivali West, Mumbai
-            </span>
           </Reveal>
         </div>
       </div>

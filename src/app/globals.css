@@ -1,22 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --color-cream: #f7f3eb;
-  --color-beige: #e8ddcc;
+  /* Premium background system */
+  --color-snow: #fafafa;
+  --color-almond: #f7f3ee;
+  --color-soft-sage: #e8ede8;
+  --color-cream: #f7f3ee;
+  --color-beige: #ebe4d8;
   --color-sage: #7d927f;
-  /* Darker sage reserved for small/normal text to meet WCAG AA (>=4.5:1). */
   --color-sage-text: #4f6b58;
   --color-sage-dark: #2f4d3b;
-  --color-soft-green: #dce7d5;
-  /* Terracotta darkened from #be7a62 to AA-compliant variant (text usage is pervasive). */
+  --color-soft-green: #e8ede8;
   --color-terracotta: #a85a42;
   --color-sun: #f5cf79;
   --color-sky: #b9ddec;
-  --color-lavender: #d8cdea;
-  --color-peach: #f4c9b7;
-  /* Muted darkened from #67766d to AA-compliant variant on cream backgrounds. */
+  --color-lavender: #e4ddf5;
+  --color-peach: #fce8dc;
   --color-muted: #5f6e63;
-  --color-border: #d9d9cd;
+  --color-border: #e5e5e0;
+  /* Service pastels */
+  --pastel-blue: #d6e8f5;
+  --pastel-aqua: #c8eef0;
+  --pastel-lavender: #e4ddf5;
+  --pastel-peach: #fce8dc;
+  --pastel-mint: #d8f0e4;
+  --pastel-yellow: #fdf3d4;
+  --pastel-coral: #faded4;
+  --pastel-rose: #f5e0e8;
+  --pastel-sky: #d9edfa;
 }
 
 @theme inline {
@@ -31,10 +42,7 @@ body {
 }
 
 body {
-  background:
-    radial-gradient(circle at 10% 10%, rgba(245, 207, 121, 0.16), transparent 26%),
-    radial-gradient(circle at 90% 8%, rgba(185, 221, 236, 0.18), transparent 28%),
-    linear-gradient(180deg, #fbf8f2 0%, #f3f7ef 100%);
+  background-color: var(--color-snow);
   color: var(--color-sage-dark);
   font-family: var(--font-inter), sans-serif;
 }
@@ -45,8 +53,8 @@ html[lang="mr"] body {
 }
 
 .playful-dots {
-  background-image: radial-gradient(rgba(125, 146, 127, 0.16) 1.2px, transparent 1.2px);
-  background-size: 18px 18px;
+  background-image: radial-gradient(rgba(125, 146, 127, 0.08) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
 }
 
 .organic-blob {
@@ -75,8 +83,6 @@ html[lang="mr"] body {
   }
 }
 
-/* Guarantee a visible keyboard focus indicator on links and summaries,
-   which otherwise rely only on hover colour changes. */
 a:focus-visible,
 summary:focus-visible {
   outline: 2px solid var(--color-sage-dark);

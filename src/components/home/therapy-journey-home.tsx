@@ -1,0 +1,74 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
+import { useRef } from "react";
+
+import { Section } from "@/components/shared/section";
+import { SectionHeading } from "@/components/shared/section-heading";
+import { ServiceIcon } from "@/components/shared/service-icon";
+import { Button } from "@/components/ui/button";
+import { therapyJourneySteps } from "@/lib/site-data";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const STEP_COLORS = ["#D6E8F5", "#C8EEF0", "#E4DDF5", "#FCE8DC", "#D8F0E4"];
+
+export function TherapyJourneyHome() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced || !ref.current) return;
+
+      gsap.from(".home-journey-step", {
+        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+        opacity: 0,
+        y: 32,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: "power3.out",
+      });
+    },
+    { scope: ref },
+  );
+
+  return (
+    <Section className="bg-white">
+      <SectionHeading
+        kicker="Therapy Journey"
+        title="What happens when you reach out"
+        description="No surprises — just warm, professional support from your very first call."
+        center
+      />
+
+      <div ref={ref} className="mt-10 grid gap-4 md:grid-cols-5">
+        {therapyJourneySteps.map((step, i) => (
+          <div
+            key={step.title}
+            className="home-journey-step flex flex-col items-center rounded-2xl border border-[color:var(--color-border)]/40 p-5 text-center"
+            style={{ backgroundColor: STEP_COLORS[i] }}
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
+              <ServiceIcon name={step.icon} className="h-6 w-6 text-[color:var(--color-sage-dark)]" />
+            </div>
+            <p className="mt-1 text-xs font-bold text-[color:var(--color-terracotta)]">Step {step.step}</p>
+            <h3 className="mt-1 font-semibold text-[color:var(--color-sage-dark)]">{step.title}</h3>
+            <p className="mt-2 text-xs leading-relaxed text-[color:var(--color-muted)] line-clamp-4">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-8 text-center">
+        <Button asChild variant="outline">
+          <Link href="/therapy-journey">Full Therapy Journey →</Link>
+        </Button>
+      </div>
+    </Section>
+  );
+}

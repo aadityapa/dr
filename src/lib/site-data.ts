@@ -1,14 +1,14 @@
 export const siteConfig = {
-  name: "Thrive with sharuja",
-  shortName: "Thrive with sharuja",
+  name: "Thrive With Sharuja",
+  shortName: "Thrive With Sharuja",
   doctorName: "Dr. Sharuja Sarap",
   title: "Pediatric Occupational Therapist",
   tagline: "Belonging Without Boundaries.",
   heroHeadline: "Building Abilities. Inspiring Confidence. Transforming Lives.",
   heroSubheadline:
-    "A state-of-the-art Occupational Therapy Centre providing evidence-based care, advanced therapeutic interventions, and compassionate support to help every child reach their fullest potential.",
+    "We help children feel more confident doing the everyday things that matter most — making friends, holding a pencil, getting dressed independently, or simply enjoying playtime.",
   description:
-    "Thrive with sharuja offers evidence-based pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap — sensory-integrative, movement-based care for children from birth to 14 years.",
+    "Thrive With Sharuja offers warm, evidence-based pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap — sensory-integrative, movement-based care tailored to each child.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharujasarap.vercel.app",
   email: "sharujasaraf@gmail.com",
   phone: "+91 9820525197",
@@ -32,7 +32,7 @@ export const siteConfig = {
 };
 
 export const doctorProfile = {
-  bio: "Dr. Sharuja Sarap brings both expertise and heartfelt care to her work as a Pediatric Occupational Therapist. She uses a gentle movement and sensory-based integrative approach to help children grow with confidence and joy. Her therapy philosophy focuses on nurturing each child's strengths while supporting meaningful participation in everyday life.",
+  bio: "For over 18 years, Dr. Sharuja Sarap has walked alongside Mumbai families through the joys and worries of childhood development. She meets each child where they are — with patience, play, and genuine care — and helps them build the skills that make everyday life feel a little easier and a lot more joyful.",
   qualifications: [
     "Ph.D. Scholar",
     "Master's in Pediatric Occupational Therapy",
@@ -188,7 +188,7 @@ export const services = [
     title: "Occupational Therapy",
     headline: "Unlocking Potential Through Meaningful Participation",
     summary:
-      "Evidence-based OT helping children develop skills for learning, play, self-care, social interaction, and independence.",
+      "We help children feel more confident doing everyday things — making friends, holding a pencil, getting dressed, or enjoying playtime.",
     content:
       "Every child deserves the opportunity to participate confidently in everyday life. Occupational Therapy helps children develop the skills needed for learning, play, self-care, social interaction, and independence. Whether a child struggles with attention, sensory processing, motor coordination, handwriting, daily routines, or school participation, our individualized therapy programs focus on building strengths and overcoming challenges in a supportive and engaging environment. Through evidence-based assessment and intervention, we help children improve their confidence, functional abilities, and overall quality of life—empowering them to succeed at home, in school, and within their community.",
     icon: "Hand",
@@ -237,7 +237,7 @@ export const services = [
     title: "Aquatic Therapy",
     headline: "Transforming Growth Through the Power of Water",
     summary:
-      "Water-based therapy supporting physical, sensory, emotional, and social development in a fun, engaging environment.",
+      "Water brings out the best in many children — building strength, balance, and joy in a safe, playful environment.",
     content:
       "Water provides a unique therapeutic environment where children can move, explore, and succeed with greater freedom and confidence. Aquatic Therapy combines the therapeutic benefits of water with individualized intervention to support physical, sensory, emotional, and social development.",
     icon: "Waves",
@@ -273,7 +273,7 @@ export const services = [
     title: "Brain Gym®",
     headline: "Learning Begins with Movement",
     summary:
-      "Movement-based approach supporting learning, attention, coordination, and emotional well-being.",
+      "When the body and brain move together, learning clicks — we use purposeful movement to unlock focus and confidence.",
     content:
       "Brain Gym® is a movement-based approach designed to support learning, attention, coordination, and emotional well-being. As a Certified Brain Gym Instructor & Practitioner, Dr. Sharuja integrates purposeful movement to help children access their full learning potential.",
     icon: "Brain",
@@ -314,7 +314,7 @@ export const services = [
     title: "Handwriting Training",
     headline: "Building Confidence One Letter at a Time",
     summary:
-      "Specialized handwriting support using HWT and evidence-based techniques for pencil control, formation, and classroom readiness.",
+      "Messy handwriting isn't laziness — we build the motor foundations so writing feels natural, not frustrating.",
     content:
       "Handwriting is more than putting words on paper—it is a complex skill requiring coordination of visual, motor, sensory, cognitive, and postural abilities. Our Handwriting Without Tears (HWT) certified approach builds confidence through structured, engaging practice.",
     icon: "PenLine",
