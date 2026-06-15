@@ -37,7 +37,7 @@ export default function LocationsIndexPage() {
             <Reveal key={location.slug} delay={i * 0.05}>
               <Card className="h-full transition-all hover:-translate-y-1 hover:shadow-lg">
                 <CardContent className="p-6">
-                  <div className="mb-3 flex items-center gap-2 text-[color:var(--color-sage)]">
+                  <div className="mb-3 flex items-center gap-2 text-[color:var(--color-sage-text)]">
                     <MapPin className="h-4 w-4" aria-hidden />
                     <span className="text-xs font-semibold uppercase tracking-widest">Local SEO</span>
                   </div>

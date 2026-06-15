@@ -33,7 +33,7 @@ export function ServicesPreview() {
                 <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">{service.summary}</p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-5 inline-flex text-sm font-semibold text-[color:var(--color-sage)] hover:text-[color:var(--color-sage-dark)]"
+                  className="mt-5 inline-flex text-sm font-semibold text-[color:var(--color-sage-text)] hover:text-[color:var(--color-sage-dark)]"
                 >
                   Learn more →
                 </Link>

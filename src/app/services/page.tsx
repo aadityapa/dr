@@ -46,7 +46,7 @@ export default function ServicesPage() {
                     </h2>
                     <p className="mt-1 text-sm font-medium text-[color:var(--color-terracotta)]">{service.headline}</p>
                     <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">{service.summary}</p>
-                    <p className="mt-2 text-xs text-[color:var(--color-sage)]">Ages: {service.ageGroups}</p>
+                    <p className="mt-2 text-xs text-[color:var(--color-sage-text)]">Ages: {service.ageGroups}</p>
                   </div>
                   <Button asChild variant="outline">
                     <Link href={`/services/${service.slug}`}>Learn More</Link>

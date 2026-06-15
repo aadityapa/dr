@@ -41,9 +41,10 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
               <Image
                 src={PORTRAIT}
-                alt="Dr. Sharuja Sarap, Pediatric Occupational Therapist"
+                alt="Dr. Sharuja Sarap, Pediatric Occupational Therapist, with a warm, professional expression"
                 width={600}
                 height={750}
+                sizes="(max-width: 1024px) 100vw, 600px"
                 className="aspect-[4/5] w-full object-cover"
               />
             </div>

@@ -4,14 +4,18 @@
   --color-cream: #f7f3eb;
   --color-beige: #e8ddcc;
   --color-sage: #7d927f;
+  /* Darker sage reserved for small/normal text to meet WCAG AA (>=4.5:1). */
+  --color-sage-text: #4f6b58;
   --color-sage-dark: #2f4d3b;
   --color-soft-green: #dce7d5;
-  --color-terracotta: #be7a62;
+  /* Terracotta darkened from #be7a62 to AA-compliant variant (text usage is pervasive). */
+  --color-terracotta: #a85a42;
   --color-sun: #f5cf79;
   --color-sky: #b9ddec;
   --color-lavender: #d8cdea;
   --color-peach: #f4c9b7;
-  --color-muted: #67766d;
+  /* Muted darkened from #67766d to AA-compliant variant on cream backgrounds. */
+  --color-muted: #5f6e63;
   --color-border: #d9d9cd;
 }
 
@@ -64,6 +68,15 @@ body {
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+/* Guarantee a visible keyboard focus indicator on links and summaries,
+   which otherwise rely only on hover colour changes. */
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-sage-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .sr-only {

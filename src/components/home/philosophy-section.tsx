@@ -46,7 +46,7 @@ export function PhilosophySection() {
         {therapyFlow.map((item, index) => (
           <div key={item.step} className="flex w-full flex-col items-center">
             <div className="philosophy-step w-full rounded-3xl border border-[color:var(--color-border)]/50 bg-white/80 p-8 text-center shadow-lg backdrop-blur-sm transition-transform hover:-translate-y-1">
-              <span className="inline-block rounded-full bg-[color:var(--color-sage)]/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-sage)]">
+              <span className="inline-block rounded-full bg-[color:var(--color-sage)]/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[color:var(--color-sage-text)]">
                 Step {index + 1}
               </span>
               <h3 className="mt-3 font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">

@@ -77,6 +77,7 @@ export function HeroSection() {
               alt="Child engaging in sensory play in a warm pediatric therapy environment"
               width={640}
               height={800}
+              sizes="(max-width: 1024px) 100vw, 640px"
               className="aspect-[4/5] w-full object-cover"
               priority
             />
