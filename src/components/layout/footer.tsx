@@ -3,6 +3,13 @@ import Link from "next/link";
 import { locationPages } from "@/lib/locations";
 import { conditions, navItems, services, siteConfig } from "@/lib/site-data";
 
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Medical Disclaimer", href: "/medical-disclaimer" },
+  { label: "Accessibility", href: "/accessibility" },
+];
+
 export function Footer() {
   return (
     <footer className="bg-white/70 shadow-[0_-8px_30px_-20px_rgba(47,77,59,0.12)]" role="contentinfo">
@@ -100,8 +107,32 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-[color:var(--color-border)]/50 py-4 text-center text-xs text-[color:var(--color-muted)]">
-        © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+      <div className="border-t border-[color:var(--color-border)]/50">
+        <div className="mx-auto max-w-7xl px-4 py-4 md:px-8">
+          <p className="text-center text-xs leading-relaxed text-[color:var(--color-muted)]">
+            <strong className="font-semibold text-[color:var(--color-sage-dark)]">Medical disclaimer:</strong>{" "}
+            The content on this website is for general educational purposes only and is not a substitute for
+            professional assessment, diagnosis, or treatment.{" "}
+            <Link href="/medical-disclaimer" className="font-medium text-[color:var(--color-sage-dark)] hover:underline">
+              Read full disclaimer
+            </Link>
+            .
+          </p>
+          <nav aria-label="Legal" className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs">
+            {legalLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <p className="mt-4 text-center text-xs text-[color:var(--color-muted)]">
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

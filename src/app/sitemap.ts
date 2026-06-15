@@ -21,6 +21,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/appointment", priority: 0.95, changeFrequency: "monthly" as const },
     { path: "/therapy-outcomes", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/screening", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },
+    { path: "/medical-disclaimer", priority: 0.4, changeFrequency: "yearly" as const },
+    { path: "/accessibility", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
   const serviceRoutes = services.map((s) => ({
