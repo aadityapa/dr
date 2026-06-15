@@ -27,8 +27,7 @@ export const en: Messages = {
   hero: {
     badge: "Pediatric Occupational Therapy · Mumbai",
     headline: "Building Abilities. Inspiring Confidence. Transforming Lives.",
-    subheadline:
-      "We help children feel more confident doing the everyday things that matter most — making friends, holding a pencil, getting dressed independently, or simply enjoying playtime.",
+    subheadline: "Warm, evidence-based support for play, school, and daily routines — so your child can feel safe and capable.",
     tagline: "Belonging Without Boundaries.",
   },
   site: {

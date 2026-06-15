@@ -40,7 +40,7 @@ export function TherapyJourneyHome() {
       <SectionHeading
         kicker="Therapy Journey"
         title="What happens when you reach out"
-        description="No surprises — just warm, professional support from your very first call."
+        description="Warm, clear support from the first call."
         center
       />
 
@@ -64,7 +64,7 @@ export function TherapyJourneyHome() {
               <h3 className="mt-1 font-semibold" style={{ color: pastel.text }}>
                 {step.title}
               </h3>
-              <p className="mt-2 text-xs leading-relaxed text-[color:var(--color-muted)] line-clamp-4">
+              <p className="mt-2 text-xs leading-relaxed text-[color:var(--color-muted)] line-clamp-2">
                 {step.description}
               </p>
             </div>

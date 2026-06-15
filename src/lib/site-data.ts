@@ -32,7 +32,7 @@ export const siteConfig = {
 };
 
 export const doctorProfile = {
-  bio: "For over 18 years, Dr. Sharuja Sarap has walked alongside Mumbai families through the joys and worries of childhood development. She meets each child where they are — with patience, play, and genuine care — and helps them build the skills that make everyday life feel a little easier and a lot more joyful.",
+  bio: "For 18+ years, Dr. Sharuja Sarap has supported Mumbai families with play-based, evidence-informed care — helping children build skills for calmer routines, learning, and confidence.",
   qualifications: [
     "Ph.D. Scholar",
     "Master's in Pediatric Occupational Therapy",
@@ -150,35 +150,35 @@ export const therapyJourneySteps = [
     step: 1,
     title: "Appointment",
     description:
-      "Reach out via phone, WhatsApp, or our online form. Share your concerns and we'll schedule a convenient consultation at our Kandivali clinic.",
+      "Reach out by phone, WhatsApp, or the form — we’ll schedule a convenient visit.",
     icon: "Phone",
   },
   {
     step: 2,
     title: "Evaluation",
     description:
-      "A child-friendly assessment across sensory, motor, cognitive, and daily living domains to understand your child's unique strengths and needs.",
+      "A child-friendly assessment to understand strengths, needs, and priorities.",
     icon: "ClipboardCheck",
   },
   {
     step: 3,
     title: "Therapy Sessions",
     description:
-      "Play-based, evidence-informed sessions with Dr. Sharuja Sarap — building skills through engagement, not pressure.",
+      "Play-based sessions that build skills through engagement — not pressure.",
     icon: "HeartHandshake",
   },
   {
     step: 4,
     title: "Progress Tracking",
     description:
-      "Regular goal reviews, home programs, and school coordination ensure measurable progress and adjusted plans as your child grows.",
+      "Goals reviewed regularly with simple home steps (and school support when needed).",
     icon: "Target",
   },
   {
     step: 5,
     title: "Functional Independence",
     description:
-      "Celebrating milestones as your child gains confidence, participation, and independence in daily life — because every step forward matters.",
+      "Celebrate real-life independence — routines, school participation, and confidence.",
     icon: "Sparkles",
   },
 ];
