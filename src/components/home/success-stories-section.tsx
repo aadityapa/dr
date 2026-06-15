@@ -2,25 +2,23 @@
 
 import Link from "next/link";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { getCardPastel } from "@/lib/pastel-palette";
-import { testimonials } from "@/lib/site-data";
 
 export function SuccessStoriesSection() {
+  const { content } = useLanguage();
+  const copy = content.successStories;
+
   return (
     <Section id="success-stories" compact className="bg-[color:var(--color-almond)]">
-      <SectionHeading
-        kicker="Stories We Are Grateful To Be Part Of"
-        title="Families who trusted us with their journey"
-        description="These words are shared with permission. Every child's path is different — but hope shows up in small, real moments."
-        center
-      />
+      <SectionHeading kicker={copy.kicker} title={copy.title} description={copy.description} center />
 
       <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {testimonials.slice(0, 6).map((t, i) => {
+        {copy.items.map((t, i) => {
           const pastel = getCardPastel(i + 6);
           return (
             <Reveal key={t.parent} delay={i * 0.06}>
@@ -43,13 +41,11 @@ export function SuccessStoriesSection() {
         })}
       </div>
 
-      <p className="mt-6 text-center text-xs text-[color:var(--color-muted)]">
-        Stories shared with parental consent. Individual outcomes vary.
-      </p>
+      <p className="mt-6 text-center text-xs text-[color:var(--color-muted)]">{copy.consent}</p>
 
       <div className="mt-6 text-center">
         <Button asChild variant="outline">
-          <Link href="/testimonials-milestones">Read More Stories →</Link>
+          <Link href="/testimonials-milestones">{copy.readMore}</Link>
         </Button>
       </div>
     </Section>

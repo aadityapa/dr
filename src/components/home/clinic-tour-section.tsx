@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -13,59 +14,33 @@ import { getCardPastel } from "@/lib/pastel-palette";
 import { galleryItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
-const TOUR_ROOMS = [
-  {
-    title: "Sensory Gym",
-    description: "Swings, climbing structures, and tactile materials — where regulation meets play.",
-    image: galleryItems[0]?.image,
-    hotspot: "Therapeutic equipment for sensory integration",
-  },
-  {
-    title: "Assessment Room",
-    description: "A calm, child-friendly space for understanding your child's unique strengths.",
-    image: galleryItems[1]?.image ?? galleryItems[0]?.image,
-    hotspot: "Play-based evaluation areas",
-  },
-  {
-    title: "Therapy Rooms",
-    description: "Warm, inviting rooms designed to help children feel safe and ready to engage.",
-    image: galleryItems[2]?.image ?? galleryItems[0]?.image,
-    hotspot: "One-on-one therapy spaces",
-  },
-  {
-    title: "Waiting Area",
-    description: "Comfortable for parents — because your peace of mind matters too.",
-    image: galleryItems[3]?.image ?? galleryItems[0]?.image,
-    hotspot: "Family-friendly reception",
-  },
-];
+const TOUR_ROOM_IMAGES = [0, 1, 2, 3] as const;
 
 export function ClinicTourSection() {
   const [active, setActive] = useState(0);
-  const room = TOUR_ROOMS[active];
+  const { content } = useLanguage();
+  const copy = content.clinicTour;
+  const room = copy.rooms[active];
+  const roomImage =
+    galleryItems[TOUR_ROOM_IMAGES[active]]?.image ?? galleryItems[0]?.image;
 
   function prev() {
-    setActive((i) => (i === 0 ? TOUR_ROOMS.length - 1 : i - 1));
+    setActive((i) => (i === 0 ? copy.rooms.length - 1 : i - 1));
   }
   function next() {
-    setActive((i) => (i === TOUR_ROOMS.length - 1 ? 0 : i + 1));
+    setActive((i) => (i === copy.rooms.length - 1 ? 0 : i + 1));
   }
 
   return (
     <Section id="clinic-tour" compact className="bg-[color:var(--color-almond)]">
-      <SectionHeading
-        kicker="Our space"
-        title="A place where children feel safe to explore"
-        description="Soft colours. Room to move. Corners for quiet when it's all too much. Come see it before your first visit — many parents say it puts them at ease."
-        center
-      />
+      <SectionHeading kicker={copy.kicker} title={copy.title} description={copy.description} center />
 
       <Reveal className="mt-10">
         <div className="overflow-hidden rounded-[2rem] border border-[color:var(--color-border)]/60 bg-white shadow-xl">
           <div className="relative aspect-[16/9] w-full bg-[color:var(--color-soft-sage)]">
-            {room.image && (
+            {roomImage && (
               <Image
-                src={room.image}
+                src={roomImage}
                 alt={`${room.title} at Thrive With Sharuja pediatric therapy clinic`}
                 fill
                 className="object-cover"
@@ -86,7 +61,7 @@ export function ClinicTourSection() {
               type="button"
               onClick={prev}
               className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow-md transition hover:bg-white"
-              aria-label="Previous room"
+              aria-label={content.common.previousRoom}
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -94,14 +69,14 @@ export function ClinicTourSection() {
               type="button"
               onClick={next}
               className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow-md transition hover:bg-white"
-              aria-label="Next room"
+              aria-label={content.common.nextRoom}
             >
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
 
           <div className="flex gap-2 overflow-x-auto p-4">
-            {TOUR_ROOMS.map((r, i) => {
+            {copy.rooms.map((r, i) => {
               const pastel = getCardPastel(i + 14);
               return (
                 <button
@@ -130,11 +105,11 @@ export function ClinicTourSection() {
         <Button asChild variant="outline">
           <Link href="/gallery">
             <MapPin className="mr-2 h-4 w-4" aria-hidden="true" />
-            Full Gallery
+            {copy.fullGallery}
           </Link>
         </Button>
         <Button asChild>
-          <Link href="/appointment">Book a Visit</Link>
+          <Link href="/appointment">{copy.bookVisit}</Link>
         </Button>
       </Reveal>
     </Section>

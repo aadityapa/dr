@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import { ExternalLink, Star } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -25,17 +28,16 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function GoogleReviewsSection() {
+  const { content, locale } = useLanguage();
+  const copy = content.googleReviews;
+  const dateLocale = locale === "en" ? "en-IN" : locale === "hi" ? "hi-IN" : "mr-IN";
+
   return (
     <Section id="reviews" compact className="rounded-[2rem] bg-white/70">
       <JsonLd data={aggregateRatingSchema()} id="aggregate-rating-schema" />
       <JsonLd data={reviewListSchema()} id="review-list-schema" />
 
-      <SectionHeading
-        kicker="What parents say"
-        title="Words that mean a lot to us"
-        description="Real reviews from families who've walked through our doors in Kandivali. Your trust is something we never take lightly."
-        center
-      />
+      <SectionHeading kicker={copy.kicker} title={copy.title} description={copy.description} center />
 
       <Reveal className="mt-8 flex flex-col items-center gap-2">
         <div className="flex items-center gap-3">
@@ -45,14 +47,14 @@ export function GoogleReviewsSection() {
           <div>
             <StarRating rating={googleReviews.rating} />
             <p className="mt-1 text-sm text-[color:var(--color-muted)]">
-              Based on {googleReviews.reviewCount}+ Google reviews
+              {copy.basedOnReviews.replace("{count}", String(googleReviews.reviewCount))}
             </p>
           </div>
         </div>
       </Reveal>
 
       <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {googleReviews.reviews.map((review, i) => (
+        {copy.items.map((review, i) => (
           <Reveal key={review.author} delay={i * 0.08}>
             <Card className="h-full transition-all hover:-translate-y-0.5 hover:shadow-md">
               <CardContent className="p-6">
@@ -60,13 +62,13 @@ export function GoogleReviewsSection() {
                   <div>
                     <p className="font-semibold text-[color:var(--color-sage-dark)]">{review.author}</p>
                     <p className="text-xs text-[color:var(--color-muted)]">
-                      {new Date(review.date).toLocaleDateString("en-IN", {
+                      {new Date(googleReviews.reviews[i]?.date ?? "").toLocaleDateString(dateLocale, {
                         month: "long",
                         year: "numeric",
                       })}
                     </p>
                   </div>
-                  <StarRating rating={review.rating} />
+                  <StarRating rating={googleReviews.reviews[i]?.rating ?? 5} />
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-[color:var(--color-muted)]">
                   &ldquo;{review.text}&rdquo;
@@ -80,14 +82,14 @@ export function GoogleReviewsSection() {
       <Reveal className="mt-10 text-center">
         <Button asChild variant="outline" size="lg">
           <a href={googleReviews.mapsUrl} target="_blank" rel="noopener noreferrer">
-            View All Reviews on Google
+            {copy.viewAll}
             <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
           </a>
         </Button>
         <p className="mt-3 text-sm text-[color:var(--color-muted)]">
-          Or read more on our{" "}
+          {copy.orReadMore}{" "}
           <Link href="/testimonials-milestones" className="font-semibold text-[color:var(--color-sage-dark)] hover:underline">
-            testimonials page
+            {copy.testimonialsLink}
           </Link>
         </p>
       </Reveal>

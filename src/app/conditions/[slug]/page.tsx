@@ -4,12 +4,13 @@ import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
-import { PageHero } from "@/components/shared/page-hero";
+import { ConditionLocalizedHero } from "@/components/shared/localized-page-hero";
+import {
+  ConditionLocalizedGuide,
+  ConditionRelatedServices,
+} from "@/components/conditions/condition-localized-guide";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { allConditionsContent, getConditionContent } from "@/lib/conditions-content";
 import { getConditionDepthContent } from "@/lib/conditions-depth";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -17,7 +18,6 @@ import { faqPageSchema, serviceSchema } from "@/lib/schema";
 import { services, siteConfig } from "@/lib/site-data";
 import { getSeoExpansion } from "@/lib/seo/expansions";
 import { SeoExpansionBlocks } from "@/components/seo/seo-expansion-blocks";
-import { SectionCta } from "@/components/shared/section-cta";
 
 type ConditionPageProps = {
   params: Promise<{ slug: string }>;
@@ -61,7 +61,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           { name: condition.title, url: `${siteConfig.url}/conditions/${slug}` },
         ]}
       />
-      <PageHero kicker="For parents" title={condition.title} description={condition.intro} />
+      <ConditionLocalizedHero slug={slug} />
 
       <Section>
         <div className="prose-custom mx-auto max-w-4xl space-y-12">
@@ -71,86 +71,11 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
             </p>
           ))}
 
-          <article>
-            <SectionHeading title="You might notice..." />
-            <ul className="mt-4 space-y-2">
-              {condition.symptoms.map((s) => (
-                <li key={s} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
-                  <span className="mt-1 text-[color:var(--color-terracotta)]">•</span>
-                  {s}
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          <article>
-            <SectionHeading title="What this can feel like at home" />
-            <ul className="mt-4 space-y-2">
-              {condition.challenges.map((c) => (
-                <li key={c} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
-                  <span className="mt-1 text-[color:var(--color-terracotta)]">•</span>
-                  {c}
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          <article>
-            <SectionHeading title="How we walk alongside you" />
-            <ul className="mt-4 space-y-2">
-              {condition.therapyRole.map((t) => (
-                <li key={t} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
-                  <span className="mt-1 text-[color:var(--color-sage-dark)]">✓</span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          <article>
-            <SectionHeading title="What families often see" />
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {condition.benefits.map((b) => (
-                <Card key={b}>
-                  <CardContent className="p-4 text-sm text-[color:var(--color-muted)]">{b}</CardContent>
-                </Card>
-              ))}
-            </div>
-          </article>
-
-          <article className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6">
-            <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-              When to reach out
-            </h2>
-            <ul className="mt-4 space-y-2">
-              {(depth?.whenToSeeDoctor ?? []).map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
-                  <span className="mt-1 text-[color:var(--color-terracotta)]">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          <article className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6">
-            <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-              When to Begin
-            </h2>
-            <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">{condition.whenToBegin}</p>
-          </article>
-
-          {depth && (
-            <article>
-              <SectionHeading title="Progress we're grateful to witness" />
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                {depth.successOutcomes.map((outcome) => (
-                  <Card key={outcome}>
-                    <CardContent className="p-4 text-sm text-[color:var(--color-muted)]">✓ {outcome}</CardContent>
-                  </Card>
-                ))}
-              </div>
-            </article>
-          )}
+          <ConditionLocalizedGuide
+            slug={slug}
+            whenToSeeDoctor={depth?.whenToSeeDoctor}
+            successOutcomes={depth?.successOutcomes}
+          />
 
           {depth && (
             <article>
@@ -174,42 +99,10 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
 
       <Section className="rounded-[2rem] bg-white/70">
         <SectionHeading title="Related Services" />
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {relatedServiceItems.map((s) => (
-            <Card key={s.slug} className="transition-all hover:-translate-y-1 hover:shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">{s.title}</h3>
-                <p className="mt-2 text-sm text-[color:var(--color-muted)]">{s.summary}</p>
-                <Link href={`/services/${s.slug}`} className="mt-3 inline-block text-sm font-semibold text-[color:var(--color-sage-dark)] hover:underline">
-                  Learn more →
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionHeading title="Frequently Asked Questions" />
-        <Accordion type="single" collapsible className="mt-6 space-y-3">
-          {condition.faqs.map((faq, idx) => (
-            <AccordionItem key={faq.q} value={`cond-faq-${idx}`}>
-              <AccordionTrigger>{faq.q}</AccordionTrigger>
-              <AccordionContent>{faq.a}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild size="lg">
-            <Link href="/appointment">Book a Consultation</Link>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <Link href="/faqs">View All FAQs</Link>
-          </Button>
-        </div>
-        <div className="mt-8">
-          <SectionCta />
-        </div>
+        <ConditionRelatedServices
+          serviceSlugs={relatedServiceItems.map((s) => s.slug)}
+          summaries={Object.fromEntries(relatedServiceItems.map((s) => [s.slug, s.summary]))}
+        />
       </Section>
     </main>
   );

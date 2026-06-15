@@ -3,16 +3,19 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 import {
+  getContent,
   getMessages,
   isValidLocale,
   LOCALE_STORAGE_KEY,
   type Locale,
   type Messages,
 } from "@/lib/i18n";
+import type { LocaleContent } from "@/lib/i18n/content";
 
 type LanguageContextValue = {
   locale: Locale;
   messages: Messages;
+  content: LocaleContent;
   setLocale: (locale: Locale) => void;
 };
 
@@ -43,8 +46,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [locale, mounted]);
 
   const messages = useMemo(() => getMessages(locale), [locale]);
+  const content = useMemo(() => getContent(locale), [locale]);
 
-  const value = useMemo(() => ({ locale, messages, setLocale }), [locale, messages, setLocale]);
+  const value = useMemo(() => ({ locale, messages, content, setLocale }), [locale, messages, content, setLocale]);
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }

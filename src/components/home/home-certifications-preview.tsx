@@ -1,12 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import { Award } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { certificationCards } from "@/lib/certifications";
 
 export function HomeCertificationsPreview() {
+  const { content } = useLanguage();
+  const copy = content.certifications;
+
   return (
     <Section compact className="border-y border-[color:var(--color-border)]/50 bg-white">
       <Reveal>
@@ -16,14 +22,12 @@ export function HomeCertificationsPreview() {
               <Award className="h-5 w-5 text-[color:var(--color-sage)]" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">Training that backs up the care</p>
-              <p className="text-xs text-[color:var(--color-muted)]">
-                Dr. Sharuja brings specialised skills — so your child gets thoughtful support, not guesswork.
-              </p>
+              <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">{copy.title}</p>
+              <p className="text-xs text-[color:var(--color-muted)]">{copy.description}</p>
             </div>
           </div>
           <Button asChild variant="outline" size="sm" className="shrink-0">
-            <Link href="/about#certifications">View All →</Link>
+            <Link href="/about#certifications">{copy.viewAll}</Link>
           </Button>
         </div>
       </Reveal>

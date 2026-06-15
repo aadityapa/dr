@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { useRef } from "react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ServiceIcon } from "@/components/shared/service-icon";
@@ -17,6 +18,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function TherapyJourneyHome() {
   const ref = useRef<HTMLDivElement>(null);
+  const { content } = useLanguage();
+  const copy = content.therapyJourney;
 
   useGSAP(
     () => {
@@ -37,15 +40,10 @@ export function TherapyJourneyHome() {
 
   return (
     <Section compact className="bg-white">
-      <SectionHeading
-        kicker="Your Journey With Us"
-        title="Here's what working together looks like"
-        description="No surprises. Just warmth, clarity, and someone in your corner at every step."
-        center
-      />
+      <SectionHeading kicker={copy.kicker} title={copy.title} description={copy.description} center />
 
       <div ref={ref} className="mt-10 grid gap-4 md:grid-cols-5">
-        {therapyJourneySteps.map((step, i) => {
+        {copy.steps.map((step, i) => {
           const pastel = getCardPastel(i + 3);
           return (
             <div
@@ -53,13 +51,11 @@ export function TherapyJourneyHome() {
               className="home-journey-step flex flex-col items-center rounded-2xl border p-5 text-center"
               style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
             >
-              <div
-                className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 shadow-sm"
-              >
-                <ServiceIcon name={step.icon} className="h-6 w-6" style={{ color: pastel.accent }} />
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
+                <ServiceIcon name={therapyJourneySteps[i]?.icon ?? "HeartHandshake"} className="h-6 w-6" style={{ color: pastel.accent }} />
               </div>
               <p className="mt-1 text-xs font-bold" style={{ color: pastel.accent }}>
-                Step {step.step}
+                {content.common.step} {i + 1}
               </p>
               <h3 className="mt-1 font-semibold" style={{ color: pastel.text }}>
                 {step.title}
@@ -74,7 +70,7 @@ export function TherapyJourneyHome() {
 
       <div className="mt-8 text-center">
         <Button asChild variant="outline">
-          <Link href="/therapy-journey">Full Therapy Journey →</Link>
+          <Link href="/therapy-journey">{copy.fullJourney}</Link>
         </Button>
       </div>
     </Section>

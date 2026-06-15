@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Pagination } from "@/components/shared/pagination";
 import { Reveal } from "@/components/shared/reveal";
 import { getCardPastel } from "@/lib/pastel-palette";
@@ -14,6 +15,7 @@ const PAGE_SIZE = 9;
 export function ConditionsGrid() {
   const [page, setPage] = useState(1);
   const gridRef = useRef<HTMLDivElement>(null);
+  const { content } = useLanguage();
 
   const totalPages = Math.max(1, Math.ceil(conditions.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -30,6 +32,7 @@ export function ConditionsGrid() {
         {paginated.map((condition, i) => {
           const globalIndex = (safePage - 1) * PAGE_SIZE + i;
           const pastel = getCardPastel(globalIndex);
+          const localized = content.conditions[condition.slug];
           return (
             <Reveal key={condition.slug} delay={i * 0.05}>
               <div
@@ -38,18 +41,18 @@ export function ConditionsGrid() {
               >
                 <h2 className="font-[family-name:var(--font-serif)] text-xl" style={{ color: pastel.text }}>
                   <Link href={`/conditions/${condition.slug}`} className="hover:underline">
-                    {condition.title}
+                    {localized?.title ?? condition.title}
                   </Link>
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
-                  {condition.reassurance}
+                  {localized?.reassurance ?? condition.reassurance}
                 </p>
                 <Link
                   href={`/conditions/${condition.slug}`}
                   className="mt-4 inline-block text-sm font-semibold hover:underline"
                   style={{ color: pastel.accent }}
                 >
-                  Read full guide →
+                  {content.common.readFullGuide}
                 </Link>
               </div>
             </Reveal>

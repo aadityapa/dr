@@ -12,11 +12,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/components/providers/language-provider";
 import { getSiteImage } from "@/lib/site-images";
-import { siteConfig } from "@/lib/site-data";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
-  const { messages } = useLanguage();
+  const { messages, content } = useLanguage();
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -89,10 +88,8 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-sage-dark)]/25 to-transparent" />
           </div>
           <div className="absolute -bottom-6 -left-6 hidden rounded-2xl border border-white/60 bg-white/95 p-5 shadow-xl backdrop-blur-md md:block">
-            <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">
-              {siteConfig.experienceYears}+ Years Experience
-            </p>
-            <p className="text-xs text-[color:var(--color-muted)]">Pediatric OT · Mumbai</p>
+            <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">{content.heroCard.years}</p>
+            <p className="text-xs text-[color:var(--color-muted)]">{content.heroCard.subtitle}</p>
           </div>
         </div>
       </div>
@@ -102,7 +99,7 @@ export function HeroSection() {
         className="hero-scroll absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-sage-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-sage)] focus-visible:ring-offset-2"
         aria-label="Scroll to meet Dr. Sharuja Sarap"
       >
-        <span className="text-xs uppercase tracking-widest">Discover</span>
+        <span className="text-xs uppercase tracking-widest">{content.common.discover}</span>
         <ChevronDown className="h-5 w-5 animate-bounce" aria-hidden="true" />
       </a>
     </section>

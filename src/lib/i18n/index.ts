@@ -23,3 +23,5 @@ export function getNavLabel(messages: Messages, href: string): string {
   const key = navHrefKeys[href];
   return key ? messages.nav[key] : href;
 }
+
+export { getContent, getLocalizedConditionDetail, getLocalizedConditionCard, getLocalizedService } from "./content";
