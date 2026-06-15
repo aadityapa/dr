@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { ChildJourneyScroll } from "@/components/home/child-journey-scroll";
+import { DevelopmentJourneyScroll } from "@/components/home/development-journey-scroll-lazy";
 import { ClinicTourSection } from "@/components/home/clinic-tour-section";
 import { DoctorAuthoritySection } from "@/components/home/doctor-authority-section";
 import { HeroSection } from "@/components/home/hero-section";
@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <ChildJourneyScroll />
+      <DevelopmentJourneyScroll />
       <DoctorAuthoritySection />
       <WhoWeHelpSection />
       <ServicesPreview />
