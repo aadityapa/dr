@@ -5,14 +5,16 @@ import { Award } from "lucide-react";
 import { Reveal } from "@/components/shared/reveal";
 import { certificationCards } from "@/lib/certifications";
 
-export function CertificationWall() {
+export function CertificationWall({ hideHeading = false }: { hideHeading?: boolean }) {
   return (
     <div>
-      <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
-        <Award className="h-4 w-4 text-[color:var(--color-terracotta)]" aria-hidden="true" />
-        Specialized Certifications
-      </h3>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+      {!hideHeading && (
+        <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
+          <Award className="h-4 w-4 text-[color:var(--color-terracotta)]" aria-hidden="true" />
+          Specialized Certifications
+        </h3>
+      )}
+      <div className={hideHeading ? "grid gap-3 sm:grid-cols-2" : "mt-4 grid gap-3 sm:grid-cols-2"}>
         {certificationCards.map((cert, i) => (
           <Reveal key={cert.id} delay={i * 0.04}>
             <div

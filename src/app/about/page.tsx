@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { ProfessionalJourneySection } from "@/components/about/professional-journey-section";
+import { CertificationWall } from "@/components/home/certification-wall";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
@@ -10,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { getCardPastel } from "@/lib/pastel-palette";
 import { doctorProfile, siteConfig } from "@/lib/site-data";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { Award, GraduationCap } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 
 const PORTRAIT =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDqme4z4q7U9PFUK64TAVhA4QWFLHvL0wqKUfcBcSwsRDn8b7TDNvjK3Lkf0sUaVOpqUpNryt8RxKeEAlz66__rEYyIIXbo4G0LzQ7JCHlGeaz85vpJ8r0FwZtAhDB-7sjXWavcfD3L4DQXZdq08z3pYB4nHAJe3YvGXX4ui66_QbrI4gvYHLCO-Tp_chdk02RRU_7SEeiExzW3YQrGpBTN8-yAUkGloVI40V-yxVpN3PeLtBWZKWpmo27TcZVMW3N4ewkttEcDvh0";
@@ -73,7 +75,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section className="rounded-[2rem] bg-white/70">
+      <Section className="rounded-[2rem] bg-[color:var(--color-almond)]">
         <SectionHeading kicker="Qualifications" title="Education & credentials" center />
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {doctorProfile.qualifications.map((q, i) => {
@@ -98,27 +100,16 @@ export default function AboutPage() {
       <Section>
         <SectionHeading
           kicker="Certifications"
-          title="International & national certifications"
-          description="Specialized training across sensory integration, aquatic therapy, reflex integration, and more."
+          title="Specialized certifications"
+          description="Advanced international training across sensory integration, aquatic therapy, reflex integration, and more."
           center
         />
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {doctorProfile.certifications.map((cert, i) => {
-            const pastel = getCardPastel(i + 6);
-            return (
-              <Reveal key={cert} delay={i * 0.04}>
-                <div
-                  className="flex items-start gap-2 rounded-2xl border p-4"
-                  style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
-                >
-                  <Award className="mt-0.5 h-4 w-4 shrink-0" style={{ color: pastel.accent }} />
-                  <p className="text-sm text-[color:var(--color-muted)]">{cert}</p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+        <Reveal className="mt-10">
+          <CertificationWall hideHeading />
+        </Reveal>
       </Section>
+
+      <ProfessionalJourneySection />
     </main>
   );
 }

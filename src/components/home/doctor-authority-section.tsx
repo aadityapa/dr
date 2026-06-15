@@ -2,13 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
 
-import { CertificationWall } from "@/components/home/certification-wall";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
-import { getCardPastel } from "@/lib/pastel-palette";
-import { doctorProfile, doctorTimeline, siteConfig } from "@/lib/site-data";
+import { doctorProfile, siteConfig } from "@/lib/site-data";
 
 const DOCTOR_IMAGE =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuCeoZkBYzn93ZY5eHYUUVXZKScDqSl4PilFvk0YMZi7yu3lIqh9KXLHADwpsnMvceBYYu6UR2bZUrv9KQYVwNvnE92ZZpbHcJLKLCxB80CEA13jwP7A6sjZ0GT5LFUn9d7OrsX3MK6-1eKi69xngkuoLl7Wos_8Xva82ZTiFzWKb2696wF702noRassWo_iPwVmpbj-45zzcxcBBvWZUtJN0h7QSWmYY-VGxNoSADl7wzyN0wF6jajP7hmQsjvg7pULU-fceNNYYUc";
@@ -16,9 +14,9 @@ const DOCTOR_IMAGE =
 export function DoctorAuthoritySection() {
   return (
     <Section id="meet-doctor" className="bg-[color:var(--color-almond)]">
-      <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
-          <div className="relative mx-auto max-w-md lg:mx-0 lg:sticky lg:top-24">
+          <div className="relative mx-auto max-w-md lg:mx-0">
             <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
               <Image
                 src={DOCTOR_IMAGE}
@@ -59,41 +57,9 @@ export function DoctorAuthoritySection() {
             ))}
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-8">
-            <CertificationWall />
-          </Reveal>
-
-          <Reveal delay={0.14} className="mt-8">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
-              Professional Journey
-            </h3>
-            <div className="mt-4 space-y-3">
-              {doctorTimeline.map((item, i) => {
-                const pastel = getCardPastel(i + 12);
-                return (
-                  <div
-                    key={item.title}
-                    className="flex gap-4 rounded-xl border p-4"
-                    style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
-                  >
-                    <span className="shrink-0 text-xs font-bold" style={{ color: pastel.accent }}>
-                      {item.year}
-                    </span>
-                    <div>
-                      <p className="font-semibold" style={{ color: pastel.text }}>
-                        {item.title}
-                      </p>
-                      <p className="text-sm text-[color:var(--color-muted)] line-clamp-2">{item.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.18} className="mt-8 flex flex-wrap gap-3">
+          <Reveal delay={0.1} className="mt-8 flex flex-wrap gap-3">
             <Button asChild>
-              <Link href="/about">Full Profile</Link>
+              <Link href="/about">Full Profile & Certifications</Link>
             </Button>
             <Button asChild variant="outline">
               <Link href="/appointment">Book Consultation</Link>

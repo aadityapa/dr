@@ -133,7 +133,7 @@ export const doctorTimeline = [
   { year: "2015", title: "Brain Gym Certification", description: "Certified Brain Gym Instructor & Practitioner for learning readiness." },
   { year: "2018", title: "International Certifications", description: "HWT, Aquatherapy (IATF), MNRI, OPT, PIASTM, and Kinesio Taping credentials." },
   { year: "2022", title: "Ph.D. Scholar", description: "Continuing advanced research in pediatric sensory-motor development." },
-  { year: "Today", title: "500+ Families Supported", description: "Serving children birth to 14 years at Thrive with sharuja, Kandivali West." },
+  { year: "Today", title: "500+ Families Supported", description: "Serving children birth to 14 years at Thrive With Sharuja, Kandivali West." },
 ];
 
 export const therapyFlow = [
