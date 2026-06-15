@@ -89,7 +89,7 @@ export function HeroSection() {
             <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">
               {siteConfig.experienceYears}+ Years Experience
             </p>
-            <p className="text-xs text-[color:var(--color-muted)]">Reg. No. {siteConfig.registrationNumber}</p>
+            <p className="text-xs text-[color:var(--color-muted)]">Pediatric OT · Mumbai</p>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
+import { getCardPastel } from "@/lib/pastel-palette";
 import { galleryItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
@@ -100,21 +101,27 @@ export function ClinicTourSection() {
           </div>
 
           <div className="flex gap-2 overflow-x-auto p-4">
-            {TOUR_ROOMS.map((r, i) => (
-              <button
-                key={r.title}
-                type="button"
-                onClick={() => setActive(i)}
-                className={cn(
-                  "shrink-0 rounded-xl px-4 py-2 text-sm font-medium transition",
-                  i === active
-                    ? "bg-[color:var(--color-sage-dark)] text-white"
-                    : "bg-[color:var(--color-snow)] text-[color:var(--color-muted)] hover:bg-[color:var(--color-soft-sage)]",
-                )}
-              >
-                {r.title}
-              </button>
-            ))}
+            {TOUR_ROOMS.map((r, i) => {
+              const pastel = getCardPastel(i + 14);
+              return (
+                <button
+                  key={r.title}
+                  type="button"
+                  onClick={() => setActive(i)}
+                  className={cn(
+                    "shrink-0 rounded-xl border px-4 py-2 text-sm font-medium transition",
+                    i === active ? "text-white shadow-md" : "hover:opacity-90",
+                  )}
+                  style={
+                    i === active
+                      ? { backgroundColor: pastel.accent, borderColor: pastel.accent }
+                      : { backgroundColor: pastel.bg, borderColor: pastel.border, color: pastel.text }
+                  }
+                >
+                  {r.title}
+                </button>
+              );
+            })}
           </div>
         </div>
       </Reveal>

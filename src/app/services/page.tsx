@@ -6,9 +6,9 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { ServiceIcon } from "@/components/shared/service-icon";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { services, siteConfig } from "@/lib/site-data";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
+import { getServicePastel } from "@/lib/service-colors";
+import { services, siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Pediatric Therapy Services Mumbai",
@@ -27,34 +27,41 @@ export default function ServicesPage() {
     <main>
       <PageHero
         kicker="Services"
-        title="Specialized care for every milestone"
-        description="Evidence-based pediatric therapy programs tailored to your child's unique developmental journey."
+        title="Therapy that meets your child where they are"
+        description="Play-based, evidence-informed programs — each one designed to help your child build real skills with confidence."
       />
 
       <Section>
-        <div className="grid gap-8">
-          {services.map((service, i) => (
-            <Reveal key={service.slug} delay={i * 0.06}>
-              <Card className="overflow-hidden transition-all hover:shadow-xl">
-                <CardContent className="grid gap-6 p-8 md:grid-cols-[auto_1fr_auto] md:items-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[color:var(--color-soft-green)]">
-                    <ServiceIcon name={service.icon} className="h-8 w-8 text-[color:var(--color-sage-dark)]" />
+        <div className="grid gap-6 md:grid-cols-2">
+          {services.map((service, i) => {
+            const pastel = getServicePastel(service.slug);
+            return (
+              <Reveal key={service.slug} delay={i * 0.06}>
+                <div
+                  className="flex h-full flex-col rounded-2xl border p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
+                  style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+                >
+                  <div
+                    className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/70 shadow-sm"
+                  >
+                    <ServiceIcon name={service.icon} className="h-7 w-7" style={{ color: pastel.accent }} />
                   </div>
-                  <div>
-                    <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-                      {service.title}
-                    </h2>
-                    <p className="mt-1 text-sm font-medium text-[color:var(--color-terracotta)]">{service.headline}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">{service.summary}</p>
-                    <p className="mt-2 text-xs text-[color:var(--color-sage-text)]">Ages: {service.ageGroups}</p>
-                  </div>
-                  <Button asChild variant="outline">
+                  <h2 className="mt-4 font-[family-name:var(--font-serif)] text-xl" style={{ color: pastel.text }}>
+                    {service.title}
+                  </h2>
+                  <p className="mt-1 text-sm font-medium" style={{ color: pastel.accent }}>
+                    {service.headline}
+                  </p>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                    {service.summary}
+                  </p>
+                  <Button asChild variant="outline" className="mt-4 w-fit bg-white/60">
                     <Link href={`/services/${service.slug}`}>Learn More</Link>
                   </Button>
-                </CardContent>
-              </Card>
-            </Reveal>
-          ))}
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         <Reveal className="mt-12 text-center">

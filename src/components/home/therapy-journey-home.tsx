@@ -10,11 +10,10 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ServiceIcon } from "@/components/shared/service-icon";
 import { Button } from "@/components/ui/button";
+import { getCardPastel } from "@/lib/pastel-palette";
 import { therapyJourneySteps } from "@/lib/site-data";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const STEP_COLORS = ["#D6E8F5", "#C8EEF0", "#E4DDF5", "#FCE8DC", "#D8F0E4"];
 
 export function TherapyJourneyHome() {
   const ref = useRef<HTMLDivElement>(null);
@@ -46,22 +45,31 @@ export function TherapyJourneyHome() {
       />
 
       <div ref={ref} className="mt-10 grid gap-4 md:grid-cols-5">
-        {therapyJourneySteps.map((step, i) => (
-          <div
-            key={step.title}
-            className="home-journey-step flex flex-col items-center rounded-2xl border border-[color:var(--color-border)]/40 p-5 text-center"
-            style={{ backgroundColor: STEP_COLORS[i] }}
-          >
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
-              <ServiceIcon name={step.icon} className="h-6 w-6 text-[color:var(--color-sage-dark)]" />
+        {therapyJourneySteps.map((step, i) => {
+          const pastel = getCardPastel(i + 3);
+          return (
+            <div
+              key={step.title}
+              className="home-journey-step flex flex-col items-center rounded-2xl border p-5 text-center"
+              style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+            >
+              <div
+                className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/80 shadow-sm"
+              >
+                <ServiceIcon name={step.icon} className="h-6 w-6" style={{ color: pastel.accent }} />
+              </div>
+              <p className="mt-1 text-xs font-bold" style={{ color: pastel.accent }}>
+                Step {step.step}
+              </p>
+              <h3 className="mt-1 font-semibold" style={{ color: pastel.text }}>
+                {step.title}
+              </h3>
+              <p className="mt-2 text-xs leading-relaxed text-[color:var(--color-muted)] line-clamp-4">
+                {step.description}
+              </p>
             </div>
-            <p className="mt-1 text-xs font-bold text-[color:var(--color-terracotta)]">Step {step.step}</p>
-            <h3 className="mt-1 font-semibold text-[color:var(--color-sage-dark)]">{step.title}</h3>
-            <p className="mt-2 text-xs leading-relaxed text-[color:var(--color-muted)] line-clamp-4">
-              {step.description}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-8 text-center">

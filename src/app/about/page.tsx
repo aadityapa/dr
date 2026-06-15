@@ -7,7 +7,7 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { getCardPastel } from "@/lib/pastel-palette";
 import { doctorProfile, siteConfig } from "@/lib/site-data";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { Award, GraduationCap } from "lucide-react";
@@ -59,17 +59,13 @@ export default function AboutPage() {
               </h2>
               <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">{doctorProfile.bio}</p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl bg-[color:var(--color-soft-green)]/50 p-4">
-                  <p className="text-2xl font-bold text-[color:var(--color-sage-dark)]">
-                    {siteConfig.experienceYears}+
-                  </p>
+                <div className="rounded-2xl p-4" style={{ backgroundColor: "#D6E8F5", border: "1px solid #A8CCE8" }}>
+                  <p className="text-2xl font-bold text-[#1E4A6E]">{siteConfig.experienceYears}+</p>
                   <p className="text-sm text-[color:var(--color-muted)]">Years of Experience</p>
                 </div>
-                <div className="rounded-2xl bg-[color:var(--color-soft-green)]/50 p-4">
-                  <p className="text-2xl font-bold text-[color:var(--color-sage-dark)]">
-                    {siteConfig.registrationNumber}
-                  </p>
-                  <p className="text-sm text-[color:var(--color-muted)]">Registration Number</p>
+                <div className="rounded-2xl p-4" style={{ backgroundColor: "#E4DDF5", border: "1px solid #C9BCE8" }}>
+                  <p className="text-2xl font-bold text-[#4A3570]">10+</p>
+                  <p className="text-sm text-[color:var(--color-muted)]">Specialized Programs</p>
                 </div>
               </div>
             </div>
@@ -80,16 +76,22 @@ export default function AboutPage() {
       <Section className="rounded-[2rem] bg-white/70">
         <SectionHeading kicker="Qualifications" title="Education & credentials" center />
         <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {doctorProfile.qualifications.map((q, i) => (
-            <Reveal key={q} delay={i * 0.08}>
-              <Card>
-                <CardContent className="flex items-start gap-3 p-5">
-                  <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-[color:var(--color-sage)]" />
-                  <p className="text-sm font-medium text-[color:var(--color-sage-dark)]">{q}</p>
-                </CardContent>
-              </Card>
-            </Reveal>
-          ))}
+          {doctorProfile.qualifications.map((q, i) => {
+            const pastel = getCardPastel(i);
+            return (
+              <Reveal key={q} delay={i * 0.08}>
+                <div
+                  className="flex items-start gap-3 rounded-2xl border p-5"
+                  style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+                >
+                  <GraduationCap className="mt-0.5 h-5 w-5 shrink-0" style={{ color: pastel.accent }} />
+                  <p className="text-sm font-medium" style={{ color: pastel.text }}>
+                    {q}
+                  </p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 
@@ -101,14 +103,20 @@ export default function AboutPage() {
           center
         />
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {doctorProfile.certifications.map((cert, i) => (
-            <Reveal key={cert} delay={i * 0.04}>
-              <div className="flex items-start gap-2 rounded-2xl border border-[color:var(--color-border)]/60 bg-white/80 p-4">
-                <Award className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--color-terracotta)]" />
-                <p className="text-sm text-[color:var(--color-muted)]">{cert}</p>
-              </div>
-            </Reveal>
-          ))}
+          {doctorProfile.certifications.map((cert, i) => {
+            const pastel = getCardPastel(i + 6);
+            return (
+              <Reveal key={cert} delay={i * 0.04}>
+                <div
+                  className="flex items-start gap-2 rounded-2xl border p-4"
+                  style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+                >
+                  <Award className="mt-0.5 h-4 w-4 shrink-0" style={{ color: pastel.accent }} />
+                  <p className="text-sm text-[color:var(--color-muted)]">{cert}</p>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
     </main>

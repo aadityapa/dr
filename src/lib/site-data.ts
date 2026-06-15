@@ -83,7 +83,6 @@ export const secondaryNavItems = [
 export const trustBadges = [
   "18+ Years Experience",
   "10+ Specialized Programs",
-  "Registration No. 051388",
   "Certified Pediatric Occupational Therapist",
   "Evidence-Based Therapy Programs",
 ];

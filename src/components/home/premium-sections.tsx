@@ -4,7 +4,7 @@ import { Award, Heart, Shield, Users } from "lucide-react";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { Card, CardContent } from "@/components/ui/card";
+import { getCardPastel } from "@/lib/pastel-palette";
 import { siteConfig } from "@/lib/site-data";
 
 const reasons = [
@@ -36,24 +36,30 @@ export function WhyParentsChooseSection() {
       <SectionHeading
         kicker="Why Us"
         title="Why Parents Choose Dr. Sharuja Sarap"
-        description="Families across Mumbai and Kandivali trust Thrive with sharuja for compassionate, expert pediatric care."
+        description="Families across Mumbai and Kandivali trust Thrive With Sharuja for compassionate, expert pediatric care."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {reasons.map((reason, i) => (
-          <Reveal key={reason.title} delay={i * 0.08}>
-            <Card className="h-full transition-all hover:-translate-y-1 hover:shadow-lg">
-              <CardContent className="flex gap-4 p-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color:var(--color-soft-green)]">
-                  <reason.icon className="h-6 w-6 text-[color:var(--color-sage-dark)]" aria-hidden="true" />
+        {reasons.map((reason, i) => {
+          const pastel = getCardPastel(i);
+          return (
+            <Reveal key={reason.title} delay={i * 0.08}>
+              <div
+                className="flex h-full gap-4 rounded-2xl border p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
+                style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/70">
+                  <reason.icon className="h-6 w-6" style={{ color: pastel.accent }} aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[color:var(--color-sage-dark)]">{reason.title}</h3>
+                  <h3 className="font-semibold" style={{ color: pastel.text }}>
+                    {reason.title}
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">{reason.description}</p>
                 </div>
-              </CardContent>
-            </Card>
-          </Reveal>
-        ))}
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
     </Section>
   );
@@ -71,11 +77,7 @@ export function MeetDoctorPreviewSection() {
           />
           <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
             Dr. Sharuja Sarap brings both expertise and heartfelt care to pediatric occupational therapy. She uses a gentle
-            movement and sensory-based integrative approach to help children grow with confidence and joy — from birth
-            through 14 years.
-          </p>
-          <p className="mt-3 font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--color-terracotta)]">
-            &ldquo;{siteConfig.tagline}&rdquo;
+            movement and sensory-based integrative approach to help children grow with confidence and joy.
           </p>
           <Link
             href="/about"
@@ -95,7 +97,7 @@ export function MeetDoctorPreviewSection() {
               <li>• IATF Aquatherapy · MNRI · OPT · PIASTM · KT</li>
             </ul>
             <p className="mt-4 text-xs text-[color:var(--color-muted)]">
-              Reg. No. {siteConfig.registrationNumber} · {siteConfig.experienceYears}+ Years Experience
+              {siteConfig.experienceYears}+ Years Experience · 10+ Specialized Programs
             </p>
           </div>
         </Reveal>
@@ -113,13 +115,21 @@ export function ClinicEnvironmentSection() {
         description="Our Kandivali West clinic is designed to help children feel safe, curious, and ready to engage."
       />
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {["Sensory Gym & Therapy Rooms", "Child-Friendly Assessment Areas", "Aquatic Therapy Access"].map((item, i) => (
-          <Reveal key={item} delay={i * 0.06}>
-            <div className="rounded-2xl border border-[color:var(--color-border)] bg-white/60 p-6 text-center">
-              <p className="font-medium text-[color:var(--color-sage-dark)]">{item}</p>
-            </div>
-          </Reveal>
-        ))}
+        {["Sensory Gym & Therapy Rooms", "Child-Friendly Assessment Areas", "Aquatic Therapy Access"].map((item, i) => {
+          const pastel = getCardPastel(i + 4);
+          return (
+            <Reveal key={item} delay={i * 0.06}>
+              <div
+                className="rounded-2xl border p-6 text-center"
+                style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+              >
+                <p className="font-medium" style={{ color: pastel.text }}>
+                  {item}
+                </p>
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
       <Reveal className="mt-6 text-center">
         <Link href="/gallery" className="text-sm font-semibold text-[color:var(--color-sage-dark)] hover:underline">
@@ -198,7 +208,7 @@ export function ParentReassuranceSection() {
             can tell you is this: children are remarkably resilient when given the right support at the right time.
           </p>
           <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">
-            At Thrive with sharuja, we have walked alongside hundreds of families through uncertainty, fear, and
+            At Thrive With Sharuja, we have walked alongside hundreds of families through uncertainty, fear, and
             hope. We have seen children who struggled to write their name go on to thrive in school. We have seen
             sensory overwhelm transform into confident participation. We have seen parents who felt lost find clarity,
             community, and practical strategies that work.
@@ -215,9 +225,6 @@ export function ParentReassuranceSection() {
           <p>Every child can make progress.</p>
           <p>Every child deserves the opportunity to thrive.</p>
         </div>
-        <p className="mt-8 font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--color-terracotta)]">
-          {siteConfig.tagline}
-        </p>
       </div>
     </Section>
   );
@@ -235,20 +242,26 @@ export function DownloadableGuidesSection() {
       <SectionHeading
         kicker="Resources"
         title="Downloadable Parent Guides"
-        description="Practical guides to support your child's development at home — free for Thrive with sharuja families."
+        description="Practical guides to support your child's development at home — free for Thrive With Sharuja families."
       />
       <div className="mt-8 grid gap-4 md:grid-cols-3">
-        {guides.map((guide, i) => (
-          <Reveal key={guide.title} delay={i * 0.06}>
-            <Link
-              href={guide.href}
-              className="block rounded-2xl border border-[color:var(--color-border)] bg-white/70 p-6 transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <h3 className="font-medium text-[color:var(--color-sage-dark)]">{guide.title}</h3>
-              <p className="mt-2 text-xs text-[color:var(--color-muted)]">Free download · Lead capture required</p>
-            </Link>
-          </Reveal>
-        ))}
+        {guides.map((guide, i) => {
+          const pastel = getCardPastel(i + 8);
+          return (
+            <Reveal key={guide.title} delay={i * 0.06}>
+              <Link
+                href={guide.href}
+                className="block rounded-2xl border p-6 transition hover:-translate-y-1 hover:shadow-lg"
+                style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+              >
+                <h3 className="font-medium" style={{ color: pastel.text }}>
+                  {guide.title}
+                </h3>
+                <p className="mt-2 text-xs text-[color:var(--color-muted)]">Free download · Lead capture required</p>
+              </Link>
+            </Reveal>
+          );
+        })}
       </div>
       <p className="mt-6 text-center text-sm text-[color:var(--color-muted)]">
         <Link href="/library" className="font-semibold text-[color:var(--color-sage-dark)] hover:underline">

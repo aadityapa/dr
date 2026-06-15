@@ -34,7 +34,7 @@ export function ServicesPreview() {
                 <div
                   className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/70 shadow-sm transition-transform group-hover:scale-110"
                 >
-                  <ServiceIcon name={service.icon} className="h-6 w-6" style={{ color: pastel.icon }} />
+                  <ServiceIcon name={service.icon} className="h-6 w-6" style={{ color: pastel.accent }} />
                 </div>
                 <h3 className="font-[family-name:var(--font-serif)] text-xl" style={{ color: pastel.text }}>
                   {service.title}
@@ -42,7 +42,7 @@ export function ServicesPreview() {
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
                   {service.summary}
                 </p>
-                <span className="mt-4 text-xs font-semibold" style={{ color: pastel.icon }}>
+                <span className="mt-4 text-xs font-semibold" style={{ color: pastel.accent }}>
                   Learn more →
                 </span>
               </Link>

@@ -33,7 +33,7 @@ export const en: Messages = {
   site: {
     title: "Pediatric Occupational Therapist",
     description:
-      "Thrive with sharuja offers evidence-based pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap — sensory-integrative, movement-based care for children from birth to 14 years.",
+      "Thrive With Sharuja offers evidence-based pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap — sensory-integrative, movement-based care for children and families.",
   },
   footer: {
     explore: "Explore",

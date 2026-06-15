@@ -7,6 +7,7 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
+import { getCardPastel } from "@/lib/pastel-palette";
 import { doctorProfile, doctorTimeline, siteConfig } from "@/lib/site-data";
 
 const DOCTOR_IMAGE =
@@ -32,7 +33,6 @@ export function DoctorAuthoritySection() {
                 {siteConfig.experienceYears}+
               </p>
               <p className="text-xs font-medium text-[color:var(--color-muted)]">Years Experience</p>
-              <p className="mt-1 text-[10px] text-[color:var(--color-muted)]">Reg. {siteConfig.registrationNumber}</p>
             </div>
           </div>
         </Reveal>
@@ -68,18 +68,26 @@ export function DoctorAuthoritySection() {
               Professional Journey
             </h3>
             <div className="mt-4 space-y-3">
-              {doctorTimeline.map((item) => (
-                <div
-                  key={item.title}
-                  className="flex gap-4 rounded-xl border border-[color:var(--color-border)]/50 bg-white p-4"
-                >
-                  <span className="shrink-0 text-xs font-bold text-[color:var(--color-terracotta)]">{item.year}</span>
-                  <div>
-                    <p className="font-semibold text-[color:var(--color-sage-dark)]">{item.title}</p>
-                    <p className="text-sm text-[color:var(--color-muted)] line-clamp-2">{item.description}</p>
+              {doctorTimeline.map((item, i) => {
+                const pastel = getCardPastel(i + 12);
+                return (
+                  <div
+                    key={item.title}
+                    className="flex gap-4 rounded-xl border p-4"
+                    style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+                  >
+                    <span className="shrink-0 text-xs font-bold" style={{ color: pastel.accent }}>
+                      {item.year}
+                    </span>
+                    <div>
+                      <p className="font-semibold" style={{ color: pastel.text }}>
+                        {item.title}
+                      </p>
+                      <p className="text-sm text-[color:var(--color-muted)] line-clamp-2">{item.description}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </Reveal>
 

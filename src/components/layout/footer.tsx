@@ -123,7 +123,6 @@ export function Footer() {
               </a>
             </li>
             <li>{siteConfig.timings}</li>
-            <li className="text-xs">Reg. No. {siteConfig.registrationNumber}</li>
           </ul>
         </div>
       </div>
