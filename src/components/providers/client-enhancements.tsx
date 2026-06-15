@@ -1,25 +1,21 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { usePathname } from "next/navigation";
 
 const SmoothScrollProvider = dynamic(
   () => import("@/components/providers/smooth-scroll-provider").then((mod) => mod.SmoothScrollProvider),
   { ssr: false },
 );
-const DynamicCursor = dynamic(
-  () => import("@/components/providers/dynamic-cursor").then((mod) => mod.DynamicCursor),
+const CartoonCursor = dynamic(
+  () => import("@/components/providers/cartoon-cursor").then((mod) => mod.CartoonCursor),
   { ssr: false },
 );
 
 export function ClientEnhancements() {
-  const pathname = usePathname();
-  const enableCursor = pathname === "/";
-
   return (
     <>
       <SmoothScrollProvider />
-      {enableCursor ? <DynamicCursor /> : null}
+      <CartoonCursor />
     </>
   );
 }
