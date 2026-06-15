@@ -56,12 +56,27 @@ export const navItems = [
   { label: "Services", href: "/services" },
   { label: "Conditions", href: "/conditions" },
   { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/contact" },
+  { label: "Appointment", href: "/appointment" },
+];
+
+/** Primary links shown in the desktop header */
+export const primaryNavItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Conditions", href: "/conditions" },
+  { label: "Resources", href: "/resources" },
+  { label: "Contact", href: "/contact" },
+];
+
+/** Secondary links in the "More" dropdown */
+export const secondaryNavItems = [
   { label: "Library", href: "/library" },
   { label: "Outcomes", href: "/therapy-outcomes" },
   { label: "Screening", href: "/screening" },
   { label: "FAQs", href: "/faqs" },
   { label: "Therapy Journey", href: "/therapy-journey" },
-  { label: "Contact", href: "/contact" },
   { label: "Appointment", href: "/appointment" },
 ];
 

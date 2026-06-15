@@ -8,6 +8,7 @@ import { ChevronDown } from "lucide-react";
 import { FloatingNature } from "@/components/shared/floating-nature";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/components/providers/language-provider";
 import { siteConfig } from "@/lib/site-data";
 
 const HERO_IMAGE =
@@ -15,6 +16,7 @@ const HERO_IMAGE =
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
+  const { messages } = useLanguage();
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -50,22 +52,22 @@ export function HeroSection() {
 
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
-          <Badge className="hero-badge mb-6">Pediatric Occupational Therapy · Mumbai</Badge>
+          <Badge className="hero-badge mb-6">{messages.hero.badge}</Badge>
           <h1 className="hero-title font-[family-name:var(--font-serif)] text-4xl leading-[1.08] tracking-tight text-[color:var(--color-sage-dark)] md:text-5xl lg:text-[3.5rem]">
-            {siteConfig.heroHeadline}
+            {messages.hero.headline}
           </h1>
           <p className="hero-sub mt-7 max-w-xl text-lg leading-relaxed text-[color:var(--color-muted)] md:text-xl">
-            {siteConfig.heroSubheadline}
+            {messages.hero.subheadline}
           </p>
           <p className="hero-tagline mt-5 font-[family-name:var(--font-serif)] text-xl italic text-[color:var(--color-terracotta)] md:text-2xl">
-            {siteConfig.tagline}
+            {messages.hero.tagline}
           </p>
           <div className="hero-cta mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg">
-              <Link href="/appointment">Book Consultation</Link>
+              <Link href="/appointment">{messages.cta.bookConsultation}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/services">Explore Services</Link>
+              <Link href="/services">{messages.cta.exploreServices}</Link>
             </Button>
           </div>
         </div>

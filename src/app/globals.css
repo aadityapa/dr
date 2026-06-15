@@ -39,6 +39,11 @@ body {
   font-family: var(--font-inter), sans-serif;
 }
 
+html[lang="hi"] body,
+html[lang="mr"] body {
+  font-family: var(--font-devanagari), var(--font-inter), sans-serif;
+}
+
 .playful-dots {
   background-image: radial-gradient(rgba(125, 146, 127, 0.16) 1.2px, transparent 1.2px);
   background-size: 18px 18px;
