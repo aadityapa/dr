@@ -55,6 +55,7 @@ export const navItems = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Conditions", href: "/conditions" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
   { label: "Appointment", href: "/appointment" },
@@ -72,6 +73,7 @@ export const primaryNavItems = [
 
 /** Secondary links in the "More" dropdown */
 export const secondaryNavItems = [
+  { label: "Gallery", href: "/gallery" },
   { label: "Library", href: "/library" },
   { label: "Outcomes", href: "/therapy-outcomes" },
   { label: "Screening", href: "/screening" },

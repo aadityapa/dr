@@ -39,8 +39,8 @@ export function ServicesPreview() {
                 <h3 className="font-[family-name:var(--font-serif)] text-xl" style={{ color: pastel.text }}>
                   {service.title}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
-                  {service.summary}
+                <p className="mt-2 flex-1 text-sm font-medium leading-relaxed" style={{ color: pastel.accent }}>
+                  {service.headline}
                 </p>
                 <span className="mt-4 text-xs font-semibold" style={{ color: pastel.accent }}>
                   Learn more →

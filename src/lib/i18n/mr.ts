@@ -6,6 +6,7 @@ export const mr: Messages = {
     about: "आमच्याबद्दल",
     services: "सेवा",
     conditions: "स्थिती",
+    gallery: "गॅलरी",
     resources: "संसाधने",
     library: "ग्रंथालय",
     outcomes: "परिणाम",

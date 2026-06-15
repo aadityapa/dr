@@ -6,6 +6,7 @@ export const en: Messages = {
     about: "About",
     services: "Services",
     conditions: "Conditions",
+    gallery: "Gallery",
     resources: "Resources",
     library: "Library",
     outcomes: "Outcomes",

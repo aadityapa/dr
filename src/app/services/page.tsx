@@ -49,11 +49,8 @@ export default function ServicesPage() {
                   <h2 className="mt-4 font-[family-name:var(--font-serif)] text-xl" style={{ color: pastel.text }}>
                     {service.title}
                   </h2>
-                  <p className="mt-1 text-sm font-medium" style={{ color: pastel.accent }}>
+                  <p className="mt-2 flex-1 text-sm font-medium leading-relaxed" style={{ color: pastel.accent }}>
                     {service.headline}
-                  </p>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[color:var(--color-muted)]">
-                    {service.summary}
                   </p>
                   <Button asChild variant="outline" className="mt-4 w-fit bg-white/60">
                     <Link href={`/services/${service.slug}`}>Learn More</Link>

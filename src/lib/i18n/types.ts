@@ -15,6 +15,7 @@ export type Messages = {
     services: string;
     conditions: string;
     resources: string;
+    gallery: string;
     library: string;
     outcomes: string;
     screening: string;
@@ -70,6 +71,7 @@ export const navHrefKeys: Record<string, keyof Messages["nav"]> = {
   "/about": "about",
   "/services": "services",
   "/conditions": "conditions",
+  "/gallery": "gallery",
   "/resources": "resources",
   "/library": "library",
   "/therapy-outcomes": "outcomes",

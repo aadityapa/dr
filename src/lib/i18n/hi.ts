@@ -6,6 +6,7 @@ export const hi: Messages = {
     about: "हमारे बारे में",
     services: "सेवाएं",
     conditions: "स्थितियाँ",
+    gallery: "गैलरी",
     resources: "संसाधन",
     library: "पुस्तकालय",
     outcomes: "परिणाम",

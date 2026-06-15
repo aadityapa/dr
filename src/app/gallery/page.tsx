@@ -9,7 +9,7 @@ import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Therapy Gallery & Clinic Environment",
   description:
-    "Explore therapy rooms, assessment areas, aquatic therapy facilities, and child-friendly environments at Thrive with sharuja in Kandivali West, Mumbai.",
+    "Explore therapy rooms, assessment areas, aquatic therapy facilities, and child-friendly environments at Thrive With Sharuja in Kandivali West, Mumbai.",
   path: "/gallery",
   keywords: mumbaiKeywords("pediatric therapy clinic Mumbai", "OT clinic Kandivali"),
 });
