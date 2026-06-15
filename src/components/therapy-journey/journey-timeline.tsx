@@ -89,7 +89,7 @@ export function JourneyTimeline() {
 
       <Reveal className="mt-16 text-center">
         <Button asChild size="lg">
-          <Link href="/appointment">Start Your Journey</Link>
+          <Link href="/appointment">Take the First Step</Link>
         </Button>
       </Reveal>
     </Section>

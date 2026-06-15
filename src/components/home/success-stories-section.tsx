@@ -13,9 +13,9 @@ export function SuccessStoriesSection() {
   return (
     <Section id="success-stories" compact className="bg-[color:var(--color-almond)]">
       <SectionHeading
-        kicker="Success Stories"
-        title="Real families. Real progress."
-        description="Parents across Mumbai share what therapy at our clinic has meant for their children."
+        kicker="Stories We Are Grateful To Be Part Of"
+        title="Families who trusted us with their journey"
+        description="These words are shared with permission. Every child's path is different — but hope shows up in small, real moments."
         center
       />
 
@@ -49,7 +49,7 @@ export function SuccessStoriesSection() {
 
       <div className="mt-6 text-center">
         <Button asChild variant="outline">
-          <Link href="/testimonials-milestones">More Success Stories →</Link>
+          <Link href="/testimonials-milestones">Read More Stories →</Link>
         </Button>
       </div>
     </Section>

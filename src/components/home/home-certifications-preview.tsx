@@ -16,9 +16,9 @@ export function HomeCertificationsPreview() {
               <Award className="h-5 w-5 text-[color:var(--color-sage)]" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">Specialized Certifications</p>
+              <p className="text-sm font-semibold text-[color:var(--color-sage-dark)]">Training that backs up the care</p>
               <p className="text-xs text-[color:var(--color-muted)]">
-                Evidence-based training across sensory, motor, and learning programs
+                Dr. Sharuja brings specialised skills — so your child gets thoughtful support, not guesswork.
               </p>
             </div>
           </div>

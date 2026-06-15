@@ -19,7 +19,7 @@ export function HomeFaqSection() {
       <SectionHeading
         kicker="FAQ"
         title="Questions parents ask us most"
-        description="Quick answers — explore 100+ FAQs in our full library."
+        description="Honest answers — and a full library of 100+ FAQs if you want to dig deeper."
         center
       />
 

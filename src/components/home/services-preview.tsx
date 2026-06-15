@@ -12,9 +12,9 @@ export function ServicesPreview() {
   return (
     <Section id="services" compact className="bg-white">
       <SectionHeading
-        kicker="Our Services"
-        title="Programs designed around your child"
-        description="Each therapy has its own approach — and its own colour. Find the right fit for your family."
+        kicker="How We Can Help"
+        title="Support for the moments that matter"
+        description="Every family comes to us with a different story. Here are some of the ways we walk alongside children and parents in Kandivali and across Mumbai."
         center
       />
 

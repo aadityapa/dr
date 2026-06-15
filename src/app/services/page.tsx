@@ -26,9 +26,9 @@ export default function ServicesPage() {
   return (
     <main>
       <PageHero
-        kicker="Services"
-        title="Therapy that meets your child where they are"
-        description="Play-based, evidence-informed programs — each one designed to help your child build real skills with confidence."
+        kicker="How We Help"
+        title="Support for the everyday moments that matter"
+        description="Not programmes on a shelf — real help for mornings, school, mealtimes, play, and the feelings that come with all of it."
       />
 
       <Section>

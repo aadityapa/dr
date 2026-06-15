@@ -12,9 +12,9 @@ import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { Sparkles, Star, Video } from "lucide-react";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Milestones & Parent Testimonials",
+  title: "Stories We Are Grateful To Be Part Of",
   description:
-    "Read success stories and milestones celebrated by families at Thrive with sharuja — pediatric occupational therapy in Mumbai.",
+    "Families share their journeys with Dr. Sharuja Sarap at Thrive With Sharuja — pediatric occupational therapy in Kandivali, Mumbai.",
   path: "/testimonials-milestones",
   keywords: mumbaiKeywords("pediatric OT testimonials Mumbai", "child therapy success stories"),
 });
@@ -23,13 +23,13 @@ export default function TestimonialsMilestonesPage() {
   return (
     <main>
       <PageHero
-        kicker="Milestones"
-        title="Milestones We Celebrated"
-        description="Every small win is a giant leap. Here are the moments families cherish most."
+        kicker="Stories We Are Grateful To Be Part Of"
+        title="Small wins that changed everything"
+        description="Every family walks a different path. These are moments parents chose to share — with hope that yours might feel a little less lonely."
       />
 
       <Section>
-        <SectionHeading title="Achievement highlights" center />
+        <SectionHeading title="Milestones we've celebrated together" center />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {milestones.map((milestone, i) => (
             <Reveal key={milestone} delay={i * 0.04}>
@@ -43,7 +43,11 @@ export default function TestimonialsMilestonesPage() {
       </Section>
 
       <Section className="rounded-[2rem] bg-white/70">
-        <SectionHeading title="Parent testimonials" description="Stories of hope, progress, and transformation." center />
+        <SectionHeading
+          title="In their own words"
+          description="Shared with permission. Outcomes vary — but hope is real."
+          center
+        />
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {testimonials.map((item, i) => (
             <Reveal key={item.parent} delay={i * 0.08}>
@@ -68,9 +72,9 @@ export default function TestimonialsMilestonesPage() {
         <Reveal className="mt-10">
           <div className="flex flex-col items-center rounded-3xl border border-dashed border-[color:var(--color-border)] bg-[color:var(--color-cream)]/50 p-8 text-center">
             <Video className="h-10 w-10 text-[color:var(--color-sage)]" />
-            <p className="mt-3 font-medium text-[color:var(--color-sage-dark)]">Video testimonials coming soon</p>
+            <p className="mt-3 font-medium text-[color:var(--color-sage-dark)]">Video stories coming soon</p>
             <p className="mt-1 text-sm text-[color:var(--color-muted)]">
-              Hear directly from families about their therapy journey.
+              Hear directly from parents — in their own voices.
             </p>
           </div>
         </Reveal>
@@ -78,7 +82,7 @@ export default function TestimonialsMilestonesPage() {
 
       <Section className="text-center">
         <Button asChild size="lg">
-          <Link href="/appointment">Start Your Child&apos;s Journey</Link>
+          <Link href="/appointment">Start With a Conversation</Link>
         </Button>
       </Section>
     </main>

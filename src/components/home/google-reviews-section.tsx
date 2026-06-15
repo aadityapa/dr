@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/shared/json-ld";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { aggregateRatingSchema, reviewListSchema } from "@/lib/schema";
-import { googleReviews, siteConfig } from "@/lib/site-data";
+import { googleReviews } from "@/lib/site-data";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -31,9 +31,9 @@ export function GoogleReviewsSection() {
       <JsonLd data={reviewListSchema()} id="review-list-schema" />
 
       <SectionHeading
-        kicker="Google Reviews"
-        title="Trusted by Mumbai Families"
-        description={`See why parents recommend ${siteConfig.doctorName} and ${siteConfig.name} for pediatric occupational therapy in Kandivali.`}
+        kicker="What parents say"
+        title="Words that mean a lot to us"
+        description="Real reviews from families who've walked through our doors in Kandivali. Your trust is something we never take lightly."
         center
       />
 

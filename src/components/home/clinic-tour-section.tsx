@@ -54,9 +54,9 @@ export function ClinicTourSection() {
   return (
     <Section id="clinic-tour" compact className="bg-[color:var(--color-almond)]">
       <SectionHeading
-        kicker="Clinic Tour"
-        title="Walk through our space before you visit"
-        description="A warm, child-friendly clinic in Kandivali West — designed so families feel at home from day one."
+        kicker="Our space"
+        title="A place where children feel safe to explore"
+        description="Soft colours. Room to move. Corners for quiet when it's all too much. Come see it before your first visit — many parents say it puts them at ease."
         center
       />
 

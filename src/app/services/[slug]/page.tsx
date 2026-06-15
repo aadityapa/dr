@@ -189,13 +189,13 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
       {extended && (
         <Section className="rounded-[2rem] bg-white/70">
-          <SectionHeading kicker="Overview" title="What You Need to Know" />
+          <SectionHeading kicker="Overview" title="What you need to know" />
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {[
-              { title: "What Is It?", content: extended.geoBlock.whatIsIt },
-              { title: "Who Needs It?", content: extended.geoBlock.whoNeedsIt },
-              { title: "How It Helps", content: extended.geoBlock.howItHelps },
-              { title: "What Happens in Sessions", content: extended.geoBlock.whatHappens },
+              { title: "What this looks like at home", content: extended.geoBlock.whatIsIt },
+              { title: "This might help if...", content: extended.geoBlock.whoNeedsIt },
+              { title: "What families often notice", content: extended.geoBlock.howItHelps },
+              { title: "What a session feels like", content: extended.geoBlock.whatHappens },
             ].map((block) => (
               <Card key={block.title}>
                 <CardContent className="p-6">
@@ -208,7 +208,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">Expected Outcomes</h3>
+                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">What we work toward</h3>
                 <ul className="mt-3 space-y-2 text-sm text-[color:var(--color-muted)]">
                   {extended.geoBlock.outcomes.map((o) => (
                     <li key={o}>✓ {o}</li>
@@ -218,7 +218,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
             </Card>
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">When to Begin</h3>
+                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">When to reach out</h3>
                 <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">{extended.geoBlock.whenToBegin}</p>
               </CardContent>
             </Card>

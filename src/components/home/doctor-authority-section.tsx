@@ -37,9 +37,9 @@ export function DoctorAuthoritySection() {
         <div>
           <Reveal>
             <SectionHeading
-              kicker="Meet Dr Sharuja"
-              title={siteConfig.doctorName}
-              description="Pediatric Occupational Therapy Specialist · Kandivali West, Mumbai"
+              kicker="Someone who gets it"
+              title={`Hi, I'm ${siteConfig.doctorName}`}
+              description="Pediatric occupational therapist · Kandivali West, Mumbai"
             />
             <p className="mt-4 max-w-prose leading-relaxed text-[color:var(--color-muted)]">{doctorProfile.bio}</p>
           </Reveal>

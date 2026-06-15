@@ -6,11 +6,11 @@ export const siteConfig = {
   doctorName: "Dr. Sharuja Sarap",
   title: "Pediatric Occupational Therapist",
   tagline: "Belonging Without Boundaries.",
-  heroHeadline: "Building Abilities. Inspiring Confidence. Transforming Lives.",
+  heroHeadline: "Your child is doing their best. We're here to help the everyday things feel easier.",
   heroSubheadline:
-    "We help children feel more confident doing the everyday things that matter most — making friends, holding a pencil, getting dressed independently, or simply enjoying playtime.",
+    "From getting dressed and holding a pencil to joining playtime and making friends — we walk alongside Mumbai families with warmth, patience, and care that meets your child where they are.",
   description:
-    "Thrive With Sharuja offers warm, evidence-based pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap — sensory-integrative, movement-based care tailored to each child.",
+    "Warm pediatric occupational therapy in Kandivali West, Mumbai. Dr. Sharuja Sarap helps children and parents feel more confident in the little things that matter every day.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharujasarap.vercel.app",
   email: "sharujasaraf@gmail.com",
   phone: "+91 9820525197",
@@ -34,7 +34,7 @@ export const siteConfig = {
 };
 
 export const doctorProfile = {
-  bio: "For 18+ years, Dr. Sharuja Sarap has supported Mumbai families with play-based, evidence-informed care — helping children build skills for calmer routines, learning, and confidence.",
+  bio: "Dr. Sharuja has spent 18 years sitting with worried parents and curious children — in our clinic in Kandivali, and in homes across Mumbai. She doesn't rush. She listens. She explains things in plain language. And she builds therapy around what your child actually needs, not what a checklist says they should do.",
   qualifications: [
     "Ph.D. Scholar",
     "Master's in Pediatric Occupational Therapy",
@@ -150,37 +150,37 @@ export const therapyFlow = [
 export const therapyJourneySteps = [
   {
     step: 1,
-    title: "Appointment",
+    title: "Let's Get To Know Your Child",
     description:
-      "Reach out by phone, WhatsApp, or the form — we’ll schedule a convenient visit.",
-    icon: "Phone",
+      "A warm first visit. We listen to your story, watch your child play, and start to understand what daily life feels like for your family.",
+    icon: "HeartHandshake",
   },
   {
     step: 2,
-    title: "Evaluation",
+    title: "Understanding Strengths & Challenges",
     description:
-      "A child-friendly assessment to understand strengths, needs, and priorities.",
+      "Gentle, play-based observation — no scary tests. We notice what your child does well and where they need a little more support.",
     icon: "ClipboardCheck",
   },
   {
     step: 3,
-    title: "Therapy Sessions",
+    title: "Creating A Meaningful Plan",
     description:
-      "Play-based sessions that build skills through engagement — not pressure.",
-    icon: "HeartHandshake",
-  },
-  {
-    step: 4,
-    title: "Progress Tracking",
-    description:
-      "Goals reviewed regularly with simple home steps (and school support when needed).",
+      "Clear goals in words you understand. No jargon. We agree together on what matters most — mornings, school, mealtimes, or play.",
     icon: "Target",
   },
   {
-    step: 5,
-    title: "Functional Independence",
+    step: 4,
+    title: "Building Skills Through Play & Connection",
     description:
-      "Celebrate real-life independence — routines, school participation, and confidence.",
+      "Sessions feel like play, not pressure. Your child builds real skills while feeling safe, seen, and encouraged.",
+    icon: "HeartHandshake",
+  },
+  {
+    step: 5,
+    title: "Celebrating Progress Together",
+    description:
+      "We track the wins — big and small. You leave with simple home ideas. We adjust as your child grows.",
     icon: "Sparkles",
   },
 ];
@@ -189,11 +189,11 @@ export const services = [
   {
     slug: "occupational-therapy",
     title: "Occupational Therapy",
-    headline: "Unlocking Potential Through Meaningful Participation",
+    headline: "When everyday things feel harder than they should",
     summary:
-      "We help children feel more confident doing everyday things — making friends, holding a pencil, getting dressed, or enjoying playtime.",
+      "Getting dressed. Holding a pencil. Sitting through dinner. We help with the real moments — so your child can feel capable, not left behind.",
     content:
-      "Every child deserves the opportunity to participate confidently in everyday life. Occupational Therapy helps children develop the skills needed for learning, play, self-care, social interaction, and independence. Whether a child struggles with attention, sensory processing, motor coordination, handwriting, daily routines, or school participation, our individualized therapy programs focus on building strengths and overcoming challenges in a supportive and engaging environment. Through evidence-based assessment and intervention, we help children improve their confidence, functional abilities, and overall quality of life—empowering them to succeed at home, in school, and within their community.",
+      "You might notice your child avoiding certain tasks, melting down at transitions, or falling behind their friends in small ways that add up. That's exhausting for everyone. In our sessions, we work on the skills behind those moments — through play, patience, and a plan that fits your child's pace. Not a one-size-fits-all program. Just support that makes daily life feel a little lighter.",
     icon: "Hand",
     ageGroups: "Birth to 14 years",
     areasAddressed: [
@@ -238,11 +238,11 @@ export const services = [
   {
     slug: "aquatic-therapy",
     title: "Aquatic Therapy",
-    headline: "Transforming Growth Through the Power of Water",
+    headline: "When land feels too hard, water can help",
     summary:
-      "Water brings out the best in many children — building strength, balance, and joy in a safe, playful environment.",
+      "Some children open up in water in ways they never do on land. We use that — gently, safely — to build strength, balance, and joy.",
     content:
-      "Water provides a unique therapeutic environment where children can move, explore, and succeed with greater freedom and confidence. Aquatic Therapy combines the therapeutic benefits of water with individualized intervention to support physical, sensory, emotional, and social development.",
+      "If your child resists physical activities, has low muscle tone, or just lights up near water, aquatic therapy might be the right fit. Sessions are fully supervised. There's no pressure to swim. Just movement that feels freeing — and skills that carry over to playground, school, and home.",
     icon: "Waves",
     ageGroups: "2 to 14 years",
     benefits: [
@@ -274,11 +274,11 @@ export const services = [
   {
     slug: "brain-gym",
     title: "Brain Gym®",
-    headline: "Learning Begins with Movement",
+    headline: "When homework ends in tears — movement can help",
     summary:
-      "When the body and brain move together, learning clicks — we use purposeful movement to unlock focus and confidence.",
+      "Short, simple movements before seated work can change everything. We teach your child (and you) routines that help the brain feel ready to learn.",
     content:
-      "Brain Gym® is a movement-based approach designed to support learning, attention, coordination, and emotional well-being. As a Certified Brain Gym Instructor & Practitioner, Dr. Sharuja integrates purposeful movement to help children access their full learning potential.",
+      "Does your child fidget, lose focus in minutes, or struggle to start homework? Brain Gym uses brief, purposeful movement — not exercise drills — to help the body and brain work together. Many parents tell us homework gets shorter and calmer once their child has a movement routine they actually enjoy.",
     icon: "Brain",
     ageGroups: "4 to 14 years",
     brainGymSupports: [
@@ -315,11 +315,11 @@ export const services = [
   {
     slug: "handwriting-training",
     title: "Handwriting Training",
-    headline: "Building Confidence One Letter at a Time",
+    headline: "When writing hurts, slows down, or gets avoided",
     summary:
-      "Messy handwriting isn't laziness — we build the motor foundations so writing feels natural, not frustrating.",
+      "Messy handwriting isn't laziness. Often it's tired hands, weak grip, or a body that isn't ready to sit and write. We fix the foundation — gently.",
     content:
-      "Handwriting is more than putting words on paper—it is a complex skill requiring coordination of visual, motor, sensory, cognitive, and postural abilities. Our Handwriting Without Tears (HWT) certified approach builds confidence through structured, engaging practice.",
+      "If your child refuses written homework, complains of hand pain, or gets marks deducted for illegible answers, we can help. Using Handwriting Without Tears®, we build letter formation step by step — through play, not endless copying. The goal isn't perfect calligraphy. It's writing that works for school and doesn't feel like a battle.",
     icon: "PenLine",
     ageGroups: "4 to 14 years",
     skillsDeveloped: [
@@ -356,11 +356,11 @@ export const services = [
   {
     slug: "rmti",
     title: "RMTI",
-    headline: "Rhythmic Movement for Nervous System Development",
+    headline: "Gentle movement for a calmer, steadier body",
     summary:
-      "Rhythmic Movement Training Integration supports primitive reflex integration, postural stability, and emotional regulation through gentle, rhythmic movements.",
+      "Some children need rhythmic, soothing movement to feel settled in their own skin. RMTI helps with posture, focus, and big feelings — softly.",
     content:
-      "RMTI (Rhythmic Movement Training Integration) uses innate rhythmic movements to stimulate brain development, integrate retained primitive reflexes, and support postural and emotional foundations. Dr. Sharuja Sarap applies RMTI within a holistic pediatric OT framework for children who struggle with coordination, attention, emotional regulation, or developmental foundations.",
+      "If your child seems clumsy, wiggly, anxious, or stuck in patterns that don't quite make sense, rhythmic movement training may help. We use gentle, innate movements — never force — to support how the brain and body work together. Many parents notice calmer transitions and better attention over time.",
     icon: "Sparkles",
     ageGroups: "Birth to 14 years",
     areasAddressed: [
@@ -394,11 +394,11 @@ export const services = [
   {
     slug: "opt",
     title: "OPT",
-    headline: "Oral Placement Therapy for Feeding & Speech Readiness",
+    headline: "When mealtimes feel like a battle",
     summary:
-      "Oral Placement Therapy addresses oral-motor skills, feeding challenges, and speech articulation foundations through targeted sensory-motor activities.",
+      "Picky eating, gagging, or refusing textures? We work on the mouth and sensory skills behind feeding — so family meals can feel less stressful.",
     content:
-      "OPT (Oral Placement Therapy) is a specialized approach that uses tools and exercises to develop the oral-motor skills needed for safe feeding, speech articulation, and oral sensory tolerance. Dr. Sharuja Sarap is certified in OPT and integrates it with occupational therapy for children with feeding difficulties, oral aversions, and speech-related motor challenges.",
+      "Feeding struggles affect the whole family. Oral Placement Therapy uses playful, targeted exercises to build the strength and tolerance children need for safer, more enjoyable eating. We go at your child's pace. No forcing. No shame. Just patient support — often alongside broader OT goals.",
     icon: "Utensils",
     ageGroups: "Birth to 14 years",
     areasAddressed: [
@@ -432,11 +432,11 @@ export const services = [
   {
     slug: "piastm",
     title: "PIASTM",
-    headline: "Pediatric Soft Tissue Mobilization for Movement",
+    headline: "When tight muscles make movement uncomfortable",
     summary:
-      "PIASTM uses instrument-assisted soft tissue techniques adapted for children to improve mobility, reduce tension, and support motor function.",
+      "Gentle hands-on techniques help release tension so your child can move with more ease — during play, school, and daily activities.",
     content:
-      "PIASTM (Pediatric Instrument Assisted Soft Tissue Mobilization) applies gentle, instrument-assisted techniques to address soft tissue restrictions that limit movement, posture, and functional participation. Dr. Sharuja Sarap uses PIASTM as part of a comprehensive pediatric OT approach for children with muscle tension, postural challenges, and movement restrictions.",
+      "Some children carry tension in their shoulders, neck, or hands without anyone realising it — until writing, sports, or self-care becomes painful. PIASTM uses child-appropriate soft tissue techniques within playful therapy sessions. It's never rough. Always within trust.",
     icon: "Hand",
     ageGroups: "2 to 14 years",
     areasAddressed: [
@@ -470,11 +470,11 @@ export const services = [
   {
     slug: "kinesio-taping",
     title: "Kinesio Taping",
-    headline: "KT Level 1–3 Support for Posture & Function",
+    headline: "A little extra support for posture and movement",
     summary:
-      "Kinesio Taping provides sensory and postural support through elastic therapeutic tape — certified KT Level 1–3 application for pediatric needs.",
+      "Therapeutic tape can give children subtle feedback — helping them sit, write, or play sports with more awareness and confidence.",
     content:
-      "Kinesio Taping (KT Level 1–3) uses elastic therapeutic tape to support muscles and joints, provide proprioceptive input, and assist postural alignment without restricting movement. Dr. Sharuja Sarap applies pediatric-appropriate taping techniques to support functional goals in daily activities, sports, and school participation.",
+      "Kinesio tape isn't about restricting movement. It gently reminds the body how to align and activate muscles during the activities that matter — homework, cricket, climbing, carrying a school bag. Dr. Sharuja applies it safely for children and teaches you how to care for it at home.",
     icon: "Award",
     ageGroups: "3 to 14 years",
     areasAddressed: [
@@ -508,11 +508,11 @@ export const services = [
   {
     slug: "mnri",
     title: "MNRI",
-    headline: "Masgutova Neurosensorimotor Reflex Integration",
+    headline: "When the nervous system needs a stronger foundation",
     summary:
-      "MNRI uses reflex integration techniques to rebuild nervous system foundations for movement, regulation, and learning.",
+      "Some learning and movement challenges start deeper — in early reflex patterns. MNRI helps rebuild those foundations, gently and respectfully.",
     content:
-      "MNRI (Masgutova Neurosensorimotor Reflex Integration) is a specialized reflex integration approach that addresses retained or emerging primitive reflexes affecting motor, sensory, and emotional development. Dr. Sharuja Sarap integrates MNRI within pediatric OT for children whose nervous system foundations need support for confident participation.",
+      "If your child struggles with coordination, emotional ups and downs, or skills that seem 'almost there' but never quite click, reflex integration may be part of the answer. MNRI uses specialised protocols within warm, playful sessions. Progress is gradual — but the changes often show up in daily life: calmer mornings, easier homework, more confident movement.",
     icon: "Brain",
     ageGroups: "Birth to 14 years",
     areasAddressed: [
@@ -546,11 +546,11 @@ export const services = [
   {
     slug: "kdct",
     title: "KDCT",
-    headline: "Kinesio Dry Cupping Therapy for Pediatric Recovery",
+    headline: "Gentle relief when muscles hold too much tension",
     summary:
-      "KDCT uses gentle dry cupping techniques adapted for children to support tissue health, circulation, and movement recovery.",
+      "Dry cupping — adapted carefully for children — can ease tightness and support recovery alongside movement goals.",
     content:
-      "KDCT (Kinesio Dry Cupping Therapy) applies gentle cupping techniques to support soft tissue health, circulation, and recovery from movement challenges. Dr. Sharuja Sarap uses pediatric-adapted KDCT as a complementary technique within occupational therapy for children with muscle tension, postural strain, or recovery needs.",
+      "Active children sometimes carry tension in shoulders, backs, or legs that slows progress elsewhere. KDCT uses very gentle cupping within therapy sessions. It's never scary. We explain everything. And it's always part of a bigger plan — not a standalone fix.",
     icon: "HeartHandshake",
     ageGroups: "4 to 14 years",
     areasAddressed: [

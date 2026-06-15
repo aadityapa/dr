@@ -16,9 +16,9 @@ export default function TherapyJourneyPage() {
   return (
     <main>
       <PageHero
-        kicker="Therapy Journey"
-        title="Your path from first call to thriving progress"
-        description="A transparent, family-centered process designed to make you feel supported at every step."
+        kicker="Your Journey With Us"
+        title="From first hello to celebrating small wins"
+        description="We keep things simple, warm, and honest — so you always know what comes next."
       />
       <JourneyTimeline />
     </main>

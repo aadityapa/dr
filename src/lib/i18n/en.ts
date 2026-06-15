@@ -26,14 +26,15 @@ export const en: Messages = {
   },
   hero: {
     badge: "Pediatric Occupational Therapy · Mumbai",
-    headline: "Building Abilities. Inspiring Confidence. Transforming Lives.",
-    subheadline: "Warm, evidence-based support for play, school, and daily routines — so your child can feel safe and capable.",
+    headline: "Your child is doing their best. We're here to help the everyday things feel easier.",
+    subheadline:
+      "From getting dressed and holding a pencil to joining playtime and making friends — we walk alongside families with warmth, patience, and care.",
     tagline: "Belonging Without Boundaries.",
   },
   site: {
     title: "Pediatric Occupational Therapist",
     description:
-      "Thrive With Sharuja offers evidence-based pediatric occupational therapy in Mumbai with Dr. Sharuja Sarap — sensory-integrative, movement-based care for children and families.",
+      "Warm pediatric occupational therapy in Kandivali West, Mumbai. Dr. Sharuja Sarap helps children and parents feel more confident in the little things that matter every day.",
   },
   footer: {
     explore: "Explore",

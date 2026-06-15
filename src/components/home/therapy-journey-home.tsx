@@ -38,9 +38,9 @@ export function TherapyJourneyHome() {
   return (
     <Section compact className="bg-white">
       <SectionHeading
-        kicker="Therapy Journey"
-        title="What happens when you reach out"
-        description="Warm, clear support from the first call."
+        kicker="Your Journey With Us"
+        title="Here's what working together looks like"
+        description="No surprises. Just warmth, clarity, and someone in your corner at every step."
         center
       />
 

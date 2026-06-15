@@ -11,9 +11,9 @@ export function WhoWeHelpSection() {
   return (
     <Section id="who-we-help" compact className="bg-[color:var(--color-snow)]">
       <SectionHeading
-        kicker="Who We Help"
-        title="Every child&apos;s story is different — and every one matters"
-        description="Whether your child struggles with sensory overload, handwriting, attention, or daily routines, we're here to help with warmth and expertise."
+        kicker="Is This Your Child?"
+        title="Every story is different. Every one matters."
+        description="You don't need a diagnosis to reach out. If something feels harder than it should — for your child or for you — we're here to listen."
         center
       />
 

@@ -12,7 +12,7 @@ type SectionCtaProps = {
 
 export function SectionCta({
   title = "Ready to take the next step?",
-  description = "Book a consultation with Dr. Sharuja Sarap and discover how personalized therapy can support your child's development.",
+  description = "Book a conversation with Dr. Sharuja Sarap. No pressure — just a warm first step toward support that fits your child.",
   className = "",
 }: SectionCtaProps) {
   return (

@@ -7,6 +7,8 @@ import { HeroSection } from "@/components/home/hero-section";
 import { HomeCertificationsPreview } from "@/components/home/home-certifications-preview";
 import { HomeContactSection } from "@/components/home/home-contact-section";
 import { HomeFaqSection } from "@/components/home/home-faq-section";
+import { MaybeYoureWonderingSection } from "@/components/home/maybe-youre-wondering-section";
+import { ParentMessageSection } from "@/components/home/parent-message-section";
 import { ServicesPreview } from "@/components/home/services-preview";
 import { SuccessStoriesSection } from "@/components/home/success-stories-section";
 import { TherapyJourneyHome } from "@/components/home/therapy-journey-home";
@@ -25,6 +27,8 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <ParentMessageSection />
+      <MaybeYoureWonderingSection />
       <DoctorAuthoritySection />
       <HomeCertificationsPreview />
       <ServicesPreview />
