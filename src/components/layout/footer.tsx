@@ -2,8 +2,10 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
 
 import { useLanguage } from "@/components/providers/language-provider";
+import { Button } from "@/components/ui/button";
 import { getNavLabel } from "@/lib/i18n";
 import { locationPages } from "@/lib/locations";
 import { conditions, navItems, secondaryNavItems, services, siteConfig } from "@/lib/site-data";
@@ -11,11 +13,17 @@ import { conditions, navItems, secondaryNavItems, services, siteConfig } from "@
 function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="min-w-0">
-      <h4 className="text-xs font-semibold uppercase tracking-widest text-[color:var(--color-sage-dark)]">
-        {title}
-      </h4>
+      <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90">{title}</h4>
       <div className="mt-4">{children}</div>
     </div>
+  );
+}
+
+function FooterLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link href={href} className="text-sm text-white/65 transition hover:text-white hover:underline underline-offset-4">
+      {children}
+    </Link>
   );
 }
 
@@ -33,162 +41,154 @@ export function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-white/70 shadow-[0_-8px_30px_-20px_rgba(47,77,59,0.12)]" role="contentinfo">
-      <div className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:items-start lg:gap-x-8 lg:gap-y-10">
-          {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-4">
-            <h3 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-              {siteConfig.name}
-            </h3>
-            <p className="mt-1 text-sm text-[color:var(--color-muted)]">{messages.site.title}</p>
-            <p className="mt-2 text-sm font-medium italic text-[color:var(--color-terracotta)]">{messages.hero.tagline}</p>
-            <p className="mt-3 max-w-sm text-sm leading-relaxed text-[color:var(--color-muted)]">
-              {messages.site.description}
-            </p>
-          </div>
+    <footer className="relative mt-20 w-full" role="contentinfo">
+      {/* Curved transition from page content */}
+      <div
+        className="pointer-events-none absolute -top-12 left-0 right-0 h-12 bg-[color:var(--color-sage-dark)]"
+        style={{ clipPath: "ellipse(75% 100% at 50% 100%)" }}
+        aria-hidden
+      />
 
-          {/* Explore */}
-          <div className="lg:col-span-2">
-            <FooterColumn title={messages.footer.explore}>
-              <ul className="space-y-2">
-                {navItems.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]"
-                    >
-                      {getNavLabel(messages, item.href)}
-                    </Link>
-                  </li>
-                ))}
-                {exploreExtras.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]"
-                    >
-                      {getNavLabel(messages, item.href)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
-          </div>
+      <div className="bg-gradient-to-b from-[color:var(--color-sage-dark)] via-[#2a4535] to-[#1e3328] text-white">
+        {/* Main footer */}
+        <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-16 md:px-6 lg:px-8">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-12">
+            {/* Brand */}
+            <div className="sm:col-span-2 lg:col-span-4">
+              <h3 className="font-[family-name:var(--font-serif)] text-2xl font-semibold text-white">
+                {siteConfig.name}
+              </h3>
+              <p className="mt-1 text-sm text-white/60">{messages.site.title}</p>
+              <p className="mt-3 font-[family-name:var(--font-serif)] text-base italic text-[color:var(--color-sun)]/90">
+                {messages.hero.tagline}
+              </p>
+              <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">{messages.site.description}</p>
+              <div className="mt-6">
+                <Button asChild size="sm" className="bg-white text-[color:var(--color-sage-dark)] hover:bg-white/90">
+                  <Link href="/appointment">{messages.cta.bookConsultation}</Link>
+                </Button>
+              </div>
+            </div>
 
-          {/* Services, Locations, Conditions, Contact — 2×2 grid for aligned section headers */}
-          <div className="grid gap-10 sm:col-span-2 sm:grid-cols-2 lg:col-span-6 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-10">
-            <FooterColumn title={messages.footer.services}>
-              <ul className="space-y-2">
-                {services.map((s) => (
-                  <li key={s.slug}>
-                    <Link
-                      href={`/services/${s.slug}`}
-                      className="text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]"
-                    >
-                      {s.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </FooterColumn>
+            {/* Explore */}
+            <div className="lg:col-span-2">
+              <FooterColumn title={messages.footer.explore}>
+                <ul className="space-y-2.5">
+                  {navItems.map((item) => (
+                    <li key={item.href}>
+                      <FooterLink href={item.href}>{getNavLabel(messages, item.href)}</FooterLink>
+                    </li>
+                  ))}
+                  {exploreExtras.map((item) => (
+                    <li key={item.href}>
+                      <FooterLink href={item.href}>{getNavLabel(messages, item.href)}</FooterLink>
+                    </li>
+                  ))}
+                </ul>
+              </FooterColumn>
+            </div>
 
-            <FooterColumn title={messages.footer.locations}>
-              <ul className="space-y-2">
-                {locationPages.slice(0, 4).map((l) => (
-                  <li key={l.slug}>
-                    <Link
-                      href={`/locations/${l.slug}`}
-                      className="text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]"
-                    >
-                      {l.title}
-                    </Link>
+            {/* 2×2 link grid */}
+            <div className="grid gap-10 sm:col-span-2 sm:grid-cols-2 lg:col-span-6 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-10">
+              <FooterColumn title={messages.footer.services}>
+                <ul className="space-y-2.5">
+                  {services.slice(0, 6).map((s) => (
+                    <li key={s.slug}>
+                      <FooterLink href={`/services/${s.slug}`}>{s.title}</FooterLink>
+                    </li>
+                  ))}
+                  <li>
+                    <FooterLink href="/services">{messages.footer.viewAll}</FooterLink>
                   </li>
-                ))}
-                <li>
-                  <Link
-                    href="/locations"
-                    className="text-sm font-medium text-[color:var(--color-sage-dark)] hover:underline"
-                  >
-                    {messages.footer.allLocations}
-                  </Link>
-                </li>
-              </ul>
-            </FooterColumn>
+                </ul>
+              </FooterColumn>
 
-            <FooterColumn title={messages.footer.conditions}>
-              <ul className="space-y-2">
-                {conditions.slice(0, 5).map((c) => (
-                  <li key={c.slug}>
-                    <Link
-                      href={`/conditions/${c.slug}`}
-                      className="text-sm text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]"
-                    >
-                      {c.title}
-                    </Link>
+              <FooterColumn title={messages.footer.locations}>
+                <ul className="space-y-2.5">
+                  {locationPages.slice(0, 4).map((l) => (
+                    <li key={l.slug}>
+                      <FooterLink href={`/locations/${l.slug}`}>{l.title}</FooterLink>
+                    </li>
+                  ))}
+                  <li>
+                    <FooterLink href="/locations">{messages.footer.allLocations}</FooterLink>
                   </li>
-                ))}
-                <li>
-                  <Link
-                    href="/conditions"
-                    className="text-sm font-medium text-[color:var(--color-sage-dark)] hover:underline"
-                  >
-                    {messages.footer.viewAll}
-                  </Link>
-                </li>
-              </ul>
-            </FooterColumn>
+                </ul>
+              </FooterColumn>
 
-            <FooterColumn title={messages.footer.contact}>
-              <ul className="space-y-2 text-sm text-[color:var(--color-muted)]">
-                <li>{siteConfig.address.line1}</li>
-                <li>
-                  {siteConfig.address.line2}, {siteConfig.address.line3}
-                </li>
-                <li>
-                  {siteConfig.address.city} – {siteConfig.address.postalCode}
-                </li>
-                <li>
-                  <a href={`tel:${siteConfig.phone}`} className="hover:text-[color:var(--color-sage-dark)]">
-                    {siteConfig.phoneDisplay}
-                  </a>
-                </li>
-                <li>
-                  <a href={`mailto:${siteConfig.email}`} className="hover:text-[color:var(--color-sage-dark)]">
-                    {siteConfig.email}
-                  </a>
-                </li>
-                <li>{siteConfig.timings}</li>
-              </ul>
-            </FooterColumn>
+              <FooterColumn title={messages.footer.conditions}>
+                <ul className="space-y-2.5">
+                  {conditions.slice(0, 5).map((c) => (
+                    <li key={c.slug}>
+                      <FooterLink href={`/conditions/${c.slug}`}>{c.title}</FooterLink>
+                    </li>
+                  ))}
+                  <li>
+                    <FooterLink href="/conditions">{messages.footer.viewAll}</FooterLink>
+                  </li>
+                </ul>
+              </FooterColumn>
+
+              <FooterColumn title={messages.footer.contact}>
+                <ul className="space-y-3 text-sm text-white/65">
+                  <li className="flex gap-2.5">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
+                    <span>
+                      {siteConfig.address.line1}
+                      <br />
+                      {siteConfig.address.line2}, {siteConfig.address.line3}
+                      <br />
+                      {siteConfig.address.city} – {siteConfig.address.postalCode}
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Phone className="h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
+                    <a href={`tel:${siteConfig.phone}`} className="transition hover:text-white hover:underline">
+                      {siteConfig.phoneDisplay}
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Mail className="h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
+                    <a href={`mailto:${siteConfig.email}`} className="transition hover:text-white hover:underline">
+                      {siteConfig.email}
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2.5">
+                    <Clock className="h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
+                    <span>{siteConfig.timings}</span>
+                  </li>
+                </ul>
+              </FooterColumn>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-[color:var(--color-border)]/50">
-        <div className="mx-auto w-full max-w-7xl px-4 py-4 md:px-6 lg:px-8">
-          <p className="text-center text-xs leading-relaxed text-[color:var(--color-muted)]">
-            <strong className="font-semibold text-[color:var(--color-sage-dark)]">{messages.footer.medicalDisclaimer}:</strong>{" "}
-            {messages.footer.disclaimer}{" "}
-            <Link href="/medical-disclaimer" className="font-medium text-[color:var(--color-sage-dark)] hover:underline">
-              {messages.footer.readDisclaimer}
-            </Link>
-            .
-          </p>
-          <nav aria-label="Legal" className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs">
-            {legalLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]"
-              >
-                {item.label}
+        {/* Legal bar */}
+        <div className="border-t border-white/10 bg-black/20">
+          <div className="mx-auto w-full max-w-7xl px-4 py-6 md:px-6 lg:px-8">
+            <p className="text-center text-xs leading-relaxed text-white/55">
+              <strong className="font-semibold text-white/75">{messages.footer.medicalDisclaimer}:</strong>{" "}
+              {messages.footer.disclaimer}{" "}
+              <Link href="/medical-disclaimer" className="font-medium text-white/75 underline-offset-4 hover:text-white hover:underline">
+                {messages.footer.readDisclaimer}
               </Link>
-            ))}
-          </nav>
-          <p className="mt-4 text-center text-xs text-[color:var(--color-muted)]">
-            © {new Date().getFullYear()} {siteConfig.name}. {messages.footer.rights}
-          </p>
+              .
+            </p>
+            <nav aria-label="Legal" className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs">
+              {legalLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-white/55 transition hover:text-white hover:underline underline-offset-4"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <p className="mt-4 text-center text-xs text-white/45">
+              © {new Date().getFullYear()} {siteConfig.name}. {messages.footer.rights}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

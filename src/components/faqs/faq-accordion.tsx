@@ -1,15 +1,21 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Search } from "lucide-react";
 
+import { Pagination } from "@/components/shared/pagination";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
 import { faqCategories } from "@/lib/faqs";
+import { paginateItems } from "@/lib/pagination";
+
+const FAQ_PAGE_SIZE = 10;
 
 export function FaqAccordion() {
   const [activeCategory, setActiveCategory] = useState(faqCategories[0]?.id ?? "");
   const [query, setQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const listRef = useRef<HTMLDivElement>(null);
 
   const totalCount = faqCategories.reduce((sum, cat) => sum + cat.faqs.length, 0);
 
@@ -24,10 +30,24 @@ export function FaqAccordion() {
   }, [query]);
 
   const category = faqCategories.find((c) => c.id === activeCategory) ?? faqCategories[0];
-  const displayFaqs = searchResults ?? category?.faqs.map((faq) => ({ ...faq, category: category.title })) ?? [];
+  const allDisplayFaqs =
+    searchResults ?? category?.faqs.map((faq) => ({ ...faq, category: category.title })) ?? [];
+
+  const totalPages = Math.max(1, Math.ceil(allDisplayFaqs.length / FAQ_PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const displayFaqs = paginateItems(allDisplayFaqs, safePage, FAQ_PAGE_SIZE);
+
+  useEffect(() => {
+    setPage(1);
+  }, [activeCategory, query]);
+
+  function handlePageChange(next: number) {
+    setPage(next);
+    listRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
-    <div>
+    <div ref={listRef}>
       <div className="mb-4 text-sm text-[color:var(--color-muted)]">
         {totalCount} questions across {faqCategories.length} categories
       </div>
@@ -77,7 +97,7 @@ export function FaqAccordion() {
 
       <Accordion type="single" collapsible className="space-y-3">
         {displayFaqs.map((faq, idx) => (
-          <AccordionItem key={`${faq.category}-${faq.q}-${idx}`} value={`faq-${idx}`}>
+          <AccordionItem key={`${faq.category}-${faq.q}-${idx}`} value={`faq-${safePage}-${idx}`}>
             <AccordionTrigger>
               <span className="text-left">
                 {searchResults && (
@@ -92,6 +112,15 @@ export function FaqAccordion() {
           </AccordionItem>
         ))}
       </Accordion>
+
+      <Pagination
+        className="mt-10"
+        page={safePage}
+        totalPages={totalPages}
+        totalItems={allDisplayFaqs.length}
+        pageSize={FAQ_PAGE_SIZE}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }
