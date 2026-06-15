@@ -2,36 +2,42 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { Mail, Phone } from "lucide-react";
 
 import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
+import { getFooterTheme } from "@/lib/footer-themes";
 import { getNavLabel } from "@/lib/i18n";
-import { locationPages } from "@/lib/locations";
-import { conditions, navItems, secondaryNavItems, services, siteConfig } from "@/lib/site-data";
-
-function FooterColumn({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <div className="min-w-0">
-      <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/90">{title}</h4>
-      <div className="mt-4">{children}</div>
-    </div>
-  );
-}
+import { conditions, services, siteConfig } from "@/lib/site-data";
 
 function FooterLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <Link href={href} className="text-sm text-white/65 transition hover:text-white hover:underline underline-offset-4">
+    <Link
+      href={href}
+      className="text-xs text-white/70 transition hover:text-white hover:underline underline-offset-2"
+    >
       {children}
     </Link>
   );
 }
 
-const exploreHrefs = new Set(navItems.map((item) => item.href));
-const exploreExtras = secondaryNavItems.filter((item) => !exploreHrefs.has(item.href));
+const quickExploreHrefs = [
+  "/",
+  "/about",
+  "/services",
+  "/conditions",
+  "/gallery",
+  "/contact",
+  "/faqs",
+  "/library",
+  "/appointment",
+] as const;
 
 export function Footer() {
+  const pathname = usePathname();
   const { messages } = useLanguage();
+  const theme = getFooterTheme(pathname);
 
   const legalLinks = [
     { label: messages.footer.privacy, href: "/privacy" },
@@ -41,152 +47,133 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative mt-20 w-full" role="contentinfo">
-      {/* Curved transition from page content */}
+    <footer className="relative mt-10 w-full transition-colors duration-500" role="contentinfo">
       <div
-        className="pointer-events-none absolute -top-12 left-0 right-0 h-12 bg-[color:var(--color-sage-dark)]"
-        style={{ clipPath: "ellipse(75% 100% at 50% 100%)" }}
+        className="pointer-events-none absolute -top-6 left-0 right-0 h-6"
+        style={{ background: theme.curve, clipPath: "ellipse(80% 100% at 50% 100%)" }}
         aria-hidden
       />
 
-      <div className="bg-gradient-to-b from-[color:var(--color-sage-dark)] via-[#2a4535] to-[#1e3328] text-white">
-        {/* Main footer */}
-        <div className="mx-auto w-full max-w-7xl px-4 pb-12 pt-16 md:px-6 lg:px-8">
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-12">
+      <div
+        className="text-white"
+        style={{
+          background: `linear-gradient(180deg, ${theme.from} 0%, ${theme.via} 55%, ${theme.to} 100%)`,
+        }}
+      >
+        {/* Compact main row */}
+        <div className="mx-auto w-full max-w-7xl px-4 py-6 md:px-6 lg:px-8">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-12 lg:items-start lg:gap-8">
             {/* Brand */}
-            <div className="sm:col-span-2 lg:col-span-4">
-              <h3 className="font-[family-name:var(--font-serif)] text-2xl font-semibold text-white">
+            <div className="lg:col-span-3">
+              <h3 className="font-[family-name:var(--font-serif)] text-lg font-semibold text-white">
                 {siteConfig.name}
               </h3>
-              <p className="mt-1 text-sm text-white/60">{messages.site.title}</p>
-              <p className="mt-3 font-[family-name:var(--font-serif)] text-base italic text-[color:var(--color-sun)]/90">
-                {messages.hero.tagline}
-              </p>
-              <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">{messages.site.description}</p>
-              <div className="mt-6">
-                <Button asChild size="sm" className="bg-white text-[color:var(--color-sage-dark)] hover:bg-white/90">
-                  <Link href="/appointment">{messages.cta.bookConsultation}</Link>
+              <p className="mt-0.5 text-xs text-white/60">{messages.site.title}</p>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <Button
+                  asChild
+                  size="sm"
+                  className="h-8 bg-white px-3 text-xs text-[color:var(--color-sage-dark)] hover:bg-white/90"
+                >
+                  <Link href="/appointment">{messages.cta.book}</Link>
                 </Button>
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="inline-flex items-center gap-1 text-xs text-white/75 hover:text-white"
+                >
+                  <Phone className="h-3 w-3" style={{ color: theme.accent }} aria-hidden />
+                  {siteConfig.phoneDisplay}
+                </a>
               </div>
             </div>
 
             {/* Explore */}
-            <div className="lg:col-span-2">
-              <FooterColumn title={messages.footer.explore}>
-                <ul className="space-y-2.5">
-                  {navItems.map((item) => (
-                    <li key={item.href}>
-                      <FooterLink href={item.href}>{getNavLabel(messages, item.href)}</FooterLink>
-                    </li>
-                  ))}
-                  {exploreExtras.map((item) => (
-                    <li key={item.href}>
-                      <FooterLink href={item.href}>{getNavLabel(messages, item.href)}</FooterLink>
-                    </li>
-                  ))}
-                </ul>
-              </FooterColumn>
+            <div className="lg:col-span-3">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-white/80">
+                {messages.footer.explore}
+              </p>
+              <ul className="mt-2 grid grid-cols-2 gap-x-3 gap-y-1">
+                {quickExploreHrefs.map((href) => (
+                  <li key={href}>
+                    <FooterLink href={href}>{getNavLabel(messages, href)}</FooterLink>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* 2×2 link grid */}
-            <div className="grid gap-10 sm:col-span-2 sm:grid-cols-2 lg:col-span-6 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-10">
-              <FooterColumn title={messages.footer.services}>
-                <ul className="space-y-2.5">
-                  {services.slice(0, 6).map((s) => (
-                    <li key={s.slug}>
-                      <FooterLink href={`/services/${s.slug}`}>{s.title}</FooterLink>
-                    </li>
-                  ))}
-                  <li>
-                    <FooterLink href="/services">{messages.footer.viewAll}</FooterLink>
+            {/* Services + Conditions */}
+            <div className="lg:col-span-3">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-white/80">
+                {messages.footer.services}
+              </p>
+              <ul className="mt-2 space-y-1">
+                {services.slice(0, 4).map((s) => (
+                  <li key={s.slug}>
+                    <FooterLink href={`/services/${s.slug}`}>{s.title}</FooterLink>
                   </li>
-                </ul>
-              </FooterColumn>
+                ))}
+                <li>
+                  <FooterLink href="/services">{messages.footer.viewAll}</FooterLink>
+                </li>
+              </ul>
+              <p className="mt-3 text-[10px] font-semibold uppercase tracking-widest text-white/80">
+                {messages.footer.conditions}
+              </p>
+              <ul className="mt-2 space-y-1">
+                {conditions.slice(0, 3).map((c) => (
+                  <li key={c.slug}>
+                    <FooterLink href={`/conditions/${c.slug}`}>{c.title}</FooterLink>
+                  </li>
+                ))}
+                <li>
+                  <FooterLink href="/conditions">{messages.footer.viewAll}</FooterLink>
+                </li>
+              </ul>
+            </div>
 
-              <FooterColumn title={messages.footer.locations}>
-                <ul className="space-y-2.5">
-                  {locationPages.slice(0, 4).map((l) => (
-                    <li key={l.slug}>
-                      <FooterLink href={`/locations/${l.slug}`}>{l.title}</FooterLink>
-                    </li>
-                  ))}
-                  <li>
-                    <FooterLink href="/locations">{messages.footer.allLocations}</FooterLink>
-                  </li>
-                </ul>
-              </FooterColumn>
-
-              <FooterColumn title={messages.footer.conditions}>
-                <ul className="space-y-2.5">
-                  {conditions.slice(0, 5).map((c) => (
-                    <li key={c.slug}>
-                      <FooterLink href={`/conditions/${c.slug}`}>{c.title}</FooterLink>
-                    </li>
-                  ))}
-                  <li>
-                    <FooterLink href="/conditions">{messages.footer.viewAll}</FooterLink>
-                  </li>
-                </ul>
-              </FooterColumn>
-
-              <FooterColumn title={messages.footer.contact}>
-                <ul className="space-y-3 text-sm text-white/65">
-                  <li className="flex gap-2.5">
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
-                    <span>
-                      {siteConfig.address.line1}
-                      <br />
-                      {siteConfig.address.line2}, {siteConfig.address.line3}
-                      <br />
-                      {siteConfig.address.city} – {siteConfig.address.postalCode}
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Phone className="h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
-                    <a href={`tel:${siteConfig.phone}`} className="transition hover:text-white hover:underline">
-                      {siteConfig.phoneDisplay}
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Mail className="h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
-                    <a href={`mailto:${siteConfig.email}`} className="transition hover:text-white hover:underline">
-                      {siteConfig.email}
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <Clock className="h-4 w-4 shrink-0 text-[color:var(--color-sun)]/80" aria-hidden />
-                    <span>{siteConfig.timings}</span>
-                  </li>
-                </ul>
-              </FooterColumn>
+            {/* Contact */}
+            <div className="lg:col-span-3">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-white/80">
+                {messages.footer.contact}
+              </p>
+              <ul className="mt-2 space-y-1.5 text-xs text-white/70">
+                <li>
+                  {siteConfig.address.line1}, {siteConfig.address.city} – {siteConfig.address.postalCode}
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="inline-flex items-center gap-1.5 hover:text-white hover:underline"
+                  >
+                    <Mail className="h-3 w-3 shrink-0" style={{ color: theme.accent }} aria-hidden />
+                    {siteConfig.email}
+                  </a>
+                </li>
+                <li>{siteConfig.timings}</li>
+              </ul>
             </div>
           </div>
         </div>
 
-        {/* Legal bar */}
-        <div className="border-t border-white/10 bg-black/20">
-          <div className="mx-auto w-full max-w-7xl px-4 py-6 md:px-6 lg:px-8">
-            <p className="text-center text-xs leading-relaxed text-white/55">
-              <strong className="font-semibold text-white/75">{messages.footer.medicalDisclaimer}:</strong>{" "}
-              {messages.footer.disclaimer}{" "}
-              <Link href="/medical-disclaimer" className="font-medium text-white/75 underline-offset-4 hover:text-white hover:underline">
-                {messages.footer.readDisclaimer}
-              </Link>
-              .
+        {/* Slim legal bar */}
+        <div className="border-t border-white/10 bg-black/15">
+          <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-2 px-4 py-3 text-[10px] text-white/50 md:flex-row md:px-6 lg:px-8">
+            <p className="text-center md:text-left">
+              © {new Date().getFullYear()} {siteConfig.name}. {messages.footer.rights}
             </p>
-            <nav aria-label="Legal" className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs">
+            <nav aria-label="Legal" className="flex flex-wrap justify-center gap-x-4 gap-y-1">
               {legalLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-white/55 transition hover:text-white hover:underline underline-offset-4"
+                  className="transition hover:text-white hover:underline underline-offset-2"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
-            <p className="mt-4 text-center text-xs text-white/45">
-              © {new Date().getFullYear()} {siteConfig.name}. {messages.footer.rights}
+            <p className="hidden text-center lg:block lg:max-w-xs lg:text-right">
+              {messages.footer.disclaimer.slice(0, 72)}…
             </p>
           </div>
         </div>
