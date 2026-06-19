@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
@@ -10,6 +10,10 @@ import { ServiceIcon } from "@/components/shared/service-icon";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { getMessages } from "@/lib/i18n";
+import { getLabels } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { faqPageSchema, serviceSchema } from "@/lib/schema";
 import { getServiceExtendedContent } from "@/lib/services-content";
@@ -19,16 +23,14 @@ import { getSeoExpansion } from "@/lib/seo/expansions";
 import { SeoExpansionBlocks } from "@/components/seo/seo-expansion-blocks";
 import { SectionCta } from "@/components/shared/section-cta";
 
-type ServicePageProps = {
-  params: Promise<{ slug: string }>;
-};
+type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
-export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
 
@@ -36,12 +38,16 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     title: `${service.title} Mumbai — Kandivali`,
     description: `${service.summary} Book with ${siteConfig.doctorName} at ${siteConfig.name}, Kandivali West, Mumbai.`,
     path: `/services/${slug}`,
+    locale,
     keywords: mumbaiKeywords(`${service.title} Mumbai`, `${service.title} Kandivali`),
   });
 }
 
-export default async function ServiceDetailPage({ params }: ServicePageProps) {
-  const { slug } = await params;
+export default async function ServiceDetailPage({ params }: Props) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const messages = getMessages(locale);
+  const labels = getLabels(locale);
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
 
@@ -78,8 +84,8 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <JsonLd data={faqPageSchema(allFaqs)} id="service-faq-schema" />
       <Breadcrumbs
         items={[
-          { name: "Services", url: `${siteConfig.url}/services` },
-          { name: service.title, url: `${siteConfig.url}/services/${slug}` },
+          { name: messages.nav.services, url: `${siteConfig.url}/${locale}/services` },
+          { name: service.title, url: `${siteConfig.url}/${locale}/services/${slug}` },
         ]}
       />
 
@@ -322,10 +328,10 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
         </Accordion>
         <div className="mt-8 flex flex-wrap gap-3">
           <Button asChild>
-            <Link href="/appointment">Book a Consultation</Link>
+            <Link href="/appointment">{labels.bookConsultation}</Link>
           </Button>
           <Button asChild variant="outline">
-            <Link href="/faqs">View All FAQs</Link>
+            <Link href="/faqs">{messages.nav.faqs}</Link>
           </Button>
         </div>
         <div className="mt-8">

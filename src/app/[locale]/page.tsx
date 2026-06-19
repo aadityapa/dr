@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { ParentsReadingSection } from "@/components/home/parents-reading-section";
 import { AboutPreviewSection } from "@/components/home/about-preview-section";
@@ -32,7 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default function Home() {
+export default async function Home({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <main>
       <HeroSection />

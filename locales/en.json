@@ -74,15 +74,180 @@
       }
     },
     "appointment": {
-      "parentName": "Parent / guardian name",
-      "childName": "Child's name",
-      "childAge": "Child's age",
-      "phone": "Phone number",
-      "email": "Email address",
-      "concern": "What brings you here?",
-      "preferredDate": "Preferred date (optional)",
-      "submit": "Request Appointment",
-      "success": "Thank you! We'll confirm your appointment shortly."
+      "parentName": "Parent Name *",
+      "fatherName": "Father Name",
+      "motherName": "Mother Name",
+      "guardianName": "Guardian Name",
+      "phone": "Phone *",
+      "email": "Email *",
+      "childName": "Child Name *",
+      "dateOfBirth": "Date of Birth",
+      "age": "Age *",
+      "gender": "Gender",
+      "schoolGrade": "School Grade",
+      "concernsLabel": "Concerns *",
+      "concernOptions": [
+        "Sensory Processing",
+        "Attention & Focus",
+        "Autism",
+        "Developmental Delay",
+        "Learning Difficulties",
+        "Handwriting",
+        "Motor Coordination",
+        "Emotional Regulation",
+        "Feeding",
+        "Other"
+      ],
+      "diagnosisLabel": "Diagnosis",
+      "yes": "Yes",
+      "no": "No",
+      "previousTherapiesLabel": "Previous Therapies",
+      "previousTherapyOptions": [
+        "Occupational Therapy",
+        "Speech Therapy",
+        "Physiotherapy",
+        "Special Education",
+        "None"
+      ],
+      "biggestConcern": "Biggest Concern *",
+      "preferredTimeLabel": "Preferred Appointment Time *",
+      "timeSlots": [
+        "Morning (9–12)",
+        "Afternoon (12–3)",
+        "Late Afternoon (3–5)",
+        "Saturday Morning"
+      ],
+      "consent": "I consent to Thrive With Sharuja contacting me about this consultation request and storing my information for scheduling purposes. *",
+      "submit": "Submit Consultation Request",
+      "submitting": "Submitting...",
+      "successTitle": "Thank you — we received your request!",
+      "successMessage": "We will contact you within 24 hours. For faster response, message us on WhatsApp.",
+      "whatsappUs": "WhatsApp Us",
+      "error": "Something went wrong. Please call us directly or try WhatsApp.",
+      "errors": {
+        "parentName": "Parent name is required",
+        "phone": "Valid phone number required",
+        "email": "Valid email required",
+        "childName": "Child name is required",
+        "age": "Child age is required",
+        "concerns": "Select at least one concern",
+        "hasDiagnosis": "Please select",
+        "biggestConcern": "Please share your biggest concern",
+        "preferredTime": "Preferred time is required",
+        "consent": "Consent is required"
+      }
+    },
+    "screening": {
+      "parentName": "Parent name *",
+      "childName": "Child name *",
+      "childAge": "Child age *",
+      "email": "Email *",
+      "phone": "Contact number *",
+      "screeningTitle": "Basic Sensory Screening — check all that apply",
+      "questions": [
+        {
+          "id": "soundSensitivity",
+          "label": "Reacts strongly to loud sounds or covers ears frequently"
+        },
+        {
+          "id": "textureAvoidance",
+          "label": "Avoids certain clothing textures, tags, or messy play"
+        },
+        {
+          "id": "movementSeeking",
+          "label": "Seeks constant movement — spinning, crashing, climbing"
+        },
+        {
+          "id": "transitionDifficulty",
+          "label": "Has difficulty with transitions or changes in routine"
+        },
+        {
+          "id": "attentionSpan",
+          "label": "Struggles to sustain attention during age-appropriate tasks"
+        },
+        {
+          "id": "motorClumsiness",
+          "label": "Appears clumsy or avoids new physical activities"
+        },
+        {
+          "id": "handwritingConcern",
+          "label": "Handwriting is illegible, slow, or avoided"
+        },
+        {
+          "id": "meltdowns",
+          "label": "Experiences frequent meltdowns in busy environments"
+        },
+        {
+          "id": "selfCareDelay",
+          "label": "Behind peers in self-care skills (dressing, feeding)"
+        },
+        {
+          "id": "socialWithdrawal",
+          "label": "Withdraws from or struggles with peer play"
+        }
+      ],
+      "additionalConcerns": "Additional concerns or observations *",
+      "submit": "Submit Screening",
+      "submitting": "Submitting...",
+      "successTitle": "Screening submitted successfully!",
+      "successMessage": "Thank you. Dr. Sharuja Sarap's team will review your responses and contact you within 24–48 hours with guidance on next steps.",
+      "disclaimer": "This screening is not a diagnosis. It helps us understand your concerns and recommend appropriate next steps.",
+      "error": "Something went wrong. Please call us directly or try again.",
+      "errors": {
+        "parentName": "Parent name is required",
+        "childName": "Child name is required",
+        "childAge": "Child age is required",
+        "email": "Valid email required",
+        "phone": "Valid phone number required",
+        "concerns": "Please describe your main concerns"
+      }
+    },
+    "newsletter": {
+      "title": "Parent resources, in your inbox",
+      "description": "Occasional development tips, guides, and clinic updates. No spam — unsubscribe anytime.",
+      "emailLabel": "Email address",
+      "placeholder": "you@example.com",
+      "subscribe": "Subscribe",
+      "success": "You're subscribed — thank you! We'll be in touch with helpful resources.",
+      "error": "Something went wrong. Please try again later.",
+      "emailError": "Please enter a valid email address"
+    },
+    "invite": {
+      "name": "Your Name *",
+      "organisation": "Organisation / School *",
+      "email": "Email *",
+      "phone": "Phone *",
+      "eventType": "Event Type (e.g. Parent Workshop, School Training) *",
+      "message": "Tell us about your program, audience, and preferred dates *",
+      "consent": "I consent to being contacted about this inquiry. *",
+      "submit": "Send Inquiry",
+      "submitting": "Sending...",
+      "successTitle": "Thank you!",
+      "successMessage": "Your inquiry has been sent. We'll respond within 2–3 working days.",
+      "error": "Something went wrong. Please email sharujasaraf@gmail.com",
+      "errors": {
+        "name": "Name is required",
+        "organisation": "Organisation is required",
+        "email": "Valid email required",
+        "phone": "Valid phone required",
+        "eventType": "Event type is required",
+        "message": "Please describe your program or event",
+        "consent": "Consent is required"
+      }
+    },
+    "library": {
+      "parentName": "Parent Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "phoneOptional": "Phone (optional)",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "you@example.com",
+      "phonePlaceholder": "9820525197",
+      "downloadGuide": "Download Free Guide",
+      "sending": "Sending…",
+      "successTemplate": "Thank you! Your download link for \"{title}\" has been sent to {email}.",
+      "error": "Something went wrong. Please call 9820525197 or email sharujasaraf@gmail.com.",
+      "consentNote": "By downloading, you agree to receive occasional parent resources from Thrive with sharuja. Unsubscribe anytime."
     }
   },
   "languageTransition": {

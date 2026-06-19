@@ -1,22 +1,32 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 
 import { InviteInquiryForm } from "@/components/forms/invite-inquiry-form";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
-import { inviteContent } from "@/lib/client-content/invite";
+import type { AppLocale } from "@/i18n/routing";
+import { getInviteContent, getPageShells } from "@/lib/i18n/localize";
 import { buildPageMetadata } from "@/lib/metadata";
-import { siteConfig } from "@/lib/site-data";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Invite Sharuja — Workshops & Parent Programs",
-  description: `Invite ${siteConfig.doctorName} for parent education, school workshops, conferences, and community programs in Mumbai.`,
-  path: "/invite-sharuja",
-  keywords: ["parent workshop Mumbai", "school OT training", "Brain Gym workshop", "invite speaker pediatric OT"],
-});
+type Props = { params: Promise<{ locale: AppLocale }> };
 
-export default function InviteSharujaPage() {
-  const copy = inviteContent;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const shells = getPageShells(locale);
+  return buildPageMetadata({
+    title: shells.invite.metaTitle,
+    description: shells.invite.metaDescription,
+    path: "/invite-sharuja",
+    locale,
+    keywords: ["parent workshop Mumbai", "school OT training", "Brain Gym workshop", "invite speaker pediatric OT"],
+  });
+}
+
+export default async function InviteSharujaPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const copy = getInviteContent(locale);
 
   return (
     <main>

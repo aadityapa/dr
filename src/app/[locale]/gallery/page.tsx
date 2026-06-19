@@ -1,27 +1,35 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
-
+import type { AppLocale } from "@/i18n/routing";
+import { getPageShells } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Therapy Gallery & Clinic Environment",
-  description:
-    "Explore therapy rooms, assessment areas, aquatic therapy facilities, and child-friendly environments at Thrive With Sharuja in Kandivali West, Mumbai.",
-  path: "/gallery",
-  keywords: mumbaiKeywords("pediatric therapy clinic Mumbai", "OT clinic Kandivali"),
-});
+type Props = { params: Promise<{ locale: AppLocale }> };
 
-export default function GalleryPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const shells = getPageShells(locale);
+  return buildPageMetadata({
+    title: shells.gallery.metaTitle,
+    description: shells.gallery.metaDescription,
+    path: "/gallery",
+    locale,
+    keywords: mumbaiKeywords("pediatric therapy clinic Mumbai", "OT clinic Kandivali"),
+  });
+}
+
+export default async function GalleryPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const shells = getPageShells(locale);
+
   return (
     <main>
-      <PageHero
-        kicker="Gallery"
-        title="Our healing spaces"
-        description="A glimpse into the warm, professional environments where children learn, grow, and thrive."
-      />
+      <PageHero kicker={shells.gallery.kicker} title={shells.gallery.title} description={shells.gallery.description} />
       <Section>
         <GalleryGrid />
       </Section>

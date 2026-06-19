@@ -1,37 +1,52 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server";
 
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
-import { aboutContent } from "@/lib/client-content/about";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { getAboutContent, getLabels, getPageShells } from "@/lib/i18n/localize";
 import { getCardPastel } from "@/lib/pastel-palette";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { getSiteImage } from "@/lib/site-images";
-import { doctorProfile, siteConfig } from "@/lib/site-data";
+import { doctorProfile } from "@/lib/site-data";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: `About ${siteConfig.doctorName}`,
-  description: `${aboutContent.hero.description} Pediatric OT in Kandivali West, Mumbai — sensory integration, Brain Gym, aquatic therapy & family-centred care.`,
-  path: "/about",
-  keywords: mumbaiKeywords(
-    "Pediatric Occupational Therapist Mumbai",
-    "OT Kandivali",
-    "Dr. Sharuja Sarap OT",
-    "Brain Gym Mumbai",
-    "Sensory Integration Mumbai",
-  ),
-});
+type Props = { params: Promise<{ locale: AppLocale }> };
 
-export default function AboutPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const shells = getPageShells(locale);
+  return buildPageMetadata({
+    title: shells.about.metaTitle,
+    description: shells.about.metaDescription,
+    path: "/about",
+    locale,
+    keywords: mumbaiKeywords(
+      "Pediatric Occupational Therapist Mumbai",
+      "OT Kandivali",
+      "Dr. Sharuja Sarap OT",
+      "Brain Gym Mumbai",
+      "Sensory Integration Mumbai",
+    ),
+  });
+}
+
+export default async function AboutPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const about = getAboutContent(locale);
+  const shells = getPageShells(locale);
+  const labels = getLabels(locale);
+
   return (
     <main>
-      <PageHero kicker={aboutContent.hero.kicker} title={aboutContent.hero.title} description={aboutContent.hero.description}>
+      <PageHero kicker={about.hero.kicker} title={about.hero.title} description={about.hero.description}>
         <Button asChild>
-          <Link href="/appointment">Book a Conversation</Link>
+          <Link href="/appointment">{shells.about.bookConversation}</Link>
         </Button>
       </PageHero>
 
@@ -51,7 +66,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="space-y-4">
-              {aboutContent.intro.paragraphs.map((para) => (
+              {about.intro.paragraphs.map((para) => (
                 <p key={para.slice(0, 48)} className="leading-relaxed text-[color:var(--color-muted)]">
                   {para}
                 </p>
@@ -63,7 +78,7 @@ export default function AboutPage() {
 
       <Section className="rounded-[2rem] bg-[color:var(--color-almond)]">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {aboutContent.highlights.map((item, i) => {
+          {about.highlights.map((item, i) => {
             const pastel = getCardPastel(i);
             return (
               <Reveal key={item.title} delay={i * 0.06}>
@@ -83,9 +98,9 @@ export default function AboutPage() {
       </Section>
 
       <Section>
-        <SectionHeading title={aboutContent.research.title} description={aboutContent.research.description} center />
+        <SectionHeading title={about.research.title} description={about.research.description} center />
         <ul className="mx-auto mt-8 grid max-w-2xl gap-3">
-          {aboutContent.research.items.map((item) => (
+          {about.research.items.map((item) => (
             <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
               <span className="text-[color:var(--color-sage)]">✓</span>
               {item}
@@ -96,12 +111,12 @@ export default function AboutPage() {
 
       <Section className="rounded-[2rem] bg-[color:var(--color-soft-green)]/30">
         <SectionHeading
-          title={aboutContent.familyCentered.title}
-          description={aboutContent.familyCentered.description}
+          title={about.familyCentered.title}
+          description={about.familyCentered.description}
           center
         />
         <ul className="mx-auto mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
-          {aboutContent.familyCentered.bullets.map((item) => (
+          {about.familyCentered.bullets.map((item) => (
             <li
               key={item}
               className="rounded-xl border border-[color:var(--color-border)]/60 bg-white/80 p-4 text-sm text-[color:var(--color-muted)]"
@@ -112,16 +127,16 @@ export default function AboutPage() {
         </ul>
         <div className="mt-10 text-center">
           <Button asChild variant="outline">
-            <Link href="/invite-sharuja">Invite Sharuja to Your Program</Link>
+            <Link href="/invite-sharuja">{shells.about.inviteCta}</Link>
           </Button>
         </div>
       </Section>
 
       <Section id="certifications">
         <SectionHeading
-          kicker="Certifications"
-          title={aboutContent.certifications.title}
-          description={aboutContent.certifications.description}
+          kicker={labels.certifications}
+          title={about.certifications.title}
+          description={about.certifications.description}
           center
         />
         <div className="mx-auto mt-10 max-w-4xl">

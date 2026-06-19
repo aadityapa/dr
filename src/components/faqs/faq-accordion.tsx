@@ -3,19 +3,30 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Search } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Pagination } from "@/components/shared/pagination";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Input } from "@/components/ui/input";
-import { faqCategories } from "@/lib/faqs";
+import { getLocalizedFaqs, getPageShells } from "@/lib/i18n/localize";
 import { paginateItems } from "@/lib/pagination";
 
 const FAQ_PAGE_SIZE = 10;
 
 export function FaqAccordion() {
+  const { locale } = useLanguage();
+  const faqCategories = useMemo(() => getLocalizedFaqs(locale), [locale]);
+  const shells = useMemo(() => getPageShells(locale), [locale]);
+
   const [activeCategory, setActiveCategory] = useState(faqCategories[0]?.id ?? "");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setActiveCategory(faqCategories[0]?.id ?? "");
+    setPage(1);
+    setQuery("");
+  }, [faqCategories]);
 
   const totalCount = faqCategories.reduce((sum, cat) => sum + cat.faqs.length, 0);
 
@@ -27,7 +38,7 @@ export function FaqAccordion() {
         .filter((faq) => faq.q.toLowerCase().includes(lower) || faq.a.toLowerCase().includes(lower))
         .map((faq) => ({ ...faq, category: cat.title })),
     );
-  }, [query]);
+  }, [query, faqCategories]);
 
   const category = faqCategories.find((c) => c.id === activeCategory) ?? faqCategories[0];
   const allDisplayFaqs =
@@ -49,14 +60,14 @@ export function FaqAccordion() {
   return (
     <div ref={listRef}>
       <div className="mb-4 text-sm text-[color:var(--color-muted)]">
-        {totalCount} questions across {faqCategories.length} categories
+        {totalCount} {shells.faqs.questionCount} {faqCategories.length} categories
       </div>
 
       <div className="relative mb-6">
         <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[color:var(--color-muted)]" aria-hidden="true" />
         <Input
           type="search"
-          placeholder="Search FAQs..."
+          placeholder={shells.faqs.searchPlaceholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="pl-11"
@@ -86,7 +97,7 @@ export function FaqAccordion() {
       )}
 
       {searchResults && searchResults.length === 0 && (
-        <p className="mb-6 text-sm text-[color:var(--color-muted)]">No FAQs match your search. Try different keywords.</p>
+        <p className="mb-6 text-sm text-[color:var(--color-muted)]">{shells.faqs.noResults}</p>
       )}
 
       {searchResults && searchResults.length > 0 && (

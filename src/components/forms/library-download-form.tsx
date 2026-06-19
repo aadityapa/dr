@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { LibraryResource } from "@/lib/library-resources";
@@ -12,6 +13,8 @@ type LibraryDownloadFormProps = {
 };
 
 export function LibraryDownloadForm({ resource }: LibraryDownloadFormProps) {
+  const { messages } = useLanguage();
+  const formCopy = messages.forms.library;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -31,10 +34,10 @@ export function LibraryDownloadForm({ resource }: LibraryDownloadFormProps) {
 
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
-      setMessage(`Thank you! Your download link for "${resource.title}" has been sent to ${email}.`);
+      setMessage(formCopy.successTemplate.replace("{title}", resource.title).replace("{email}", email));
     } catch {
       setStatus("error");
-      setMessage("Something went wrong. Please call 9820525197 or email sharujasaraf@gmail.com.");
+      setMessage(formCopy.error);
     }
   }
 
@@ -51,19 +54,19 @@ export function LibraryDownloadForm({ resource }: LibraryDownloadFormProps) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label htmlFor={`name-${resource.id}`} className="mb-1.5 block text-sm font-medium text-[color:var(--color-sage-dark)]">
-          Parent Name
+          {formCopy.parentName}
         </label>
         <Input
           id={`name-${resource.id}`}
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          placeholder="Your name"
+          placeholder={formCopy.namePlaceholder}
         />
       </div>
       <div>
         <label htmlFor={`email-${resource.id}`} className="mb-1.5 block text-sm font-medium text-[color:var(--color-sage-dark)]">
-          Email
+          {formCopy.email}
         </label>
         <Input
           id={`email-${resource.id}`}
@@ -71,31 +74,31 @@ export function LibraryDownloadForm({ resource }: LibraryDownloadFormProps) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          placeholder="you@example.com"
+          placeholder={formCopy.emailPlaceholder}
         />
       </div>
       <div>
         <label htmlFor={`phone-${resource.id}`} className="mb-1.5 block text-sm font-medium text-[color:var(--color-sage-dark)]">
-          Phone (optional)
+          {formCopy.phoneOptional}
         </label>
         <Input
           id={`phone-${resource.id}`}
           type="tel"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          placeholder="9820525197"
+          placeholder={formCopy.phonePlaceholder}
         />
       </div>
       <Button type="submit" disabled={status === "loading"} className="w-full">
         {status === "loading" ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" aria-hidden="true" />
-            Sending…
+            {formCopy.sending}
           </>
         ) : (
           <>
             <Download className="mr-2 h-4 w-4" aria-hidden="true" />
-            Download Free Guide
+            {formCopy.downloadGuide}
           </>
         )}
       </Button>
@@ -104,9 +107,7 @@ export function LibraryDownloadForm({ resource }: LibraryDownloadFormProps) {
           {message}
         </p>
       )}
-      <p className="text-xs text-[color:var(--color-muted)]">
-        By downloading, you agree to receive occasional parent resources from Thrive with sharuja. Unsubscribe anytime.
-      </p>
+      <p className="text-xs text-[color:var(--color-muted)]">{formCopy.consentNote}</p>
     </form>
   );
 }

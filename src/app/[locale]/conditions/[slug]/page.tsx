@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
@@ -9,68 +9,81 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { clientConditions, getClientCondition } from "@/lib/client-content/conditions";
-import { buildConditionFaqs } from "@/lib/geo-content";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { getMessages } from "@/lib/i18n";
+import {
+  buildLocalizedConditionFaqs,
+  getLabels,
+  getLocalizedClientCondition,
+} from "@/lib/i18n/localize";
+import { clientConditions } from "@/lib/client-content/conditions";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
 
-type ConditionPageProps = {
-  params: Promise<{ slug: string }>;
-};
+type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
 export function generateStaticParams() {
   return clientConditions.map((c) => ({ slug: c.slug }));
 }
 
-export async function generateMetadata({ params }: ConditionPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const condition = getClientCondition(slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const condition = getLocalizedClientCondition(slug, locale);
   if (!condition) return {};
 
   return buildPageMetadata({
     title: `${condition.title} — Pediatric OT Mumbai`,
     description: condition.metaDescription,
     path: `/conditions/${slug}`,
+    locale,
     keywords: mumbaiKeywords(condition.title, "Autism Support Mumbai", "ADHD Support Mumbai", "OT Kandivali"),
   });
 }
 
-export default async function ConditionDetailPage({ params }: ConditionPageProps) {
-  const { slug } = await params;
-  const condition = getClientCondition(slug);
+export default async function ConditionDetailPage({ params }: Props) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const condition = getLocalizedClientCondition(slug, locale);
   if (!condition) notFound();
 
-  const faqs = buildConditionFaqs(condition.title);
+  const messages = getMessages(locale);
+  const labels = getLabels(locale);
+  const faqs = buildLocalizedConditionFaqs(condition.title, locale);
 
   return (
     <main>
       <JsonLd
         id="condition-breadcrumb"
         data={breadcrumbSchema([
-          { name: "Home", url: siteConfig.url },
-          { name: "Conditions", url: `${siteConfig.url}/conditions` },
-          { name: condition.title, url: `${siteConfig.url}/conditions/${slug}` },
+          { name: labels.home, url: `${siteConfig.url}/${locale}` },
+          { name: messages.nav.conditions, url: `${siteConfig.url}/${locale}/conditions` },
+          { name: condition.title, url: `${siteConfig.url}/${locale}/conditions/${slug}` },
         ])}
       />
       <JsonLd id="condition-faq" data={faqPageSchema(faqs)} />
       <Breadcrumbs
         items={[
-          { name: "Conditions", url: `${siteConfig.url}/conditions` },
-          { name: condition.title, url: `${siteConfig.url}/conditions/${slug}` },
+          { name: messages.nav.conditions, url: `${siteConfig.url}/${locale}/conditions` },
+          { name: condition.title, url: `${siteConfig.url}/${locale}/conditions/${slug}` },
         ]}
       />
-      <PageHero kicker="For Parents" title={condition.title} description={condition.understanding.slice(0, 200) + "…"} />
+      <PageHero
+        kicker={labels.forParents}
+        title={condition.title}
+        description={condition.understanding.slice(0, 200) + "…"}
+      />
 
       <Section>
         <div className="mx-auto max-w-4xl space-y-12">
           <article>
-            <SectionHeading title="Understanding" />
+            <SectionHeading title={labels.understanding} />
             <p className="mt-4 leading-relaxed text-[color:var(--color-muted)]">{condition.understanding}</p>
           </article>
 
           <article>
-            <SectionHeading title="What Parents May Notice" />
+            <SectionHeading title={labels.whatParentsNotice} />
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {condition.whatParentsMayNotice.map((item) => (
                 <li
@@ -85,7 +98,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           </article>
 
           <article>
-            <SectionHeading title="How Occupational Therapy Can Help" />
+            <SectionHeading title={labels.howOtHelps} />
             <ul className="mt-4 space-y-2">
               {condition.howOtHelps.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -97,7 +110,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           </article>
 
           <article className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6">
-            <SectionHeading title="Consider Seeking Support If" />
+            <SectionHeading title={labels.considerSupportIf} />
             <ul className="mt-4 space-y-2">
               {condition.considerSupportIf.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -115,7 +128,7 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
           </article>
 
           <article>
-            <SectionHeading title="Questions Parents Ask" />
+            <SectionHeading title={labels.questionsParentsAsk} />
             <Accordion type="single" collapsible className="mt-4 space-y-2">
               {faqs.map((faq, idx) => (
                 <AccordionItem key={faq.q} value={`condition-faq-${idx}`}>
@@ -130,10 +143,10 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
 
           <div className="flex flex-wrap gap-3">
             <Button asChild size="lg">
-              <Link href="/appointment">Book a Consultation</Link>
+              <Link href="/appointment">{labels.bookConsultation}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/expertise">Explore Our Expertise</Link>
+              <Link href="/expertise">{labels.exploreExpertise}</Link>
             </Button>
           </div>
         </div>

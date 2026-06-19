@@ -1,28 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const schema = z.object({
-  name: z.string().min(2, "Name is required"),
-  organisation: z.string().min(2, "Organisation is required"),
-  email: z.string().email("Valid email required"),
-  phone: z.string().min(10, "Valid phone required"),
-  eventType: z.string().min(2, "Event type is required"),
-  message: z.string().min(20, "Please describe your program or event"),
-  consent: z.literal(true, { message: "Consent is required" }),
-});
-
-type FormData = z.infer<typeof schema>;
+type FormData = {
+  name: string;
+  organisation: string;
+  email: string;
+  phone: string;
+  eventType: string;
+  message: string;
+  consent: true;
+};
 
 export function InviteInquiryForm() {
+  const { messages } = useLanguage();
+  const formCopy = messages.forms.invite;
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const schema = useMemo(
+    () =>
+      z.object({
+        name: z.string().min(2, formCopy.errors.name),
+        organisation: z.string().min(2, formCopy.errors.organisation),
+        email: z.string().email(formCopy.errors.email),
+        phone: z.string().min(10, formCopy.errors.phone),
+        eventType: z.string().min(2, formCopy.errors.eventType),
+        message: z.string().min(20, formCopy.errors.message),
+        consent: z.literal(true, { message: formCopy.errors.consent }),
+      }),
+    [formCopy],
+  );
+
   const {
     register,
     handleSubmit,
@@ -54,37 +70,35 @@ export function InviteInquiryForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl bg-[color:var(--color-soft-green)]/50 p-6 text-center">
-        <p className="font-semibold text-[color:var(--color-sage-dark)]">Thank you!</p>
-        <p className="mt-2 text-sm text-[color:var(--color-muted)]">
-          Your inquiry has been sent. We&apos;ll respond within 2–3 working days.
-        </p>
+        <p className="font-semibold text-[color:var(--color-sage-dark)]">{formCopy.successTitle}</p>
+        <p className="mt-2 text-sm text-[color:var(--color-muted)]">{formCopy.successMessage}</p>
       </div>
     );
   }
 
   return (
     <form className="grid gap-4" onSubmit={handleSubmit(onSubmit)}>
-      <Input placeholder="Your Name *" {...register("name")} />
+      <Input placeholder={formCopy.name} {...register("name")} />
       <p className="text-xs text-red-600">{errors.name?.message}</p>
-      <Input placeholder="Organisation / School *" {...register("organisation")} />
+      <Input placeholder={formCopy.organisation} {...register("organisation")} />
       <p className="text-xs text-red-600">{errors.organisation?.message}</p>
-      <Input type="email" placeholder="Email *" {...register("email")} />
+      <Input type="email" placeholder={formCopy.email} {...register("email")} />
       <p className="text-xs text-red-600">{errors.email?.message}</p>
-      <Input placeholder="Phone *" {...register("phone")} />
+      <Input placeholder={formCopy.phone} {...register("phone")} />
       <p className="text-xs text-red-600">{errors.phone?.message}</p>
-      <Input placeholder="Event Type (e.g. Parent Workshop, School Training) *" {...register("eventType")} />
+      <Input placeholder={formCopy.eventType} {...register("eventType")} />
       <p className="text-xs text-red-600">{errors.eventType?.message}</p>
-      <Textarea placeholder="Tell us about your program, audience, and preferred dates *" rows={5} {...register("message")} />
+      <Textarea placeholder={formCopy.message} rows={5} {...register("message")} />
       <p className="text-xs text-red-600">{errors.message?.message}</p>
       <label className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
         <input type="checkbox" className="mt-1" {...register("consent")} />
-        I consent to being contacted about this inquiry. *
+        {formCopy.consent}
       </label>
       <p className="text-xs text-red-600">{errors.consent?.message}</p>
       <Button type="submit" disabled={status === "loading"}>
-        {status === "loading" ? "Sending..." : "Send Inquiry"}
+        {status === "loading" ? formCopy.submitting : formCopy.submit}
       </Button>
-      {status === "error" && <p className="text-sm text-red-600">Something went wrong. Please email sharujasaraf@gmail.com</p>}
+      {status === "error" && <p className="text-sm text-red-600">{formCopy.error}</p>}
     </form>
   );
 }

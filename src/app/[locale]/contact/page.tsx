@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import { QuickConsultationForm } from "@/components/forms/quick-consultation-form";
@@ -8,33 +8,44 @@ import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { getMessages } from "@/lib/i18n";
+import { getPageShells } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-data";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Contact — Kandivali West Clinic",
-  description: `Contact ${siteConfig.name} in Kandivali West, Mumbai. Call ${siteConfig.phoneDisplay} or book a consultation with ${siteConfig.doctorName}.`,
-  path: "/contact",
-  keywords: mumbaiKeywords("pediatric OT contact Kandivali", "occupational therapist Mumbai contact"),
-});
+type Props = { params: Promise<{ locale: AppLocale }> };
 
 const CLINIC_HOURS = [
   { days: "Monday – Friday", hours: "9 AM – 5 PM" },
   { days: "Saturday", hours: "9 AM – 12 PM" },
 ] as const;
 
-export default function ContactPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const shells = getPageShells(locale);
+  return buildPageMetadata({
+    title: shells.contact.metaTitle,
+    description: shells.contact.metaDescription,
+    path: "/contact",
+    locale,
+    keywords: mumbaiKeywords("pediatric OT contact Kandivali", "occupational therapist Mumbai contact"),
+  });
+}
+
+export default async function ContactPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const shells = getPageShells(locale);
+  const messages = getMessages(locale);
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.mapsQuery)}`;
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}`;
 
   return (
     <main>
-      <Breadcrumbs items={[{ name: "Contact", url: `${siteConfig.url}/contact` }]} />
-      <PageHero
-        kicker="Contact"
-        title="We're Here To Listen"
-        description="Share your concern — we'll call or WhatsApp you within 24 hours. No pressure, just a warm conversation."
-      />
+      <Breadcrumbs items={[{ name: messages.nav.contact, url: `${siteConfig.url}/${locale}/contact` }]} />
+      <PageHero kicker={shells.contact.kicker} title={shells.contact.title} description={shells.contact.description} />
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
@@ -59,7 +70,7 @@ export default function ContactPage() {
                 >
                   <MessageCircle className="h-5 w-5 text-[color:var(--color-sage)]" aria-hidden="true" />
                   <div>
-                    <p className="text-xs text-[color:var(--color-muted)]">WhatsApp</p>
+                    <p className="text-xs text-[color:var(--color-muted)]">{messages.cta.whatsapp}</p>
                     <p className="font-semibold text-[color:var(--color-sage-dark)]">{siteConfig.phoneDisplay}</p>
                   </div>
                 </a>
@@ -109,7 +120,7 @@ export default function ContactPage() {
                 <Button asChild size="lg">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2 h-4 w-4" />
-                    Chat on WhatsApp
+                    {messages.cta.whatsapp}
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg">

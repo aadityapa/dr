@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server";
 
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
@@ -7,26 +7,35 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { getPageShells } from "@/lib/i18n/localize";
 import { milestones, testimonials } from "@/lib/site-data";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { Sparkles, Star, Video } from "lucide-react";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Stories We Are Grateful To Be Part Of",
-  description:
-    "Families share their journeys with Dr. Sharuja Sarap at Thrive With Sharuja — pediatric occupational therapy in Kandivali, Mumbai.",
-  path: "/testimonials-milestones",
-  keywords: mumbaiKeywords("pediatric OT testimonials Mumbai", "child therapy success stories"),
-});
+type Props = { params: Promise<{ locale: AppLocale }> };
 
-export default function TestimonialsMilestonesPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const shells = getPageShells(locale);
+  return buildPageMetadata({
+    title: shells.testimonials.metaTitle,
+    description: shells.testimonials.metaDescription,
+    path: "/testimonials-milestones",
+    locale,
+    keywords: mumbaiKeywords("pediatric OT testimonials Mumbai", "child therapy success stories"),
+  });
+}
+
+export default async function TestimonialsMilestonesPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const shells = getPageShells(locale);
+
   return (
     <main>
-      <PageHero
-        kicker="Stories We Are Grateful To Be Part Of"
-        title="Small wins that changed everything"
-        description="Every family walks a different path. These are moments parents chose to share — with hope that yours might feel a little less lonely."
-      />
+      <PageHero kicker={shells.testimonials.kicker} title={shells.testimonials.title} description={shells.testimonials.description} />
 
       <Section>
         <SectionHeading title="Milestones we've celebrated together" center />

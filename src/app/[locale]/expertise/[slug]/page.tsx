@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
@@ -11,50 +11,59 @@ import { ServiceIcon } from "@/components/shared/service-icon";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { expertiseAreas, getExpertise } from "@/lib/client-content/expertise";
-import { buildExpertiseFaqs } from "@/lib/geo-content";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
+import { getMessages } from "@/lib/i18n";
+import {
+  buildLocalizedExpertiseFaqs,
+  getLabels,
+  getLocalizedExpertise,
+} from "@/lib/i18n/localize";
+import { expertiseAreas } from "@/lib/client-content/expertise";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "@/lib/schema";
 import { getServicePastel } from "@/lib/service-colors";
 import { siteConfig } from "@/lib/site-data";
 
-type ExpertisePageProps = {
-  params: Promise<{ slug: string }>;
-};
+type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
 export function generateStaticParams() {
   return expertiseAreas.map((area) => ({ slug: area.slug }));
 }
 
-export async function generateMetadata({ params }: ExpertisePageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const area = getExpertise(slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const area = getLocalizedExpertise(slug, locale);
   if (!area) return {};
 
   return buildPageMetadata({
     title: `${area.title} — Pediatric OT Mumbai`,
     description: area.metaDescription,
     path: `/expertise/${slug}`,
+    locale,
     keywords: mumbaiKeywords(`${area.title} Mumbai`, `${area.title} Kandivali`),
   });
 }
 
-export default async function ExpertiseDetailPage({ params }: ExpertisePageProps) {
-  const { slug } = await params;
-  const area = getExpertise(slug);
+export default async function ExpertiseDetailPage({ params }: Props) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const area = getLocalizedExpertise(slug, locale);
   if (!area) notFound();
 
+  const messages = getMessages(locale);
+  const labels = getLabels(locale);
   const pastel = getServicePastel(area.slug);
-  const faqs = buildExpertiseFaqs(area.title);
+  const faqs = buildLocalizedExpertiseFaqs(area.title, locale);
 
   return (
     <main>
       <JsonLd
         id="expertise-detail-breadcrumb"
         data={breadcrumbSchema([
-          { name: "Home", url: siteConfig.url },
-          { name: "Expertise", url: `${siteConfig.url}/expertise` },
-          { name: area.title, url: `${siteConfig.url}/expertise/${slug}` },
+          { name: labels.home, url: `${siteConfig.url}/${locale}` },
+          { name: messages.nav.services, url: `${siteConfig.url}/${locale}/expertise` },
+          { name: area.title, url: `${siteConfig.url}/${locale}/expertise/${slug}` },
         ])}
       />
       <JsonLd
@@ -64,11 +73,11 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
       <JsonLd id="expertise-detail-faq" data={faqPageSchema(faqs)} />
       <Breadcrumbs
         items={[
-          { name: "Expertise", url: `${siteConfig.url}/expertise` },
-          { name: area.title, url: `${siteConfig.url}/expertise/${slug}` },
+          { name: messages.nav.services, url: `${siteConfig.url}/${locale}/expertise` },
+          { name: area.title, url: `${siteConfig.url}/${locale}/expertise/${slug}` },
         ]}
       />
-      <PageHero kicker="Expertise" title={area.title} description={area.tagline} />
+      <PageHero kicker={labels.expertise} title={area.title} description={area.tagline} />
 
       <Section>
         <div className="mx-auto max-w-4xl space-y-12">
@@ -78,14 +87,14 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
             </div>
             <div>
               <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-                Understanding
+                {labels.understanding}
               </h2>
               <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">{area.understanding}</p>
             </div>
           </article>
 
           <article>
-            <SectionHeading title="What Parents May Notice" />
+            <SectionHeading title={labels.whatParentsNotice} />
             <ul className="mt-4 grid gap-3 sm:grid-cols-2">
               {area.whatParentsMayNotice.map((item) => (
                 <li
@@ -100,7 +109,7 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
           </article>
 
           <article>
-            <SectionHeading title="How This Helps" />
+            <SectionHeading title={labels.howThisHelps} />
             <ul className="mt-4 space-y-2">
               {area.howThisHelps.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -112,7 +121,7 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
           </article>
 
           <article>
-            <SectionHeading title="Benefits" />
+            <SectionHeading title={labels.benefits} />
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {area.benefits.map((b) => (
                 <Card key={b}>
@@ -124,7 +133,7 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
 
           {area.details.length > 0 && (
             <article>
-              <SectionHeading title="Learn More" />
+              <SectionHeading title={labels.learnMore} />
               <Accordion type="single" collapsible className="mt-4 space-y-2">
                 {area.details.map((detail, idx) => (
                   <AccordionItem key={detail.title} value={`detail-${idx}`}>
@@ -139,7 +148,7 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
           )}
 
           <article>
-            <SectionHeading title="Questions Parents Ask" />
+            <SectionHeading title={labels.questionsParentsAsk} />
             <Accordion type="single" collapsible className="mt-4 space-y-2">
               {faqs.map((faq, idx) => (
                 <AccordionItem key={faq.q} value={`faq-${idx}`}>
@@ -154,10 +163,10 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
 
           <div className="flex flex-wrap gap-3 pt-4">
             <Button asChild size="lg">
-              <Link href="/appointment">Book a Consultation</Link>
+              <Link href="/appointment">{labels.bookConsultation}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/contact">Ask a Question</Link>
+              <Link href="/contact">{labels.askQuestion}</Link>
             </Button>
           </div>
         </div>

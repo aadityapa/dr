@@ -1,51 +1,67 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-const screeningQuestions = [
-  { id: "soundSensitivity", label: "Reacts strongly to loud sounds or covers ears frequently" },
-  { id: "textureAvoidance", label: "Avoids certain clothing textures, tags, or messy play" },
-  { id: "movementSeeking", label: "Seeks constant movement — spinning, crashing, climbing" },
-  { id: "transitionDifficulty", label: "Has difficulty with transitions or changes in routine" },
-  { id: "attentionSpan", label: "Struggles to sustain attention during age-appropriate tasks" },
-  { id: "motorClumsiness", label: "Appears clumsy or avoids new physical activities" },
-  { id: "handwritingConcern", label: "Handwriting is illegible, slow, or avoided" },
-  { id: "meltdowns", label: "Experiences frequent meltdowns in busy environments" },
-  { id: "selfCareDelay", label: "Behind peers in self-care skills (dressing, feeding)" },
-  { id: "socialWithdrawal", label: "Withdraws from or struggles with peer play" },
+const screeningFieldIds = [
+  "soundSensitivity",
+  "textureAvoidance",
+  "movementSeeking",
+  "transitionDifficulty",
+  "attentionSpan",
+  "motorClumsiness",
+  "handwritingConcern",
+  "meltdowns",
+  "selfCareDelay",
+  "socialWithdrawal",
 ] as const;
 
-const screeningSchema = z.object({
-  parentName: z.string().min(2, "Parent name is required"),
-  childName: z.string().min(2, "Child name is required"),
-  childAge: z.string().min(1, "Child age is required"),
-  email: z.string().email("Valid email required"),
-  phone: z.string().min(10, "Valid phone number required"),
-  concerns: z.string().min(8, "Please describe your main concerns"),
-  soundSensitivity: z.boolean(),
-  textureAvoidance: z.boolean(),
-  movementSeeking: z.boolean(),
-  transitionDifficulty: z.boolean(),
-  attentionSpan: z.boolean(),
-  motorClumsiness: z.boolean(),
-  handwritingConcern: z.boolean(),
-  meltdowns: z.boolean(),
-  selfCareDelay: z.boolean(),
-  socialWithdrawal: z.boolean(),
-});
+type ScreeningFieldId = (typeof screeningFieldIds)[number];
 
-type ScreeningInput = z.infer<typeof screeningSchema>;
+type ScreeningInput = {
+  parentName: string;
+  childName: string;
+  childAge: string;
+  email: string;
+  phone: string;
+  concerns: string;
+} & Record<ScreeningFieldId, boolean>;
 
 export function ScreeningForm() {
+  const { messages } = useLanguage();
+  const formCopy = messages.forms.screening;
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const screeningSchema = useMemo(() => {
+    const booleanFields = Object.fromEntries(
+      screeningFieldIds.map((id) => [id, z.boolean()]),
+    ) as Record<ScreeningFieldId, z.ZodBoolean>;
+
+    return z.object({
+      parentName: z.string().min(2, formCopy.errors.parentName),
+      childName: z.string().min(2, formCopy.errors.childName),
+      childAge: z.string().min(1, formCopy.errors.childAge),
+      email: z.string().email(formCopy.errors.email),
+      phone: z.string().min(10, formCopy.errors.phone),
+      concerns: z.string().min(8, formCopy.errors.concerns),
+      ...booleanFields,
+    });
+  }, [formCopy]);
+
+  const defaultValues = useMemo(
+    () =>
+      Object.fromEntries(screeningFieldIds.map((id) => [id, false])) as Record<ScreeningFieldId, boolean>,
+    [],
+  );
+
   const {
     register,
     reset,
@@ -54,16 +70,13 @@ export function ScreeningForm() {
   } = useForm<ScreeningInput>({
     resolver: zodResolver(screeningSchema),
     defaultValues: {
-      soundSensitivity: false,
-      textureAvoidance: false,
-      movementSeeking: false,
-      transitionDifficulty: false,
-      attentionSpan: false,
-      motorClumsiness: false,
-      handwritingConcern: false,
-      meltdowns: false,
-      selfCareDelay: false,
-      socialWithdrawal: false,
+      parentName: "",
+      childName: "",
+      childAge: "",
+      email: "",
+      phone: "",
+      concerns: "",
+      ...defaultValues,
     },
   });
 
@@ -75,7 +88,7 @@ export function ScreeningForm() {
       body: JSON.stringify(values),
     });
     if (!res.ok) {
-      setError("Something went wrong. Please call us directly or try again.");
+      setError(formCopy.error);
       return;
     }
     setSuccess(true);
@@ -85,11 +98,8 @@ export function ScreeningForm() {
   if (success) {
     return (
       <div className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6 text-center">
-        <p className="font-semibold text-[color:var(--color-sage-dark)]">Screening submitted successfully!</p>
-        <p className="mt-2 text-sm text-[color:var(--color-muted)]">
-          Thank you. Dr. Sharuja Sarap&apos;s team will review your responses and contact you within 24–48 hours with
-          guidance on next steps.
-        </p>
+        <p className="font-semibold text-[color:var(--color-sage-dark)]">{formCopy.successTitle}</p>
+        <p className="mt-2 text-sm text-[color:var(--color-muted)]">{formCopy.successMessage}</p>
       </div>
     );
   }
@@ -98,38 +108,36 @@ export function ScreeningForm() {
     <form className="grid gap-6" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <Input placeholder="Parent name *" {...register("parentName")} />
+          <Input placeholder={formCopy.parentName} {...register("parentName")} />
           <p className="text-xs text-red-600">{errors.parentName?.message}</p>
         </div>
         <div>
-          <Input placeholder="Child name *" {...register("childName")} />
+          <Input placeholder={formCopy.childName} {...register("childName")} />
           <p className="text-xs text-red-600">{errors.childName?.message}</p>
         </div>
         <div>
-          <Input placeholder="Child age *" {...register("childAge")} />
+          <Input placeholder={formCopy.childAge} {...register("childAge")} />
           <p className="text-xs text-red-600">{errors.childAge?.message}</p>
         </div>
         <div>
-          <Input type="email" placeholder="Email *" {...register("email")} />
+          <Input type="email" placeholder={formCopy.email} {...register("email")} />
           <p className="text-xs text-red-600">{errors.email?.message}</p>
         </div>
         <div className="md:col-span-2">
-          <Input placeholder="Contact number *" {...register("phone")} />
+          <Input placeholder={formCopy.phone} {...register("phone")} />
           <p className="text-xs text-red-600">{errors.phone?.message}</p>
         </div>
       </div>
 
       <div>
-        <h3 className="text-sm font-semibold text-[color:var(--color-sage-dark)]">
-          Basic Sensory Screening — check all that apply
-        </h3>
+        <h3 className="text-sm font-semibold text-[color:var(--color-sage-dark)]">{formCopy.screeningTitle}</h3>
         <div className="mt-4 space-y-3">
-          {screeningQuestions.map((q) => (
+          {formCopy.questions.map((q) => (
             <label
               key={q.id}
               className="flex cursor-pointer items-start gap-3 rounded-2xl border border-[color:var(--color-border)] bg-white/70 px-4 py-3 text-sm"
             >
-              <input type="checkbox" className="mt-1" {...register(q.id)} />
+              <input type="checkbox" className="mt-1" {...register(q.id as ScreeningFieldId)} />
               <span className="text-[color:var(--color-muted)]">{q.label}</span>
             </label>
           ))}
@@ -137,18 +145,16 @@ export function ScreeningForm() {
       </div>
 
       <div>
-        <Textarea placeholder="Additional concerns or observations *" rows={4} {...register("concerns")} />
+        <Textarea placeholder={formCopy.additionalConcerns} rows={4} {...register("concerns")} />
         <p className="text-xs text-red-600">{errors.concerns?.message}</p>
       </div>
 
       <div>
         <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
-          {isSubmitting ? "Submitting..." : "Submit Screening"}
+          {isSubmitting ? formCopy.submitting : formCopy.submit}
         </Button>
         {error ? <p className="mt-3 text-sm text-red-600">{error}</p> : null}
-        <p className="mt-3 text-xs text-[color:var(--color-muted)]">
-          This screening is not a diagnosis. It helps us understand your concerns and recommend appropriate next steps.
-        </p>
+        <p className="mt-3 text-xs text-[color:var(--color-muted)]">{formCopy.disclaimer}</p>
       </div>
     </form>
   );

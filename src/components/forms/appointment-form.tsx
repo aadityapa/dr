@@ -1,65 +1,68 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 
+import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/site-data";
 
-const concernOptions = [
-  "Sensory Processing",
-  "Attention & Focus",
-  "Autism",
-  "Developmental Delay",
-  "Learning Difficulties",
-  "Handwriting",
-  "Motor Coordination",
-  "Emotional Regulation",
-  "Feeding",
-  "Other",
-] as const;
-
-const previousTherapyOptions = [
-  "Occupational Therapy",
-  "Speech Therapy",
-  "Physiotherapy",
-  "Special Education",
-  "None",
-] as const;
-
-const appointmentSchema = z.object({
-  parentName: z.string().min(2, "Parent name is required"),
-  fatherName: z.string().optional(),
-  motherName: z.string().optional(),
-  guardianName: z.string().optional(),
-  phone: z.string().min(10, "Valid phone number required"),
-  email: z.string().email("Valid email required"),
-  childName: z.string().min(2, "Child name is required"),
-  dateOfBirth: z.string().optional(),
-  age: z.string().min(1, "Child age is required"),
-  gender: z.string().optional(),
-  schoolGrade: z.string().optional(),
-  concerns: z.array(z.string()).min(1, "Select at least one concern"),
-  hasDiagnosis: z.enum(["yes", "no"], { message: "Please select" }),
-  previousTherapies: z.array(z.string()).optional(),
-  biggestConcern: z.string().min(10, "Please share your biggest concern"),
-  preferredTime: z.string().min(1, "Preferred time is required"),
-  consent: z.literal(true, { message: "Consent is required" }),
-});
-
-type AppointmentInput = z.infer<typeof appointmentSchema>;
-
-const timeSlots = ["Morning (9–12)", "Afternoon (12–3)", "Late Afternoon (3–5)", "Saturday Morning"];
+type AppointmentInput = {
+  parentName: string;
+  fatherName?: string;
+  motherName?: string;
+  guardianName?: string;
+  phone: string;
+  email: string;
+  childName: string;
+  dateOfBirth?: string;
+  age: string;
+  gender?: string;
+  schoolGrade?: string;
+  concerns: string[];
+  hasDiagnosis: "yes" | "no";
+  previousTherapies?: string[];
+  biggestConcern: string;
+  preferredTime: string;
+  consent: true;
+};
 
 export function AppointmentForm() {
+  const { messages } = useLanguage();
+  const formCopy = messages.forms.appointment;
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const appointmentSchema = useMemo(
+    () =>
+      z.object({
+        parentName: z.string().min(2, formCopy.errors.parentName),
+        fatherName: z.string().optional(),
+        motherName: z.string().optional(),
+        guardianName: z.string().optional(),
+        phone: z.string().min(10, formCopy.errors.phone),
+        email: z.string().email(formCopy.errors.email),
+        childName: z.string().min(2, formCopy.errors.childName),
+        dateOfBirth: z.string().optional(),
+        age: z.string().min(1, formCopy.errors.age),
+        gender: z.string().optional(),
+        schoolGrade: z.string().optional(),
+        concerns: z.array(z.string()).min(1, formCopy.errors.concerns),
+        hasDiagnosis: z.enum(["yes", "no"], { message: formCopy.errors.hasDiagnosis }),
+        previousTherapies: z.array(z.string()).optional(),
+        biggestConcern: z.string().min(10, formCopy.errors.biggestConcern),
+        preferredTime: z.string().min(1, formCopy.errors.preferredTime),
+        consent: z.literal(true, { message: formCopy.errors.consent }),
+      }),
+    [formCopy],
+  );
+
   const {
     register,
     reset,
@@ -97,7 +100,7 @@ export function AppointmentForm() {
       body: JSON.stringify(values),
     });
     if (!res.ok) {
-      setError("Something went wrong. Please call us directly or try WhatsApp.");
+      setError(formCopy.error);
       return;
     }
     setSuccess(true);
@@ -107,14 +110,12 @@ export function AppointmentForm() {
   if (success) {
     return (
       <div className="rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6 text-center">
-        <p className="font-semibold text-[color:var(--color-sage-dark)]">Thank you — we received your request!</p>
-        <p className="mt-2 text-sm text-[color:var(--color-muted)]">
-          We will contact you within 24 hours. For faster response, message us on WhatsApp.
-        </p>
+        <p className="font-semibold text-[color:var(--color-sage-dark)]">{formCopy.successTitle}</p>
+        <p className="mt-2 text-sm text-[color:var(--color-muted)]">{formCopy.successMessage}</p>
         <Button asChild className="mt-4" variant="outline">
           <Link href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-4 w-4" />
-            WhatsApp Us
+            {formCopy.whatsappUs}
           </Link>
         </Button>
       </div>
@@ -124,48 +125,48 @@ export function AppointmentForm() {
   return (
     <form className="grid gap-5 md:grid-cols-2" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <Input placeholder="Parent Name *" {...register("parentName")} />
+        <Input placeholder={formCopy.parentName} {...register("parentName")} />
         <p className="text-xs text-red-600">{errors.parentName?.message}</p>
       </div>
       <div>
-        <Input placeholder="Father Name" {...register("fatherName")} />
+        <Input placeholder={formCopy.fatherName} {...register("fatherName")} />
       </div>
       <div>
-        <Input placeholder="Mother Name" {...register("motherName")} />
+        <Input placeholder={formCopy.motherName} {...register("motherName")} />
       </div>
       <div>
-        <Input placeholder="Guardian Name" {...register("guardianName")} />
+        <Input placeholder={formCopy.guardianName} {...register("guardianName")} />
       </div>
       <div>
-        <Input placeholder="Phone *" {...register("phone")} />
+        <Input placeholder={formCopy.phone} {...register("phone")} />
         <p className="text-xs text-red-600">{errors.phone?.message}</p>
       </div>
       <div>
-        <Input type="email" placeholder="Email *" {...register("email")} />
+        <Input type="email" placeholder={formCopy.email} {...register("email")} />
         <p className="text-xs text-red-600">{errors.email?.message}</p>
       </div>
       <div>
-        <Input placeholder="Child Name *" {...register("childName")} />
+        <Input placeholder={formCopy.childName} {...register("childName")} />
         <p className="text-xs text-red-600">{errors.childName?.message}</p>
       </div>
       <div>
-        <Input type="date" placeholder="Date of Birth" {...register("dateOfBirth")} />
+        <Input type="date" placeholder={formCopy.dateOfBirth} {...register("dateOfBirth")} />
       </div>
       <div>
-        <Input placeholder="Age *" {...register("age")} />
+        <Input placeholder={formCopy.age} {...register("age")} />
         <p className="text-xs text-red-600">{errors.age?.message}</p>
       </div>
       <div>
-        <Input placeholder="Gender" {...register("gender")} />
+        <Input placeholder={formCopy.gender} {...register("gender")} />
       </div>
       <div>
-        <Input placeholder="School Grade" {...register("schoolGrade")} />
+        <Input placeholder={formCopy.schoolGrade} {...register("schoolGrade")} />
       </div>
 
       <div className="md:col-span-2">
-        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">Concerns *</p>
+        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.concernsLabel}</p>
         <div className="flex flex-wrap gap-2">
-          {concernOptions.map((c) => (
+          {formCopy.concernOptions.map((c) => (
             <button
               key={c}
               type="button"
@@ -184,24 +185,24 @@ export function AppointmentForm() {
       </div>
 
       <div className="md:col-span-2">
-        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">Diagnosis</p>
+        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.diagnosisLabel}</p>
         <div className="flex gap-4">
           <label className="flex items-center gap-2 text-sm">
             <input type="radio" value="yes" {...register("hasDiagnosis")} />
-            Yes
+            {formCopy.yes}
           </label>
           <label className="flex items-center gap-2 text-sm">
             <input type="radio" value="no" {...register("hasDiagnosis")} />
-            No
+            {formCopy.no}
           </label>
         </div>
         <p className="text-xs text-red-600">{errors.hasDiagnosis?.message}</p>
       </div>
 
       <div className="md:col-span-2">
-        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">Previous Therapies</p>
+        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.previousTherapiesLabel}</p>
         <div className="flex flex-wrap gap-2">
-          {previousTherapyOptions.map((t) => (
+          {formCopy.previousTherapyOptions.map((t) => (
             <button
               key={t}
               type="button"
@@ -219,14 +220,14 @@ export function AppointmentForm() {
       </div>
 
       <div className="md:col-span-2">
-        <Textarea placeholder="Biggest Concern *" rows={3} {...register("biggestConcern")} />
+        <Textarea placeholder={formCopy.biggestConcern} rows={3} {...register("biggestConcern")} />
         <p className="text-xs text-red-600">{errors.biggestConcern?.message}</p>
       </div>
 
       <div className="md:col-span-2">
-        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">Preferred Appointment Time *</p>
+        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.preferredTimeLabel}</p>
         <div className="grid gap-2 sm:grid-cols-2">
-          {timeSlots.map((slot) => (
+          {formCopy.timeSlots.map((slot) => (
             <label
               key={slot}
               className="flex cursor-pointer items-center rounded-xl border border-[color:var(--color-border)] bg-white px-3 py-2.5 text-sm"
@@ -242,17 +243,14 @@ export function AppointmentForm() {
       <div className="md:col-span-2">
         <label className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
           <input type="checkbox" className="mt-1" {...register("consent")} />
-          <span>
-            I consent to Thrive With Sharuja contacting me about this consultation request and storing my information
-            for scheduling purposes. *
-          </span>
+          <span>{formCopy.consent}</span>
         </label>
         <p className="text-xs text-red-600">{errors.consent?.message}</p>
       </div>
 
       <div className="md:col-span-2">
         <Button type="submit" disabled={isSubmitting} size="lg" className="w-full sm:w-auto">
-          {isSubmitting ? "Submitting..." : "Submit Consultation Request"}
+          {isSubmitting ? formCopy.submitting : formCopy.submit}
         </Button>
         {error ? <p className="mt-3 text-sm text-red-600">{error}</p> : null}
       </div>

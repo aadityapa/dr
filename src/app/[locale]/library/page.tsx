@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 
 import { LibraryDownloadForm } from "@/components/forms/library-download-form";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
@@ -7,28 +8,39 @@ import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionCta } from "@/components/shared/section-cta";
 import { Card, CardContent } from "@/components/ui/card";
+import type { AppLocale } from "@/i18n/routing";
+import { getMessages } from "@/lib/i18n";
+import { getPageShells } from "@/lib/i18n/localize";
 import { libraryResources } from "@/lib/library-resources";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-data";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Digital Library — Free Parent Guides & Checklists",
-  description: `Download free parent guides, checklists, and screening tools from ${siteConfig.doctorName} — pediatric OT in Kandivali West, Mumbai.`,
-  path: "/library",
-  keywords: mumbaiKeywords("parent guides download", "sensory checklist free", "school readiness checklist Mumbai"),
-});
+type Props = { params: Promise<{ locale: AppLocale }> };
 
 const categories = [...new Set(libraryResources.map((r) => r.category))];
 
-export default function LibraryPage() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const shells = getPageShells(locale);
+  return buildPageMetadata({
+    title: shells.library.metaTitle,
+    description: shells.library.metaDescription,
+    path: "/library",
+    locale,
+    keywords: mumbaiKeywords("parent guides download", "sensory checklist free", "school readiness checklist Mumbai"),
+  });
+}
+
+export default async function LibraryPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const shells = getPageShells(locale);
+  const messages = getMessages(locale);
+
   return (
     <main>
-      <Breadcrumbs items={[{ name: "Digital Library", url: `${siteConfig.url}/library` }]} />
-      <PageHero
-        kicker="Digital Library"
-        title="Free Parent Guides & Checklists"
-        description="Evidence-informed resources to support your child's development — download instantly after a quick signup."
-      />
+      <Breadcrumbs items={[{ name: messages.nav.library, url: `${siteConfig.url}/${locale}/library` }]} />
+      <PageHero kicker={shells.library.kicker} title={shells.library.title} description={shells.library.description} />
 
       <Section>
         {categories.map((category) => (
