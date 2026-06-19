@@ -1,14 +1,14 @@
 "use client";
 
-import Link from "next/link";
-
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
-import { homeContent } from "@/lib/client-content/home";
+import { Link } from "@/i18n/navigation";
+import { useLanguage } from "@/components/providers/language-provider";
 
 export function HomeFinalCtaSection() {
-  const copy = homeContent.finalCta;
+  const { content } = useLanguage();
+  const copy = content.home.finalCta;
 
   return (
     <Section compact className="bg-[color:var(--color-sage-dark)] text-white">

@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter, Noto_Sans_Devanagari, Playfair_Display } from "next/font/google";
+import { getLocale } from "next-intl/server";
 
-import { SiteChrome } from "@/components/layout/site-chrome";
-import { ClientEnhancements } from "@/components/providers/client-enhancements";
-import { ScrollProgress } from "@/components/providers/scroll-progress";
 import {
   localBusinessSchema,
   medicalClinicSchema,
@@ -54,9 +52,6 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.heroSubheadline,
   },
-  alternates: {
-    canonical: "/",
-  },
   robots: {
     index: true,
     follow: true,
@@ -69,23 +64,17 @@ export const viewport: Viewport = {
   themeColor: "#2f4d3b",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en">
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} ${devanagari.variable} antialiased`}>
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[color:var(--color-sage-dark)] focus:px-4 focus:py-2 focus:text-white"
-        >
-          Skip to main content
-        </a>
-        <ScrollProgress />
-        <ClientEnhancements />
-        <SiteChrome>{children}</SiteChrome>
+        {children}
         <Script
           id="org-schema"
           type="application/ld+json"
@@ -115,3 +104,4 @@ export default function RootLayout({
     </html>
   );
 }
+

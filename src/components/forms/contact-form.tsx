@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -8,18 +8,31 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useLanguage } from "@/components/providers/language-provider";
 
-const contactSchema = z.object({
-  parentName: z.string().min(2, "Please enter your name"),
-  email: z.string().email("Please enter a valid email"),
-  phone: z.string().min(8, "Please enter a valid phone number"),
-  message: z.string().min(10, "Please share a little more detail"),
-});
-
-type ContactInput = z.infer<typeof contactSchema>;
+type ContactInput = {
+  parentName: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 export function ContactForm() {
+  const { messages } = useLanguage();
+  const formCopy = messages.forms.contact;
   const [success, setSuccess] = useState<string | null>(null);
+
+  const contactSchema = useMemo(
+    () =>
+      z.object({
+        parentName: z.string().min(2, formCopy.errors.parentName),
+        email: z.string().email(formCopy.errors.email),
+        phone: z.string().min(8, formCopy.errors.phone),
+        message: z.string().min(10, formCopy.errors.message),
+      }),
+    [formCopy],
+  );
+
   const {
     register,
     reset,
@@ -38,22 +51,22 @@ export function ContactForm() {
     });
 
     if (!res.ok) return;
-    setSuccess("Thank you. We will reach out shortly.");
+    setSuccess(formCopy.success);
     reset();
   };
 
   return (
     <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-      <Input placeholder="Parent name" {...register("parentName")} aria-invalid={Boolean(errors.parentName)} />
+      <Input placeholder={formCopy.parentName} {...register("parentName")} aria-invalid={Boolean(errors.parentName)} />
       <p className="text-xs text-red-600">{errors.parentName?.message}</p>
-      <Input type="email" placeholder="Email address" {...register("email")} aria-invalid={Boolean(errors.email)} />
+      <Input type="email" placeholder={formCopy.email} {...register("email")} aria-invalid={Boolean(errors.email)} />
       <p className="text-xs text-red-600">{errors.email?.message}</p>
-      <Input placeholder="Phone number" {...register("phone")} aria-invalid={Boolean(errors.phone)} />
+      <Input placeholder={formCopy.phone} {...register("phone")} aria-invalid={Boolean(errors.phone)} />
       <p className="text-xs text-red-600">{errors.phone?.message}</p>
-      <Textarea placeholder="How can we help your child?" {...register("message")} aria-invalid={Boolean(errors.message)} />
+      <Textarea placeholder={formCopy.message} {...register("message")} aria-invalid={Boolean(errors.message)} />
       <p className="text-xs text-red-600">{errors.message?.message}</p>
       <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Sending..." : "Send Message"}
+        {isSubmitting ? messages.common.sending : formCopy.submit}
       </Button>
       {success ? <p className="text-sm text-[color:var(--color-sage-dark)]">{success}</p> : null}
     </form>

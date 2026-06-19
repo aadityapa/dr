@@ -2,12 +2,6 @@ export type Locale = "en" | "hi" | "mr";
 
 export const locales: Locale[] = ["en", "hi", "mr"];
 
-export const localeLabels: Record<Locale, string> = {
-  en: "English",
-  hi: "हिंदी",
-  mr: "मराठी",
-};
-
 export type Messages = {
   nav: {
     home: string;
@@ -64,6 +58,39 @@ export type Messages = {
     selectLanguage: string;
     openMenu: string;
     closeMenu: string;
+    learnMore: string;
+    sending: string;
+    sendMessage: string;
+  };
+  forms: {
+    contact: {
+      parentName: string;
+      email: string;
+      phone: string;
+      message: string;
+      submit: string;
+      success: string;
+      errors: {
+        parentName: string;
+        email: string;
+        phone: string;
+        message: string;
+      };
+    };
+    appointment: {
+      parentName: string;
+      childName: string;
+      childAge: string;
+      phone: string;
+      email: string;
+      concern: string;
+      preferredDate: string;
+      submit: string;
+      success: string;
+    };
+  };
+  languageTransition: {
+    switching: string;
   };
 };
 

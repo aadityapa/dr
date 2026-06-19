@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { routing } from "@/i18n/routing";
 import { articles } from "@/lib/articles";
 import { clientConditions } from "@/lib/client-content/conditions";
 import { expertiseAreas } from "@/lib/client-content/expertise";
@@ -55,10 +56,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const allRoutes = [...staticRoutes, ...expertiseRoutes, ...conditionRoutes, ...locationRoutes, ...articleRoutes];
 
-  return allRoutes.map(({ path, priority, changeFrequency }) => ({
-    url: `${siteConfig.url}${path}`,
-    lastModified: new Date(),
-    changeFrequency,
-    priority,
-  }));
+  return allRoutes.flatMap(({ path, priority, changeFrequency }) => {
+    const languages = Object.fromEntries(
+      routing.locales.map((locale) => [
+        locale,
+        `${siteConfig.url}/${locale}${path === "/" ? "" : path}`,
+      ]),
+    );
+
+    return routing.locales.map((locale) => ({
+      url: `${siteConfig.url}/${locale}${path === "/" ? "" : path}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+      alternates: { languages },
+    }));
+  });
 }

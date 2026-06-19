@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site-data";
 
 type PageMetadataOptions = {
@@ -9,6 +10,13 @@ type PageMetadataOptions = {
   keywords?: string[];
   ogImage?: string;
   noIndex?: boolean;
+  locale?: string;
+};
+
+const ogLocaleMap: Record<string, string> = {
+  en: "en_IN",
+  hi: "hi_IN",
+  mr: "mr_IN",
 };
 
 export function buildPageMetadata({
@@ -18,21 +26,35 @@ export function buildPageMetadata({
   keywords = [],
   ogImage,
   noIndex = false,
+  locale = routing.defaultLocale,
 }: PageMetadataOptions): Metadata {
-  const url = `${siteConfig.url}${path}`;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const localePath = `/${locale}${normalizedPath === "/" ? "" : normalizedPath}`;
+  const url = `${siteConfig.url}${localePath}`;
   const image = ogImage ?? `${siteConfig.url}/opengraph-image`;
+
+  const languages = Object.fromEntries(
+    routing.locales.map((code) => [
+      code,
+      `${siteConfig.url}/${code}${normalizedPath === "/" ? "" : normalizedPath}`,
+    ]),
+  );
 
   return {
     title,
     description,
     keywords: keywords.length > 0 ? keywords : undefined,
-    alternates: { canonical: path },
+    alternates: {
+      canonical: localePath,
+      languages,
+    },
     openGraph: {
       title: `${title} | ${siteConfig.name}`,
       description,
       url,
       siteName: siteConfig.name,
-      locale: "en_IN",
+      locale: ogLocaleMap[locale] ?? "en_IN",
+      alternateLocale: routing.locales.filter((l) => l !== locale).map((l) => ogLocaleMap[l]),
       type: "website",
       images: [{ url: image, width: 1200, height: 630, alt: title }],
     },

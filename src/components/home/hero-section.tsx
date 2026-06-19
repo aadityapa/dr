@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -9,14 +8,14 @@ import { FloatingNature } from "@/components/shared/floating-nature";
 import { HeroSoftDecor } from "@/components/home/hero-soft-decor";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { useLanguage } from "@/components/providers/language-provider";
-import { homeContent } from "@/lib/client-content/home";
 import { getSiteImage } from "@/lib/site-images";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
   const { messages } = useLanguage();
-  const copy = homeContent.hero;
+  const copy = messages.hero;
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -53,7 +52,7 @@ export function HeroSection() {
 
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
-          <Badge className="hero-badge mb-6">{copy.kicker}</Badge>
+          <Badge className="hero-badge mb-6">{copy.badge}</Badge>
           <h1 className="hero-title font-[family-name:var(--font-serif)] text-4xl leading-[1.08] tracking-tight text-[color:var(--color-sage-dark)] md:text-5xl lg:text-[3.5rem]">
             {copy.headline}
           </h1>
@@ -68,7 +67,7 @@ export function HeroSection() {
               <Link href="/appointment">{messages.cta.bookConsultation}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/expertise">Explore Expertise</Link>
+              <Link href="/expertise">{messages.cta.exploreServices}</Link>
             </Button>
           </div>
         </div>
@@ -79,23 +78,20 @@ export function HeroSection() {
               src={getSiteImage("heroMain")}
               alt="Child engaging in sensory play in a warm pediatric therapy environment"
               width={640}
-              height={800}
-              sizes="(max-width: 1024px) 100vw, 640px"
-              className="aspect-[4/5] w-full object-cover"
+              height={720}
               priority
+              className="aspect-[4/5] w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-sage-dark)]/25 to-transparent" />
           </div>
         </div>
       </div>
 
       <a
         href="#meet-doctor"
-        className="hero-scroll absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-[color:var(--color-muted)] transition-colors hover:text-[color:var(--color-sage-dark)]"
-        aria-label="Scroll to about section"
+        className="hero-scroll absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-[color:var(--color-muted)] motion-safe:animate-bounce md:block"
+        aria-label="Scroll to learn more"
       >
-        <span className="text-xs uppercase tracking-widest">Discover</span>
-        <ChevronDown className="h-5 w-5 animate-bounce" aria-hidden="true" />
+        <ChevronDown className="h-6 w-6" />
       </a>
     </section>
   );

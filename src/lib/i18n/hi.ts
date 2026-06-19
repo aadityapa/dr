@@ -58,5 +58,38 @@ export const hi: Messages = {
     selectLanguage: "भाषा चुनें",
     openMenu: "मेनू खोलें",
     closeMenu: "मेनू बंद करें",
+    learnMore: "और जानें →",
+    sending: "भेजा जा रहा है...",
+    sendMessage: "संदेश भेजें",
+  },
+  forms: {
+    contact: {
+      parentName: "अभिभावक का नाम",
+      email: "ईमेल पता",
+      phone: "फ़ोन नंबर",
+      message: "हम आपके बच्चे की कैसे मदद कर सकते हैं?",
+      submit: "संदेश भेजें",
+      success: "धन्यवाद। हम जल्द संपर्क करेंगे।",
+      errors: {
+        parentName: "कृपया अपना नाम दर्ज करें",
+        email: "कृपया वैध ईमेल दर्ज करें",
+        phone: "कृपया वैध फ़ोन नंबर दर्ज करें",
+        message: "कृपया थोड़ा और विवरण साझा करें",
+      },
+    },
+    appointment: {
+      parentName: "अभिभावक का नाम",
+      childName: "बच्चे का नाम",
+      childAge: "बच्चे की उम्र",
+      phone: "फ़ोन नंबर",
+      email: "ईमेल पता",
+      concern: "आप यहाँ क्यों आए हैं?",
+      preferredDate: "पसंदीदा तारीख (वैकल्पिक)",
+      submit: "अपॉइंटमेंट अनुरोध करें",
+      success: "धन्यवाद! हम जल्द आपकी अपॉइंटमेंट की पुष्टि करेंगे।",
+    },
+  },
+  languageTransition: {
+    switching: "भाषा बदली जा रही है",
   },
 };

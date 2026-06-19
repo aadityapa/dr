@@ -1,5 +1,6 @@
 import { hiConditionDetails } from "./hi-conditions";
 import { googleReviews, siteConfig, testimonials, therapyJourneySteps } from "@/lib/site-data";
+import { hiHomeContent } from "./home-locale";
 
 import type { LocaleContent } from "./types";
 
@@ -268,6 +269,7 @@ export const hiContent: LocaleContent = {
     years: `${siteConfig.experienceYears}+ साल का अनुभव`,
     subtitle: "बाल OT · मुंबई",
   },
+  home: hiHomeContent,
   services: {
     "occupational-therapy": {
       title: "व्यवसाय चिकित्सा",

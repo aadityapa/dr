@@ -1,17 +1,17 @@
 "use client";
 
-import Link from "next/link";
-
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
+import { useLanguage } from "@/components/providers/language-provider";
 import { clientConditions } from "@/lib/client-content/conditions";
-import { homeContent } from "@/lib/client-content/home";
 import { getCardPastel } from "@/lib/pastel-palette";
 
 export function WhoWeHelpSection() {
-  const copy = homeContent.conditionsPreview;
+  const { content, messages } = useLanguage();
+  const copy = content.home.conditionsPreview;
 
   return (
     <Section id="who-we-help" compact className="bg-[color:var(--color-snow)]">
@@ -20,6 +20,7 @@ export function WhoWeHelpSection() {
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {clientConditions.slice(0, 6).map((condition, i) => {
           const pastel = getCardPastel(i);
+          const localized = content.conditions[condition.slug];
           return (
             <Reveal key={condition.slug} delay={i * 0.05}>
               <Link
@@ -28,16 +29,16 @@ export function WhoWeHelpSection() {
                 style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
               >
                 <h3 className="font-semibold" style={{ color: pastel.text }}>
-                  {condition.title}
+                  {localized?.title ?? condition.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
-                  {condition.whatParentsMayNotice[0]}
+                  {localized?.reassurance ?? condition.whatParentsMayNotice[0]}
                 </p>
                 <span
                   className="mt-3 inline-block text-xs font-semibold group-hover:underline"
                   style={{ color: pastel.accent }}
                 >
-                  Learn more →
+                  {messages.common.learnMore}
                 </span>
               </Link>
             </Reveal>

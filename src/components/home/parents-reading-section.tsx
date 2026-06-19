@@ -2,10 +2,11 @@
 
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
-import { homeContent } from "@/lib/client-content/home";
+import { useLanguage } from "@/components/providers/language-provider";
 
 export function ParentsReadingSection() {
-  const copy = homeContent.parentsReading;
+  const { content } = useLanguage();
+  const copy = content.home.parentsReading;
 
   return (
     <Section compact className="bg-[color:var(--color-soft-green)]/25">

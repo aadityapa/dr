@@ -58,5 +58,38 @@ export const mr: Messages = {
     selectLanguage: "भाषा निवडा",
     openMenu: "मेनू उघडा",
     closeMenu: "मेनू बंद करा",
+    learnMore: "अधिक जाणून घ्या →",
+    sending: "पाठवत आहे...",
+    sendMessage: "संदेश पाठवा",
+  },
+  forms: {
+    contact: {
+      parentName: "पालकाचे नाव",
+      email: "ईमेल पत्ता",
+      phone: "फोन नंबर",
+      message: "आम्ही तुमच्या मुलाला कशी मदत करू शकतो?",
+      submit: "संदेश पाठवा",
+      success: "धन्यवाद. आम्ही लवकरच संपर्क करू.",
+      errors: {
+        parentName: "कृपया तुमचे नाव प्रविष्ट करा",
+        email: "कृपया वैध ईमेल प्रविष्ट करा",
+        phone: "कृपया वैध फोन नंबर प्रविष्ट करा",
+        message: "कृपया थोडे अधिक तपशील सांगा",
+      },
+    },
+    appointment: {
+      parentName: "पालकाचे नाव",
+      childName: "मुलाचे नाव",
+      childAge: "मुलाचे वय",
+      phone: "फोन नंबर",
+      email: "ईमेल पत्ता",
+      concern: "तुम्ही का आला?",
+      preferredDate: "पसंतीची तारीख (पर्यायी)",
+      submit: "अपॉइंटमेंट विनंती करा",
+      success: "धन्यवाद! आम्ही लवकरच तुमची अपॉइंटमेंट निश्चित करू.",
+    },
+  },
+  languageTransition: {
+    switching: "भाषा बदलत आहे",
   },
 };

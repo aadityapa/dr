@@ -91,6 +91,19 @@ export type LocaleContent = {
   };
   heroTrust: { items: { label: string; sub: string }[] };
   heroCard: { years: string; subtitle: string };
+  home: {
+    parentsReading: { kicker: string; title: string; paragraphs: string[] };
+    aboutPreview: { kicker: string; title: string; bio: string; cta: string };
+    conditionsPreview: { kicker: string; title: string; description: string; cta: string };
+    finalCta: { title: string; description: string; primary: string; secondary: string };
+    expertiseEcosystem: {
+      title: string;
+      subheading: string;
+      viewAll: string;
+      exploreApproach: string;
+      clusters: Record<string, { title: string; explanation: string }>;
+    };
+  };
   services: Record<string, { title: string; headline: string }>;
   conditions: Record<string, Pick<ConditionLocaleCopy, "title" | "reassurance">>;
   conditionDetails: Record<string, ConditionLocaleCopy>;

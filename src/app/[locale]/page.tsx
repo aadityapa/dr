@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 import { ParentsReadingSection } from "@/components/home/parents-reading-section";
 import { AboutPreviewSection } from "@/components/home/about-preview-section";
@@ -8,20 +9,28 @@ import { HomeFaqSection } from "@/components/home/home-faq-section";
 import { HomeFinalCtaSection } from "@/components/home/home-final-cta-section";
 import { SuccessStoriesSection } from "@/components/home/success-stories-section";
 import { WhoWeHelpSection } from "@/components/home/who-we-help-section";
-import { homeContent } from "@/lib/client-content/home";
+import type { AppLocale } from "@/i18n/routing";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "Pediatric Occupational Therapist Mumbai",
-  description: homeContent.hero.subheadline,
-  path: "/",
-  keywords: mumbaiKeywords(
-    "Pediatric Occupational Therapist Mumbai",
-    "OT Kandivali",
-    "pediatric OT Kandivali",
-    "Dr. Sharuja Sarap occupational therapist",
-  ),
-});
+type Props = { params: Promise<{ locale: AppLocale }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "hero" });
+
+  return buildPageMetadata({
+    title: "Pediatric Occupational Therapist Mumbai",
+    description: t("subheadline"),
+    path: "/",
+    locale,
+    keywords: mumbaiKeywords(
+      "Pediatric Occupational Therapist Mumbai",
+      "OT Kandivali",
+      "pediatric OT Kandivali",
+      "Dr. Sharuja Sarap occupational therapist",
+    ),
+  });
+}
 
 export default function Home() {
   return (

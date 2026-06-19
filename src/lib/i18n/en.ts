@@ -59,5 +59,38 @@ export const en: Messages = {
     selectLanguage: "Select language",
     openMenu: "Open menu",
     closeMenu: "Close menu",
+    learnMore: "Learn more →",
+    sending: "Sending...",
+    sendMessage: "Send Message",
+  },
+  forms: {
+    contact: {
+      parentName: "Parent name",
+      email: "Email address",
+      phone: "Phone number",
+      message: "How can we help your child?",
+      submit: "Send Message",
+      success: "Thank you. We will reach out shortly.",
+      errors: {
+        parentName: "Please enter your name",
+        email: "Please enter a valid email",
+        phone: "Please enter a valid phone number",
+        message: "Please share a little more detail",
+      },
+    },
+    appointment: {
+      parentName: "Parent / guardian name",
+      childName: "Child's name",
+      childAge: "Child's age",
+      phone: "Phone number",
+      email: "Email address",
+      concern: "What brings you here?",
+      preferredDate: "Preferred date (optional)",
+      submit: "Request Appointment",
+      success: "Thank you! We'll confirm your appointment shortly.",
+    },
+  },
+  languageTransition: {
+    switching: "Switching language",
   },
 };

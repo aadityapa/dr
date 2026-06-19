@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "npm run build:locales && next build --turbopack",
+    "build:locales": "tsx scripts/build-locales.ts",
     "start": "next start",
     "lint": "eslint",
     "stitch:fetch": "node scripts/stitch-fetch-project.mjs",
@@ -23,6 +24,7 @@
     "lenis": "^1.3.23",
     "lucide-react": "^1.16.0",
     "next": "15.5.18",
+    "next-intl": "^4.13.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.76.1",
@@ -39,6 +41,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.18",
     "tailwindcss": "^4",
+    "tsx": "^4.22.4",
     "typescript": "^5"
   }
 }

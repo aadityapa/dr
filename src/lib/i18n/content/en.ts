@@ -2,6 +2,7 @@ import { parentMessage, parentWondering } from "@/lib/parent-voice";
 import { conditionVoiceOverrides } from "@/lib/parent-voice-conditions";
 import { conditions, doctorProfile, googleReviews, services, siteConfig, testimonials, therapyJourneySteps } from "@/lib/site-data";
 
+import { buildHomeLocaleContent } from "./home-locale";
 import type { ConditionLocaleCopy, LocaleContent } from "./types";
 
 function buildConditionDetails(): Record<string, ConditionLocaleCopy> {
@@ -213,6 +214,7 @@ export const enContent: LocaleContent = {
     years: `${siteConfig.experienceYears}+ Years Experience`,
     subtitle: "Pediatric OT · Mumbai",
   },
+  home: buildHomeLocaleContent(),
   services: Object.fromEntries(
     services.map((s) => [s.slug, { title: s.title, headline: s.headline }]),
   ),

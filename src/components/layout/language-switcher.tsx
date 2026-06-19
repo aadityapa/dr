@@ -4,7 +4,7 @@ import { ChevronDown, Globe } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { useLanguage } from "@/components/providers/language-provider";
-import { localeLabels, locales, type Locale } from "@/lib/i18n";
+import { localeLabels, routing, type AppLocale } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 
 export function LanguageSwitcher({ className }: { className?: string }) {
@@ -22,7 +22,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  function select(next: Locale) {
+  function select(next: AppLocale) {
     setLocale(next);
     setOpen(false);
   }
@@ -48,7 +48,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           aria-label={messages.common.selectLanguage}
           className="absolute right-0 top-full z-50 mt-1 min-w-[8rem] overflow-hidden rounded-xl border border-[color:var(--color-border)] bg-white py-1 shadow-lg"
         >
-          {locales.map((code) => (
+          {routing.locales.map((code) => (
             <li key={code} role="option" aria-selected={locale === code}>
               <button
                 type="button"

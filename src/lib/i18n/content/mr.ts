@@ -1,6 +1,7 @@
 import { siteConfig, testimonials, googleReviews } from "@/lib/site-data";
 
 import { mrConditionDetails } from "./mr-conditions";
+import { mrHomeContent } from "./home-locale";
 import type { LocaleContent } from "./types";
 
 export const mrContent: LocaleContent = {
@@ -270,6 +271,7 @@ export const mrContent: LocaleContent = {
     years: `${siteConfig.experienceYears}+ वर्षांचा अनुभव`,
     subtitle: "बाल OT · मुंबई",
   },
+  home: mrHomeContent,
   services: {
     "occupational-therapy": {
       title: "व्यावसायिक चिकित्सा",

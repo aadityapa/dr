@@ -1,8 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
+import { Link, usePathname } from "@/i18n/navigation";
 import { Mail, Phone } from "lucide-react";
 
 import { useLanguage } from "@/components/providers/language-provider";
@@ -36,7 +36,7 @@ const quickExploreHrefs = [
 
 export function Footer() {
   const pathname = usePathname();
-  const { messages } = useLanguage();
+  const { messages, content } = useLanguage();
   const theme = getFooterTheme(pathname);
 
   const legalLinks = [
@@ -107,11 +107,14 @@ export function Footer() {
                 {messages.footer.services}
               </p>
               <ul className="mt-2 space-y-1">
-                {expertiseClusters.slice(0, 4).map((s) => (
-                  <li key={s.slug}>
-                    <FooterLink href={s.learnMoreHref}>{s.title}</FooterLink>
-                  </li>
-                ))}
+                {expertiseClusters.slice(0, 4).map((s) => {
+                  const localized = content.home.expertiseEcosystem.clusters[s.slug];
+                  return (
+                    <li key={s.slug}>
+                      <FooterLink href={s.learnMoreHref}>{localized?.title ?? s.title}</FooterLink>
+                    </li>
+                  );
+                })}
                 <li>
                   <FooterLink href="/expertise">{messages.footer.viewAll}</FooterLink>
                 </li>
@@ -120,11 +123,14 @@ export function Footer() {
                 {messages.footer.conditions}
               </p>
               <ul className="mt-2 space-y-1">
-                {clientConditions.slice(0, 3).map((c) => (
-                  <li key={c.slug}>
-                    <FooterLink href={`/conditions/${c.slug}`}>{c.title}</FooterLink>
-                  </li>
-                ))}
+                {clientConditions.slice(0, 3).map((c) => {
+                  const localized = content.conditions[c.slug];
+                  return (
+                    <li key={c.slug}>
+                      <FooterLink href={`/conditions/${c.slug}`}>{localized?.title ?? c.title}</FooterLink>
+                    </li>
+                  );
+                })}
                 <li>
                   <FooterLink href="/conditions">{messages.footer.viewAll}</FooterLink>
                 </li>
