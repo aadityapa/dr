@@ -69,7 +69,7 @@ export type Messages = {
 export const navHrefKeys: Record<string, keyof Messages["nav"]> = {
   "/": "home",
   "/about": "about",
-  "/services": "services",
+  "/expertise": "services",
   "/conditions": "conditions",
   "/gallery": "gallery",
   "/resources": "resources",

@@ -2,23 +2,21 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { ProfessionalJourneySection } from "@/components/about/professional-journey-section";
 import { CertificationWall } from "@/components/home/certification-wall";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
+import { aboutContent } from "@/lib/client-content/about";
 import { getCardPastel } from "@/lib/pastel-palette";
-import { aboutVoice } from "@/lib/parent-voice-conditions";
-import { doctorProfile, siteConfig } from "@/lib/site-data";
-import { getSiteImage } from "@/lib/site-images";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { GraduationCap } from "lucide-react";
+import { getSiteImage } from "@/lib/site-images";
+import { siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: `About ${siteConfig.doctorName}`,
-  description: aboutVoice.heroDescription,
+  description: aboutContent.hero.description,
   path: "/about",
   keywords: mumbaiKeywords("pediatric occupational therapist Mumbai", "Dr. Sharuja Sarap OT"),
 });
@@ -26,11 +24,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function AboutPage() {
   return (
     <main>
-      <PageHero
-        kicker={aboutVoice.heroKicker}
-        title={aboutVoice.heroTitle}
-        description={aboutVoice.heroDescription}
-      >
+      <PageHero kicker={aboutContent.hero.kicker} title={aboutContent.hero.title} description={aboutContent.hero.description}>
         <Button asChild>
           <Link href="/appointment">Book a Conversation</Link>
         </Button>
@@ -51,55 +45,31 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-[color:var(--color-terracotta)]">
-                {siteConfig.title}
-              </p>
-              <h2 className="mt-2 font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">
-                {aboutVoice.storyTitle}
-              </h2>
-              <div className="mt-4 space-y-4">
-                {aboutVoice.storyParagraphs.map((para) => (
-                  <p key={para.slice(0, 48)} className="leading-relaxed text-[color:var(--color-muted)]">
-                    {para}
-                  </p>
-                ))}
-              </div>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl p-4" style={{ backgroundColor: "#D6E8F5", border: "1px solid #A8CCE8" }}>
-                  <p className="text-2xl font-bold text-[#1E4A6E]">{siteConfig.experienceYears}+</p>
-                  <p className="text-sm text-[color:var(--color-muted)]">Years walking with families</p>
-                </div>
-                <div className="rounded-2xl p-4" style={{ backgroundColor: "#E4DDF5", border: "1px solid #C9BCE8" }}>
-                  <p className="text-2xl font-bold text-[#4A3570]">500+</p>
-                  <p className="text-sm text-[color:var(--color-muted)]">Families supported</p>
-                </div>
-              </div>
+            <div className="space-y-4">
+              {aboutContent.intro.paragraphs.map((para) => (
+                <p key={para.slice(0, 48)} className="leading-relaxed text-[color:var(--color-muted)]">
+                  {para}
+                </p>
+              ))}
             </div>
           </Reveal>
         </div>
       </Section>
 
       <Section className="rounded-[2rem] bg-[color:var(--color-almond)]">
-        <SectionHeading
-          kicker="Background"
-          title={aboutVoice.qualificationsTitle}
-          description={aboutVoice.qualificationsDescription}
-          center
-        />
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {doctorProfile.qualifications.map((q, i) => {
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {aboutContent.highlights.map((item, i) => {
             const pastel = getCardPastel(i);
             return (
-              <Reveal key={q} delay={i * 0.08}>
+              <Reveal key={item.title} delay={i * 0.06}>
                 <div
-                  className="flex items-start gap-3 rounded-2xl border p-5"
+                  className="h-full rounded-2xl border p-5"
                   style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
                 >
-                  <GraduationCap className="mt-0.5 h-5 w-5 shrink-0" style={{ color: pastel.accent }} />
-                  <p className="text-sm font-medium" style={{ color: pastel.text }}>
-                    {q}
-                  </p>
+                  <h3 className="font-semibold" style={{ color: pastel.text }}>
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">{item.description}</p>
                 </div>
               </Reveal>
             );
@@ -108,18 +78,51 @@ export default function AboutPage() {
       </Section>
 
       <Section>
+        <SectionHeading title={aboutContent.research.title} description={aboutContent.research.description} center />
+        <ul className="mx-auto mt-8 grid max-w-2xl gap-3">
+          {aboutContent.research.items.map((item) => (
+            <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
+              <span className="text-[color:var(--color-sage)]">✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section className="rounded-[2rem] bg-[color:var(--color-soft-green)]/30">
+        <SectionHeading
+          title={aboutContent.familyCentered.title}
+          description={aboutContent.familyCentered.description}
+          center
+        />
+        <ul className="mx-auto mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
+          {aboutContent.familyCentered.bullets.map((item) => (
+            <li
+              key={item}
+              className="rounded-xl border border-[color:var(--color-border)]/60 bg-white/80 p-4 text-sm text-[color:var(--color-muted)]"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10 text-center">
+          <Button asChild variant="outline">
+            <Link href="/invite-sharuja">Invite Sharuja to Your Program</Link>
+          </Button>
+        </div>
+      </Section>
+
+      <Section id="certifications">
         <SectionHeading
           kicker="Certifications"
-          title={aboutVoice.certificationsTitle}
-          description={aboutVoice.certificationsDescription}
+          title={aboutContent.certifications.title}
+          description={aboutContent.certifications.description}
           center
         />
         <Reveal className="mt-10">
           <CertificationWall hideHeading />
         </Reveal>
       </Section>
-
-      <ProfessionalJourneySection />
     </main>
   );
 }

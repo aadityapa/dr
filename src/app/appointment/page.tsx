@@ -19,20 +19,17 @@ export default function AppointmentPage() {
   return (
     <main>
       <PageHero
-        kicker="Appointment"
-        title="Book a consultation"
-        description="Take the first step towards personalized pediatric care. Fill in the details below and we'll confirm your appointment."
+        kicker="Consultation"
+        title="Tell us about your child"
+        description="Fill in the form below and we'll reach out within 24 hours. No pressure — just a warm first step."
       />
 
       <Section className="pb-24">
         <Reveal>
-          <Card className="mx-auto max-w-2xl">
+          <Card className="mx-auto max-w-3xl">
             <CardContent className="p-6 md:p-8">
-              <h2 className="font-[family-name:var(--font-serif)] text-xl text-[color:var(--color-sage-dark)]">
-                Child & parent information
-              </h2>
-              <p className="mt-2 text-sm text-[color:var(--color-muted)]">
-                Clinic hours: {siteConfig.timings}
+              <p className="text-sm text-[color:var(--color-muted)]">
+                Clinic hours: Mon–Fri 9 AM – 5 PM · Sat 9 AM – 12 PM
               </p>
               <div className="mt-6">
                 <AppointmentForm />

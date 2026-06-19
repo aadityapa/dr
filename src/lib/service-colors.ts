@@ -4,16 +4,21 @@ import { getCardPastel, getCardPastelByKey } from "./pastel-palette";
 export type ServicePastel = CardPastel;
 
 const slugOrder = [
-  "occupational-therapy",
-  "aquatic-therapy",
+  "looking-beyond-a-diagnosis",
   "brain-gym",
-  "handwriting-training",
+  "double-doodle-play",
+  "sensory-integration",
   "rmti",
-  "opt",
+  "handwriting-without-tears",
+  "oral-placement-therapy",
+  "aquatic-therapy",
   "piastm",
   "kinesio-taping",
   "mnri",
   "kdct",
+  "occupational-therapy",
+  "handwriting-training",
+  "opt",
 ] as const;
 
 const slugIndexMap = Object.fromEntries(slugOrder.map((s, i) => [s, i])) as Record<string, number>;

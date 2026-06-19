@@ -1,21 +1,22 @@
 import type { MetadataRoute } from "next";
 
 import { articles } from "@/lib/articles";
-import { allConditionsContent } from "@/lib/conditions-content";
+import { clientConditions } from "@/lib/client-content/conditions";
+import { expertiseAreas } from "@/lib/client-content/expertise";
 import { locationPages } from "@/lib/locations";
-import { services, siteConfig } from "@/lib/site-data";
+import { siteConfig } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     { path: "/", priority: 1, changeFrequency: "weekly" as const },
     { path: "/about", priority: 0.9, changeFrequency: "monthly" as const },
-    { path: "/services", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/expertise", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/conditions", priority: 0.9, changeFrequency: "weekly" as const },
+    { path: "/invite-sharuja", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/locations", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/resources", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/library", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/faqs", priority: 0.85, changeFrequency: "monthly" as const },
-    { path: "/therapy-journey", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/gallery", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/testimonials-milestones", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.9, changeFrequency: "monthly" as const },
@@ -28,13 +29,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/accessibility", priority: 0.3, changeFrequency: "yearly" as const },
   ];
 
-  const serviceRoutes = services.map((s) => ({
-    path: `/services/${s.slug}`,
+  const expertiseRoutes = expertiseAreas.map((s) => ({
+    path: `/expertise/${s.slug}`,
     priority: 0.85,
     changeFrequency: "weekly" as const,
   }));
 
-  const conditionRoutes = allConditionsContent.map((c) => ({
+  const conditionRoutes = clientConditions.map((c) => ({
     path: `/conditions/${c.slug}`,
     priority: 0.8,
     changeFrequency: "weekly" as const,
@@ -52,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  const allRoutes = [...staticRoutes, ...serviceRoutes, ...conditionRoutes, ...locationRoutes, ...articleRoutes];
+  const allRoutes = [...staticRoutes, ...expertiseRoutes, ...conditionRoutes, ...locationRoutes, ...articleRoutes];
 
   return allRoutes.map(({ path, priority, changeFrequency }) => ({
     url: `${siteConfig.url}${path}`,

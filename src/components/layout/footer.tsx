@@ -7,9 +7,11 @@ import { Mail, Phone } from "lucide-react";
 
 import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
+import { expertiseAreas } from "@/lib/client-content/expertise";
+import { clientConditions } from "@/lib/client-content/conditions";
 import { getFooterTheme } from "@/lib/footer-themes";
 import { getNavLabel } from "@/lib/i18n";
-import { conditions, services, siteConfig } from "@/lib/site-data";
+import { siteConfig } from "@/lib/site-data";
 
 function FooterLink({ href, children }: { href: string; children: ReactNode }) {
   return (
@@ -25,7 +27,7 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 const quickExploreHrefs = [
   "/",
   "/about",
-  "/services",
+  "/expertise",
   "/conditions",
   "/gallery",
   "/contact",
@@ -107,20 +109,20 @@ export function Footer() {
                 {messages.footer.services}
               </p>
               <ul className="mt-2 space-y-1">
-                {services.slice(0, 4).map((s) => (
+                {expertiseAreas.slice(0, 4).map((s) => (
                   <li key={s.slug}>
-                    <FooterLink href={`/services/${s.slug}`}>{s.title}</FooterLink>
+                    <FooterLink href={`/expertise/${s.slug}`}>{s.title}</FooterLink>
                   </li>
                 ))}
                 <li>
-                  <FooterLink href="/services">{messages.footer.viewAll}</FooterLink>
+                  <FooterLink href="/expertise">{messages.footer.viewAll}</FooterLink>
                 </li>
               </ul>
               <p className="mt-3 text-[10px] font-semibold uppercase tracking-widest text-white/80">
                 {messages.footer.conditions}
               </p>
               <ul className="mt-2 space-y-1">
-                {conditions.slice(0, 3).map((c) => (
+                {clientConditions.slice(0, 3).map((c) => (
                   <li key={c.slug}>
                     <FooterLink href={`/conditions/${c.slug}`}>{c.title}</FooterLink>
                   </li>

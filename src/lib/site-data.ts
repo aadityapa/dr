@@ -27,7 +27,7 @@ export const siteConfig = {
     postalCode: "400067",
     full: "Manhar Medical And Jeet Child Development Centre, 2-A, Gyan Kutir, S.V.P. Road, Near Municipal Garden, Kandivali (West), Mumbai – 400067",
   },
-  timings: "9:00 AM – 5:00 PM",
+  timings: "Mon–Fri 9 AM – 5 PM · Sat 9 AM – 12 PM",
   mapsQuery: "Manhar Medical Jeet Child Development Centre Kandivali West Mumbai",
   mapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.5!2d72.84!3d19.21!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzM2LjAiTiA3MsKwNTAnMjQuMCJF!5e0!3m2!1sen!2sin!4v1",
@@ -55,7 +55,7 @@ export const doctorProfile = {
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Expertise", href: "/expertise" },
   { label: "Conditions", href: "/conditions" },
   { label: "Gallery", href: "/gallery" },
   { label: "Resources", href: "/resources" },
@@ -67,7 +67,7 @@ export const navItems = [
 export const primaryNavItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
+  { label: "Expertise", href: "/expertise" },
   { label: "Conditions", href: "/conditions" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
@@ -77,10 +77,10 @@ export const primaryNavItems = [
 export const secondaryNavItems = [
   { label: "Gallery", href: "/gallery" },
   { label: "Library", href: "/library" },
+  { label: "Invite Sharuja", href: "/invite-sharuja" },
   { label: "Outcomes", href: "/therapy-outcomes" },
   { label: "Screening", href: "/screening" },
   { label: "FAQs", href: "/faqs" },
-  { label: "Therapy Journey", href: "/therapy-journey" },
   { label: "Appointment", href: "/appointment" },
 ];
 
@@ -131,14 +131,6 @@ export const googleReviews = {
   ],
 };
 
-export const doctorTimeline = [
-  { year: "2006+", title: "Pediatric practice begins", description: "Dedicated to children and families in Mumbai — one child at a time." },
-  { year: "2012", title: "Master's in Pediatric OT", description: "Advanced training to support children more deeply." },
-  { year: "2015", title: "Brain Gym certification", description: "Movement tools for children who struggle to focus and learn." },
-  { year: "2018", title: "International certifications", description: "Handwriting, aquatics, reflex integration, feeding, and more — to meet each child where they are." },
-  { year: "2022", title: "Ph.D. scholar", description: "Continuing research in how children grow, move, and learn." },
-  { year: "Today", title: "500+ families supported", description: "Still in Kandivali West — still listening first." },
-];
 
 export const therapyFlow = [
   { step: "Regulate", description: "Calm the nervous system and build sensory safety" },
