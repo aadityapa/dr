@@ -13,6 +13,7 @@ export const hi: Messages = {
     screening: "स्क्रीनिंग",
     faqs: "सामान्य प्रश्न",
     therapyJourney: "थेरेपी यात्रा",
+    inviteSharuja: "शरुजा को आमंत्रित करें",
     contact: "संपर्क",
     appointment: "अपॉइंटमेंट",
     more: "और देखें",

@@ -48,6 +48,13 @@ export function buildPageMetadata({
 
 export function mumbaiKeywords(...extra: string[]): string[] {
   return [
+    "Pediatric Occupational Therapist Mumbai",
+    "OT Kandivali",
+    "Brain Gym Mumbai",
+    "Aquatic Therapy Mumbai",
+    "Sensory Integration Mumbai",
+    "Autism Support Mumbai",
+    "ADHD Support Mumbai",
     "pediatric occupational therapy Mumbai",
     "occupational therapist Kandivali West",
     "child development therapy Mumbai",

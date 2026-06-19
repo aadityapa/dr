@@ -7,7 +7,7 @@ import { Mail, Phone } from "lucide-react";
 
 import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
-import { expertiseAreas } from "@/lib/client-content/expertise";
+import { expertiseClusters } from "@/lib/client-content/expertise-clusters";
 import { clientConditions } from "@/lib/client-content/conditions";
 import { getFooterTheme } from "@/lib/footer-themes";
 import { getNavLabel } from "@/lib/i18n";
@@ -29,11 +29,9 @@ const quickExploreHrefs = [
   "/about",
   "/expertise",
   "/conditions",
-  "/gallery",
+  "/resources",
+  "/invite-sharuja",
   "/contact",
-  "/faqs",
-  "/library",
-  "/appointment",
 ] as const;
 
 export function Footer() {
@@ -109,9 +107,9 @@ export function Footer() {
                 {messages.footer.services}
               </p>
               <ul className="mt-2 space-y-1">
-                {expertiseAreas.slice(0, 4).map((s) => (
+                {expertiseClusters.slice(0, 4).map((s) => (
                   <li key={s.slug}>
-                    <FooterLink href={`/expertise/${s.slug}`}>{s.title}</FooterLink>
+                    <FooterLink href={s.learnMoreHref}>{s.title}</FooterLink>
                   </li>
                 ))}
                 <li>

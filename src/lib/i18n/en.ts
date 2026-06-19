@@ -13,6 +13,7 @@ export const en: Messages = {
     screening: "Screening",
     faqs: "FAQs",
     therapyJourney: "Therapy Journey",
+    inviteSharuja: "Invite Sharuja",
     contact: "Contact",
     appointment: "Appointment",
     more: "More",

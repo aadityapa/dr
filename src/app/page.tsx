@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { ParentsReadingSection } from "@/components/home/parents-reading-section";
 import { AboutPreviewSection } from "@/components/home/about-preview-section";
-import { ExpertisePreview } from "@/components/home/expertise-preview";
+import { ExpertiseEcosystem } from "@/components/home/expertise-ecosystem";
 import { HeroSection } from "@/components/home/hero-section";
 import { HomeFaqSection } from "@/components/home/home-faq-section";
 import { HomeFinalCtaSection } from "@/components/home/home-final-cta-section";
@@ -15,7 +15,12 @@ export const metadata: Metadata = buildPageMetadata({
   title: "Pediatric Occupational Therapist Mumbai",
   description: homeContent.hero.subheadline,
   path: "/",
-  keywords: mumbaiKeywords("pediatric OT Kandivali", "Dr. Sharuja Sarap occupational therapist"),
+  keywords: mumbaiKeywords(
+    "Pediatric Occupational Therapist Mumbai",
+    "OT Kandivali",
+    "pediatric OT Kandivali",
+    "Dr. Sharuja Sarap occupational therapist",
+  ),
 });
 
 export default function Home() {
@@ -24,7 +29,7 @@ export default function Home() {
       <HeroSection />
       <ParentsReadingSection />
       <AboutPreviewSection />
-      <ExpertisePreview />
+      <ExpertiseEcosystem compact showViewAll />
       <WhoWeHelpSection />
       <SuccessStoriesSection />
       <HomeFaqSection />

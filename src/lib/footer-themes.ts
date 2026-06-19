@@ -165,7 +165,7 @@ export function getFooterTheme(pathname: string): FooterTheme {
   if (pathname === "/faqs") return pageThemes.faqs;
   if (pathname === "/therapy-outcomes") return pageThemes.outcomes;
   if (pathname === "/screening") return pageThemes.screening;
-  if (pathname === "/therapy-journey") return pageThemes.journey;
+  if (pathname === "/invite-sharuja") return pageThemes.about;
 
   if (
     pathname === "/privacy" ||

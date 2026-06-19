@@ -41,17 +41,6 @@ export function AboutPreviewSection() {
             <p className="mt-4 max-w-prose leading-relaxed text-[color:var(--color-muted)]">{copy.bio}</p>
           </Reveal>
 
-          <Reveal delay={0.06} className="mt-6 flex flex-wrap gap-2">
-            {copy.credentials.map((item) => (
-              <span
-                key={item}
-                className="inline-flex rounded-full border border-[color:var(--color-border)] bg-white px-3 py-1.5 text-xs font-medium text-[color:var(--color-sage-dark)]"
-              >
-                {item}
-              </span>
-            ))}
-          </Reveal>
-
           <Reveal delay={0.1} className="mt-8">
             <Button asChild>
               <Link href="/about">{copy.cta}</Link>

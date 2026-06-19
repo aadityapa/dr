@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { CertificationWall } from "@/components/home/certification-wall";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
@@ -12,13 +11,19 @@ import { aboutContent } from "@/lib/client-content/about";
 import { getCardPastel } from "@/lib/pastel-palette";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { getSiteImage } from "@/lib/site-images";
-import { siteConfig } from "@/lib/site-data";
+import { doctorProfile, siteConfig } from "@/lib/site-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: `About ${siteConfig.doctorName}`,
-  description: aboutContent.hero.description,
+  description: `${aboutContent.hero.description} Pediatric OT in Kandivali West, Mumbai — sensory integration, Brain Gym, aquatic therapy & family-centred care.`,
   path: "/about",
-  keywords: mumbaiKeywords("pediatric occupational therapist Mumbai", "Dr. Sharuja Sarap OT"),
+  keywords: mumbaiKeywords(
+    "Pediatric Occupational Therapist Mumbai",
+    "OT Kandivali",
+    "Dr. Sharuja Sarap OT",
+    "Brain Gym Mumbai",
+    "Sensory Integration Mumbai",
+  ),
 });
 
 export default function AboutPage() {
@@ -119,9 +124,33 @@ export default function AboutPage() {
           description={aboutContent.certifications.description}
           center
         />
-        <Reveal className="mt-10">
-          <CertificationWall hideHeading />
-        </Reveal>
+        <div className="mx-auto mt-10 max-w-4xl">
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {doctorProfile.qualifications.map((item) => (
+              <li
+                key={item}
+                className="rounded-xl border border-[color:var(--color-border)]/60 bg-[color:var(--color-almond)] px-4 py-3 text-sm font-medium text-[color:var(--color-sage-dark)]"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {doctorProfile.certifications.map((item, i) => {
+              const pastel = getCardPastel(i + 4);
+              return (
+                <Reveal key={item} delay={i * 0.04}>
+                  <li
+                    className="rounded-xl border px-4 py-3 text-sm text-[color:var(--color-muted)]"
+                    style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+                  >
+                    {item}
+                  </li>
+                </Reveal>
+              );
+            })}
+          </ul>
+        </div>
       </Section>
     </main>
   );

@@ -57,10 +57,8 @@ export const navItems = [
   { label: "About", href: "/about" },
   { label: "Expertise", href: "/expertise" },
   { label: "Conditions", href: "/conditions" },
-  { label: "Gallery", href: "/gallery" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
-  { label: "Appointment", href: "/appointment" },
 ];
 
 /** Primary links shown in the desktop header */
@@ -74,15 +72,7 @@ export const primaryNavItems = [
 ];
 
 /** Secondary links in the "More" dropdown */
-export const secondaryNavItems = [
-  { label: "Gallery", href: "/gallery" },
-  { label: "Library", href: "/library" },
-  { label: "Invite Sharuja", href: "/invite-sharuja" },
-  { label: "Outcomes", href: "/therapy-outcomes" },
-  { label: "Screening", href: "/screening" },
-  { label: "FAQs", href: "/faqs" },
-  { label: "Appointment", href: "/appointment" },
-];
+export const secondaryNavItems = [{ label: "Invite Sharuja", href: "/invite-sharuja" }];
 
 export const trustBadges = [
   "18+ Years Experience",
@@ -785,13 +775,16 @@ export const galleryItems = [
 
 export const seoKeywords = [
   "Pediatric Occupational Therapist Mumbai",
-  "Occupational Therapy Mumbai",
-  "Aquatic Therapy Mumbai",
+  "OT Kandivali",
   "Brain Gym Mumbai",
+  "Aquatic Therapy Mumbai",
+  "Sensory Integration Mumbai",
+  "Autism Support Mumbai",
+  "ADHD Support Mumbai",
+  "Occupational Therapy Mumbai",
   "Handwriting Training Mumbai",
   "Child Development Therapy Mumbai",
   "Pediatric OT Kandivali",
-  "Sensory Integration Therapy Mumbai",
 ];
 
 export type Service = (typeof services)[number];

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
+import { JsonLd } from "@/components/shared/json-ld";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -11,7 +12,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { expertiseAreas, getExpertise } from "@/lib/client-content/expertise";
+import { buildExpertiseFaqs } from "@/lib/geo-content";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
+import { breadcrumbSchema, faqPageSchema, serviceSchema } from "@/lib/schema";
 import { getServicePastel } from "@/lib/service-colors";
 import { siteConfig } from "@/lib/site-data";
 
@@ -42,9 +45,23 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
   if (!area) notFound();
 
   const pastel = getServicePastel(area.slug);
+  const faqs = buildExpertiseFaqs(area.title);
 
   return (
     <main>
+      <JsonLd
+        id="expertise-detail-breadcrumb"
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "Expertise", url: `${siteConfig.url}/expertise` },
+          { name: area.title, url: `${siteConfig.url}/expertise/${slug}` },
+        ])}
+      />
+      <JsonLd
+        id="expertise-detail-service"
+        data={serviceSchema({ title: area.title, summary: area.tagline, slug })}
+      />
+      <JsonLd id="expertise-detail-faq" data={faqPageSchema(faqs)} />
       <Breadcrumbs
         items={[
           { name: "Expertise", url: `${siteConfig.url}/expertise` },
@@ -120,6 +137,20 @@ export default async function ExpertiseDetailPage({ params }: ExpertisePageProps
               </Accordion>
             </article>
           )}
+
+          <article>
+            <SectionHeading title="Questions Parents Ask" />
+            <Accordion type="single" collapsible className="mt-4 space-y-2">
+              {faqs.map((faq, idx) => (
+                <AccordionItem key={faq.q} value={`faq-${idx}`}>
+                  <AccordionTrigger className="text-left">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-sm leading-relaxed text-[color:var(--color-muted)]">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </article>
 
           <div className="flex flex-wrap gap-3 pt-4">
             <Button asChild size="lg">

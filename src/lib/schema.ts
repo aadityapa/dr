@@ -140,7 +140,7 @@ export function serviceSchema(service: { title: string; summary: string; slug: s
     description: service.summary,
     provider: { "@id": `${siteConfig.url}/#organization` },
     areaServed: { "@type": "Place", name: "Mumbai, Maharashtra, India" },
-    url: `${siteConfig.url}/services/${service.slug}`,
+    url: `${siteConfig.url}/expertise/${service.slug}`,
   };
 }
 

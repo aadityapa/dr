@@ -3,7 +3,6 @@
 import Link from "next/link";
 
 import { Reveal } from "@/components/shared/reveal";
-import { Section } from "@/components/shared/section";
 import { ServiceIcon } from "@/components/shared/service-icon";
 import { Button } from "@/components/ui/button";
 import { expertiseAreas } from "@/lib/client-content/expertise";
@@ -11,7 +10,7 @@ import { getServicePastel } from "@/lib/service-colors";
 
 export function ExpertiseListGrid() {
   return (
-    <Section>
+    <>
       <div className="grid gap-6 md:grid-cols-2">
         {expertiseAreas.map((area, i) => {
           const pastel = getServicePastel(area.slug);
@@ -39,11 +38,11 @@ export function ExpertiseListGrid() {
         })}
       </div>
 
-      <Reveal className="mt-12 text-center">
+      <Reveal className="mt-10 text-center">
         <Button asChild size="lg">
           <Link href="/appointment">Book a Consultation</Link>
         </Button>
       </Reveal>
-    </Section>
+    </>
   );
 }

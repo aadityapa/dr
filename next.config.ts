@@ -31,7 +31,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/milestones", destination: "/testimonials-milestones", permanent: true },
+      { source: "/therapy-journey", destination: "/expertise", permanent: true },
       { source: "/testimonials", destination: "/testimonials-milestones", permanent: true },
       { source: "/services", destination: "/expertise", permanent: true },
       { source: "/services/:slug", destination: "/expertise/:slug", permanent: true },

@@ -3,12 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
+import { JsonLd } from "@/components/shared/json-ld";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { clientConditions, getClientCondition } from "@/lib/client-content/conditions";
-import { buildPageMetadata } from "@/lib/metadata";
+import { buildConditionFaqs } from "@/lib/geo-content";
+import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
+import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
 
 type ConditionPageProps = {
@@ -28,7 +32,7 @@ export async function generateMetadata({ params }: ConditionPageProps): Promise<
     title: `${condition.title} — Pediatric OT Mumbai`,
     description: condition.metaDescription,
     path: `/conditions/${slug}`,
-    keywords: [condition.title, "pediatric OT Mumbai", "Kandivali"],
+    keywords: mumbaiKeywords(condition.title, "Autism Support Mumbai", "ADHD Support Mumbai", "OT Kandivali"),
   });
 }
 
@@ -37,8 +41,19 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
   const condition = getClientCondition(slug);
   if (!condition) notFound();
 
+  const faqs = buildConditionFaqs(condition.title);
+
   return (
     <main>
+      <JsonLd
+        id="condition-breadcrumb"
+        data={breadcrumbSchema([
+          { name: "Home", url: siteConfig.url },
+          { name: "Conditions", url: `${siteConfig.url}/conditions` },
+          { name: condition.title, url: `${siteConfig.url}/conditions/${slug}` },
+        ])}
+      />
+      <JsonLd id="condition-faq" data={faqPageSchema(faqs)} />
       <Breadcrumbs
         items={[
           { name: "Conditions", url: `${siteConfig.url}/conditions` },
@@ -97,6 +112,20 @@ export default async function ConditionDetailPage({ params }: ConditionPageProps
             <p className="font-[family-name:var(--font-serif)] text-xl leading-relaxed text-[color:var(--color-sage-dark)]">
               {condition.closingSection}
             </p>
+          </article>
+
+          <article>
+            <SectionHeading title="Questions Parents Ask" />
+            <Accordion type="single" collapsible className="mt-4 space-y-2">
+              {faqs.map((faq, idx) => (
+                <AccordionItem key={faq.q} value={`condition-faq-${idx}`}>
+                  <AccordionTrigger className="text-left">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-sm leading-relaxed text-[color:var(--color-muted)]">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </article>
 
           <div className="flex flex-wrap gap-3">
