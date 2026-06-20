@@ -5,34 +5,55 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 import { Reveal } from "@/components/shared/reveal";
-import { galleryCategories, galleryItems } from "@/lib/site-data";
+import { galleryItems } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
-export function GalleryGrid() {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [lightbox, setLightbox] = useState<(typeof galleryItems)[number] | null>(null);
+export type LocalizedGalleryItem = {
+  title: string;
+  category: string;
+  categoryKey: string;
+  alt?: string;
+  image: string;
+};
+
+type GalleryGridProps = {
+  items: LocalizedGalleryItem[];
+  allCategoryLabel: string;
+  closeLightboxLabel: string;
+  categoryLabels: Record<string, string>;
+};
+
+export function GalleryGrid({ items, allCategoryLabel, closeLightboxLabel, categoryLabels }: GalleryGridProps) {
+  const [activeCategory, setActiveCategory] = useState<string>(allCategoryLabel);
+  const [lightbox, setLightbox] = useState<LocalizedGalleryItem | null>(null);
+
+  const categoryKeys = [...new Set(items.map((item) => item.categoryKey))];
+  const filterButtons = [
+    { key: allCategoryLabel, label: allCategoryLabel },
+    ...categoryKeys.map((key) => ({ key, label: categoryLabels[key] ?? key })),
+  ];
 
   const filtered =
-    activeCategory === "All"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeCategory);
+    activeCategory === allCategoryLabel
+      ? items
+      : items.filter((item) => item.categoryKey === activeCategory);
 
   return (
     <>
       <div className="mb-10 flex flex-wrap justify-center gap-2">
-        {["All", ...galleryCategories].map((cat) => (
+        {filterButtons.map((cat) => (
           <button
-            key={cat}
+            key={cat.key}
             type="button"
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => setActiveCategory(cat.key)}
             className={cn(
               "rounded-full px-5 py-2 text-sm font-medium transition-all",
-              activeCategory === cat
+              activeCategory === cat.key
                 ? "bg-[color:var(--color-sage)] text-white shadow-md"
                 : "bg-white/80 text-[color:var(--color-muted)] hover:bg-[color:var(--color-soft-green)]",
             )}
           >
-            {cat}
+            {cat.label}
           </button>
         ))}
       </div>
@@ -76,7 +97,7 @@ export function GalleryGrid() {
             type="button"
             className="absolute right-6 top-6 text-white hover:text-[color:var(--color-soft-green)]"
             onClick={() => setLightbox(null)}
-            aria-label="Close lightbox"
+            aria-label={closeLightboxLabel}
           >
             <X className="h-8 w-8" />
           </button>
@@ -94,4 +115,17 @@ export function GalleryGrid() {
       ) : null}
     </>
   );
+}
+
+export function buildGalleryItems(localeItems: { title: string; category: string; alt?: string }[]): LocalizedGalleryItem[] {
+  return localeItems.map((item, index) => {
+    const base = galleryItems[index];
+    return {
+      title: item.title,
+      category: item.category,
+      categoryKey: base?.category ?? item.category,
+      alt: item.alt,
+      image: base?.image ?? "",
+    };
+  });
 }

@@ -13,14 +13,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import { getLabels } from "@/lib/i18n/localize";
+import { getLabels, getLocalizedServiceBundle, getServiceDetailShells } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { faqPageSchema, serviceSchema } from "@/lib/schema";
-import { getServiceExtendedContent } from "@/lib/services-content";
-import { getServiceDepthContent } from "@/lib/services-depth";
-import { conditions, services, siteConfig } from "@/lib/site-data";
-import { getSeoExpansion } from "@/lib/seo/expansions";
-import { SeoExpansionBlocks } from "@/components/seo/seo-expansion-blocks";
+import { services, siteConfig } from "@/lib/site-data";
 import { SectionCta } from "@/components/shared/section-cta";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
@@ -31,7 +27,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const service = services.find((item) => item.slug === slug);
+  const service = getLocalizedServiceBundle(slug, locale);
   if (!service) return {};
 
   return buildPageMetadata({
@@ -48,39 +44,22 @@ export default async function ServiceDetailPage({ params }: Props) {
   setRequestLocale(locale);
   const messages = getMessages(locale);
   const labels = getLabels(locale);
-  const service = services.find((item) => item.slug === slug);
+  const shells = getServiceDetailShells(locale);
+  const service = getLocalizedServiceBundle(slug, locale);
   if (!service) notFound();
 
-  const extended = getServiceExtendedContent(slug);
-  const depth = getServiceDepthContent(slug);
-  const seoExpansion = getSeoExpansion(slug, "service");
+  const depth = service.depth;
+  const extended = service.extended;
   const allFaqs = [...service.faqs, ...(extended?.additionalFaqs ?? [])];
 
-  const listItems =
-    "areasAddressed" in service
-      ? service.areasAddressed
-      : "brainGymSupports" in service
-        ? service.brainGymSupports
-        : "skillsDeveloped" in service
-          ? service.skillsDeveloped
-          : service.benefits;
-
-  const listTitle =
-    "areasAddressed" in service
-      ? "Areas Addressed"
-      : "brainGymSupports" in service
-        ? "Brain Gym® Supports"
-        : "skillsDeveloped" in service
-          ? "Skills Developed"
-          : "Benefits";
-
-  const relatedConditionItems = conditions.filter((c) =>
-    service.relatedConditions.some((rc) => c.title.includes(rc) || rc.includes(c.title.split(" ")[0] ?? "")),
-  );
+  const listTitle = shells.listTitles[service.listKey];
 
   return (
     <main>
-      <JsonLd data={serviceSchema(service)} id="service-schema" />
+      <JsonLd
+        data={serviceSchema(services.find((s) => s.slug === slug)!)}
+        id="service-schema"
+      />
       <JsonLd data={faqPageSchema(allFaqs)} id="service-faq-schema" />
       <Breadcrumbs
         items={[
@@ -90,7 +69,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       />
 
       <Section className="pt-8">
-        <SectionHeading kicker="Service" title={service.title} description={service.headline} />
+        <SectionHeading kicker={shells.kicker} title={service.title} description={service.headline} />
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           <Card className="md:col-span-2">
             <CardContent className="p-6">
@@ -99,28 +78,28 @@ export default async function ServiceDetailPage({ params }: Props) {
               </div>
               <p className="leading-relaxed text-[color:var(--color-muted)]">{service.content}</p>
               <p className="mt-4 text-sm text-[color:var(--color-sage-dark)]">
-                <strong>Age group:</strong> {service.ageGroups}
+                <strong>{shells.ageGroup}</strong> {service.ageGroups}
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6">
-              <h3 className="font-semibold text-[color:var(--color-sage-dark)]">Related Conditions</h3>
+              <h3 className="font-semibold text-[color:var(--color-sage-dark)]">{shells.relatedConditions}</h3>
               <ul className="mt-3 space-y-2 text-sm">
-                {service.relatedConditions.map((item) => {
-                  const match = conditions.find((c) => c.title === item);
-                  return (
-                    <li key={item}>
-                      {match ? (
-                        <Link href={`/conditions/${match.slug}`} className="text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)] hover:underline">
-                          • {item}
-                        </Link>
-                      ) : (
-                        <span className="text-[color:var(--color-muted)]">• {item}</span>
-                      )}
-                    </li>
-                  );
-                })}
+                {service.relatedConditions.map((item) => (
+                  <li key={item.label}>
+                    {item.slug ? (
+                      <Link
+                        href={`/conditions/${item.slug}`}
+                        className="text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)] hover:underline"
+                      >
+                        • {item.label}
+                      </Link>
+                    ) : (
+                      <span className="text-[color:var(--color-muted)]">• {item.label}</span>
+                    )}
+                  </li>
+                ))}
               </ul>
             </CardContent>
           </Card>
@@ -130,7 +109,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {depth && (
         <>
           <Section>
-            <SectionHeading kicker="Deep Dive" title="Comprehensive Overview" />
+            <SectionHeading kicker={shells.deepDiveKicker} title={shells.deepDiveTitle} />
             <div className="prose-custom mx-auto mt-6 max-w-4xl space-y-4">
               {depth.overview.map((para) => (
                 <p key={para.slice(0, 40)} className="leading-relaxed text-[color:var(--color-muted)]">
@@ -141,7 +120,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Section>
 
           <Section className="rounded-[2rem] bg-white/70">
-            <SectionHeading title="Signs Your Child May Need This Program" />
+            <SectionHeading title={shells.signsTitle} />
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {depth.signsYourChildMayNeed.map((sign) => (
                 <li key={sign} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -153,7 +132,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Section>
 
           <Section>
-            <SectionHeading title="Parent Guide" />
+            <SectionHeading title={shells.parentGuideTitle} />
             <ul className="mt-4 space-y-3">
               {depth.parentGuide.map((tip) => (
                 <li key={tip} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -165,7 +144,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Section>
 
           <Section className="rounded-[2rem] bg-[color:var(--color-soft-green)]/30">
-            <SectionHeading title="Research & Evidence" />
+            <SectionHeading title={shells.researchTitle} />
             <ul className="mt-4 space-y-3">
               {depth.researchReferences.map((ref) => (
                 <li key={ref.title} className="text-sm text-[color:var(--color-muted)]">
@@ -177,7 +156,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Section>
 
           <Section>
-            <SectionHeading title="Expected Outcomes" />
+            <SectionHeading title={shells.outcomesTitle} />
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {depth.outcomes.map((outcome) => (
                 <Card key={outcome}>
@@ -186,7 +165,7 @@ export default async function ServiceDetailPage({ params }: Props) {
               ))}
             </div>
             <div className="mt-6 rounded-2xl border border-[color:var(--color-border)]/60 bg-white/70 p-6">
-              <h3 className="font-semibold text-[color:var(--color-sage-dark)]">When to Seek Help</h3>
+              <h3 className="font-semibold text-[color:var(--color-sage-dark)]">{shells.whenToSeekHelp}</h3>
               <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">{depth.whenToSeekHelp}</p>
             </div>
           </Section>
@@ -195,13 +174,13 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       {extended && (
         <Section className="rounded-[2rem] bg-white/70">
-          <SectionHeading kicker="Overview" title="What you need to know" />
+          <SectionHeading kicker={shells.overviewKicker} title={shells.overviewTitle} />
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {[
-              { title: "What this looks like at home", content: extended.geoBlock.whatIsIt },
-              { title: "This might help if...", content: extended.geoBlock.whoNeedsIt },
-              { title: "What families often notice", content: extended.geoBlock.howItHelps },
-              { title: "What a session feels like", content: extended.geoBlock.whatHappens },
+              { title: shells.whatAtHome, content: extended.geoBlock.whatIsIt },
+              { title: shells.mightHelpIf, content: extended.geoBlock.whoNeedsIt },
+              { title: shells.familiesNotice, content: extended.geoBlock.howItHelps },
+              { title: shells.sessionFeelsLike, content: extended.geoBlock.whatHappens },
             ].map((block) => (
               <Card key={block.title}>
                 <CardContent className="p-6">
@@ -214,7 +193,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">What we work toward</h3>
+                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">{shells.workToward}</h3>
                 <ul className="mt-3 space-y-2 text-sm text-[color:var(--color-muted)]">
                   {extended.geoBlock.outcomes.map((o) => (
                     <li key={o}>✓ {o}</li>
@@ -224,8 +203,10 @@ export default async function ServiceDetailPage({ params }: Props) {
             </Card>
             <Card>
               <CardContent className="p-6">
-                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">When to reach out</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">{extended.geoBlock.whenToBegin}</p>
+                <h3 className="font-semibold text-[color:var(--color-sage-dark)]">{shells.whenReachOut}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
+                  {extended.geoBlock.whenToBegin}
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -240,7 +221,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                 {listTitle}
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-[color:var(--color-muted)]">
-                {listItems?.map((item) => (
+                {service.listItems.map((item) => (
                   <li key={item}>• {item}</li>
                 ))}
               </ul>
@@ -249,7 +230,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           <Card>
             <CardContent className="p-6">
               <h3 className="font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)]">
-                Our Process
+                {shells.ourProcess}
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-[color:var(--color-muted)]">
                 {service.process.map((item) => (
@@ -264,7 +245,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       {extended && (
         <>
           <Section>
-            <SectionHeading title="Case Examples" description="Real progress patterns we see in our Kandivali clinic." />
+            <SectionHeading title={shells.caseExamplesTitle} description={shells.caseExamplesDescription} />
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {extended.caseExamples.map((ex) => (
                 <Card key={ex.title}>
@@ -278,7 +259,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </Section>
 
           <Section className="rounded-[2rem] bg-[color:var(--color-soft-green)]/30">
-            <SectionHeading title="Parent Guidance" />
+            <SectionHeading title={shells.parentGuidanceTitle} />
             <ul className="mt-4 space-y-3">
               {extended.parentGuidance.map((tip) => (
                 <li key={tip} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
@@ -291,33 +272,27 @@ export default async function ServiceDetailPage({ params }: Props) {
         </>
       )}
 
-      {seoExpansion && (
+      {service.relatedConditions.some((c) => c.slug) && (
         <Section>
-          <div className="prose-custom mx-auto max-w-4xl space-y-12">
-            <SeoExpansionBlocks expansion={seoExpansion} />
-          </div>
-        </Section>
-      )}
-
-      {relatedConditionItems.length > 0 && (
-        <Section>
-          <SectionHeading title="Learn More About Related Conditions" />
+          <SectionHeading title={shells.relatedConditionsLearn} />
           <div className="mt-4 flex flex-wrap gap-3">
-            {relatedConditionItems.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/conditions/${c.slug}`}
-                className="rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2 text-sm text-[color:var(--color-sage-dark)] hover:bg-[color:var(--color-soft-green)]/40"
-              >
-                {c.title}
-              </Link>
-            ))}
+            {service.relatedConditions
+              .filter((c) => c.slug)
+              .map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/conditions/${c.slug}`}
+                  className="rounded-full border border-[color:var(--color-border)] bg-white/70 px-4 py-2 text-sm text-[color:var(--color-sage-dark)] hover:bg-[color:var(--color-soft-green)]/40"
+                >
+                  {c.label}
+                </Link>
+              ))}
           </div>
         </Section>
       )}
 
       <Section>
-        <SectionHeading title="Frequently Asked Questions" />
+        <SectionHeading title={shells.faqTitle} />
         <Accordion type="single" collapsible className="mt-6 space-y-3">
           {allFaqs.map((faq, idx) => (
             <AccordionItem key={faq.q} value={`faq-${idx}`}>

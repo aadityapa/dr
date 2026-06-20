@@ -23,8 +23,20 @@ import { hiClusterOverrides, mrClusterOverrides } from "./content/cluster-overri
 import { hiLocationOverrides, mrLocationOverrides } from "./content/locations-overrides";
 import { hiFaqCategories, mrFaqCategories } from "./content/faq-overrides";
 import { localizeArticle } from "./content/articles-localize";
+import { getPhase3Content } from "./content/phase3-locale";
+import { getLocalizedServiceBundle } from "./content/service-locale";
+import { getServiceDetailShells } from "./content/service-detail-shells";
 
-export { getLegalContent, getLabels, getAboutContent, getInviteContent, getPageShells };
+export {
+  getLegalContent,
+  getLabels,
+  getAboutContent,
+  getInviteContent,
+  getPageShells,
+  getPhase3Content,
+  getLocalizedServiceBundle,
+  getServiceDetailShells,
+};
 
 export function getLocalizedExpertise(slug: string, locale: Locale): ExpertiseArea | undefined {
   const base = getExpertise(slug);

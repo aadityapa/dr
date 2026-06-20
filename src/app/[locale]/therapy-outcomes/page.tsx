@@ -9,10 +9,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import { getLabels, getPageShells } from "@/lib/i18n/localize";
+import { getLabels, getPageShells, getPhase3Content } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-data";
-import { therapyOutcomeAreas } from "@/lib/therapy-outcomes";
 
 type Props = { params: Promise<{ locale: AppLocale }> };
 
@@ -34,17 +33,23 @@ export default async function TherapyOutcomesPage({ params }: Props) {
   const shells = getPageShells(locale);
   const messages = getMessages(locale);
   const labels = getLabels(locale);
+  const outcomes = getPhase3Content(locale).outcomes;
 
   return (
     <main>
       <Breadcrumbs items={[{ name: messages.nav.outcomes, url: `${siteConfig.url}/${locale}/therapy-outcomes` }]} />
       <PageHero kicker={shells.outcomes.kicker} title={shells.outcomes.title} description={shells.outcomes.description} />
       <Section>
-        <OutcomeComparison areas={therapyOutcomeAreas} />
+        <OutcomeComparison
+          areas={outcomes.areas}
+          beforeLabel={outcomes.beforeLabel}
+          afterLabel={outcomes.afterLabel}
+          tabListLabel={outcomes.tabListLabel}
+        />
         <div className="mt-12 rounded-2xl bg-[color:var(--color-soft-green)]/40 p-8 text-center">
           <p className="font-semibold text-[color:var(--color-sage-dark)]">{labels.readyNextStep}</p>
           <p className="mt-2 text-sm text-[color:var(--color-muted)]">
-            Book a consultation with {siteConfig.doctorName} to discuss your child&apos;s unique strengths and goals.
+            {outcomes.ctaDescription(siteConfig.doctorName)}
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             <Button asChild>

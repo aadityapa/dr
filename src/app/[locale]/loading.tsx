@@ -1,4 +1,11 @@
-export default function Loading() {
+import { getPhase3Content } from "@/lib/i18n/content/phase3-locale";
+import type { AppLocale } from "@/i18n/routing";
+import { getLocale } from "next-intl/server";
+
+export default async function Loading() {
+  const locale = (await getLocale()) as AppLocale;
+  const { system } = getPhase3Content(locale);
+
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center px-4">
       <div className="relative h-16 w-16">
@@ -7,7 +14,7 @@ export default function Loading() {
           <span className="font-[family-name:var(--font-serif)] text-lg text-[color:var(--color-sage-dark)]">Tw</span>
         </div>
       </div>
-      <p className="mt-6 text-sm text-[color:var(--color-muted)]">Loading...</p>
+      <p className="mt-6 text-sm text-[color:var(--color-muted)]">{system.loading}</p>
     </div>
   );
 }

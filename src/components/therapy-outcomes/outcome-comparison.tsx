@@ -14,9 +14,12 @@ export type OutcomeArea = {
 
 type OutcomeComparisonProps = {
   areas: OutcomeArea[];
+  beforeLabel: string;
+  afterLabel: string;
+  tabListLabel: string;
 };
 
-export function OutcomeComparison({ areas }: OutcomeComparisonProps) {
+export function OutcomeComparison({ areas, beforeLabel, afterLabel, tabListLabel }: OutcomeComparisonProps) {
   const [active, setActive] = useState(0);
   const current = areas[active];
 
@@ -24,7 +27,7 @@ export function OutcomeComparison({ areas }: OutcomeComparisonProps) {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Therapy outcome areas">
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label={tabListLabel}>
         {areas.map((area, i) => (
           <button
             key={area.title}
@@ -47,7 +50,7 @@ export function OutcomeComparison({ areas }: OutcomeComparisonProps) {
       <Reveal key={current.title} className="mt-8">
         <div className="grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
           <div className="rounded-3xl border border-red-200/60 bg-red-50/40 p-6">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-red-700/80">Before Therapy</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-red-700/80">{beforeLabel}</h3>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
               {current.before.map((item) => (
                 <li key={item} className="flex gap-2">
@@ -66,7 +69,7 @@ export function OutcomeComparison({ areas }: OutcomeComparisonProps) {
 
           <div className="rounded-3xl border border-[color:var(--color-sage)]/30 bg-[color:var(--color-soft-green)]/40 p-6">
             <h3 className="text-sm font-bold uppercase tracking-wider text-[color:var(--color-sage-dark)]">
-              After Therapy
+              {afterLabel}
             </h3>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-[color:var(--color-muted)]">
               {current.after.map((item) => (

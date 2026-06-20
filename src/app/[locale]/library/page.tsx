@@ -10,14 +10,12 @@ import { SectionCta } from "@/components/shared/section-cta";
 import { Card, CardContent } from "@/components/ui/card";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import { getPageShells } from "@/lib/i18n/localize";
+import { getPageShells, getPhase3Content } from "@/lib/i18n/localize";
 import { libraryResources } from "@/lib/library-resources";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale }> };
-
-const categories = [...new Set(libraryResources.map((r) => r.category))];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -36,6 +34,20 @@ export default async function LibraryPage({ params }: Props) {
   setRequestLocale(locale);
   const shells = getPageShells(locale);
   const messages = getMessages(locale);
+  const library = getPhase3Content(locale).library;
+
+  const localizedResources = libraryResources.map((resource) => {
+    const copy = library.resources[resource.id];
+    return {
+      ...resource,
+      title: copy?.title ?? resource.title,
+      description: copy?.description ?? resource.description,
+      category: copy ? (library.categories[copy.category] ?? copy.category) : resource.category,
+      categoryKey: copy?.category ?? resource.category,
+    };
+  });
+
+  const categories = [...new Set(localizedResources.map((r) => r.categoryKey))];
 
   return (
     <main>
@@ -43,14 +55,14 @@ export default async function LibraryPage({ params }: Props) {
       <PageHero kicker={shells.library.kicker} title={shells.library.title} description={shells.library.description} />
 
       <Section>
-        {categories.map((category) => (
-          <div key={category} className="mb-12">
+        {categories.map((categoryKey) => (
+          <div key={categoryKey} className="mb-12">
             <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-              {category}
+              {library.categories[categoryKey] ?? categoryKey}
             </h2>
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {libraryResources
-                .filter((r) => r.category === category)
+              {localizedResources
+                .filter((r) => r.categoryKey === categoryKey)
                 .map((resource, i) => (
                   <Reveal key={resource.id} delay={i * 0.05}>
                     <Card className="h-full">
@@ -70,10 +82,7 @@ export default async function LibraryPage({ params }: Props) {
           </div>
         ))}
 
-        <SectionCta
-          title="Need personalized guidance?"
-          description="Downloadable guides are a starting point. A consultation with Dr. Sharuja Sarap provides individualized recommendations for your child."
-        />
+        <SectionCta title={library.ctaTitle} description={library.ctaDescription} />
       </Section>
     </main>
   );
