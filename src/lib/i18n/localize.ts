@@ -8,6 +8,7 @@ import { getClientCondition } from "@/lib/client-content/conditions";
 import type { LocationPage } from "@/lib/locations";
 import { locationPages } from "@/lib/locations";
 import { faqCategories, type FaqCategory } from "@/lib/faqs";
+import { buildExpertiseFaqs } from "@/lib/geo-content";
 import { siteConfig } from "@/lib/site-data";
 
 import type { Locale } from "./types";
@@ -97,14 +98,20 @@ export function buildLocalizedConditionFaqs(conditionTitle: string, locale: Loca
   ];
 }
 
-export function buildLocalizedExpertiseFaqs(areaTitle: string, locale: Locale): GeoFaq[] {
+export function buildLocalizedExpertiseFaqs(
+  area: Pick<ExpertiseArea, "title" | "tagline" | "slug">,
+  locale: Locale,
+): GeoFaq[] {
+  if (locale === "en") {
+    return buildExpertiseFaqs(area.title, { tagline: area.tagline, slug: area.slug });
+  }
   const shells = getPageShells(locale);
   const t = shells.geoFaqs.expertise;
   return [
-    { q: t.whatIs(areaTitle), a: t.whatIsAnswer(areaTitle) },
-    { q: t.howHelps(areaTitle), a: t.howHelpsAnswer },
-    { q: t.whenConsider(areaTitle), a: t.whenConsiderAnswer },
-    { q: t.whatNext(siteConfig.doctorName), a: t.whatNextAnswer(areaTitle, siteConfig.doctorName) },
+    { q: t.whatIs(area.title), a: `${area.tagline} ${t.whatIsAnswer(area.title)}` },
+    { q: t.howHelps(area.title), a: t.howHelpsAnswer },
+    { q: t.whenConsider(area.title), a: t.whenConsiderAnswer },
+    { q: t.whatNext(siteConfig.doctorName), a: t.whatNextAnswer(area.title, siteConfig.doctorName) },
   ];
 }
 

@@ -3,6 +3,7 @@ import { conditionVoiceOverrides } from "@/lib/parent-voice-conditions";
 import { conditions, doctorProfile, googleReviews, services, siteConfig, testimonials, therapyJourneySteps } from "@/lib/site-data";
 
 import { buildHomeLocaleContent } from "./home-locale";
+import { expertiseLandingEn } from "./expertise-locale";
 import type { ConditionLocaleCopy, LocaleContent } from "./types";
 
 function buildConditionDetails(): Record<string, ConditionLocaleCopy> {
@@ -64,7 +65,7 @@ export const enContent: LocaleContent = {
     title: "Support for the moments that matter",
     description:
       "Every family comes to us with a different story. Here are some of the ways we walk alongside children and parents in Kandivali and across Mumbai.",
-    viewAllServices: "View All Services",
+    viewAllServices: "View Expertise & Approaches",
   },
   whoWeHelp: {
     kicker: "Is This Your Child?",
@@ -215,6 +216,7 @@ export const enContent: LocaleContent = {
     subtitle: "Pediatric OT · Mumbai",
   },
   home: buildHomeLocaleContent(),
+  expertiseLanding: expertiseLandingEn,
   services: Object.fromEntries(
     services.map((s) => [s.slug, { title: s.title, headline: s.headline }]),
   ),
@@ -231,10 +233,10 @@ export const enContent: LocaleContent = {
       cta: "Start With a Conversation",
     },
     servicesList: {
-      kicker: "How We Help",
-      title: "Support for the everyday moments that matter",
+      kicker: "Expertise & Approaches",
+      title: "How we support growth and participation",
       description:
-        "Not programmes on a shelf — real help for mornings, school, mealtimes, play, and the feelings that come with all of it.",
+        "Eleven certified programmes — sensory integration, movement, handwriting, feeding, aquatic therapy, and more — woven into plans that fit your child's real life.",
       cta: "Book a Consultation",
     },
     conditionsDetail: {

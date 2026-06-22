@@ -55,7 +55,7 @@ export const doctorProfile = {
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Expertise", href: "/expertise" },
+  { label: "Expertise & Approaches", href: "/expertise" },
   { label: "Conditions", href: "/conditions" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
@@ -65,7 +65,7 @@ export const navItems = [
 export const primaryNavItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Expertise", href: "/expertise" },
+  { label: "Expertise & Approaches", href: "/expertise" },
   { label: "Conditions", href: "/conditions" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },

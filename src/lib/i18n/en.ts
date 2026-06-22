@@ -4,7 +4,7 @@ export const en: Messages = {
   nav: {
     home: "Home",
     about: "About",
-    services: "Expertise",
+    services: "Expertise & Approaches",
     conditions: "Conditions",
     gallery: "Gallery",
     resources: "Resources",
@@ -20,7 +20,7 @@ export const en: Messages = {
   },
   cta: {
     bookConsultation: "Book Consultation",
-    exploreServices: "Explore Expertise",
+    exploreServices: "Explore Expertise & Approaches",
     callNow: "Call Now",
     whatsapp: "WhatsApp",
     book: "Book",
@@ -39,7 +39,7 @@ export const en: Messages = {
   },
   footer: {
     explore: "Explore",
-    services: "Expertise",
+    services: "Expertise & Approaches",
     conditions: "Conditions",
     locations: "Locations",
     contact: "Contact",

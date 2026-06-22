@@ -95,7 +95,7 @@ function genericConditionDepth(slug: string, condition: string): ConditionDepthC
     ],
     internalLinks: [
       { label: "Occupational Therapy", href: "/services/occupational-therapy" },
-      { label: "All Services", href: "/services" },
+      { label: "Expertise & Approaches", href: "/expertise" },
       { label: "Book Consultation", href: "/appointment" },
       { label: "Parent Resources", href: "/resources" },
     ],

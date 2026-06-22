@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
+import { ProgressiveList } from "@/components/expertise/progressive-list";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
 import { PageHero } from "@/components/shared/page-hero";
@@ -54,7 +55,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
   const messages = getMessages(locale);
   const labels = getLabels(locale);
   const pastel = getServicePastel(area.slug);
-  const faqs = buildLocalizedExpertiseFaqs(area.title, locale);
+  const faqs = buildLocalizedExpertiseFaqs(area, locale);
 
   return (
     <main>
@@ -81,51 +82,55 @@ export default async function ExpertiseDetailPage({ params }: Props) {
 
       <Section>
         <div className="mx-auto max-w-4xl space-y-12">
-          <article className="flex items-start gap-4 rounded-2xl border p-6" style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}>
+          <article
+            className="flex items-start gap-4 rounded-2xl border p-6"
+            style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
+          >
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
               <ServiceIcon name={area.icon} className="h-7 w-7" style={{ color: pastel.accent }} />
             </div>
             <div>
               <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-                {labels.understanding}
+                {labels.whatIsIt}
               </h2>
-              <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">{area.understanding}</p>
+              <p className="mt-3 line-clamp-4 text-base leading-relaxed text-[color:var(--color-muted)] sm:line-clamp-none">
+                {area.understanding}
+              </p>
             </div>
           </article>
 
           <article>
             <SectionHeading title={labels.whatParentsNotice} />
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {area.whatParentsMayNotice.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-2 rounded-xl border border-[color:var(--color-border)]/60 bg-white/80 p-4 text-sm text-[color:var(--color-muted)]"
-                >
-                  <span className="mt-0.5 text-[color:var(--color-terracotta)]">•</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <ProgressiveList
+              items={area.whatParentsMayNotice}
+              initialVisible={4}
+              expandLabel={labels.showMore}
+              collapseLabel={labels.showLess}
+              className="mt-4"
+            />
           </article>
 
           <article>
             <SectionHeading title={labels.howThisHelps} />
-            <ul className="mt-4 space-y-2">
-              {area.howThisHelps.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
-                  <span className="mt-0.5 text-[color:var(--color-sage-dark)]">✓</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <ProgressiveList
+              items={area.howThisHelps}
+              initialVisible={4}
+              icon="check"
+              expandLabel={labels.showMore}
+              collapseLabel={labels.showLess}
+              className="mt-4"
+            />
           </article>
 
           <article>
-            <SectionHeading title={labels.benefits} />
+            <SectionHeading title={labels.areasCommonlySupported} />
             <div className="mt-4 grid gap-3 sm:grid-cols-2">
               {area.benefits.map((b) => (
                 <Card key={b}>
-                  <CardContent className="p-4 text-sm text-[color:var(--color-muted)]">{b}</CardContent>
+                  <CardContent className="flex items-start gap-2 p-4 text-sm text-[color:var(--color-muted)]">
+                    <span className="mt-0.5 text-[color:var(--color-sage-dark)]">✓</span>
+                    {b}
+                  </CardContent>
                 </Card>
               ))}
             </div>
@@ -161,7 +166,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
             </Accordion>
           </article>
 
-          <div className="flex flex-wrap gap-3 pt-4">
+          <div className="flex flex-wrap gap-3 rounded-2xl border border-[color:var(--color-border)]/60 bg-[color:var(--color-cream)]/30 p-6 pt-4">
             <Button asChild size="lg">
               <Link href="/appointment">{labels.bookConsultation}</Link>
             </Button>

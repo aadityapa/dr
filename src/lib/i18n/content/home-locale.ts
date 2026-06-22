@@ -34,7 +34,7 @@ export function buildHomeLocaleContent(): LocaleContent["home"] {
     expertiseEcosystem: {
       title: expertiseEcosystemCopy.title,
       subheading: expertiseEcosystemCopy.subheading,
-      viewAll: "View All Expertise",
+      viewAll: "View All Expertise & Approaches",
       exploreApproach: "Explore this approach",
       clusters: Object.fromEntries(
         expertiseClusters.map((cluster) => [
@@ -77,10 +77,10 @@ export const hiHomeContent: LocaleContent["home"] = {
     secondary: "संपर्क करें",
   },
   expertiseEcosystem: {
-    title: "हम विकास और भागीदारी को कैसे सहारा देते हैं",
+    title: "विशेषज्ञता पारिस्थितिकी तंत्र",
     subheading:
       "हर बच्चा अनोखा है। हम साक्ष्य-आधारित दृष्टिकोणों का संयोजन करते हैं ताकि भागीदारी, आत्मविश्वास, स्वतंत्रता और रोज़मर्रा की सफलता बढ़े।",
-    viewAll: "सभी विशेषज्ञता देखें",
+    viewAll: "सभी विशेषज्ञता और दृष्टिकोण देखें",
     exploreApproach: "इस दृष्टिकोण को जानें",
     clusters: {
       "movement-motor-development": {
@@ -148,10 +148,10 @@ export const mrHomeContent: LocaleContent["home"] = {
     secondary: "संपर्क करा",
   },
   expertiseEcosystem: {
-    title: "आम्ही वाढ आणि सहभाग कसा पाठिंबा देतो",
+    title: "तज्ज्ञता परिसंस्था",
     subheading:
       "प्रत्येक मूल अद्वितीय आहे. सहभाग, आत्मविश्वास, स्वातंत्र्य आणि रोजच्या यशासाठी आम्ही पुरावा-आधारित दृष्टिकोनांचे मिश्रण वापरतो.",
-    viewAll: "सर्व तज्ज्ञता पहा",
+    viewAll: "सर्व तज्ज्ञता आणि दृष्टिकोन पहा",
     exploreApproach: "हा दृष्टिकोन जाणून घ्या",
     clusters: {
       "movement-motor-development": {

@@ -10,7 +10,7 @@ export type ExpertiseCluster = {
 };
 
 export const expertiseEcosystemCopy = {
-  title: "How We Support Growth & Participation",
+  title: "Expertise Ecosystem",
   subheading:
     "Every child is unique. We use a combination of evidence-based approaches to support participation, confidence, independence, and everyday success.",
 } as const;

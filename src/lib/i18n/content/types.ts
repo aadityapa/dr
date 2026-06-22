@@ -104,6 +104,15 @@ export type LocaleContent = {
       clusters: Record<string, { title: string; explanation: string }>;
     };
   };
+  expertiseLanding: {
+    parentIntro: { title: string; description: string; paragraphs: string[] };
+    categoryNavLabel: string;
+    programmesTitle: string;
+    programmesDescription: string;
+    showMore: string;
+    showLess: string;
+    readFullGuide: string;
+  };
   services: Record<string, { title: string; headline: string }>;
   conditions: Record<string, Pick<ConditionLocaleCopy, "title" | "reassurance">>;
   conditionDetails: Record<string, ConditionLocaleCopy>;

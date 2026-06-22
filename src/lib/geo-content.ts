@@ -44,19 +44,35 @@ export function buildConditionFaqs(conditionTitle: string): GeoFaq[] {
   ];
 }
 
-export function buildExpertiseFaqs(areaTitle: string): GeoFaq[] {
+export function buildExpertiseFaqs(
+  areaTitle: string,
+  options?: { tagline?: string; slug?: string },
+): GeoFaq[] {
+  const answerFirst =
+    options?.tagline ??
+    `${areaTitle} is one of the evidence-based approaches Dr. Sharuja Sarap uses at her pediatric OT clinic in Kandivali West, Mumbai.`;
+
+  const helpQuestion =
+    options?.slug === "sensory-integration"
+      ? "How can Sensory Integration help my child?"
+      : `How can ${areaTitle} help my child?`;
+
   return [
     {
       q: `What is ${areaTitle}?`,
-      a: `${areaTitle} is one of the evidence-based approaches Dr. Sharuja Sarap uses at her pediatric OT clinic in Kandivali West, Mumbai. It supports children and families with practical, play-led strategies for daily life — not programmes on a shelf.`,
+      a: `${answerFirst} It supports children and families with practical, play-led strategies for daily life — not programmes on a shelf.`,
     },
     {
-      q: `How does ${areaTitle} help my child?`,
-      a: `We match techniques to what your child actually needs — building skills for participation, confidence, and independence at home and school. Parents leave with something practical to try, not just clinic exercises.`,
+      q: helpQuestion,
+      a: `We match ${areaTitle} techniques to what your child actually needs — building skills for participation, confidence, and independence at home and school. Parents leave with something practical to try, not just clinic exercises.`,
     },
     {
       q: `When should we consider ${areaTitle} for our child?`,
       a: `If something in daily life feels harder than it should — focus, movement, feeding, writing, or regulation — a consultation can help you understand whether this approach fits. Many families in Mumbai start without a formal diagnosis.`,
+    },
+    {
+      q: "When should I seek Occupational Therapy for my child?",
+      a: `Consider pediatric OT when everyday routines — mornings, school, mealtimes, handwriting, or play — feel harder than they should. At ${siteConfig.name} in Kandivali, Dr. Sharuja Sarap can help you understand whether ${areaTitle} or another approach is the right starting point.`,
     },
     {
       q: `What happens next if we book a consultation in Kandivali?`,

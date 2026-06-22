@@ -1,6 +1,7 @@
 import { hiConditionDetails } from "./hi-conditions";
 import { googleReviews, siteConfig, testimonials, therapyJourneySteps } from "@/lib/site-data";
 import { hiHomeContent } from "./home-locale";
+import { expertiseLandingHi } from "./expertise-locale";
 
 import type { LocaleContent } from "./types";
 
@@ -70,7 +71,7 @@ export const hiContent: LocaleContent = {
     title: "उन पलों के लिए सहायता जो मायने रखते हैं",
     description:
       "हर परिवार अलग कहानी के साथ आता है। यहाँ कुछ तरीके हैं जिनसे हम कांदिवली और पूरे मुंबई में बच्चों और माता-पिता के साथ चलते हैं।",
-    viewAllServices: "सभी सेवाएँ देखें",
+    viewAllServices: "विशेषज्ञता और दृष्टिकोण देखें",
   },
   whoWeHelp: {
     kicker: "क्या यह आपका बच्चा है?",
@@ -270,6 +271,7 @@ export const hiContent: LocaleContent = {
     subtitle: "बाल OT · मुंबई",
   },
   home: hiHomeContent,
+  expertiseLanding: expertiseLandingHi,
   services: {
     "occupational-therapy": {
       title: "व्यवसाय चिकित्सा",

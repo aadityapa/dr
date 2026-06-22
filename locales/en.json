@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "services": "Expertise",
+    "services": "Expertise & Approaches",
     "conditions": "Conditions",
     "gallery": "Gallery",
     "resources": "Resources",
@@ -18,7 +18,7 @@
   },
   "cta": {
     "bookConsultation": "Book Consultation",
-    "exploreServices": "Explore Expertise",
+    "exploreServices": "Explore Expertise & Approaches",
     "callNow": "Call Now",
     "whatsapp": "WhatsApp",
     "book": "Book"
@@ -35,7 +35,7 @@
   },
   "footer": {
     "explore": "Explore",
-    "services": "Expertise",
+    "services": "Expertise & Approaches",
     "conditions": "Conditions",
     "locations": "Locations",
     "contact": "Contact",
@@ -313,7 +313,7 @@
       "kicker": "How We Can Help",
       "title": "Support for the moments that matter",
       "description": "Every family comes to us with a different story. Here are some of the ways we walk alongside children and parents in Kandivali and across Mumbai.",
-      "viewAllServices": "View All Services"
+      "viewAllServices": "View Expertise & Approaches"
     },
     "whoWeHelp": {
       "kicker": "Is This Your Child?",
@@ -566,9 +566,9 @@
         "secondary": "Contact Us"
       },
       "expertiseEcosystem": {
-        "title": "How We Support Growth & Participation",
+        "title": "Expertise Ecosystem",
         "subheading": "Every child is unique. We use a combination of evidence-based approaches to support participation, confidence, independence, and everyday success.",
-        "viewAll": "View All Expertise",
+        "viewAll": "View All Expertise & Approaches",
         "exploreApproach": "Explore this approach",
         "clusters": {
           "movement-motor-development": {
@@ -597,6 +597,23 @@
           }
         }
       }
+    },
+    "expertiseLanding": {
+      "parentIntro": {
+        "title": "A gentle place to start",
+        "description": "You don't need every answer before you reach out. Here's how we think about therapy — in words that make sense at the kitchen table.",
+        "paragraphs": [
+          "Every child is unique. Their therapy journey should be too.",
+          "We combine evidence-informed approaches — sensory integration, movement, handwriting, feeding support, and more — into plans that reflect your child's strengths, not just their struggles.",
+          "The goal isn't to fix isolated skills on a checklist. It's to help your child participate more comfortably, confidently, and independently in the activities that matter most to your family."
+        ]
+      },
+      "categoryNavLabel": "Browse by approach",
+      "programmesTitle": "Specialised programmes",
+      "programmesDescription": "Eleven certified approaches — each explained in plain language for families in Kandivali and across Mumbai.",
+      "showMore": "Show more",
+      "showLess": "Show less",
+      "readFullGuide": "Read the full guide"
     },
     "services": {
       "occupational-therapy": {
@@ -1506,9 +1523,9 @@
         "cta": "Start With a Conversation"
       },
       "servicesList": {
-        "kicker": "How We Help",
-        "title": "Support for the everyday moments that matter",
-        "description": "Not programmes on a shelf — real help for mornings, school, mealtimes, play, and the feelings that come with all of it.",
+        "kicker": "Expertise & Approaches",
+        "title": "How we support growth and participation",
+        "description": "Eleven certified programmes — sensory integration, movement, handwriting, feeding, aquatic therapy, and more — woven into plans that fit your child's real life.",
         "cta": "Book a Consultation"
       },
       "conditionsDetail": {

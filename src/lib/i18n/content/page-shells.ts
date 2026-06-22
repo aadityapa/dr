@@ -146,11 +146,13 @@ const en: PageShells = {
     breadcrumb: "Locations",
   },
   expertiseList: {
-    metaTitle: "Our Expertise",
-    metaDescription: "Specialized pediatric OT at Thrive With Sharuja — Brain Gym, sensory integration, aquatic therapy, and more.",
-    kicker: "Expertise",
+    metaTitle: "Expertise & Approaches — Pediatric OT Mumbai",
+    metaDescription:
+      "Eleven certified pediatric OT approaches at Thrive With Sharuja, Kandivali — Brain Gym, sensory integration, aquatic therapy, handwriting, and more.",
+    kicker: "Expertise & Approaches",
     title: "How we support growth and participation",
-    description: "Evidence-based approaches tailored to each child's strengths.",
+    description:
+      "Evidence-informed approaches tailored to each child's strengths — explained in plain language for Mumbai families.",
   },
   about: {
     metaTitle: "About Dr. Sharuja Sarap",
@@ -283,11 +285,12 @@ const hi: PageShells = {
     breadcrumb: "स्थान",
   },
   expertiseList: {
-    metaTitle: "हमारी विशेषज्ञता",
-    metaDescription: "Brain Gym, संवेदी एकीकरण, जल चिकित्सा और अधिक — थ्राइव विथ शारुजा।",
-    kicker: "विशेषज्ञता",
+    metaTitle: "विशेषज्ञता और दृष्टिकोण — बाल OT मुंबई",
+    metaDescription:
+      "कांदिवली में थ्राइव विथ शारुजा पर ग्यारह प्रमाणित बाल OT दृष्टिकोण — ब्रेन जिम, संवेदी एकीकरण, जल चिकित्सा, हस्तलेखन और अधिक।",
+    kicker: "विशेषज्ञता और दृष्टिकोण",
     title: "हम विकास और भागीदारी को कैसे सहारा देते हैं",
-    description: "हर बच्चे की ताकत के अनुसार साक्ष्य-आधारित दृष्टिकोण।",
+    description: "हर बच्चे की ताकत के अनुसार साक्ष्य-सूचित दृष्टिकोण — मुंबई के परिवारों के लिए सादी भाषा में।",
   },
   about: {
     metaTitle: "डॉ. शारुजा सराफ के बारे में",

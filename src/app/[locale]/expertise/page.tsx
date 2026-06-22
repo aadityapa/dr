@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import { ExpertiseEcosystem } from "@/components/home/expertise-ecosystem";
+import { CategoryNavigation } from "@/components/expertise/category-navigation";
 import { ExpertiseListGrid } from "@/components/expertise/expertise-list-grid";
+import { LookingBeyondSection } from "@/components/expertise/looking-beyond-section";
+import { ParentFriendlyIntro } from "@/components/expertise/parent-friendly-intro";
+import { ExpertiseEcosystem } from "@/components/home/expertise-ecosystem";
 import { JsonLd } from "@/components/shared/json-ld";
 import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import { getLabels, getPageShells } from "@/lib/i18n/localize";
+import { getContent, getLabels, getPageShells } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
@@ -41,6 +44,8 @@ export default async function ExpertisePage({ params }: Props) {
   setRequestLocale(locale);
   const messages = getMessages(locale);
   const labels = getLabels(locale);
+  const content = getContent(locale);
+  const landing = content.expertiseLanding;
 
   return (
     <main>
@@ -53,11 +58,16 @@ export default async function ExpertisePage({ params }: Props) {
       />
       <JsonLd id="expertise-local-schema" data={localBusinessSchema()} />
       <LocalizedPageHero page="servicesList" />
-      <ExpertiseEcosystem showHeading={false} />
+      <LookingBeyondSection />
+      <ParentFriendlyIntro />
+      <ExpertiseEcosystem />
+      <Section compact>
+        <CategoryNavigation />
+      </Section>
       <Section>
         <SectionHeading
-          title="Specialised Programmes"
-          description="Deeper dives into each certification and approach — with parent-friendly explanations for families in Kandivali and across Mumbai."
+          title={landing.programmesTitle}
+          description={landing.programmesDescription}
           center
         />
         <div className="mt-8">

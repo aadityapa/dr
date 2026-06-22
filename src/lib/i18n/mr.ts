@@ -4,7 +4,7 @@ export const mr: Messages = {
   nav: {
     home: "मुख्यपृष्ठ",
     about: "आमच्याबद्दल",
-    services: "तज्ज्ञता",
+    services: "तज्ज्ञता आणि दृष्टिकोन",
     conditions: "स्थिती",
     gallery: "गॅलरी",
     resources: "संसाधने",
@@ -20,7 +20,7 @@ export const mr: Messages = {
   },
   cta: {
     bookConsultation: "सल्ला बुक करा",
-    exploreServices: "तज्ज्ञता पहा",
+    exploreServices: "तज्ज्ञता आणि दृष्टिकोन पहा",
     callNow: "आत्ता कॉल करा",
     whatsapp: "व्हॉट्सअॅप",
     book: "बुक करा",
@@ -38,7 +38,7 @@ export const mr: Messages = {
   },
   footer: {
     explore: "अन्वेषण",
-    services: "तज्ज्ञता",
+    services: "तज्ज्ञता आणि दृष्टिकोन",
     conditions: "स्थिती",
     locations: "स्थाने",
     contact: "संपर्क",

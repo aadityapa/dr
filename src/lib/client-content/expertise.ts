@@ -626,6 +626,35 @@ export const expertiseAreas: ExpertiseArea[] = [
   },
 ];
 
+/** Eleven specialised programme pages — excludes the landing-only “Looking Beyond” intro. */
+export const expertiseCategorySlugs = [
+  "brain-gym",
+  "double-doodle-play",
+  "sensory-integration",
+  "rmti",
+  "handwriting-without-tears",
+  "oral-placement-therapy",
+  "aquatic-therapy",
+  "piastm",
+  "kinesio-taping",
+  "mnri",
+  "kdct",
+] as const;
+
+export type ExpertiseCategorySlug = (typeof expertiseCategorySlugs)[number];
+
+export const expertiseCategories = expertiseCategorySlugs
+  .map((slug) => expertiseAreas.find((area) => area.slug === slug))
+  .filter((area): area is ExpertiseArea => Boolean(area));
+
+export const lookingBeyondExpertise = expertiseAreas.find(
+  (area) => area.slug === "looking-beyond-a-diagnosis",
+)!;
+
 export function getExpertise(slug: string): ExpertiseArea | undefined {
   return expertiseAreas.find((area) => area.slug === slug);
+}
+
+export function isExpertiseCategory(slug: string): slug is ExpertiseCategorySlug {
+  return (expertiseCategorySlugs as readonly string[]).includes(slug);
 }
