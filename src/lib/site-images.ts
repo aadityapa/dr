@@ -1,6 +1,6 @@
 /** Central image paths — upload matching files to public/images/ (see public/images/README.md) */
 
-const useLocal = process.env.NEXT_PUBLIC_USE_LOCAL_PHOTOS === "true";
+const useLocal = process.env.NEXT_PUBLIC_USE_LOCAL_PHOTOS !== "false";
 
 const FALLBACKS = {
   doctorPortrait:
@@ -23,6 +23,14 @@ const FALLBACKS = {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuAm8al5naOx-QQ-lNFcajeZGEjjiIGhO-kj_rAIxSvkEFrAW-2DEaxpjwDUhEfYFwZ40gTWfaq2Uz3DCzE2YUT9ndY30fpKW0PcTojUJpU6-QpyvGQKA4rkSV6IHdFxxPyZBf3QlQRnykgsxKp2-zyhQn3Z5aNOgUacjeoBbm7fu6xhG2CNF0Ng-o1Hrq2y2D4Udu_MV4nirnsKhnlACWz4PO6xOvZBv5skM9KrBsONS02KWLcGnAYAxCn4MlEnlwO2HsJ_rlwgb5g",
   fineMotor:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCeoZkBYzn93ZY5eHYUUVXZKScDqSl4PilFvk0YMZi7yu3lIqh9KXLHADwpsnMvceBYYu6UR2bZUrv9KQYVwNvnE92ZZpbHcJLKLCxB80CEA13jwP7A6sjZ0GT5LFUn9d7OrsX3MK6-1eKi69xngkuoLl7Wos_8Xva82ZTiFzWKb2696wF702noRassWo_iPwVmpbj-45zzcxcBBvWZUtJN0h7QSWmYY-VGxNoSADl7wzyN0wF6jajP7hmQsjvg7pULU-fceNNYYUc",
+  climbingWall:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuAcAszxr_aw7t2MBMC5q7Zdqqdz8C8Ha0zWn8ssz-mL9RU0cThEtPr055IlAYzGk-RFbotjgKGOCTNig_SQTeYmHk-bj-qhRzbsLVjUTMhgjMY8pOKrOaY0QxZOw9OreLZ2JpXVi2reTXBYgW_28gLkkmEO52fFiD2pCy4WIQea6LsvLKIC7SIVOe18xylTbcBE2DEj1dfNiBzZcSD9qe0AWaRbyc1O-a6GhdqvB9XaS7WZa-lZfF8ef6_59aDZcckn1vkLedvBlK4",
+  sensoryPath:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuAcAszxr_aw7t2MBMC5q7Zdqqdz8C8Ha0zWn8ssz-mL9RU0cThEtPr055IlAYzGk-RFbotjgKGOCTNig_SQTeYmHk-bj-qhRzbsLVjUTMhgjMY8pOKrOaY0QxZOw9OreLZ2JpXVi2reTXBYgW_28gLkkmEO52fFiD2pCy4WIQea6LsvLKIC7SIVOe18xylTbcBE2DEj1dfNiBzZcSD9qe0AWaRbyc1O-a6GhdqvB9XaS7WZa-lZfF8ef6_59aDZcckn1vkLedvBlK4",
+  swingSupport:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuAcAszxr_aw7t2MBMC5q7Zdqqdz8C8Ha0zWn8ssz-mL9RU0cThEtPr055IlAYzGk-RFbotjgKGOCTNig_SQTeYmHk-bj-qhRzbsLVjUTMhgjMY8pOKrOaY0QxZOw9OreLZ2JpXVi2reTXBYgW_28gLkkmEO52fFiD2pCy4WIQea6LsvLKIC7SIVOe18xylTbcBE2DEj1dfNiBzZcSD9qe0AWaRbyc1O-a6GhdqvB9XaS7WZa-lZfF8ef6_59aDZcckn1vkLedvBlK4",
+  handwritingPractice:
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuCeoZkBYzn93ZY5eHYUUVXZKScDqSl4PilFvk0YMZi7yu3lIqh9KXLHADwpsnMvceBYYu6UR2bZUrv9KQYVwNvnE92ZZpbHcJLKLCxB80CEA13jwP7A6sjZ0GT5LFUn9d7OrsX3MK6-1eKi69xngkuoLl7Wos_8Xva82ZTiFzWKb2696wF702noRassWo_iPwVmpbj-45zzcxcBBvWZUtJN0h7QSWmYY-VGxNoSADl7wzyN0wF6jajP7hmQsjvg7pULU-fceNNYYUc",
 } as const;
 
 export const siteImagePaths = {
@@ -36,6 +44,10 @@ export const siteImagePaths = {
   hallway: "/images/clinic/hallway.jpg",
   sensoryTools: "/images/equipment/sensory-tools.jpg",
   fineMotor: "/images/equipment/fine-motor.jpg",
+  climbingWall: "/images/therapy-rooms/climbing-wall.jpg",
+  sensoryPath: "/images/therapy/sensory-pathway.jpg",
+  swingSupport: "/images/therapy/guided-swing-support.jpg",
+  handwritingPractice: "/images/therapy/handwriting-practice.jpg",
 } as const;
 
 export type SiteImageKey = keyof typeof siteImagePaths;

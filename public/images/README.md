@@ -1,12 +1,12 @@
 # Clinic Photos — Upload Guide
 
-Upload your real photography here using the **exact filenames** below. Once all files are in place, set in `.env.local`:
+Upload real photography here using the **exact filenames** below. Local clinic photos are used by default once these files exist. To temporarily fall back to remote placeholders, set:
 
 ```
-NEXT_PUBLIC_USE_LOCAL_PHOTOS=true
+NEXT_PUBLIC_USE_LOCAL_PHOTOS=false
 ```
 
-Then redeploy. Until then, the site uses placeholder images automatically.
+Then redeploy.
 
 ## Folder structure
 
@@ -23,10 +23,15 @@ images/
 ├── therapy-rooms/
 │   ├── sensory-gym.jpg       ← Sensory gym with swings & equipment
 │   ├── assessment-room.jpg   ← Assessment / quiet room
+│   ├── climbing-wall.jpg     ← Climbing wall / colorful movement space
 │   └── aquatic-area.jpg      ← Aquatic therapy area (if applicable)
-└── equipment/
-    ├── sensory-tools.jpg     ← Sensory integration tools
-    └── fine-motor.jpg        ← Handwriting / fine motor setup
+├── equipment/
+│   ├── sensory-tools.jpg     ← Sensory integration tools
+│   └── fine-motor.jpg        ← Handwriting / fine motor setup
+└── therapy/
+    ├── sensory-pathway.jpg   ← Child using tactile/sensory pathway
+    ├── guided-swing-support.jpg
+    └── handwriting-practice.jpg
 ```
 
 ## Recommended specs
@@ -40,6 +45,5 @@ images/
 ## After uploading
 
 1. Place files in the folders above with matching names
-2. Add `NEXT_PUBLIC_USE_LOCAL_PHOTOS=true` to `.env.local`
-3. Run `npm run build` locally to verify images load
-4. Push and deploy to Vercel (add env var in Vercel dashboard too)
+2. Run `npm run build` locally to verify images load
+3. Push and deploy to Vercel after review

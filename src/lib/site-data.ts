@@ -736,40 +736,40 @@ export const galleryCategories = [
 
 export const galleryItems = [
   {
-    title: "Warm Therapy Room",
+    title: "Guided Swing Support",
     category: "Therapy Room",
-    alt: "Calm, naturally lit pediatric occupational therapy room with soft seating and organized therapy tools",
-    image: getSiteImage("sensoryGym"),
+    alt: "Dr. Sharuja supporting a child on sensory swing equipment inside the pediatric therapy gym",
+    image: getSiteImage("swingSupport"),
   },
   {
-    title: "Assessment & Evaluation Space",
+    title: "Fine Motor Practice",
     category: "Assessment Area",
-    alt: "Child-friendly assessment and evaluation area used for developmental and sensory-motor screening",
-    image: getSiteImage("doctorPortrait"),
+    alt: "Therapist-guided handwriting and fine motor practice on a chalkboard during pediatric OT",
+    image: getSiteImage("fineMotor"),
   },
   {
-    title: "Aquatic Therapy Session",
-    category: "Aquatic Therapy",
-    alt: "Supervised pediatric aquatic therapy session supporting balance, strength, and sensory regulation in water",
-    image: getSiteImage("aquaticArea"),
+    title: "Sensory Pathway",
+    category: "Child-Friendly Environment",
+    alt: "Child using colorful tactile stepping pads with therapist support in a sensory therapy room",
+    image: getSiteImage("sensoryPath"),
   },
   {
-    title: "Sensory Equipment",
+    title: "Sensory Gym Equipment",
     category: "Therapy Equipment",
-    alt: "Pediatric sensory integration equipment including swings, textured tools, and weighted supports",
+    alt: "Colorful sensory gym equipment including swing supports, climbing holds, and movement tools",
     image: getSiteImage("sensoryTools"),
   },
   {
-    title: "Child-Friendly Play Zone",
+    title: "Movement Play Zone",
     category: "Child-Friendly Environment",
-    alt: "Bright, child-friendly play zone designed to make therapy feel safe, playful, and engaging",
-    image: getSiteImage("heroMain"),
+    alt: "Bright pediatric therapy play zone with climbing wall, tactile pads, and child-friendly movement equipment",
+    image: getSiteImage("climbingWall"),
   },
   {
     title: "Sensory Gym",
     category: "Therapy Room",
-    alt: "Indoor pediatric sensory gym with climbing structures and movement equipment for motor development",
-    image: getSiteImage("reception"),
+    alt: "Indoor pediatric sensory gym with a platform swing and colorful climbing equipment for motor development",
+    image: getSiteImage("sensoryGym"),
   },
 ];
 

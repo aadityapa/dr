@@ -76,7 +76,7 @@ export function HeroSection() {
           <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[color:var(--color-sage)]/15 ring-1 ring-[color:var(--color-border)]/40">
             <Image
               src={getSiteImage("heroMain")}
-              alt="Child engaging in sensory play in a warm pediatric therapy environment"
+              alt="Dr. Sharuja guiding a child on sensory swing equipment in the Thrive With Sharuja therapy gym"
               width={640}
               height={720}
               priority

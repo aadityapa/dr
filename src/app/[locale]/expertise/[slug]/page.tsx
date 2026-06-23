@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
@@ -24,9 +25,41 @@ import { expertiseAreas } from "@/lib/client-content/expertise";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "@/lib/schema";
 import { getServicePastel } from "@/lib/service-colors";
+import { getSiteImage, type SiteImageKey } from "@/lib/site-images";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
+
+const EXPERTISE_IMAGE_BY_SLUG: Partial<Record<string, { image: SiteImageKey; alt: string }>> = {
+  "looking-beyond-a-diagnosis": {
+    image: "swingSupport",
+    alt: "Dr. Sharuja supporting a child in the sensory gym during a pediatric therapy session",
+  },
+  "brain-gym": {
+    image: "handwritingPractice",
+    alt: "Therapist-guided fine motor and learning readiness activity during pediatric OT",
+  },
+  "double-doodle-play": {
+    image: "handwritingPractice",
+    alt: "Child practicing coordinated chalkboard work with therapist guidance",
+  },
+  "sensory-integration": {
+    image: "sensoryPath",
+    alt: "Child using colorful tactile stepping pads with therapist support in a sensory therapy room",
+  },
+  rmti: {
+    image: "sensoryGym",
+    alt: "Child using sensory gym equipment with therapist support for movement and regulation",
+  },
+  "handwriting-without-tears": {
+    image: "fineMotor",
+    alt: "Therapist-guided handwriting and fine motor practice on a chalkboard",
+  },
+  mnri: {
+    image: "sensoryGym",
+    alt: "Child using sensory gym equipment with therapist support for movement foundations",
+  },
+};
 
 export function generateStaticParams() {
   return expertiseAreas.map((area) => ({ slug: area.slug }));
@@ -56,6 +89,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
   const labels = getLabels(locale);
   const pastel = getServicePastel(area.slug);
   const faqs = buildLocalizedExpertiseFaqs(area, locale);
+  const expertiseImage = EXPERTISE_IMAGE_BY_SLUG[area.slug];
 
   return (
     <main>
@@ -79,6 +113,21 @@ export default async function ExpertiseDetailPage({ params }: Props) {
         ]}
       />
       <PageHero kicker={labels.expertise} title={area.title} description={area.tagline} />
+
+      {expertiseImage ? (
+        <Section compact>
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-[color:var(--color-border)]/50">
+            <Image
+              src={getSiteImage(expertiseImage.image)}
+              alt={expertiseImage.alt}
+              width={1200}
+              height={720}
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              className="aspect-[16/9] w-full object-cover"
+            />
+          </div>
+        </Section>
+      ) : null}
 
       <Section>
         <div className="mx-auto max-w-4xl space-y-12">
