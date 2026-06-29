@@ -36,8 +36,8 @@ export default async function Home({ params }: Props) {
     <main>
       <HeroSection />
       <ParentsReadingSection />
-      <HowICanHelpSection />
       <AboutMeSection />
+      <HowICanHelpSection />
     </main>
   );
 }
