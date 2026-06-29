@@ -1,354 +1,791 @@
+export type CategorizedItem = {
+  text: string;
+  category: string;
+};
+
+export type ParentsNoticeSection = {
+  intro?: string;
+  items: CategorizedItem[];
+};
+
 export type ClientCondition = {
   slug: string;
+  pillLabel: string;
   title: string;
+  understandingHeading: string;
   understanding: string;
-  whatParentsMayNotice: string[];
-  howOtHelps: string[];
+  whatParentsNotice: {
+    intro?: string;
+    sections: ParentsNoticeSection[];
+  };
+  howOtHelps: {
+    intro: string;
+    items: CategorizedItem[];
+  };
   considerSupportIf: string[];
-  closingSection: string;
+  closing?: {
+    heading: string;
+    paragraphs: string[];
+  };
   metaDescription: string;
 };
 
 export const clientConditions: ClientCondition[] = [
   {
     slug: "autism-spectrum-disorder",
-    title: "Autism Spectrum Disorder",
+    pillLabel: "Autism Spectrum Disorder",
+    title: "Autism Spectrum Disorder (ASD)",
+    understandingHeading: "Understanding Autism",
     understanding:
-      "Autism Spectrum Disorder (ASD) means your child experiences the world in their own way — sometimes intensely, sometimes quietly, often beautifully. It affects how they take in sensory information, connect with others, and move through daily routines. This is not a parenting failure, and it is not something to 'fix.' Many children with ASD have remarkable strengths alongside real challenges. Occupational therapy helps with the everyday parts of life: getting dressed without a meltdown, tolerating a noisy classroom, holding a pencil, joining play. We meet your child where they are and build skills that make daily life feel more possible — while honouring who they already are.",
-    whatParentsMayNotice: [
-      "Strong reactions to sounds, lights, textures, or busy environments",
-      "Difficulty with changes in routine — even small ones",
-      "Avoidance of certain foods, clothing, or touch",
-      "Challenges with fine motor tasks like buttons, writing, or cutting",
-      "Play or social interaction that looks different from peers",
-      "Need for extra support with dressing, feeding, or toileting",
-      "Meltdowns that seem to come out of nowhere",
-      "Deep focus on specific interests alongside difficulty with transitions",
-    ],
-    howOtHelps: [
-      "Understanding your child's unique sensory profile — what overwhelms them and what calms them",
-      "Play-based sessions that build motor and daily living skills without pressure",
-      "Sensory strategies for home: morning routines, transitions, and outings",
-      "Support for handwriting, dressing, feeding, and self-care — step by step",
-      "Tools to help your child recover faster when things feel too much",
-      "School suggestions when you are ready to share them with teachers",
-      "Parent coaching so you leave with something practical to try",
-    ],
+      "Every autistic child experiences the world in their own unique way. Some children may communicate differently, respond more strongly to sounds, lights, touch, or movement, prefer predictable routines, or find social situations difficult to understand. While every child is different, understanding their unique needs can help create opportunities for meaningful growth, learning, and participation.",
+    whatParentsNotice: {
+      intro: "You may notice your child:",
+      sections: [
+        {
+          items: [
+            {
+              text: "Prefers to play alone or interacts differently with other children",
+              category: "Social Communication & Social Interaction",
+            },
+            {
+              text: "Uses fewer words than expected, repeats phrases, or finds it difficult to express needs",
+              category: "Communication Difficulties",
+            },
+            {
+              text: "Becomes upset when routines change unexpectedly",
+              category: "Cognitive Flexibility & Emotional Regulation",
+            },
+            {
+              text: "Covers ears during everyday sounds such as mixers, hand dryers, school assemblies, or traffic",
+              category: "Auditory Sensory Sensitivity",
+            },
+            {
+              text: "Refuses certain foods because of texture, smell, colour, or appearance",
+              category: "Sensory Processing Differences",
+            },
+            {
+              text: "Avoids certain clothing, tags, socks, shoes, or haircuts",
+              category: "Tactile Sensory Sensitivity",
+            },
+            {
+              text: "Enjoys repeatedly spinning objects, lining up toys, or watching moving objects",
+              category: "Repetitive Behaviours & Restricted Interests",
+            },
+            {
+              text: "Has difficulty joining group activities, birthday parties, or playground games",
+              category: "Social Participation",
+            },
+            {
+              text: "Finds dressing, feeding, grooming, or toileting more difficult than expected for age",
+              category: "Activities of Daily Living Skills",
+            },
+            {
+              text: "Appears overwhelmed, frustrated, or has meltdowns in busy environments",
+              category: "Sensory Overload & Self-Regulation Challenges",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy focuses on helping children participate more comfortably, confidently, and independently in everyday life. Support may include:",
+      items: [
+        {
+          text: "Understanding and supporting sensory needs",
+          category: "Sensory Processing & Regulation",
+        },
+        {
+          text: "Improving emotional regulation and coping strategies",
+          category: "Self-Regulation Skills",
+        },
+        {
+          text: "Developing play skills and social participation",
+          category: "Social Engagement & Interaction",
+        },
+        {
+          text: "Building fine motor skills needed for writing, drawing, cutting, and classroom tasks",
+          category: "Fine Motor Development",
+        },
+        {
+          text: "Improving coordination, balance, body awareness, and movement confidence",
+          category: "Gross Motor Skills & Motor Planning",
+        },
+        {
+          text: "Supporting dressing, feeding, grooming, and toileting skills",
+          category: "Daily Living Skills",
+        },
+        {
+          text: "Enhancing attention and participation in school activities",
+          category: "School Readiness & Classroom Participation",
+        },
+        {
+          text: "Promoting independence in everyday routines",
+          category: "Functional Independence",
+        },
+      ],
+    },
     considerSupportIf: [
-      "Daily routines — mornings, meals, bedtime — feel harder than they should",
-      "Your child avoids places, activities, or textures that peers manage easily",
-      "Sensory overload leads to frequent meltdowns or shutdowns",
-      "Fine motor or self-care tasks cause ongoing frustration",
-      "You want support while navigating assessment or diagnosis elsewhere",
-      "School participation or social outings feel increasingly difficult",
+      "Family outings often feel stressful because your child becomes overwhelmed",
+      "Everyday tasks such as dressing, mealtimes, grooming, or transitions frequently lead to frustration",
+      "Sensory sensitivities interfere with participation at home, school, or community settings",
+      "Your child avoids age-appropriate play activities or social interaction",
+      "Teachers have concerns regarding learning, behaviour, attention, or classroom participation",
+      "You feel your child needs additional support to manage everyday activities more comfortably",
+      "Your child is not using words as expected, finds conversations difficult, or struggles to express wants and needs",
     ],
-    closingSection:
-      "Your child does not need to become someone else to thrive. With the right support, many families find that daily life becomes calmer, small wins start adding up, and you finally understand the 'why' behind behaviours that once felt confusing. You are not alone in this — and reaching out is a loving first step.",
+    closing: {
+      heading: "Every Child's Journey Is Unique",
+      paragraphs: [
+        "A diagnosis does not define a child.",
+        "Every child has their own strengths, interests, personality, and way of experiencing the world. Our goal is not to change who a child is, but to better understand their needs, support their strengths, and help them participate more successfully in the activities that matter most to them and their families.",
+      ],
+    },
     metaDescription:
-      "Warm, parent-friendly guidance on autism and how pediatric occupational therapy in Kandivali supports sensory regulation, daily routines, and confident participation.",
+      "Understanding autism spectrum disorder (ASD) and how pediatric occupational therapy supports sensory needs, daily routines, and social participation.",
   },
   {
     slug: "adhd",
-    title: "ADHD",
+    pillLabel: "Attention Deficit Hyperactivity Disorder",
+    title: "Attention Deficit Hyperactivity Disorder (ADHD)",
+    understandingHeading: "Understanding ADHD",
     understanding:
-      "ADHD is not laziness, bad behaviour, or a lack of trying. Your child's brain processes attention, impulse control, and movement differently — and tasks that look simple on the outside can feel genuinely hard on the inside. Sitting through homework, waiting their turn, or finishing what they started may take far more effort than you or their teacher realise. The good news: with the right strategies, many children with ADHD learn to work with their energy rather than fight it. Occupational therapy focuses on the practical skills behind daily success — focus, organisation, movement regulation, and the confidence to keep trying.",
-    whatParentsMayNotice: [
-      "Difficulty sitting through homework without constant redirection",
-      "Impulsive actions that affect safety or friendships",
-      "Forgetting instructions partway through a task",
-      "A restless body — always moving, fidgeting, or climbing",
-      "Big emotional reactions when tasks feel overwhelming",
-      "Bright in conversation but struggles to show it on paper",
-      "Difficulty with organisation — lost items, messy bags, unfinished work",
-      "Sleep or screen habits that make the next day even harder",
-    ],
-    howOtHelps: [
-      "Movement-based routines that prepare the brain for seated work",
-      "Sensory tools and strategies that support — not shame — a fidgety body",
-      "Homework setups and routines that work in real Mumbai homes",
-      "Executive function help: breaking tasks down, packing bags, planning ahead",
-      "Handwriting and fine motor support for classroom tasks",
-      "Calming strategies for big feelings and frustration",
-      "Notes and suggestions for teachers when you want classroom support",
-    ],
+      "Children with ADHD are often bright, curious, creative, and full of energy. However, they may experience challenges with attention, impulse control, organization, emotional regulation, and managing everyday demands. ADHD is a neurodevelopmental condition that affects how the brain regulates attention, activity levels, self-control, and executive functioning skills. These challenges are not caused by laziness, poor parenting, or lack of intelligence. Many children with ADHD want to do well but may find it difficult to consistently manage tasks, emotions, and expectations.",
+    whatParentsNotice: {
+      sections: [
+        {
+          items: [
+            {
+              text: "Starts a task but quickly moves on to something else before finishing",
+              category: "Sustained Attention Difficulties",
+            },
+            {
+              text: "Frequently loses water bottles, homework, books, toys, or personal belongings",
+              category: "Organization & Executive Functioning Challenges",
+            },
+            {
+              text: "Appears to be listening but misses instructions or forgets what was said",
+              category: "Working Memory Difficulties",
+            },
+            {
+              text: "Constantly fidgets, taps, squirms, or struggles to remain seated",
+              category: "Hyperactivity",
+            },
+            {
+              text: "Interrupts conversations, blurts out answers, or has difficulty waiting their turn",
+              category: "Impulsivity",
+            },
+            {
+              text: "Becomes frustrated quickly when things don't go as expected",
+              category: "Emotional Regulation Difficulties",
+            },
+            {
+              text: "Needs frequent reminders to complete simple daily tasks",
+              category: "Task Initiation & Task Completion Difficulties",
+            },
+            {
+              text: "Appears disorganized despite understanding the work",
+              category: "Executive Function Challenges",
+            },
+            {
+              text: "Finds homework and classroom tasks more difficult than expected",
+              category: "Academic Participation Challenges",
+            },
+            {
+              text: "Has difficulty transitioning between activities or routines",
+              category: "Self-Regulation Difficulties",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy helps children develop practical skills that support success in everyday life at home, school, and within the community. Support may include:",
+      items: [
+        { text: "Improving attention and concentration during daily tasks", category: "Attention Regulation" },
+        {
+          text: "Developing planning, organization, and problem-solving skills",
+          category: "Executive Functioning Skills",
+        },
+        {
+          text: "Supporting emotional regulation and frustration management",
+          category: "Self-Regulation Skills",
+        },
+        {
+          text: "Building body awareness and movement control",
+          category: "Motor Coordination & Proprioceptive Processing",
+        },
+        { text: "Developing strategies for classroom participation", category: "School Participation" },
+        { text: "Improving handwriting and task endurance", category: "Fine Motor & Visual-Motor Skills" },
+        { text: "Supporting routine management and independence", category: "Functional Independence" },
+        {
+          text: "Creating sensory strategies that help children stay regulated and engaged",
+          category: "Sensory Regulation",
+        },
+      ],
+    },
     considerSupportIf: [
-      "Homework or schoolwork steals your entire evening",
-      "Teachers mention focus, but you know your child is trying hard",
-      "Impulsivity is affecting friendships or safety",
-      "Your child is starting to believe they are 'bad' or 'stupid'",
-      "You want support with or without a formal ADHD diagnosis",
-      "Family mornings, mealtimes, or bedtimes feel like daily battles",
+      "Your child's attention difficulties are affecting learning or daily activities",
+      "Homework has become a daily struggle",
+      "Emotional outbursts occur frequently",
+      "Teachers consistently report concerns regarding focus, behaviour, or organization",
+      "Your child becomes frustrated because they know what to do but struggle to do it consistently",
+      "Daily routines require constant reminders and supervision",
     ],
-    closingSection:
-      "Children with ADHD are often creative, energetic, and deeply capable — they just need tools that fit how their brain works. With patience and the right support, homework can get shorter, mornings can feel calmer, and your child can begin to see themselves as someone who learns differently, not someone who fails. That shift in confidence matters enormously.",
+    closing: {
+      heading: "Every Child Has Strengths Beyond Their Challenges",
+      paragraphs: [
+        "Children with ADHD often bring creativity, curiosity, enthusiasm, energy, and unique ways of thinking to the world around them. By understanding their needs and supporting skill development, we can help them participate more confidently and successfully in everyday life.",
+      ],
+    },
     metaDescription:
-      "Understanding ADHD from a parent's perspective and how pediatric OT in Kandivali helps with focus, impulse control, homework, and daily routines.",
+      "Understanding ADHD and how pediatric occupational therapy supports attention, executive functioning, and daily routines.",
   },
   {
     slug: "cerebral-palsy",
-    title: "Cerebral Palsy",
+    pillLabel: "Cerebral Palsy",
+    title: "Cerebral Palsy (CP)",
+    understandingHeading: "Understanding Cerebral Palsy",
     understanding:
-      "Cerebral palsy (CP) affects how a child moves, holds their body, and coordinates actions — usually because of early brain development differences or injury. Every child with CP is different: some have stiffness, some have low muscle tone, some use one side of the body more than the other. What parents often want most is for their child to participate in life — to feed themselves, play with siblings, sit in class, feel proud of what their body can do. Occupational therapy focuses on function and independence: the skills that matter at home, at school, and in your community. Progress may be gradual, but every gain — however small it looks to others — can mean a great deal to your family.",
-    whatParentsMayNotice: [
-      "Muscle stiffness, floppiness, or uneven use of one side of the body",
-      "Delayed milestones — sitting, crawling, walking, or hand use",
-      "Difficulty with fine motor tasks like grasping, writing, or self-feeding",
-      "Balance and coordination challenges during play or movement",
-      "Fatigue from the extra effort everyday tasks require",
-      "Need for help or adapted equipment for dressing, bathing, or feeding",
-      "Difficulty keeping up with peers in physical play",
-      "Challenges with oral motor skills or feeding safely",
-    ],
-    howOtHelps: [
-      "Assessment of how your child moves and what daily tasks are hardest",
-      "Posture and stability training to support safer, more efficient movement",
-      "Fine and gross motor skill building through purposeful, adaptive activities",
-      "Self-care training — dressing, feeding, grooming — with techniques that work for your child's body",
-      "Aquatic therapy for strength, range of motion, and confidence in movement",
-      "Recommendations for adaptive equipment when it would help",
-      "Coordination with physiotherapists, speech therapists, and educators",
-      "Home programmes so progress continues between sessions",
-    ],
+      "Cerebral Palsy (CP) is a neurological condition that affects movement, posture, muscle control, and coordination. Every child with cerebral palsy is unique. Some children may experience mild difficulties with movement, while others may require more support with everyday activities. Although cerebral palsy affects movement, it does not define a child's personality, abilities, interests, or potential. With appropriate support and opportunities, children can continue to learn, participate, and develop meaningful skills throughout their lives.",
+    whatParentsNotice: {
+      sections: [
+        {
+          items: [
+            { text: "Reaches developmental milestones later than expected", category: "Developmental Delay" },
+            {
+              text: "Appears stiff, tight, or has difficulty relaxing muscles",
+              category: "Increased Muscle Tone / Spasticity",
+            },
+            { text: "Appears floppy or has difficulty maintaining posture", category: "Low Muscle Tone / Hypotonia" },
+            {
+              text: "Has difficulty sitting, standing, crawling, walking, or maintaining balance",
+              category: "Gross Motor Challenges",
+            },
+            { text: "Tires easily during play or daily activities", category: "Reduced Endurance" },
+            {
+              text: "Has difficulty using both hands together during activities",
+              category: "Bilateral Coordination Difficulties",
+            },
+            {
+              text: "Struggles with dressing, feeding, writing, or manipulating small objects",
+              category: "Fine Motor Challenges",
+            },
+            { text: "Finds playground activities more difficult than peers", category: "Motor Coordination Difficulties" },
+            {
+              text: "Requires assistance for age-appropriate self-care activities",
+              category: "Functional Independence Challenges",
+            },
+            {
+              text: "Shows frustration when physical limitations interfere with participation",
+              category: "Participation Challenges",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy focuses on helping children participate as independently and successfully as possible in everyday activities. Support may include:",
+      items: [
+        { text: "Improving hand function, grasp, and object manipulation", category: "Fine Motor Development" },
+        { text: "Enhancing posture, balance, and body control during activities", category: "Postural Control" },
+        { text: "Supporting dressing, feeding, grooming, and self-care skills", category: "Activities of Daily Living" },
+        { text: "Developing play and leisure participation", category: "Play Skills & Participation" },
+        { text: "Improving bilateral coordination and hand use", category: "Upper Limb Function" },
+        { text: "Supporting classroom participation and handwriting when appropriate", category: "School Participation" },
+        {
+          text: "Recommending adaptive equipment or environmental modifications when needed",
+          category: "Assistive Technology & Adaptations",
+        },
+        {
+          text: "Working towards greater independence and participation in everyday routines",
+          category: "Functional Independence",
+        },
+      ],
+    },
     considerSupportIf: [
-      "Your child needs significant help with daily self-care",
-      "School or play participation feels limited by movement challenges",
-      "You want to understand what your child can achieve with the right support",
-      "Fatigue or frustration is affecting mood and family life",
-      "You are planning for increased independence as your child grows",
-      "You would like guidance on equipment, handling, or home exercises",
+      "Your child has trouble participating in daily activities because of movement challenges",
+      "Self-care skills such as dressing, feeding, or grooming require significant assistance",
+      "Hand function affects play, school activities, or independence",
+      "Balance, posture, or coordination difficulties limit participation",
+      "You would like support in helping your child become more independent in everyday life",
+      "You are looking for strategies that can be incorporated into home, school, or community environments",
     ],
-    closingSection:
-      "CP does not define your child's future. With early, thoughtful therapy and a team that celebrates every functional win, children often achieve far more than families first imagined. Your child's effort deserves recognition — and so does yours. We are here to walk that path with you.",
+    closing: {
+      heading: "Every Achievement Matters",
+      paragraphs: [
+        "For children with cerebral palsy, progress may look different for every individual. Sometimes it is learning to crawl , stand or walk , hold a spoon independently, button a shirt, participate in a classroom activity, play with friends, or accomplish a personal goal that once felt difficult.",
+        "Our focus is on supporting meaningful participation, independence, and opportunities for children to engage in the activities that matter most to them and their families.",
+      ],
+    },
     metaDescription:
-      "Parent-friendly information on cerebral palsy and how pediatric occupational therapy in Kandivali supports posture, motor skills, and daily independence.",
+      "Understanding cerebral palsy and how pediatric occupational therapy supports movement, posture, and daily independence.",
   },
   {
     slug: "developmental-delay",
+    pillLabel: "Developmental Delay",
     title: "Developmental Delay",
+    understandingHeading: "Understanding Developmental Delay",
     understanding:
-      "Developmental delay means your child is taking longer than expected to reach milestones in movement, play, communication, or self-care. It can show up in one area or several — and it is one of the most common reasons parents first reach out for help. Comparing your child to cousins, classmates, or even an older sibling can be painful. Please know: noticing a delay and asking questions is exactly what a loving parent does. Early, play-based support can make a real difference because young brains are remarkably adaptable. Occupational therapy meets your child at their current level and builds the foundational skills for independence, learning, and joyful participation.",
-    whatParentsMayNotice: [
-      "Late achievement of motor milestones — rolling, sitting, crawling, or walking",
-      "Delayed fine motor skills — pointing, grasping, using utensils",
-      "Play that looks younger than their age — less pretend or constructive play",
-      "Difficulty with self-care compared to peers — feeding, dressing",
-      "Reduced attention or engagement in age-appropriate activities",
-      "Sensory behaviours that seem beyond the typical range",
-      "Difficulty learning new tasks through watching and copying",
-      "Concerns across more than one area of development",
-    ],
-    howOtHelps: [
-      "Gentle assessment of motor, sensory, and daily living skills",
-      "Play-based intervention that targets specific delayed areas",
-      "Parent coaching with simple home activities you can actually do",
-      "Sensory activities that support nervous system development",
-      "Fine and gross motor building through purposeful, fun tasks",
-      "Step-by-step scaffolding for self-care routines",
-      "Regular progress check-ins with goals that grow as your child grows",
-      "Coordination with your pediatrician and other specialists when needed",
-    ],
+      "Children develop at their own pace, but there are certain milestones that help us understand how they are progressing. Sometimes, a child may take longer than expected to develop skills related to movement, play, communication, learning, self-care, or social interaction. A developmental delay does not tell us how far a child can go—it simply indicates that they may need additional support to develop certain skills and participate more confidently in everyday activities.",
+    whatParentsNotice: {
+      sections: [
+        {
+          items: [
+            { text: "Reaches milestones later than other children of a similar age", category: "Developmental Milestone Delays" },
+            {
+              text: "Takes longer to learn new skills such as dressing, feeding, or using utensils",
+              category: "Adaptive Skill Delays",
+            },
+            { text: "Shows limited interest in age-appropriate play activities", category: "Play Skill Delays" },
+            { text: "Has difficulty following simple instructions or routines", category: "Cognitive & Learning Challenges" },
+            { text: "Appears less independent than peers of the same age", category: "Functional Independence Delays" },
+            {
+              text: "Struggles with balance, coordination, running, jumping, or climbing",
+              category: "Gross Motor Delays",
+            },
+            {
+              text: "Finds activities such as colouring, drawing, building blocks, or using scissors difficult",
+              category: "Fine Motor Delays",
+            },
+            {
+              text: "Has difficulty interacting, sharing, or participating with other children",
+              category: "Social Participation Challenges",
+            },
+            {
+              text: "Gets frustrated when tasks seem difficult or require extra effort",
+              category: "Reduced Confidence & Task Persistence",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy focuses on helping children develop the foundational skills needed for everyday life. Support may include:",
+      items: [
+        { text: "Building fine motor skills for play, learning, and self-care", category: "Fine Motor Development" },
+        { text: "Improving balance, coordination, and body control", category: "Gross Motor Development" },
+        { text: "Developing play skills and social participation", category: "Play & Social Development" },
+        { text: "Supporting dressing, feeding, toileting, and daily routines", category: "Activities of Daily Living" },
+        { text: "Enhancing attention, learning readiness, and task participation", category: "School Readiness Skills" },
+        { text: "Improving confidence and independence during everyday activities", category: "Functional Participation" },
+        { text: "Supporting sensory processing and regulation when needed", category: "Sensory Integration Support" },
+      ],
+    },
     considerSupportIf: [
-      "You feel your child is falling behind peers in multiple areas",
-      "A teacher, doctor, or family member has raised concerns",
-      "You want support while waiting for formal assessment",
-      "School readiness feels uncertain as entry age approaches",
-      "Daily routines take much longer or cause much more frustration than expected",
-      "You want clear guidance on what to do at home — not just 'wait and see'",
+      "You feel your child is consistently behind in multiple developmental areas",
+      "Everyday tasks seem much harder for your child compared to peers",
+      "Your child becomes frustrated when trying to learn new skills",
+      "Teachers, doctors, or caregivers have raised developmental concerns",
+      "You are unsure whether your child's development is progressing as expected",
     ],
-    closingSection:
-      "Every child develops on their own timeline — but when delays persist, early support gives your child the best chance to catch up and build confidence along the way. You do not need a perfect diagnosis to start. If something feels off, trusting that instinct and reaching out is already an act of love.",
     metaDescription:
-      "Understanding developmental delay and how early pediatric occupational therapy in Kandivali supports motor, sensory, and daily living milestones.",
+      "Understanding developmental delay and how pediatric occupational therapy supports motor, sensory, and daily living milestones.",
   },
   {
     slug: "sensory-processing-difficulties",
+    pillLabel: "Sensory Processing Difficulties",
     title: "Sensory Processing Difficulties",
+    understandingHeading: "Understanding Sensory Processing Difficulties",
     understanding:
-      "Sensory processing difficulties happen when a child's nervous system struggles to organise everyday input — the feel of socks, the noise of a mall, the movement of a swing, the taste of a new food. Some children are overwhelmed easily; others seem to need constant movement or touch to feel regulated. Neither is misbehaviour. These responses are real, often exhausting for the whole family, and frequently misunderstood by people who have not walked in your shoes. Occupational therapy — especially sensory integration-informed care — helps children build a calmer, more regulated nervous system so they can tolerate more of everyday life.",
-    whatParentsMayNotice: [
-      "Extreme reactions to clothing tags, socks, or certain textures",
-      "Covering ears or distress in noisy or busy environments",
-      "Avoidance of messy play, sand, or specific foods",
-      "Constant movement seeking — spinning, crashing, climbing, fidgeting",
-      "Difficulty with transitions and changes in routine",
-      "Poor body awareness — bumping into things, personal space issues",
-      "Meltdowns that seem unpredictable or disproportionate",
-      "Difficulty calming down after excitement or upset",
-    ],
-    howOtHelps: [
-      "A detailed look at your child's sensory profile — what they seek and what they avoid",
-      "Sensory-rich, play-based therapy in a supportive gym environment",
-      "Personalised sensory strategies — or 'sensory diets' — for home and school",
-      "Graded exposure to challenging sensations in a safe, therapeutic context",
-      "Movement activities that help the nervous system feel more organised",
-      "Parent education so you understand the 'why' behind behaviours",
-      "Practical tips for grooming, mealtimes, and outings",
-      "School collaboration for sensory-friendly classroom setups when you are ready",
-    ],
+      "Every day, our brains receive information from our senses—what we see, hear, touch, taste, smell, and how our bodies move. Most of us automatically process this information without thinking about it. Some children, however, experience sensory information differently. They may be extremely sensitive to certain sensations, actively seek sensory experiences, or find it difficult to interpret sensory information accurately. Sensory processing difficulties can affect attention, behaviour, emotions, learning, movement, sleep, feeding, and participation in everyday activities.",
+    whatParentsNotice: {
+      sections: [
+        {
+          intro: "Some children may seem overly sensitive to sensory experiences:",
+          items: [
+            {
+              text: "Covers ears during vacuum cleaners, mixers, school bells, or crowded places",
+              category: "Auditory Sensitivity",
+            },
+            {
+              text: "Refuses certain clothes because of tags, seams, socks, or fabric textures",
+              category: "Tactile Sensitivity",
+            },
+            {
+              text: "Avoids haircuts, nail trimming, tooth brushing, or face washing",
+              category: "Touch Sensitivity",
+            },
+            {
+              text: "Is bothered by bright lights, strong smells, or busy environments",
+              category: "Visual & Olfactory Sensitivity",
+            },
+            {
+              text: "Becomes overwhelmed in shopping malls, birthday parties, classrooms, or family gatherings",
+              category: "Sensory Over-Responsivity",
+            },
+          ],
+        },
+        {
+          intro: "Some children constantly seek sensory input:",
+          items: [
+            {
+              text: "Loves spinning, swinging, jumping, climbing, or crashing into furniture",
+              category: "Vestibular & Proprioceptive Seeking",
+            },
+            { text: "Constantly touches people, objects, or surfaces", category: "Sensory Seeking Behaviour" },
+            { text: "Chews on clothing, pencils, toys, or other non-food items", category: "Oral Sensory Seeking" },
+            { text: 'Appears constantly "on the go" and has difficulty sitting still', category: "Movement Seeking" },
+            { text: "Uses excessive force during play, writing, or everyday tasks", category: "Body Awareness Difficulties" },
+          ],
+        },
+        {
+          intro: "Some children may have difficulty processing sensory information accurately:",
+          items: [
+            { text: "Appears clumsy or frequently bumps into objects", category: "Proprioceptive Processing Difficulties" },
+            { text: "Has trouble judging personal space", category: "Body Awareness Challenges" },
+            { text: "Finds balance activities difficult", category: "Vestibular Processing Difficulties" },
+            {
+              text: "Struggles to coordinate movements during play and sports",
+              category: "Motor Planning Difficulties / Praxis Challenges",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy helps children better understand, process, and respond to sensory information in ways that support everyday participation. Support may include:",
+      items: [
+        {
+          text: "Identifying individual sensory preferences and challenges",
+          category: "Sensory Profile Assessment",
+        },
+        { text: "Developing sensory regulation strategies", category: "Self-Regulation Skills" },
+        { text: "Supporting attention, participation, and learning", category: "Sensory-Based Intervention" },
+        {
+          text: "Improving body awareness, coordination, and motor planning",
+          category: "Praxis Development",
+        },
+        {
+          text: "Helping children participate more comfortably in school, social, and community environments",
+          category: "Functional Participation",
+        },
+        {
+          text: "Providing practical strategies for home, school, and daily routines",
+          category: "Family & Environmental Support",
+        },
+        { text: "Supporting emotional regulation and coping skills", category: "Co-Regulation & Self-Regulation" },
+      ],
+    },
     considerSupportIf: [
-      "Meltdowns or avoidance behaviours limit daily life — eating, dressing, playing, learning",
-      "Mealtimes, hair washing, or nail cutting become major battles",
-      "Your child cannot tolerate environments that peers manage — malls, parties, classrooms",
-      "You feel exhausted from constantly managing sensory triggers",
-      "Others treat your child's responses as defiance rather than overwhelm",
-      "You want help even without a formal diagnosis — because the struggle is real",
+      "Sensory challenges are affecting family routines, mealtimes, school participation, or sleep",
+      "Your child frequently avoids or seeks sensory experiences in ways that interfere with daily life",
+      "Everyday environments often lead to overwhelm, distress, or meltdowns",
+      "Movement, balance, coordination, or body awareness difficulties affect participation",
+      "You feel sensory challenges may be contributing to behavioural or emotional difficulties",
+      "Not sure if it's sensory? If your child often says, 'it's too loud', 'it hurts', 'I don't like that', constantly seeks movement, or struggles in busy environments, sensory processing may be worth exploring.",
     ],
-    closingSection:
-      "Sensory challenges can make ordinary days feel extraordinary hard — for your child and for you. With understanding and the right support, many families see fewer meltdowns, wider tolerance for everyday experiences, and a child who finally feels a little more at ease in their own body. That relief is worth pursuing.",
     metaDescription:
-      "Sensory processing difficulties explained for parents, and how sensory integration occupational therapy in Kandivali helps children feel calmer and more regulated.",
+      "Understanding sensory processing difficulties and how occupational therapy supports regulation and everyday participation.",
   },
   {
     slug: "learning-difficulties",
+    pillLabel: "Learning Disabilities",
     title: "Learning Disabilities",
+    understandingHeading: "Understanding Learning Disabilities",
     understanding:
-      "Learning disabilities mean your child may struggle to acquire, process, or show academic skills — reading, writing, spelling, maths — even when they are bright, curious, and trying their best. Extra tuition sometimes helps a little, but the same struggles keep returning. Often, hidden sensory-motor or processing challenges sit underneath: weak pencil control, poor visual tracking, difficulty sitting still long enough to learn, or trouble organising thoughts on paper. Occupational therapy addresses these foundations so your child can access learning more fully — not by drilling content, but by building the skills that make learning possible.",
-    whatParentsMayNotice: [
-      "Reading, spelling, or writing that stays difficult despite practice",
-      "Slow processing — needing much more time than classmates",
-      "Difficulty copying from the board or keeping work organised",
-      "Strong verbal ability but weak written output",
-      "Avoidance of homework and academic tasks",
-      "Frustration, tears, or shutdown during schoolwork",
-      "Teachers suggesting the child is careless or not trying",
-      "A growing gap between effort and results",
-    ],
-    howOtHelps: [
-      "Assessment of visual-motor, fine motor, and sensory factors affecting learning",
-      "Movement-based strategies that support reading and writing pathways",
-      "Handwriting intervention for clearer, less painful written work",
-      "Visual-perceptual and visual-motor skill training",
-      "Attention and executive function strategies for learning tasks",
-      "Guidance on home study setup in small spaces",
-      "School collaboration for accommodations when appropriate",
-      "Building confidence through activities designed for success",
-    ],
+      "Every child learns differently. Some children may work harder than their peers to develop skills related to reading, writing, spelling, mathematics, attention, memory, or organization. Despite having average or above-average intelligence, they may continue to struggle with specific academic tasks. Learning disabilities are not a reflection of laziness, lack of effort, or poor parenting. Often, children know the answer but find it difficult to process, organize, remember, or express information in the expected way.",
+    whatParentsNotice: {
+      sections: [
+        {
+          items: [
+            { text: "Takes much longer than expected to complete homework", category: "Learning & Processing Difficulties" },
+            {
+              text: "Struggles to remember letters, numbers, spellings, or mathematical concepts",
+              category: "Memory & Academic Skill Challenges",
+            },
+            {
+              text: "Reads slowly, skips words, or avoids reading activities",
+              category: "Reading Difficulties / Dyslexia-Related Features",
+            },
+            { text: "Finds writing assignments frustrating and difficult to organize", category: "Written Expression Difficulties" },
+            {
+              text: "Frequently forgets instructions, even after hearing them several times",
+              category: "Working Memory Difficulties",
+            },
+            {
+              text: "Knows answers verbally but struggles to write them on paper",
+              category: "Processing & Expression Challenges",
+            },
+            { text: "Appears intelligent and capable but underperforms academically", category: "Learning Differences" },
+            { text: "Avoids homework, reading, or school-related activities", category: "Academic Avoidance" },
+            {
+              text: "Experiences frustration, low confidence, or anxiety related to schoolwork",
+              category: "Self-Esteem & Academic Confidence Concerns",
+            },
+            {
+              text: 'Frequently says, "I\'m not good at school" or "I can\'t do it"',
+              category: "Reduced Academic Self-Confidence",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy helps strengthen the foundational skills that support successful learning and participation in school. Support may include:",
+      items: [
+        {
+          text: "Improving attention, concentration, and task persistence",
+          category: "Attention & Executive Functioning",
+        },
+        {
+          text: "Developing visual perception and visual-motor integration skills",
+          category: "Visual Processing Skills",
+        },
+        {
+          text: "Supporting handwriting, written expression, and classroom participation",
+          category: "Academic Participation Skills",
+        },
+        { text: "Building organization, planning, and study skills", category: "Executive Functioning Development" },
+        { text: "Strengthening memory and task management strategies", category: "Learning Readiness Skills" },
+        { text: "Improving confidence and independence during academic tasks", category: "Functional School Participation" },
+        {
+          text: "Collaborating with families and schools to support learning success",
+          category: "Environmental & Educational Support",
+        },
+      ],
+    },
     considerSupportIf: [
-      "Tutoring has not resolved persistent academic struggles",
-      "Your child's written work does not reflect what they know verbally",
-      "Homework battles are affecting family peace and your child's self-esteem",
-      "You suspect motor or attention issues are hiding behind 'learning problems'",
-      "School has raised concerns and you want a fuller picture",
-      "Your child is starting to avoid school or believe they are 'not smart'",
+      "Homework regularly leads to frustration, tears, or conflict",
+      "Your child works hard but continues to struggle academically",
+      "Teachers have raised concerns about learning, writing, attention, or classroom participation",
+      "Academic challenges are affecting confidence and motivation",
+      "You feel your child is capable of more but is finding it difficult to demonstrate their abilities",
     ],
-    closingSection:
-      "A learning disability is not a limit on your child's potential — it is a sign that they may need a different path to get there. When the underlying skills catch up, many children surprise everyone, including themselves. Your belief in them, paired with the right support, can change the story they tell about who they are as a learner.",
     metaDescription:
-      "Learning disabilities explained for parents, and how pediatric occupational therapy in Kandivali supports reading, writing, and classroom success through foundational skill building.",
+      "Understanding learning disabilities and how pediatric occupational therapy supports reading, writing, and classroom success.",
   },
   {
     slug: "motor-coordination-challenges",
+    pillLabel: "Motor Coordination Challenges",
     title: "Motor Coordination Challenges",
+    understandingHeading: "Understanding Motor Coordination Challenges",
     understanding:
-      "Motor coordination challenges — sometimes called dyspraxia or developmental coordination disorder — affect a child's ability to plan, learn, and carry out physical movements. Your child might be the one who trips often, avoids sports, or takes forever to learn to ride a bike or tie shoelaces. These struggles are not lack of effort. The brain's motor planning system works differently, and repeated practice alone may not be enough. Occupational therapy builds coordination, balance, and body awareness through structured play — helping your child feel more confident in their body and more willing to join in.",
-    whatParentsMayNotice: [
-      "Frequent tripping, bumping into furniture, or dropping things",
-      "Difficulty learning new physical skills — cycling, swimming, sports",
-      "Poor ball skills — catching, throwing, kicking",
-      "Awkward or hesitant running, jumping, or climbing",
-      "Difficulty with two-handed tasks — cutting, buttoning, jumping jacks",
-      "Avoidance of PE, playground games, or physical play",
-      "Handwriting that is slow or messy due to motor planning difficulties",
-      "Tiring quickly during physical activities peers manage easily",
-    ],
-    howOtHelps: [
-      "Assessment of motor planning, balance, and coordination",
-      "Balance and postural stability training through engaging activities",
-      "Bilateral coordination practice — using both sides of the body together",
-      "Aquatic therapy for strength and coordination in a supportive environment",
-      "Fine motor work for tool use, buttons, and handwriting",
-      "Graded challenges with success built in at each step",
-      "Home activities for short, regular practice",
-      "School suggestions for PE participation and accommodations",
-    ],
+      "Some children find it difficult to plan, coordinate, and execute movements efficiently. Tasks that seem simple for other children—such as catching a ball, riding a bicycle, using scissors, climbing playground equipment, or participating in sports—may require significantly more effort. Motor coordination difficulties can affect both large body movements (Gross Motor Skills) and hand skills (Fine Motor Skills), impacting participation at home, school, and during play.",
+    whatParentsNotice: {
+      sections: [
+        {
+          items: [
+            { text: "Frequently trips, bumps into objects, or appears clumsy", category: "Motor Coordination Difficulties" },
+            { text: "Avoids sports, playground activities, or physical games", category: "Gross Motor Challenges" },
+            {
+              text: "Has difficulty learning new movement-based skills such as cycling, skipping, swimming, or ball games",
+              category: "Motor Planning Difficulties / Dyspraxia Features",
+            },
+            {
+              text: "Struggles to catch, throw, kick, or coordinate movements during play",
+              category: "Bilateral Coordination Challenges",
+            },
+            { text: "Appears awkward when running, jumping, climbing, or balancing", category: "Balance & Coordination Difficulties" },
+            {
+              text: "Has difficulty using scissors, colouring, drawing, or manipulating small objects",
+              category: "Fine Motor Challenges",
+            },
+            { text: "Becomes tired more quickly than peers during physical activities", category: "Reduced Motor Endurance" },
+            {
+              text: "Avoids activities that require coordination because they feel difficult or embarrassing",
+              category: "Reduced Movement Confidence",
+            },
+            { text: "Takes longer than expected to learn everyday motor skills", category: "Motor Learning Difficulties" },
+            {
+              text: "Becomes frustrated when physical tasks seem harder than they should",
+              category: "Participation Challenges",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy focuses on developing the skills needed for movement, coordination, confidence, and participation. Support may include:",
+      items: [
+        { text: "Improving balance, coordination, and body awareness", category: "Gross Motor Development" },
+        { text: "Strengthening motor planning and movement sequencing skills", category: "Praxis & Motor Planning" },
+        {
+          text: "Developing hand skills for writing, dressing, feeding, and classroom activities",
+          category: "Fine Motor Development",
+        },
+        { text: "Improving bilateral coordination and postural stability", category: "Postural Control & Coordination" },
+        {
+          text: "Building confidence during sports, play, and recreational activities",
+          category: "Participation & Confidence Building",
+        },
+        {
+          text: "Supporting school-related motor tasks such as handwriting and classroom participation",
+          category: "Functional Academic Skills",
+        },
+        { text: "Encouraging greater independence in everyday activities", category: "Functional Independence" },
+      ],
+    },
     considerSupportIf: [
-      "Your child avoids physical play or sports significantly more than peers",
-      "Clumsiness affects safety, confidence, or social inclusion",
-      "Self-care tasks requiring coordination — shoelaces, buttons — remain very difficult",
-      "Teachers or coaches have noticed motor difficulties",
-      "Your child compares themselves unfavourably to friends physically",
-      "You worry about long-term fitness and willingness to stay active",
+      "Your child avoids physical activities because they find them difficult",
+      "Coordination challenges are affecting participation in school, sports, or play",
+      "Hand skills are making writing, dressing, or self-care tasks difficult",
+      "Your child appears significantly less confident in movement-based activities compared to peers",
+      "Everyday motor tasks require more effort than expected for their age",
     ],
-    closingSection:
-      "Coordination can improve — often more than families expect — when practice is targeted, playful, and consistent. Watching a child who once sat out of games begin to join in, even cautiously at first, is one of the quiet joys of this work. Your child's body has capacity; sometimes it just needs the right guide.",
     metaDescription:
-      "Motor coordination challenges and dyspraxia explained for parents, with guidance on how pediatric OT and aquatic therapy in Kandivali build physical confidence.",
+      "Understanding motor coordination challenges and how pediatric occupational therapy builds physical confidence and participation.",
   },
   {
     slug: "handwriting-difficulties",
+    pillLabel: "Handwriting Difficulties",
     title: "Handwriting Difficulties",
+    understandingHeading: "Understanding Handwriting Difficulties",
     understanding:
-      "Handwriting asks a lot of a child — pencil control, hand strength, posture, visual tracking, letter memory, and sustained attention, all at once. When writing is illegible, painfully slow, or avoided entirely, it affects grades, self-esteem, and how teachers see your child's ability. More copying practice at home often increases frustration without fixing the root cause. Occupational therapy looks at grip, strength, visual-motor integration, and posture — then builds handwriting through structured, evidence-based programmes so your child can express what they know on paper.",
-    whatParentsMayNotice: [
-      "Illegible letter formation or inconsistent letter sizes",
-      "Awkward, tight, or inefficient pencil grip",
-      "Writing so slowly they cannot finish classwork or exams",
-      "Hand pain or fatigue during or after writing",
-      "Letter or number reversals beyond early primary years",
-      "Active avoidance of writing tasks and homework resistance",
-      "Difficulty staying on lines or spacing letters and words evenly",
-      "Written work that does not match what your child knows verbally",
-    ],
-    howOtHelps: [
-      "Full assessment of handwriting, grip, strength, and visual-motor skills",
-      "Structured handwriting programmes with clear, step-by-step progression",
-      "Pencil grip correction and adaptive tool recommendations when helpful",
-      "Hand strength and dexterity activities that feel like play",
-      "Posture and core stability work for comfortable, sustained writing",
-      "Visual-motor activities supporting letter formation and alignment",
-      "School collaboration for accommodations or modified tasks",
-      "Home practice guidance so progress continues between sessions",
-    ],
+      "Handwriting is much more than putting letters on paper. It requires the successful coordination of visual, motor, sensory, cognitive, and postural skills working together at the same time. When handwriting becomes difficult, children often spend so much energy trying to form letters that they struggle to keep up with classroom demands, express their ideas, or complete written work confidently.",
+    whatParentsNotice: {
+      sections: [
+        {
+          items: [
+            { text: "Uses an awkward or inefficient pencil grasp", category: "Pencil Grip Difficulties" },
+            { text: "Writes slowly compared to classmates", category: "Writing Speed Difficulties" },
+            {
+              text: "Complains of hand pain or fatigue during writing tasks",
+              category: "Reduced Hand Strength & Endurance",
+            },
+            { text: "Forms letters inconsistently or reverses letters and numbers", category: "Letter Formation Difficulties" },
+            { text: "Has messy handwriting that is difficult to read", category: "Handwriting Legibility Challenges" },
+            {
+              text: "Struggles to stay within lines or maintain spacing between words",
+              category: "Visual-Motor Integration Difficulties",
+            },
+            { text: "Avoids writing activities, homework, or written assignments", category: "Reduced Writing Confidence" },
+            {
+              text: "Knows the answer but finds it difficult to get thoughts onto paper",
+              category: "Written Expression Challenges",
+            },
+            {
+              text: "Takes significantly longer to complete schoolwork involving writing",
+              category: "Classroom Participation Difficulties",
+            },
+            {
+              text: "Becomes frustrated, anxious, or upset when asked to write",
+              category: "Academic Confidence Concerns",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy focuses on developing the underlying skills required for successful handwriting. Support may include:",
+      items: [
+        { text: "Developing efficient pencil grasp and control", category: "Pencil Skills" },
+        { text: "Improving hand strength, dexterity, and endurance", category: "Fine Motor Development" },
+        {
+          text: "Enhancing visual-motor integration and eye-hand coordination",
+          category: "Visual-Motor Skills",
+        },
+        {
+          text: "Improving letter formation, spacing, alignment, and writing organization",
+          category: "Handwriting Skills",
+        },
+        { text: "Supporting posture and body stability during seated work", category: "Postural Control" },
+        { text: "Building confidence and participation in classroom writing activities", category: "Academic Participation" },
+        {
+          text: "Identifying underlying factors contributing to handwriting difficulties",
+          category: "Functional Assessment",
+        },
+      ],
+    },
     considerSupportIf: [
-      "Handwriting remains illegible or very slow by age 7–8 or beyond",
-      "Your child complains of hand pain or refuses writing tasks",
-      "Teachers mark down work despite your child knowing the content",
-      "Exam performance suffers because writing cannot keep up",
-      "Extra writing practice at home has not improved things",
-      "Your child avoids journaling, creative writing, or any pencil-and-paper work",
+      "Handwriting is affecting your child's academic performance",
+      "Writing tasks consistently cause frustration or avoidance",
+      "Your child struggles to complete written work within expected timeframes",
+      "Teachers have raised concerns regarding handwriting quality or speed",
+      "Your child appears capable of answering verbally but struggles when writing",
+      "Handwriting difficulties are affecting confidence and classroom participation",
     ],
-    closingSection:
-      "Clear handwriting opens doors — in class, in exams, and in how a child sees themselves as a learner. With targeted support, many children move from dreading written work to completing it with growing pride. It is never too late to address persistent difficulties, and the confidence that follows is often the greatest gift.",
     metaDescription:
-      "Handwriting difficulties explained for parents, and how specialised pediatric occupational therapy in Kandivali helps children write legibly and with less fatigue.",
+      "Understanding handwriting difficulties and how pediatric occupational therapy helps children write legibly and with less fatigue.",
   },
   {
     slug: "attention-difficulties",
+    pillLabel: "Attention, Focus & Concentration Challenges",
     title: "Attention, Focus & Concentration Challenges",
+    understandingHeading: "Understanding Attention Challenges",
     understanding:
-      "Attention difficulties affect a child's ability to focus, filter distractions, and stay with a task long enough to finish it — at home, in class, and during play. This is not always ADHD; many children struggle with focus without meeting full diagnostic criteria. A child might daydream quietly and be overlooked, or need constant redirection and still not finish homework. Either way, the impact on learning and family life is real. Occupational therapy builds attention stamina through movement, sensory regulation, and practical strategies — helping your child engage more fully with the world around them.",
-    whatParentsMayNotice: [
-      "Difficulty sustaining focus for more than a few minutes",
-      "Easily distracted by sounds, movement, or their own thoughts",
-      "Trouble following multi-step instructions without repetition",
-      "Daydreaming or seeming 'somewhere else' during tasks",
-      "Incomplete homework, chores, or classroom assignments",
-      "Restlessness during seated activities",
-      "Inconsistent performance — focused one day, scattered the next",
-      "Need for frequent reminders that leave everyone exhausted",
-    ],
-    howOtHelps: [
-      "Assessment of attention patterns and sensory factors that affect focus",
-      "Movement-based routines that activate learning readiness",
-      "Sensory strategies to reach the 'just right' level of alertness",
-      "Graded attention-building activities with slowly increasing duration",
-      "Home and study environment modifications that reduce distraction",
-      "Movement break protocols for longer tasks",
-      "Parent coaching on routines that support sustained focus",
-      "School recommendations for seating, task length, and breaks",
-    ],
+      'Many children find it difficult to stay focused, follow instructions, complete tasks, or remain engaged in activities for extended periods of time. While attention challenges are sometimes associated with ADHD, they can also occur due to sensory processing differences, learning difficulties, emotional factors, executive functioning challenges, developmental delays, or simply because the demands being placed on the child exceed their current skills. Attention is not just about "sitting still." It involves listening, processing information, staying organized, filtering distractions, remembering instructions, and completing tasks successfully.',
+    whatParentsNotice: {
+      sections: [
+        {
+          items: [
+            { text: "Frequently starts activities but leaves them unfinished", category: "Sustained Attention Difficulties" },
+            {
+              text: "Needs repeated reminders to complete simple daily tasks",
+              category: "Attention & Task Completion Challenges",
+            },
+            {
+              text: "Appears distracted by sounds, people, or activities happening around them",
+              category: "Difficulty Filtering Distractions",
+            },
+            { text: "Forgets instructions shortly after hearing them", category: "Working Memory Difficulties" },
+            {
+              text: "Takes much longer than expected to complete homework or routine activities",
+              category: "Task Persistence Difficulties",
+            },
+            {
+              text: "Loses track of belongings such as water bottles, books, homework, or school materials",
+              category: "Organization Challenges",
+            },
+            {
+              text: 'Appears to daydream or "switch off" during conversations or classroom activities',
+              category: "Attention Regulation Difficulties",
+            },
+            {
+              text: "Has difficulty following multi-step instructions",
+              category: "Processing & Working Memory Challenges",
+            },
+            {
+              text: "Struggles to stay focused during table-top activities, homework, reading, or writing tasks",
+              category: "Sustained Concentration Difficulties",
+            },
+            {
+              text: "Becomes frustrated when tasks require prolonged effort or concentration",
+              category: "Mental Endurance Challenges",
+            },
+          ],
+        },
+      ],
+    },
+    howOtHelps: {
+      intro:
+        "Occupational Therapy helps identify the factors contributing to attention difficulties and develops practical strategies that support participation at home, school, and in everyday life. Support may include:",
+      items: [
+        { text: "Improving attention, concentration, and task engagement", category: "Attention Regulation Skills" },
+        {
+          text: "Developing planning, organization, and time-management abilities",
+          category: "Executive Functioning Skills",
+        },
+        { text: "Addressing sensory factors that may affect focus and participation", category: "Sensory Processing Support" },
+        {
+          text: "Building routines and strategies for completing daily tasks successfully",
+          category: "Functional Organization Skills",
+        },
+        { text: "Supporting learning readiness and classroom participation", category: "School Participation Skills" },
+        { text: "Developing self-monitoring and self-regulation strategies", category: "Self-Regulation Skills" },
+        {
+          text: "Collaborating with families and educators to create supportive environments",
+          category: "Environmental Modifications & Support",
+        },
+      ],
+    },
     considerSupportIf: [
-      "Focus issues affect school performance or daily routines",
-      "Your child needs constant redirection to complete simple tasks",
-      "Teachers report inattention despite your child being capable",
-      "Homework takes far longer than it should for the amount of work",
-      "You want support whether or not ADHD has been diagnosed",
-      "Quiet inattention is causing your child to fall through the cracks at school",
+      "Your child frequently struggles to complete age-appropriate tasks",
+      "Homework, reading, or writing activities consistently take much longer than expected",
+      "Teachers regularly report concerns regarding attention, participation, or task completion",
+      "Daily routines require constant reminders and supervision",
+      "Attention difficulties are affecting learning, confidence, independence, or participation in everyday activities",
+      "You feel your child understands what to do but finds it difficult to stay engaged long enough to complete it",
     ],
-    closingSection:
-      "Focus is a skill that can be strengthened — not a fixed trait your child is stuck with. Many families notice meaningful changes within weeks of consistent support and simple home strategies. Your child deserves to experience what it feels like to finish something and feel proud. That moment is closer than it may seem.",
     metaDescription:
-      "Attention, focus, and concentration challenges explained for parents, and how pediatric OT and movement-based strategies in Kandivali support learning readiness.",
+      "Understanding attention, focus, and concentration challenges and how pediatric occupational therapy supports learning readiness.",
   },
 ];
 

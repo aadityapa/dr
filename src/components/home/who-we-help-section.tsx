@@ -32,7 +32,7 @@ export function WhoWeHelpSection() {
                   {localized?.title ?? condition.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
-                  {localized?.reassurance ?? condition.whatParentsMayNotice[0]}
+                  {localized?.reassurance ?? condition.understanding}
                 </p>
                 <span
                   className="mt-3 inline-block text-xs font-semibold group-hover:underline"
