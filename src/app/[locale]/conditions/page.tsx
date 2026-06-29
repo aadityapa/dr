@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import { ConditionsLanding } from "@/components/conditions/conditions-landing";
+import { ConditionsGrid } from "@/components/conditions/conditions-grid";
 import { ConditionsPageCta } from "@/components/conditions/conditions-page-cta";
-import { ConditionsPageHero } from "@/components/conditions/conditions-page-hero";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
+import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
 import { Section } from "@/components/shared/section";
 import type { AppLocale } from "@/i18n/routing";
 import { getContent, getMessages } from "@/lib/i18n";
@@ -31,12 +31,12 @@ export default async function ConditionsPage({ params }: Props) {
   const messages = getMessages(locale);
 
   return (
-    <main className="bg-[#F8FBFB]">
+    <main>
       <Breadcrumbs items={[{ name: messages.nav.conditions, url: `${siteConfig.url}/${locale}/conditions` }]} />
-      <ConditionsPageHero />
+      <LocalizedPageHero page="conditionsList" />
 
-      <Section className="pb-16 md:pb-24">
-        <ConditionsLanding />
+      <Section>
+        <ConditionsGrid />
         <ConditionsPageCta />
       </Section>
     </main>

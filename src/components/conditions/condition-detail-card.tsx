@@ -18,18 +18,21 @@ function CategorizedList({
   return (
     <ul className="mt-4 space-y-3">
       {items.map((item) => (
-        <li key={`${item.text}-${item.category}`} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#3d5555]">
+        <li
+          key={`${item.text}-${item.category}`}
+          className="flex items-start gap-3 text-sm leading-relaxed text-[color:var(--color-muted)] md:text-base"
+        >
           {variant === "help" ? (
-            <span className="mt-0.5 shrink-0 font-semibold text-[#008080]" aria-hidden>
+            <span className="mt-0.5 shrink-0 font-semibold text-[color:var(--color-sage-dark)]" aria-hidden>
               ✓
             </span>
           ) : (
-            <span className="mt-2 inline-block h-2 w-2 shrink-0 bg-[#008080]" aria-hidden />
+            <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-[color:var(--color-terracotta)]" aria-hidden />
           )}
           <span>
             {item.text}
             {item.category ? (
-              <span className="text-[#5a7a7a]"> ({item.category})</span>
+              <span className="text-[color:var(--color-muted)]/80"> ({item.category})</span>
             ) : null}
           </span>
         </li>
@@ -42,44 +45,54 @@ export function ConditionDetailCard({ condition, labels, id, hideTitle }: Condit
   return (
     <article
       id={id}
-      className="scroll-mt-28 rounded-2xl border border-[#d0e8e8] bg-white px-6 py-8 shadow-sm md:px-10 md:py-10"
+      className="scroll-mt-28 rounded-2xl border border-[color:var(--color-border)]/60 bg-white px-6 py-8 shadow-sm md:px-10 md:py-10"
     >
       {hideTitle ? null : (
-        <h2 className="text-2xl font-semibold text-[#005B5B] md:text-3xl">{condition.title}</h2>
+        <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)] md:text-3xl">
+          {condition.title}
+        </h2>
       )}
 
       <div className="mt-8">
-        <h3 className="text-lg font-medium text-[#3d8f8f] md:text-xl">{condition.understandingHeading}</h3>
-        <p className="mt-3 text-[15px] leading-relaxed text-[#3d5555] md:text-base">{condition.understanding}</p>
+        <h3 className="text-lg font-medium text-[color:var(--color-sage-dark)] md:text-xl">
+          {condition.understandingHeading}
+        </h3>
+        <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">{condition.understanding}</p>
       </div>
 
       <div className="mt-8">
-        <h3 className="text-lg font-medium text-[#005B5B] md:text-xl">{labels.whatParentsNotice}</h3>
+        <h3 className="text-lg font-medium text-[color:var(--color-sage-dark)] md:text-xl">{labels.whatParentsNotice}</h3>
         {condition.whatParentsNotice.intro ? (
-          <p className="mt-3 text-[15px] leading-relaxed text-[#3d5555]">{condition.whatParentsNotice.intro}</p>
+          <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">{condition.whatParentsNotice.intro}</p>
         ) : null}
         {condition.whatParentsNotice.sections.map((section, sectionIndex) => (
-          <div key={section.intro ?? `section-${sectionIndex}`} className={sectionIndex > 0 || condition.whatParentsNotice.intro ? "mt-5" : "mt-4"}>
+          <div
+            key={section.intro ?? `section-${sectionIndex}`}
+            className={sectionIndex > 0 || condition.whatParentsNotice.intro ? "mt-5" : "mt-4"}
+          >
             {section.intro ? (
-              <p className="mb-3 text-[15px] font-medium leading-relaxed text-[#3d5555]">{section.intro}</p>
+              <p className="mb-3 font-medium leading-relaxed text-[color:var(--color-muted)]">{section.intro}</p>
             ) : null}
             <CategorizedList items={section.items} variant="notice" />
           </div>
         ))}
       </div>
 
-      <div className="mt-8 rounded-xl bg-[#e8f5f5] px-5 py-6 md:px-7 md:py-8">
-        <h3 className="text-lg font-medium text-[#005B5B] md:text-xl">{labels.howOtHelps}</h3>
-        <p className="mt-3 text-[15px] leading-relaxed text-[#3d5555]">{condition.howOtHelps.intro}</p>
+      <div className="mt-8 rounded-2xl bg-[color:var(--color-soft-green)]/40 p-6 md:p-8">
+        <h3 className="text-lg font-medium text-[color:var(--color-sage-dark)] md:text-xl">{labels.howOtHelps}</h3>
+        <p className="mt-3 leading-relaxed text-[color:var(--color-muted)]">{condition.howOtHelps.intro}</p>
         <CategorizedList items={condition.howOtHelps.items} variant="help" />
       </div>
 
       <div className="mt-8">
-        <h3 className="text-lg font-medium text-[#005B5B] md:text-xl">{labels.considerSupportIf}</h3>
-        <ul className="mt-4 space-y-2.5">
+        <h3 className="text-lg font-medium text-[color:var(--color-sage-dark)] md:text-xl">{labels.considerSupportIf}</h3>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
           {condition.considerSupportIf.map((item) => (
-            <li key={item} className="flex items-start gap-3 text-[15px] leading-relaxed text-[#3d5555]">
-              <span className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-[#008080]" aria-hidden />
+            <li
+              key={item}
+              className="flex items-start gap-2 rounded-xl border border-[color:var(--color-border)]/60 bg-white/80 p-4 text-sm text-[color:var(--color-muted)]"
+            >
+              <span className="mt-0.5 text-[color:var(--color-terracotta)]">•</span>
               {item}
             </li>
           ))}
@@ -87,11 +100,13 @@ export function ConditionDetailCard({ condition, labels, id, hideTitle }: Condit
       </div>
 
       {condition.closing ? (
-        <div className="mt-8 border-t border-[#d0e8e8] pt-8">
-          <h3 className="text-lg font-medium text-[#005B5B] md:text-xl">{condition.closing.heading}</h3>
-          <div className="mt-3 space-y-3">
+        <div className="mt-8 rounded-2xl border border-[color:var(--color-border)] bg-[color:var(--color-almond)] p-8 text-center">
+          <h3 className="font-[family-name:var(--font-serif)] text-xl text-[color:var(--color-sage-dark)]">
+            {condition.closing.heading}
+          </h3>
+          <div className="mt-4 space-y-3">
             {condition.closing.paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 40)} className="text-[15px] leading-relaxed text-[#3d5555] md:text-base">
+              <p key={paragraph.slice(0, 40)} className="leading-relaxed text-[color:var(--color-muted)]">
                 {paragraph}
               </p>
             ))}

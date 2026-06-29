@@ -1,17 +1,20 @@
 "use client";
 
-import Link from "next/link";
 import { useRef, useState } from "react";
 
 import { Pagination } from "@/components/shared/pagination";
 import { Reveal } from "@/components/shared/reveal";
+import { Link } from "@/i18n/navigation";
+import { useLanguage } from "@/components/providers/language-provider";
 import { clientConditions } from "@/lib/client-content/conditions";
+import { getLocalizedClientCondition } from "@/lib/i18n/localize";
 import { getCardPastel } from "@/lib/pastel-palette";
 import { paginateItems } from "@/lib/pagination";
 
 const PAGE_SIZE = 9;
 
 export function ConditionsGrid() {
+  const { locale, messages } = useLanguage();
   const [page, setPage] = useState(1);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -28,6 +31,7 @@ export function ConditionsGrid() {
     <div ref={gridRef}>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {paginated.map((condition, i) => {
+          const localized = getLocalizedClientCondition(condition.slug, locale) ?? condition;
           const globalIndex = (safePage - 1) * PAGE_SIZE + i;
           const pastel = getCardPastel(globalIndex);
           return (
@@ -38,18 +42,18 @@ export function ConditionsGrid() {
               >
                 <h2 className="font-[family-name:var(--font-serif)] text-xl" style={{ color: pastel.text }}>
                   <Link href={`/conditions/${condition.slug}`} className="hover:underline">
-                    {condition.title}
+                    {localized.title}
                   </Link>
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
-                  {condition.understanding}
+                  {localized.understanding}
                 </p>
                 <Link
                   href={`/conditions/${condition.slug}`}
                   className="mt-4 inline-block text-sm font-semibold hover:underline"
                   style={{ color: pastel.accent }}
                 >
-                  Read full guide →
+                  {messages.common.learnMore} →
                 </Link>
               </div>
             </Reveal>

@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { AboutMeSection } from "@/components/home/about-me-section";
+import { AboutPreviewSection } from "@/components/home/about-preview-section";
+import { ExpertiseEcosystem } from "@/components/home/expertise-ecosystem";
 import { HeroSection } from "@/components/home/hero-section";
+import { HomeFaqSection } from "@/components/home/home-faq-section";
+import { HomeFinalCtaSection } from "@/components/home/home-final-cta-section";
 import { HowICanHelpSection } from "@/components/home/how-i-can-help-section";
 import { ParentsReadingSection } from "@/components/home/parents-reading-section";
+import { SuccessStoriesSection } from "@/components/home/success-stories-section";
+import { WhoWeHelpSection } from "@/components/home/who-we-help-section";
 import type { AppLocale } from "@/i18n/routing";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
@@ -36,8 +41,13 @@ export default async function Home({ params }: Props) {
     <main>
       <HeroSection />
       <ParentsReadingSection />
-      <AboutMeSection />
+      <AboutPreviewSection />
       <HowICanHelpSection />
+      <ExpertiseEcosystem compact showViewAll />
+      <WhoWeHelpSection />
+      <SuccessStoriesSection />
+      <HomeFaqSection />
+      <HomeFinalCtaSection />
     </main>
   );
 }

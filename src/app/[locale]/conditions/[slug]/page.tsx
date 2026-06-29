@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 
 import { ConditionDetailCard } from "@/components/conditions/condition-detail-card";
 import { ConditionsPageCta } from "@/components/conditions/conditions-page-cta";
-import { ConditionsPillNav } from "@/components/conditions/conditions-pill-nav";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
+import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
@@ -49,7 +50,7 @@ export default async function ConditionDetailPage({ params }: Props) {
   const faqs = buildLocalizedConditionFaqs(condition.title, locale);
 
   return (
-    <main className="bg-[#F8FBFB]">
+    <main>
       <JsonLd
         id="condition-breadcrumb"
         data={breadcrumbSchema([
@@ -66,24 +67,41 @@ export default async function ConditionDetailPage({ params }: Props) {
         ]}
       />
 
-      <section className="border-b border-[#d0e8e8] bg-[#F8FBFB] px-4 py-10 md:px-8 md:py-14">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-semibold text-[#005B5B] md:text-4xl">{condition.title}</h1>
-        </div>
-      </section>
+      <PageHero
+        kicker={labels.forParents}
+        title={condition.title}
+        description={condition.understanding.slice(0, 200) + "…"}
+      />
 
       <Section className="pb-16 md:pb-24">
         <div className="mx-auto max-w-4xl space-y-8">
-          <ConditionsPillNav activeSlug={slug} />
           <ConditionDetailCard condition={condition} labels={labels} hideTitle />
-          <div className="flex flex-wrap gap-3 pt-2">
+
+          <div>
+            <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
+              {labels.questionsParentsAsk}
+            </h2>
+            <Accordion type="single" collapsible className="mt-4 space-y-2">
+              {faqs.map((faq, idx) => (
+                <AccordionItem key={faq.q} value={`condition-faq-${idx}`}>
+                  <AccordionTrigger className="text-left">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-sm leading-relaxed text-[color:var(--color-muted)]">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
             <Button asChild size="lg">
               <Link href="/appointment">{labels.bookConsultation}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/conditions">{messages.nav.conditions}</Link>
+              <Link href="/expertise">{labels.exploreExpertise}</Link>
             </Button>
           </div>
+
           <ConditionsPageCta />
         </div>
       </Section>
