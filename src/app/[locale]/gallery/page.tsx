@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import { GalleryGrid, buildGalleryItems } from "@/components/gallery/gallery-grid";
+import { ClinicMediaShowcase } from "@/components/gallery/clinic-media-showcase";
+import { GalleryGrid } from "@/components/gallery/gallery-grid";
 import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
 import type { AppLocale } from "@/i18n/routing";
 import { getPageShells, getPhase3Content } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
+import { clinicVideos, galleryItems } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale }> };
 
@@ -28,17 +30,33 @@ export default async function GalleryPage({ params }: Props) {
   const shells = getPageShells(locale);
   const gallery = getPhase3Content(locale).gallery;
 
-  const items = buildGalleryItems(
-    gallery.items.map((item) => ({
-      ...item,
+  const items = gallery.items.map((item, index) => {
+    const base = galleryItems[index];
+    return {
+      title: item.title,
       category: gallery.categories[item.category] ?? item.category,
-    })),
-  );
+      categoryKey: base?.category ?? item.category,
+      alt: item.alt,
+      image: base?.image ?? "",
+    };
+  });
+  const videos = gallery.videos.map((video, index) => {
+    const base = clinicVideos[index];
+    return {
+      ...video,
+      src: base.src,
+      poster: base.poster,
+      category: gallery.categories[base.category] ?? base.category,
+    };
+  });
 
   return (
     <main>
       <PageHero kicker={shells.gallery.kicker} title={shells.gallery.title} description={shells.gallery.description} />
       <Section>
+        <ClinicMediaShowcase slides={items} videos={videos} copy={gallery.mediaShowcase} />
+      </Section>
+      <Section compact>
         <GalleryGrid
           items={items}
           allCategoryLabel={gallery.allCategory}

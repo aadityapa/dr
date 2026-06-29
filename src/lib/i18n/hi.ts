@@ -27,9 +27,12 @@ export const hi: Messages = {
   },
   hero: {
     badge: "बाल चिकित्सा व्यावसायिक चिकित्सा · मुंबई",
-    headline: "आपका बच्चा पूरी कोशिश कर रहा है। हम रोज़मर्रा की छोटी चीज़ों को आसान बनाने में मदद करते हैं।",
-    subheadline: "कपड़े पहनने और पेंसल पकड़ने से लेकर खेल में शामिल होने और दोस्त बनाने तक — हम मुंबई के परिवारों के साथ धैर्य और गर्मजोशी से चलते हैं।",
-    tagline: "सीमाओं के बिना अपनापन।",
+    headline: "Helping Children Thrive in Everyday Life",
+    subheadline:
+      "Every child has unique strengths, abilities, and potential. When everyday activities feel challenging, children may need additional support to participate with confidence and independence.",
+    subheadline2:
+      "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
+    tagline: "Because every child deserves the opportunity to participate, belong, and thrive.",
   },
   site: {
     title: "बाल चिकित्सा व्यावसायिक चिकित्सक",
@@ -213,11 +216,11 @@ export const hi: Messages = {
       phoneOptional: "फ़ोन (वैकल्पिक)",
       namePlaceholder: "आपका नाम",
       emailPlaceholder: "you@example.com",
-      phonePlaceholder: "9820525197",
+      phonePlaceholder: "9820505197",
       downloadGuide: "मुफ़्त गाइड डाउनलोड करें",
       sending: "भेजा जा रहा है…",
       successTemplate: 'धन्यवाद! "{title}" के लिए डाउनलोड लिंक {email} पर भेजा गया है।',
-      error: "कुछ गलत हुआ। कृपया 9820525197 पर कॉल करें या sharujasaraf@gmail.com पर ईमेल करें।",
+      error: "कुछ गलत हुआ। कृपया 9820505197 पर कॉल करें या sharujasaraf@gmail.com पर ईमेल करें।",
       consentNote:
         "डाउनलोड करके, आप थ्राइव विथ शरुजा से कभी-कभार माता-पिता संसाधन प्राप्त करने की सहमति देते हैं।",
     },

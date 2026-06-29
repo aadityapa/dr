@@ -28,6 +28,19 @@ export type GalleryPageContent = {
   closeLightbox: string;
   categories: Record<string, string>;
   items: { title: string; category: string; alt?: string }[];
+  videos: { title: string; description: string }[];
+  mediaShowcase: {
+    kicker: string;
+    title: string;
+    description: string;
+    photoLabel: string;
+    previous: string;
+    next: string;
+    goToSlideLabel: string;
+    videoTitle: string;
+    videoDescription: string;
+    playVideoLabel: string;
+  };
 };
 
 export type LibraryPageContent = {
@@ -311,6 +324,36 @@ const en: Phase3Content = {
         alt: "Indoor pediatric sensory gym with a platform swing and colorful climbing equipment for motor development",
       },
     ],
+    videos: [
+      {
+        title: "Handwriting Board Practice",
+        description: "Therapist-guided handwriting practice on the chalkboard — building letter formation, pencil control, and visual-motor skills.",
+      },
+      {
+        title: "Sensory Pathway Guided Play",
+        description: "Child navigating a sensory pathway with therapist support, building body awareness, balance, and motor planning.",
+      },
+      {
+        title: "Climbing Wall Balance Practice",
+        description: "Movement-based therapy on the climbing wall — supporting coordination, strength, and confidence.",
+      },
+      {
+        title: "Sensory Swing Session",
+        description: "Sensory swing therapy session supporting vestibular processing, regulation, and body awareness.",
+      },
+    ],
+    mediaShowcase: {
+      kicker: "Inside Our Clinic",
+      title: "A warm space designed for children to move, explore, and grow",
+      description: "Our therapy gym and clinic spaces are thoughtfully designed for pediatric play-based intervention — safe, sensory-rich, and child-friendly.",
+      photoLabel: "Photo",
+      previous: "Previous",
+      next: "Next",
+      goToSlideLabel: "Go to slide",
+      videoTitle: "Therapy in Motion",
+      videoDescription: "Watch how our play-based sessions look in practice.",
+      playVideoLabel: "Play video",
+    },
   },
   library: {
     categories: {
@@ -638,6 +681,36 @@ const hi: Phase3Content = {
         alt: "platform swing और रंगीन climbing equipment वाला indoor pediatric sensory gym",
       },
     ],
+    videos: [
+      {
+        title: "Handwriting Board Practice",
+        description: "Therapist-guided handwriting practice on the chalkboard — building letter formation, pencil control, and visual-motor skills.",
+      },
+      {
+        title: "Sensory Pathway Guided Play",
+        description: "Child navigating a sensory pathway with therapist support, building body awareness, balance, and motor planning.",
+      },
+      {
+        title: "Climbing Wall Balance Practice",
+        description: "Movement-based therapy on the climbing wall — supporting coordination, strength, and confidence.",
+      },
+      {
+        title: "Sensory Swing Session",
+        description: "Sensory swing therapy session supporting vestibular processing, regulation, and body awareness.",
+      },
+    ],
+    mediaShowcase: {
+      kicker: "Inside Our Clinic",
+      title: "A warm space designed for children to move, explore, and grow",
+      description: "Our therapy gym and clinic spaces are thoughtfully designed for pediatric play-based intervention — safe, sensory-rich, and child-friendly.",
+      photoLabel: "Photo",
+      previous: "Previous",
+      next: "Next",
+      goToSlideLabel: "Go to slide",
+      videoTitle: "Therapy in Motion",
+      videoDescription: "Watch how our play-based sessions look in practice.",
+      playVideoLabel: "Play video",
+    },
   },
   library: {
     categories: {
@@ -965,6 +1038,36 @@ const mr: Phase3Content = {
         alt: "platform swing आणि रंगीत climbing equipment असलेला indoor pediatric sensory gym",
       },
     ],
+    videos: [
+      {
+        title: "Handwriting Board Practice",
+        description: "Therapist-guided handwriting practice on the chalkboard — building letter formation, pencil control, and visual-motor skills.",
+      },
+      {
+        title: "Sensory Pathway Guided Play",
+        description: "Child navigating a sensory pathway with therapist support, building body awareness, balance, and motor planning.",
+      },
+      {
+        title: "Climbing Wall Balance Practice",
+        description: "Movement-based therapy on the climbing wall — supporting coordination, strength, and confidence.",
+      },
+      {
+        title: "Sensory Swing Session",
+        description: "Sensory swing therapy session supporting vestibular processing, regulation, and body awareness.",
+      },
+    ],
+    mediaShowcase: {
+      kicker: "Inside Our Clinic",
+      title: "A warm space designed for children to move, explore, and grow",
+      description: "Our therapy gym and clinic spaces are thoughtfully designed for pediatric play-based intervention — safe, sensory-rich, and child-friendly.",
+      photoLabel: "Photo",
+      previous: "Previous",
+      next: "Next",
+      goToSlideLabel: "Go to slide",
+      videoTitle: "Therapy in Motion",
+      videoDescription: "Watch how our play-based sessions look in practice.",
+      playVideoLabel: "Play video",
+    },
   },
   library: {
     categories: {

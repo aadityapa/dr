@@ -13,19 +13,19 @@ export const siteConfig = {
     "Warm pediatric occupational therapy in Kandivali West, Mumbai. Dr. Sharuja Sarap helps children and parents feel more confident in the little things that matter every day.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharujasarap.vercel.app",
   email: "sharujasaraf@gmail.com",
-  phone: "+91 9820525197",
-  phoneDisplay: "9820525197",
-  whatsapp: "919820525197",
+  phone: "+91 9820505197",
+  phoneDisplay: "9820505197",
+  whatsapp: "919820505197",
   registrationNumber: "051388",
   experienceYears: 18,
   ageRange: "0 – 14 Years",
   address: {
-    line1: "Manhar Medical And Jeet Child Development Centre",
-    line2: "2-A, Gyan Kutir, S.V.P. Road",
-    line3: "Near Municipal Garden, Kandivali (West)",
+    line1: "Jeet Child Development Centre, Manhar Medical Centre",
+    line2: "Gyan Kutir, Off Subhash Lane, Near Shankar Lane",
+    line3: "Ram Galli, Kandivali, Mumbai, Maharashtra-400067",
     city: "Mumbai",
     postalCode: "400067",
-    full: "Manhar Medical And Jeet Child Development Centre, 2-A, Gyan Kutir, S.V.P. Road, Near Municipal Garden, Kandivali (West), Mumbai – 400067",
+    full: "Jeet Child Development Centre, Manhar Medical Centre, Gyan Kutir, Off Subhash Lane, Near Shankar Lane, Ram Galli, Kandivali, Mumbai, Maharashtra-400067",
   },
   timings: "Mon–Fri 9 AM – 5 PM · Sat 9 AM – 12 PM",
   mapsQuery: "Manhar Medical Jeet Child Development Centre Kandivali West Mumbai",
@@ -771,7 +771,60 @@ export const galleryItems = [
     alt: "Indoor pediatric sensory gym with a platform swing and colorful climbing equipment for motor development",
     image: getSiteImage("sensoryGym"),
   },
+  {
+    title: "Supported Stepping Practice",
+    category: "Child-Friendly Environment",
+    alt: "Child practicing careful stepping on colorful sensory floor pads in the pediatric therapy gym",
+    image: "/images/gallery/sensory-pathway-stepping-practice.jpg",
+  },
+  {
+    title: "Therapist-Guided Balance Play",
+    category: "Therapy Equipment",
+    alt: "Therapist guiding a child through a playful balance and coordination activity with clinic equipment",
+    image: "/images/gallery/therapist-guided-balance-play.jpg",
+  },
+  {
+    title: "Climbing Wall Step Practice",
+    category: "Child-Friendly Environment",
+    alt: "Child practicing movement planning near a colorful climbing wall and sensory stepping pads",
+    image: "/images/gallery/climbing-wall-step-practice.jpg",
+  },
+  {
+    title: "Ring Swing Movement Play",
+    category: "Therapy Room",
+    alt: "Child using a ring swing in a supervised pediatric sensory gym session",
+    image: "/images/gallery/ring-swing-movement-play.jpg",
+  },
+  {
+    title: "Supported Swing Session",
+    category: "Therapy Room",
+    alt: "Therapist supporting a child during a sensory swing activity in the clinic gym",
+    image: "/images/gallery/supported-swing-session.jpg",
+  },
 ];
+
+export const clinicVideos = [
+  {
+    src: "/images/videos/handwriting-board-practice.mp4",
+    poster: getSiteImage("handwritingPractice"),
+    category: "Assessment Area",
+  },
+  {
+    src: "/images/videos/sensory-pathway-guided-play.mp4",
+    poster: getSiteImage("sensoryPath"),
+    category: "Child-Friendly Environment",
+  },
+  {
+    src: "/images/videos/climbing-wall-balance-practice.mp4",
+    poster: getSiteImage("climbingWall"),
+    category: "Child-Friendly Environment",
+  },
+  {
+    src: "/images/videos/sensory-swing-session.mp4",
+    poster: getSiteImage("sensoryGym"),
+    category: "Therapy Room",
+  },
+] as const;
 
 export const seoKeywords = [
   "Pediatric Occupational Therapist Mumbai",

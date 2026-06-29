@@ -28,6 +28,17 @@ images/
 ├── equipment/
 │   ├── sensory-tools.jpg     ← Sensory integration tools
 │   └── fine-motor.jpg        ← Handwriting / fine motor setup
+├── gallery/
+│   ├── sensory-pathway-stepping-practice.jpg
+│   ├── therapist-guided-balance-play.jpg
+│   ├── climbing-wall-step-practice.jpg
+│   ├── ring-swing-movement-play.jpg
+│   └── supported-swing-session.jpg
+├── videos/
+│   ├── handwriting-board-practice.mp4
+│   ├── sensory-pathway-guided-play.mp4
+│   ├── climbing-wall-balance-practice.mp4
+│   └── sensory-swing-session.mp4
 └── therapy/
     ├── sensory-pathway.jpg   ← Child using tactile/sensory pathway
     ├── guided-swing-support.jpg
@@ -41,6 +52,7 @@ images/
 - **Portrait:** Professional, warm background, child-friendly feel
 - **Clinic:** Clean, inviting, show real therapy spaces
 - **Avoid:** Stock photos, heavy filters, blurry images
+- **Videos:** Use short MP4 clips with native controls, no autoplay audio, and a still poster image.
 
 ## After uploading
 

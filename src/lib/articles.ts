@@ -28,7 +28,7 @@ const seedArticles: Article[] = [
       "First, sensory sensitivities that disrupt daily life — extreme reactions to clothing tags, loud sounds, certain food textures, or bright lights — often signal sensory processing difficulties that OT can address. Second, motor delays compared to peers, such as difficulty running, catching a ball, or using scissors, may indicate coordination challenges.",
       "Third, handwriting that remains illegible or painfully slow beyond age 7–8, despite practice, often reflects underlying fine motor or visual-motor issues. Fourth, difficulty with self-care tasks like dressing, buttoning, or feeding independently compared to same-age peers.",
       "Fifth, attention difficulties that affect homework completion and classroom participation — even without an ADHD diagnosis. Sixth, frequent meltdowns or emotional dysregulation that seem triggered by environments, transitions, or sensory input. Seventh, avoidance of play, social activities, or school tasks that peers manage comfortably.",
-      "If you recognize two or more of these signs, a consultation can clarify whether occupational therapy is appropriate. Early intervention at Thrive With Sharuja can prevent secondary issues like low self-esteem and academic disengagement. Call 9820525197 or book online to speak with Dr. Sharuja Sarap.",
+      "If you recognize two or more of these signs, a consultation can clarify whether occupational therapy is appropriate. Early intervention at Thrive With Sharuja can prevent secondary issues like low self-esteem and academic disengagement. Call 9820505197 or book online to speak with Dr. Sharuja Sarap.",
     ],
   },
   {
@@ -96,7 +96,7 @@ const seedArticles: Article[] = [
       "At Thrive With Sharuja, Dr. Sharuja Sarap provides IATF-certified pediatric aquatherapy for families across Mumbai. Aquatic therapy is particularly beneficial for children with low muscle tone, cerebral palsy, motor coordination challenges, and sensory processing difficulties.",
       "Buoyancy supports the body, allowing children to practice movement patterns — kicking, reaching, balancing — that would be difficult or impossible on land. This builds strength, range of motion, and motor planning in a safe, low-fear environment. Many children who resist land-based therapy eagerly engage in water sessions.",
       "Hydrostatic pressure provides constant, evenly distributed sensory input that many children find deeply calming. Combined with the proprioceptive and vestibular input from water movement, aquatic sessions often lead to improved regulation that carries over to land-based activities and daily life.",
-      "Aquatic therapy at Thrive With Sharuja is always fully supervised, adapted to each child's comfort level, and typically combined with land-based OT for comprehensive progress. No swimming ability is required. If you think your child might benefit, contact Dr. Sharuja Sarap at 9820525197 for a consultation.",
+      "Aquatic therapy at Thrive With Sharuja is always fully supervised, adapted to each child's comfort level, and typically combined with land-based OT for comprehensive progress. No swimming ability is required. If you think your child might benefit, contact Dr. Sharuja Sarap at 9820505197 for a consultation.",
     ],
   },
   {
@@ -113,7 +113,7 @@ const seedArticles: Article[] = [
       "Before the visit, talk positively about meeting a friendly doctor who helps children play and learn fun games. Avoid framing it as a test or something is 'wrong.' Use simple language: 'We are going to play some fun games that help your body feel strong and happy.'",
       "Bring previous reports, school feedback, a list of your concerns, and any referral letters. A comfort item — a favorite toy or blanket — is welcome. Both parents are encouraged to attend the initial consultation.",
       "During the first session, Dr. Sharuja Sarap will discuss your concerns, observe your child in a play-based setting, and outline whether a full evaluation or direct therapy is recommended. There is no pressure — the goal is understanding your child's needs and building a relationship.",
-      "After the visit, maintain consistent routines at home and follow any initial recommendations. Progress in OT is a partnership between therapist, child, and family. Book your first consultation by calling 9820525197 or using our online appointment form.",
+      "After the visit, maintain consistent routines at home and follow any initial recommendations. Progress in OT is a partnership between therapist, child, and family. Book your first consultation by calling 9820505197 or using our online appointment form.",
     ],
   },
   {
@@ -147,7 +147,7 @@ const seedArticles: Article[] = [
       "The brain is most adaptable in the first years of life — a concept called neuroplasticity. Neural pathways that form during early childhood lay the foundation for lifelong skills. When intervention begins early, therapy can shape these pathways before compensatory patterns and secondary challenges (low self-esteem, behavioral issues, academic gaps) take hold.",
       "At Thrive With Sharuja, Dr. Sharuja Sarap provides early intervention occupational therapy for children from birth through 14 years in Kandivali West, Mumbai. Assessment identifies specific delayed skill areas — fine motor, gross motor, sensory processing, self-care — and intervention targets them through play-based, child-centered activities.",
       "Parents are active partners in early intervention. Home programs, daily routines, and environmental modifications reinforce clinic progress. Regular progress monitoring ensures goals evolve as your child grows.",
-      "If you notice your child falling behind peers in multiple developmental areas, do not wait for a formal diagnosis to seek support. A consultation with Dr. Sharuja Sarap can begin the intervention process immediately. Call 9820525197 or book online today.",
+      "If you notice your child falling behind peers in multiple developmental areas, do not wait for a formal diagnosis to seek support. A consultation with Dr. Sharuja Sarap can begin the intervention process immediately. Call 9820505197 or book online today.",
     ],
   },
 ];

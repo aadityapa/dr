@@ -34,7 +34,7 @@ export async function POST(request: Request) {
       from: process.env.RESEND_FROM_EMAIL ?? "Clinic <onboarding@resend.dev>",
       to: parsed.data.email,
       subject: `Your free download: ${resource.title}`,
-      text: `Dear ${parsed.data.name},\n\nThank you for downloading "${resource.title}" from Thrive with sharuja.\n\nYour guide is available at: ${siteUrl}/library\n\nIf you have questions about your child's development, book a consultation with Dr. Sharuja Sarap at ${siteUrl}/appointment or call 9820525197.\n\nBelonging Without Boundaries.\nDr. Sharuja Sarap\nThrive with sharuja, Kandivali West, Mumbai`,
+      text: `Dear ${parsed.data.name},\n\nThank you for downloading "${resource.title}" from Thrive with sharuja.\n\nYour guide is available at: ${siteUrl}/library\n\nIf you have questions about your child's development, book a consultation with Dr. Sharuja Sarap at ${siteUrl}/appointment or call 9820505197.\n\nBelonging Without Boundaries.\nDr. Sharuja Sarap\nThrive with sharuja, Kandivali West, Mumbai`,
     });
 
     await resend.emails.send({

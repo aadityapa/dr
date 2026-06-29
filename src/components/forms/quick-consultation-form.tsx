@@ -74,7 +74,7 @@ export function QuickConsultationForm() {
           <label htmlFor="qc-phone" className="mb-1 block text-sm font-medium text-[color:var(--color-sage-dark)]">
             Phone
           </label>
-          <Input id="qc-phone" {...register("phone")} placeholder="9820525197" aria-invalid={!!errors.phone} />
+          <Input id="qc-phone" {...register("phone")} placeholder="9820505197" aria-invalid={!!errors.phone} />
           {errors.phone && <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>}
         </div>
       </div>
@@ -101,7 +101,7 @@ export function QuickConsultationForm() {
         {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : "Request a Call Back"}
       </Button>
       {status === "error" && (
-        <p className="text-center text-sm text-red-600">Something went wrong. Please call 9820525197 directly.</p>
+        <p className="text-center text-sm text-red-600">Something went wrong. Please call 9820505197 directly.</p>
       )}
     </form>
   );

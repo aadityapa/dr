@@ -25,9 +25,10 @@
   },
   "hero": {
     "badge": "बाल वैद्यकीय व्यावसायिक थेरपी · मुंबई",
-    "headline": "तुमचे मूल खूप प्रयत्न करत आहे. रोजच्या छोट्या गोष्टी सोप्या वाटतील अशी आम्ही मदत करतो.",
-    "subheadline": "कपडे घालणे, पेन्सिल धरणे, खेळात सहभागी होणे आणि मित्र बनवणे — आम्ही मुंबईतील कुटुंबांसोबत संयम आणि उबारासह चालतो.",
-    "tagline": "मर्यादांशिवाय अंतःकरण."
+    "headline": "Helping Children Thrive in Everyday Life",
+    "subheadline": "Every child has unique strengths, abilities, and potential. When everyday activities feel challenging, children may need additional support to participate with confidence and independence.",
+    "subheadline2": "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
+    "tagline": "Because every child deserves the opportunity to participate, belong, and thrive."
   },
   "site": {
     "title": "बाल वैद्यकीय व्यावसायिक चिकित्सक",
@@ -242,11 +243,11 @@
       "phoneOptional": "फोन (पर्यायी)",
       "namePlaceholder": "तुमचे नाव",
       "emailPlaceholder": "you@example.com",
-      "phonePlaceholder": "9820525197",
+      "phonePlaceholder": "9820505197",
       "downloadGuide": "मोफत मार्गदर्शक डाउनलोड करा",
       "sending": "पाठवत आहे…",
       "successTemplate": "धन्यवाद! \"{title}\" साठी डाउनलोड लिंक {email} वर पाठवली.",
-      "error": "काहीतरी चूक झाली. कृपया 9820525197 वर कॉल करा किंवा sharujasaraf@gmail.com वर ईमेल करा.",
+      "error": "काहीतरी चूक झाली. कृपया 9820505197 वर कॉल करा किंवा sharujasaraf@gmail.com वर ईमेल करा.",
       "consentNote": "डाउनलोड करून, तुम्ही थ्राइव विथ शरुजा कडून कधीकधी पालक संसाधने मिळवण्यास संमती देता."
     }
   },

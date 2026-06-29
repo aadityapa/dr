@@ -3,16 +3,26 @@ export const homeContent = {
     kicker: "Pediatric Occupational Therapy · Kandivali, Mumbai",
     headline: "Helping Children Thrive in Everyday Life",
     subheadline:
-      "Every child has unique strengths, abilities, and potential. We help families in Mumbai build the skills that make daily life feel calmer, more confident, and more connected.",
-    tagline: "Belonging Without Boundaries.",
+      "Every child has unique strengths, abilities, and potential. When everyday activities feel challenging, children may need additional support to participate with confidence and independence.",
+    subheadline2:
+      "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
+    tagline: "Because every child deserves the opportunity to participate, belong, and thrive.",
   },
   parentsReading: {
-    kicker: "To The Parents Reading This…",
-    title: "You know your child best",
+    kicker: "To the Parents Reading This...",
+    title: "To the Parents Reading This...",
     paragraphs: [
-      "Maybe you've been watching little things — a morning that falls apart, homework that takes forever, a child who seems bright but struggles to keep up. Maybe a teacher mentioned something. Maybe you just feel it in your gut.",
-      "You don't need to have all the answers before you reach out. You don't need a perfect diagnosis or a clear label. If something feels harder than it should for your child — or for you — that's enough to start a conversation.",
-      "We're here to listen first. To meet your child where they are. And to walk with your family, one small step at a time.",
+      "Perhaps you've noticed your child struggling with things that appear effortless for other children. Maybe you've been told to \"wait and see,\" while your heart tells you something doesn't feel quite right.",
+      "You may have spent countless hours searching for answers, attending appointments, reading reports, comparing milestones, or worrying about your child's future.",
+      "You may have wondered: \"Will my child ever catch up?\" \"Will they make friends?\" \"Will they be independent?\" \"Will they be okay?\"",
+      "As parents, these thoughts come from a place of deep love. And while every child's journey is different, one thing remains true—your child is so much more than a diagnosis, a report, or a list of challenges.",
+      "Behind every behavior is a child trying to communicate a need. Behind every struggle is a child with strengths waiting to be discovered. And behind every child is a parent doing the very best they can.",
+      "My role is not simply to provide therapy. It is to help families understand their child more deeply, celebrate progress that others may overlook, and create opportunities for growth, participation, and success.",
+      "Some victories may seem small to the outside world—a child trying a new food, joining a group activity, writing their name, tolerating a haircut, making eye contact, climbing a slide, or expressing a feeling.",
+      "But as parents, you know these moments are never small. They are milestones. They are breakthroughs. They are signs of progress.",
+      "You do not have to walk this journey alone.",
+      "Together, we focus not on what a child cannot do today, but on what they may achieve tomorrow—with support, understanding, patience, and belief in their potential.",
+      "Every child deserves to be understood. Every family deserves to be supported. And every journey deserves hope.",
     ],
   },
   aboutPreview: {

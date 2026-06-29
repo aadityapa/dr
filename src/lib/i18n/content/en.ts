@@ -226,10 +226,10 @@ export const enContent: LocaleContent = {
   conditionDetails: buildConditionDetails(),
   pages: {
     conditionsList: {
-      kicker: "For parents",
-      title: "When something feels harder than it should",
+      kicker: "Conditions We Support",
+      title: "Sometimes, You Just Know Something Feels Different",
       description:
-        "You don't need a diagnosis to have questions. Whether it's meltdowns, handwriting, attention, or simply a gut feeling — we're here to listen and help you understand what support might look like.",
+        "Sometimes the signs are obvious, and sometimes they're subtle. It may be difficulties with attention, emotional regulation, handwriting, coordination, sensory processing, learning, or simply a feeling that your child needs extra support. Whatever your concern, we're here to help you understand your child's needs and explore meaningful ways to support their participation and development.",
       cta: "Start With a Conversation",
     },
     servicesList: {

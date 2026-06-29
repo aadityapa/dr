@@ -31,6 +31,7 @@ export type Messages = {
     badge: string;
     headline: string;
     subheadline: string;
+    subheadline2?: string;
     tagline: string;
   };
   site: {

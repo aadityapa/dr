@@ -33,7 +33,7 @@ export const locationPages: LocationPage[] = [
     localFaqs: [
       { q: "Where exactly is the clinic in Kandivali?", a: "Manhar Medical And Jeet Child Development Centre, 2-A, Gyan Kutir, S.V.P. Road, Near Municipal Garden, Kandivali (West), Mumbai – 400067." },
       { q: "What are the clinic timings?", a: "Monday to Saturday, 9:00 AM – 5:00 PM." },
-      { q: "How do I book an appointment in Kandivali?", a: "Call 9820525197, WhatsApp us, or use the online appointment form." },
+      { q: "How do I book an appointment in Kandivali?", a: "Call 9820505197, WhatsApp us, or use the online appointment form." },
     ],
   },
   {

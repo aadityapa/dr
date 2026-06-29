@@ -59,6 +59,11 @@ export function HeroSection() {
           <p className="hero-sub mt-7 max-w-xl text-lg leading-relaxed text-[color:var(--color-muted)] md:text-xl">
             {copy.subheadline}
           </p>
+          {copy.subheadline2 && (
+            <p className="hero-sub mt-4 max-w-xl text-lg leading-relaxed text-[color:var(--color-muted)] md:text-xl">
+              {copy.subheadline2}
+            </p>
+          )}
           <p className="hero-tagline mt-5 font-[family-name:var(--font-serif)] text-xl italic text-[color:var(--color-terracotta)] md:text-2xl">
             {copy.tagline}
           </p>

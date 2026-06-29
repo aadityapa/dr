@@ -27,10 +27,12 @@ export const en: Messages = {
   },
   hero: {
     badge: "Pediatric Occupational Therapy · Mumbai",
-    headline: "Your child is doing their best. We're here to help the everyday things feel easier.",
+    headline: "Helping Children Thrive in Everyday Life",
     subheadline:
-      "From getting dressed and holding a pencil to joining playtime and making friends — we walk alongside families with warmth, patience, and care.",
-    tagline: "Belonging Without Boundaries.",
+      "Every child has unique strengths, abilities, and potential. When everyday activities feel challenging, children may need additional support to participate with confidence and independence.",
+    subheadline2:
+      "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
+    tagline: "Because every child deserves the opportunity to participate, belong, and thrive.",
   },
   site: {
     title: "Pediatric Occupational Therapist",
@@ -215,11 +217,11 @@ export const en: Messages = {
       phoneOptional: "Phone (optional)",
       namePlaceholder: "Your name",
       emailPlaceholder: "you@example.com",
-      phonePlaceholder: "9820525197",
+      phonePlaceholder: "9820505197",
       downloadGuide: "Download Free Guide",
       sending: "Sending…",
       successTemplate: 'Thank you! Your download link for "{title}" has been sent to {email}.',
-      error: "Something went wrong. Please call 9820525197 or email sharujasaraf@gmail.com.",
+      error: "Something went wrong. Please call 9820505197 or email sharujasaraf@gmail.com.",
       consentNote:
         "By downloading, you agree to receive occasional parent resources from Thrive with sharuja. Unsubscribe anytime.",
     },
