@@ -1,61 +1,63 @@
 export const aboutContent = {
-  hero: {
-    kicker: "About Me",
-    title: "Hello, I'm Sharuja.",
-    description:
-      "Pediatric occupational therapist in Kandivali West, Mumbai — walking alongside children and families for over 18 years.",
-  },
-  intro: {
+  aboutMe: {
+    title: "About Me",
+    greeting: "Hello, I'm Sharuja.",
     paragraphs: [
-      "For over 18 years, I have had the privilege of working with children and families across a wide range of developmental, sensory, learning, and neurological needs. Throughout my professional journey, one thing has remained constant—my passion for helping children participate more confidently in the activities that make childhood meaningful.",
-      "I hold a master's degree in occupational therapy with specialization in Paediatrics and am currently pursuing my PhD, driven by a strong commitment to continuous learning, research, and evidence-based practice. I believe that every child is unique, and understanding their individual strengths, challenges, and potential is the foundation of meaningful intervention.",
-      "I strongly believe that learning never stops. Over the years, I have pursued advanced training in a variety of specialized paediatric approaches, including Brain Gym®, Aquatic Therapy, Reflex Integration, Handwriting Development, Oral Motor Intervention, and other therapeutic techniques that support children's growth and participation. As a Brain Gym® Instructor, I enjoy integrating movement, play, and meaningful experiences into therapy while tailoring intervention to each child's unique strengths, needs, and goals.",
-      "Beyond clinical practice, I actively participate in professional education, research, workshops, conferences, and academic discussions. I have presented professional papers, delivered lectures, and shared insights on topics related to child development, occupational therapy, sensory processing, learning, and family-centered intervention.",
-      "At the heart of my work is a simple belief: every child deserves the opportunity to participate, belong, learn, and grow in their own unique way. My goal is not only to support children in developing skills but also to help families better understand their child's needs and create meaningful opportunities for participation in everyday life.",
+      "For over 18 years, I have had the privilege of working with children and families navigating developmental, sensory, learning, and neurological needs.",
+      "I hold a Master's degree in Occupational Therapy (Pediatrics) and am currently pursuing my PhD. Throughout my career, I have worked with children across a wide range of abilities, and I believe that every child is unique, with their own strengths, challenges, and potential.",
+      "My training includes advanced programs in Brain Gym®, Aquatic Therapy, Reflex Integration, Handwriting Development, and Oral Motor intervention. I am also a certified Brain Gym® Instructor.",
+      "Alongside clinical practice, I have participated in professional education, research, workshops, and conferences, including presenting papers and delivering lectures on child development and occupational therapy.",
+      "At the heart of my work is a simple belief: every child deserves the opportunity to participate, belong, learn, and grow. My goal is to support children in building the skills they need for everyday life while helping families create meaningful opportunities for participation and success.",
     ],
   },
-  highlights: [
-    {
-      title: "18+ Years Experience",
-      description: "Dedicated pediatric practice supporting children and families across Mumbai.",
-    },
-    {
-      title: "Master's in Pediatric OT",
-      description: "Advanced training focused on child development, sensory integration, and family-centred care.",
-    },
-    {
-      title: "Ph.D. Scholar",
-      description: "Ongoing research in how children grow, move, learn, and participate in daily life.",
-    },
-    {
-      title: "Brain Gym Instructor",
-      description: "Certified to use movement-based strategies that support focus, learning readiness, and coordination.",
-    },
-  ],
-  research: {
-    title: "Research & Conference Participation",
-    description:
-      "Dr. Sharuja actively participates in professional conferences and continuing education — bringing evidence-informed practices to every family she supports. She believes learning never stops, especially when it helps children thrive.",
+  inviteSharuja: {
+    title: "Invite Sharuja",
+    paragraphs: [
+      "Child development can feel complex for parents, educators, and professionals. Many people want to understand how children learn, move, regulate emotions, and participate in everyday activities — but may not know where to begin.",
+      "I offer sessions designed to make these concepts easier to understand, connecting research with real-life experiences and practical strategies that can be applied at home, in school, and in everyday life.",
+    ],
+  },
+  availableFor: {
+    title: "Available For",
     items: [
-      "Pediatric occupational therapy conferences",
-      "Sensory integration and reflex integration workshops",
-      "Brain Gym® and movement-based learning seminars",
-      "Parent education and school collaboration programs",
+      "Parent Education Programs",
+      "School Workshops & Awareness Programs",
+      "Professional Development Workshops",
+      "Guest Lectures & Academic Sessions",
+      "Parent Coaching & Guidance Sessions",
+      "Teacher Training Programs",
+      "Conferences, Seminars & Panel Discussions",
+      "Community Awareness Programs",
     ],
   },
-  familyCentered: {
-    title: "Family-Centered Practice",
-    description:
-      "You are part of the therapy team. We set goals together, celebrate wins together, and adjust when life changes. Home strategies are always part of the plan — because progress happens between sessions too.",
-    bullets: [
-      "Parents involved in goal-setting from day one",
-      "Simple home activities you can actually do",
-      "School collaboration when you're ready",
-      "Honest conversations — no jargon overload",
+  expertise: {
+    title: "Areas of Expertise",
+    items: [
+      "Child Development",
+      "Brain Gym®",
+      "Sensory Processing",
+      "School Readiness",
+      "Autism Spectrum Disorder",
+      "ADHD",
+      "Primitive Reflex Integration",
+      "Handwriting Development",
+      "Emotional Regulation",
+      "Aquatic Therapy",
+      "Parent Coaching & Family Support",
+      "Participation & Independence in Everyday Life",
     ],
   },
-  certifications: {
-    title: "Specialised Training",
-    description: "Certifications that support thoughtful, individualised care — not one-size-fits-all programmes.",
+  suitableFor: {
+    title: "Suitable For",
+    items: [
+      "Schools",
+      "Preschools",
+      "Colleges",
+      "Universities",
+      "Hospitals",
+      "Therapy Centres",
+      "Parent Groups",
+      "Healthcare Organisations",
+    ],
   },
 } as const;

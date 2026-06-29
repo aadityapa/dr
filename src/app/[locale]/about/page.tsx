@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 
-import { PageHero } from "@/components/shared/page-hero";
-import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
-import { getAboutContent, getLabels, getPageShells } from "@/lib/i18n/localize";
-import { getCardPastel } from "@/lib/pastel-palette";
+import { getAboutContent, getPageShells } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { getSiteImage } from "@/lib/site-images";
-import { doctorProfile } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale }> };
+
+const headingClass = "text-3xl font-semibold text-[#004d4d] md:text-4xl";
+const bodyClass = "leading-relaxed text-[#4a4a4a]";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -39,132 +33,68 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const about = getAboutContent(locale);
-  const shells = getPageShells(locale);
-  const labels = getLabels(locale);
 
   return (
-    <main>
-      <PageHero kicker={about.hero.kicker} title={about.hero.title} description={about.hero.description}>
-        <Button asChild>
-          <Link href="/appointment">{shells.about.bookConversation}</Link>
-        </Button>
-      </PageHero>
-
-      <Section>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <Reveal>
-            <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
-              <Image
-                src={getSiteImage("doctorPortrait")}
-                alt="Dr. Sharuja Sarap — pediatric occupational therapist in Kandivali, Mumbai"
-                width={600}
-                height={750}
-                sizes="(max-width: 1024px) 100vw, 600px"
-                className="aspect-[4/5] w-full object-cover"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="space-y-4">
-              {about.intro.paragraphs.map((para) => (
-                <p key={para.slice(0, 48)} className="leading-relaxed text-[color:var(--color-muted)]">
-                  {para}
-                </p>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      <Section className="rounded-[2rem] bg-[color:var(--color-almond)]">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {about.highlights.map((item, i) => {
-            const pastel = getCardPastel(i);
-            return (
-              <Reveal key={item.title} delay={i * 0.06}>
-                <div
-                  className="h-full rounded-2xl border p-5"
-                  style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
-                >
-                  <h3 className="font-semibold" style={{ color: pastel.text }}>
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[color:var(--color-muted)]">{item.description}</p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionHeading title={about.research.title} description={about.research.description} center />
-        <ul className="mx-auto mt-8 grid max-w-2xl gap-3">
-          {about.research.items.map((item) => (
-            <li key={item} className="flex items-start gap-2 text-sm text-[color:var(--color-muted)]">
-              <span className="text-[color:var(--color-sage)]">✓</span>
-              {item}
-            </li>
+    <main className="bg-[#f9fbfb]">
+      <Section compact>
+        <h1 className={headingClass}>{about.aboutMe.title}</h1>
+        <p className="mt-4 text-xl font-medium text-[#004d4d] md:text-2xl">{about.aboutMe.greeting}</p>
+        <div className="mt-6 space-y-4">
+          {about.aboutMe.paragraphs.map((para) => (
+            <p key={para.slice(0, 48)} className={bodyClass}>
+              {para}
+            </p>
           ))}
-        </ul>
-      </Section>
-
-      <Section className="rounded-[2rem] bg-[color:var(--color-soft-green)]/30">
-        <SectionHeading
-          title={about.familyCentered.title}
-          description={about.familyCentered.description}
-          center
-        />
-        <ul className="mx-auto mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
-          {about.familyCentered.bullets.map((item) => (
-            <li
-              key={item}
-              className="rounded-xl border border-[color:var(--color-border)]/60 bg-white/80 p-4 text-sm text-[color:var(--color-muted)]"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-10 text-center">
-          <Button asChild variant="outline">
-            <Link href="/invite-sharuja">{shells.about.inviteCta}</Link>
-          </Button>
         </div>
       </Section>
 
-      <Section id="certifications">
-        <SectionHeading
-          kicker={labels.certifications}
-          title={about.certifications.title}
-          description={about.certifications.description}
-          center
-        />
-        <div className="mx-auto mt-10 max-w-4xl">
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {doctorProfile.qualifications.map((item) => (
-              <li
-                key={item}
-                className="rounded-xl border border-[color:var(--color-border)]/60 bg-[color:var(--color-almond)] px-4 py-3 text-sm font-medium text-[color:var(--color-sage-dark)]"
-              >
+      <Section compact>
+        <h2 className={headingClass}>{about.inviteSharuja.title}</h2>
+        <div className="mt-6 space-y-4">
+          {about.inviteSharuja.paragraphs.map((para) => (
+            <p key={para.slice(0, 48)} className={bodyClass}>
+              {para}
+            </p>
+          ))}
+        </div>
+      </Section>
+
+      <Section compact>
+        <div className="rounded-2xl bg-[#e0f2f2] px-6 py-8 md:px-10 md:py-10">
+          <h2 className="text-2xl font-bold text-[#004d4d] md:text-3xl">{about.availableFor.title}</h2>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {about.availableFor.items.map((item) => (
+              <li key={item} className={`flex items-start gap-2.5 text-[#4a4a4a] ${bodyClass}`}>
+                <span className="mt-0.5 shrink-0 text-[#004d4d]" aria-hidden>
+                  ✓
+                </span>
                 {item}
               </li>
             ))}
           </ul>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {doctorProfile.certifications.map((item, i) => {
-              const pastel = getCardPastel(i + 4);
-              return (
-                <Reveal key={item} delay={i * 0.04}>
-                  <li
-                    className="rounded-xl border px-4 py-3 text-sm text-[color:var(--color-muted)]"
-                    style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
-                  >
-                    {item}
-                  </li>
-                </Reveal>
-              );
-            })}
-          </ul>
+        </div>
+      </Section>
+
+      <Section compact className="pb-16 md:pb-24">
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-2xl border border-[#d0e0e0] bg-white px-6 py-8">
+            <h3 className="text-xl font-semibold text-[#004d4d] md:text-2xl">{about.expertise.title}</h3>
+            <ul className="mt-5 space-y-2">
+              {about.expertise.items.map((item) => (
+                <li key={item} className={`flex gap-2 ${bodyClass}`}>
+                  <span className="shrink-0 text-[#004d4d]" aria-hidden>
+                    –
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-[#d0e0e0] bg-white px-6 py-8">
+            <h3 className="text-xl font-semibold text-[#004d4d] md:text-2xl">{about.suitableFor.title}</h3>
+            <p className={`mt-5 ${bodyClass}`}>{about.suitableFor.items.join(" • ")}</p>
+          </div>
         </div>
       </Section>
     </main>
