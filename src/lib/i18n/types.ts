@@ -33,6 +33,8 @@ export type Messages = {
     subheadline: string;
     subheadline2?: string;
     tagline: string;
+    primaryCta?: string;
+    secondaryCta?: string;
   };
   site: {
     title: string;

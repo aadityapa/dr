@@ -69,10 +69,10 @@ export function HeroSection() {
           </p>
           <div className="hero-cta mt-8 flex flex-wrap gap-4">
             <Button asChild size="lg">
-              <Link href="/appointment">{messages.cta.bookConsultation}</Link>
+              <Link href="/appointment">{copy.primaryCta ?? messages.cta.bookConsultation}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/expertise">{messages.cta.exploreServices}</Link>
+              <Link href="/about">{copy.secondaryCta ?? messages.common.learnMore}</Link>
             </Button>
           </div>
         </div>

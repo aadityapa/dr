@@ -33,6 +33,8 @@ export const en: Messages = {
     subheadline2:
       "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
     tagline: "Because every child deserves the opportunity to participate, belong, and thrive.",
+    primaryCta: "Book a Consultation",
+    secondaryCta: "Learn More About Me",
   },
   site: {
     title: "Pediatric Occupational Therapist",

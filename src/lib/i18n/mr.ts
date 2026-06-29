@@ -33,6 +33,8 @@ export const mr: Messages = {
     subheadline2:
       "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
     tagline: "Because every child deserves the opportunity to participate, belong, and thrive.",
+    primaryCta: "सल्ला बुक करा",
+    secondaryCta: "माझ्याबद्दल जाणून घ्या",
   },
   site: {
     title: "बाल वैद्यकीय व्यावसायिक चिकित्सक",
