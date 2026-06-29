@@ -75,7 +75,7 @@ export default async function ConditionDetailPage({ params }: Props) {
       <Section className="pb-16 md:pb-24">
         <div className="mx-auto max-w-4xl space-y-8">
           <ConditionsPillNav activeSlug={slug} />
-          <ConditionDetailCard condition={condition} labels={labels} />
+          <ConditionDetailCard condition={condition} labels={labels} hideTitle />
           <div className="flex flex-wrap gap-3 pt-2">
             <Button asChild size="lg">
               <Link href="/appointment">{labels.bookConsultation}</Link>

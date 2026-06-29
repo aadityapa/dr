@@ -5,6 +5,7 @@ type ConditionDetailCardProps = {
   condition: ClientCondition;
   labels: SharedLabels;
   id?: string;
+  hideTitle?: boolean;
 };
 
 function CategorizedList({
@@ -37,13 +38,15 @@ function CategorizedList({
   );
 }
 
-export function ConditionDetailCard({ condition, labels, id }: ConditionDetailCardProps) {
+export function ConditionDetailCard({ condition, labels, id, hideTitle }: ConditionDetailCardProps) {
   return (
     <article
       id={id}
       className="scroll-mt-28 rounded-2xl border border-[#d0e8e8] bg-white px-6 py-8 shadow-sm md:px-10 md:py-10"
     >
-      <h2 className="text-2xl font-semibold text-[#005B5B] md:text-3xl">{condition.title}</h2>
+      {hideTitle ? null : (
+        <h2 className="text-2xl font-semibold text-[#005B5B] md:text-3xl">{condition.title}</h2>
+      )}
 
       <div className="mt-8">
         <h3 className="text-lg font-medium text-[#3d8f8f] md:text-xl">{condition.understandingHeading}</h3>
