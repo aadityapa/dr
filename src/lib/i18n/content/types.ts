@@ -94,6 +94,10 @@ export type LocaleContent = {
   home: {
     parentsReading: { kicker: string; title: string; paragraphs: string[] };
     aboutPreview: { kicker: string; title: string; bio: string; cta: string };
+    howICanHelp: {
+      title: string;
+      cards: { title: string; text: string; link: string }[];
+    };
     conditionsPreview: { kicker: string; title: string; description: string; cta: string };
     finalCta: { title: string; description: string; primary: string; secondary: string };
     expertiseEcosystem: {

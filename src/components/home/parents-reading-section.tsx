@@ -9,14 +9,14 @@ export function ParentsReadingSection() {
   if (locale !== "en") {
     const copy = content.home.parentsReading;
     return (
-      <section className="w-full bg-white px-4 py-16 md:px-8 md:py-24">
+      <section className="w-full bg-white px-4 py-12 md:px-8 md:py-16">
         <div className="mx-auto max-w-3xl">
           <Reveal>
             <h2 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-4xl">
               {copy.title}
             </h2>
           </Reveal>
-          <div className="mt-8 space-y-5">
+          <div className="mt-6 space-y-4">
             {copy.paragraphs.map((para, i) => (
               <Reveal key={para.slice(0, 40)} delay={0.05 + i * 0.04}>
                 <p className="text-base leading-relaxed text-[color:var(--color-muted)]">{para}</p>
@@ -29,8 +29,8 @@ export function ParentsReadingSection() {
   }
 
   return (
-    <section className="w-full bg-white px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-3xl space-y-6">
+    <section className="w-full bg-white px-4 py-12 md:px-8 md:py-16">
+      <div className="mx-auto max-w-3xl space-y-4">
         <Reveal>
           <h2 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-4xl">
             To the Parents Reading This...
@@ -56,7 +56,7 @@ export function ParentsReadingSection() {
           <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
             You may have wondered:
           </p>
-          <ul className="mt-3 space-y-2 pl-4">
+          <ul className="mt-2 space-y-1.5 pl-4">
             {[
               "Will my child ever catch up?",
               "Will they make friends?",
@@ -82,7 +82,7 @@ export function ParentsReadingSection() {
         </Reveal>
 
         <Reveal delay={0.17}>
-          <blockquote className="rounded-2xl border-l-4 border-[color:var(--color-sage)] bg-[color:var(--color-soft-green)]/30 px-6 py-5">
+          <blockquote className="rounded-2xl border-l-4 border-[color:var(--color-sage)] bg-[color:var(--color-soft-green)]/30 px-5 py-4">
             <p className="text-base leading-relaxed text-[color:var(--color-sage-dark)]">
               Behind every behavior is a child trying to communicate a need.
               <br />
@@ -93,7 +93,7 @@ export function ParentsReadingSection() {
           </blockquote>
         </Reveal>
 
-        <Reveal delay={0.20}>
+        <Reveal delay={0.2}>
           <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
             My role is not simply to provide therapy. It is to help families understand their child
             more deeply, celebrate progress that others may overlook, and create opportunities for
@@ -113,7 +113,7 @@ export function ParentsReadingSection() {
           <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
             But as parents, you know these moments are never small.
           </p>
-          <div className="mt-3 space-y-1 pl-4">
+          <div className="mt-2 space-y-0.5 pl-4">
             <p className="font-[family-name:var(--font-serif)] text-base font-medium text-[color:var(--color-sage-dark)]">
               They are milestones.
             </p>

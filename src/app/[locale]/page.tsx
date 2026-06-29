@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { AboutMeSection } from "@/components/home/about-me-section";
 import { HeroSection } from "@/components/home/hero-section";
-import { ParentsReadingSection } from "@/components/home/parents-reading-section";
 import { HowICanHelpSection } from "@/components/home/how-i-can-help-section";
+import { ParentsReadingSection } from "@/components/home/parents-reading-section";
 import type { AppLocale } from "@/i18n/routing";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
@@ -36,6 +37,7 @@ export default async function Home({ params }: Props) {
       <HeroSection />
       <ParentsReadingSection />
       <HowICanHelpSection />
+      <AboutMeSection />
     </main>
   );
 }
