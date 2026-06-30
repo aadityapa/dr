@@ -1,25 +1,31 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 
-import { ExpertiseBottomCta } from "./expertise-bottom-cta";
 import { Section } from "@/components/shared/section";
 import { useLanguage } from "@/components/providers/language-provider";
 import { expertiseCategories } from "@/lib/client-content/expertise";
 import type { ExpertiseCategory } from "@/lib/expertise-meta";
 
-import { ExpertiseSearchFilter } from "./expertise-search-filter";
-import { ExpertiseTrustSection } from "./expertise-trust-section";
+import { ExpertiseCategoryFilters } from "./category-filters";
+import { ExpertiseHero } from "./hero";
+import { ExpertiseSearchBar } from "./search-bar";
 import type { ExpertisePageProps } from "./expertise-types";
-import { PremiumExpertiseHero } from "./premium-expertise-hero";
-import { filterExpertiseAreas, PremiumExpertiseCard } from "./premium-expertise-card";
+import { filterExpertiseAreas } from "./therapy-card";
 
-const TALL_INDICES = new Set([0, 3, 6]);
+const TherapyGrid = dynamic(() => import("./therapy-grid").then((m) => m.TherapyGrid), {
+  ssr: true,
+});
+const WhyChooseSection = dynamic(() => import("./why-choose").then((m) => m.WhyChooseSection), {
+  ssr: true,
+});
+const ExpertiseCta = dynamic(() => import("./cta").then((m) => m.ExpertiseCta), {
+  ssr: true,
+});
 
 export function ExpertisePageContent({ shells, labels }: ExpertisePageProps) {
   const { locale } = useLanguage();
-  const reduced = useReducedMotion();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState<ExpertiseCategory | "all">("all");
 
@@ -30,55 +36,31 @@ export function ExpertisePageContent({ shells, labels }: ExpertisePageProps) {
 
   return (
     <>
-      <PremiumExpertiseHero shells={shells} />
+      <ExpertiseHero shells={shells} />
 
-      <Section className="bg-[#FAF8F4]/40 pt-8">
-        <ExpertiseSearchFilter
+      <Section className="bg-[#FCFAF8] pt-6 md:pt-10">
+        <ExpertiseSearchBar
           shells={shells}
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
+        />
+        <ExpertiseCategoryFilters
+          shells={shells}
           activeCategory={activeCategory}
           onCategoryChange={setActiveCategory}
         />
-
-        <AnimatePresence mode="wait">
-          {filtered.length > 0 ? (
-            <motion.ul
-              key={`${searchQuery}-${activeCategory}`}
-              className="mx-auto mt-10 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
-              style={{ gridAutoRows: "minmax(12rem, auto)" }}
-              initial={reduced ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              role="list"
-            >
-              {filtered.map((area, index) => (
-                <PremiumExpertiseCard
-                  key={area.slug}
-                  area={area}
-                  index={index}
-                  shells={shells}
-                  tall={TALL_INDICES.has(expertiseCategories.indexOf(area))}
-                />
-              ))}
-            </motion.ul>
-          ) : (
-            <motion.p
-              key="empty"
-              className="mt-12 text-center text-[#666]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              {shells.noResults}
-            </motion.p>
-          )}
-        </AnimatePresence>
+        <TherapyGrid
+          key={`${searchQuery}-${activeCategory}`}
+          areas={filtered}
+          shells={shells}
+          searchQuery={searchQuery}
+          activeCategory={activeCategory}
+          noResults={shells.noResults}
+        />
       </Section>
 
-      <ExpertiseTrustSection shells={shells} />
-      <ExpertiseBottomCta shells={shells} labels={labels} />
+      <WhyChooseSection shells={shells} />
+      <ExpertiseCta shells={shells} labels={labels} />
     </>
   );
 }

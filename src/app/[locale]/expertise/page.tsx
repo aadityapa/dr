@@ -60,7 +60,7 @@ export default async function ExpertisePage({ params }: Props) {
   const labels = getLabels(locale);
 
   return (
-    <main className="bg-[#FFFDF9]">
+    <main className="bg-[#FFFDFB]">
       <JsonLd
         id="expertise-breadcrumb"
         data={breadcrumbSchema([
