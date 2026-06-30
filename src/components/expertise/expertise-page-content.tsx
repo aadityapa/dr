@@ -4,7 +4,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 
 import { ExpertiseBottomCta } from "./expertise-bottom-cta";
-import { ExpertiseProcessTimeline } from "./expertise-process-timeline";
 import { Section } from "@/components/shared/section";
 import { useLanguage } from "@/components/providers/language-provider";
 import { expertiseCategories } from "@/lib/client-content/expertise";
@@ -79,7 +78,6 @@ export function ExpertisePageContent({ shells, labels }: ExpertisePageProps) {
       </Section>
 
       <ExpertiseTrustSection shells={shells} />
-      <ExpertiseProcessTimeline shells={shells} />
       <ExpertiseBottomCta shells={shells} labels={labels} />
     </>
   );
