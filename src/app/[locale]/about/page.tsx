@@ -66,9 +66,6 @@ export default async function AboutPage({ params }: Props) {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="space-y-4">
-              <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)] md:text-3xl">
-                {about.aboutMe.greeting}
-              </h2>
               {about.aboutMe.paragraphs.map((para) => (
                 <p key={para.slice(0, 48)} className="leading-relaxed text-[color:var(--color-muted)]">
                   {para}

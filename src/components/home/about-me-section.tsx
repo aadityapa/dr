@@ -31,9 +31,6 @@ export function AboutMeSection() {
 
         <div>
           <Reveal>
-            <h2 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-4xl">
-              {copy.title}
-            </h2>
             {copy.credentials.length > 0 ? (
               <ul className="mt-4 space-y-1 text-base leading-relaxed text-[color:var(--color-muted)]">
                 {copy.credentials.map((line) => (
