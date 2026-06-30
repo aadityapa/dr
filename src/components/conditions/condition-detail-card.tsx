@@ -45,7 +45,7 @@ export function ConditionDetailCard({ condition, labels, id, hideTitle }: Condit
   return (
     <article
       id={id}
-      className="scroll-mt-28 rounded-2xl border border-[color:var(--color-border)]/60 bg-white px-6 py-8 shadow-sm md:px-10 md:py-10"
+      className="scroll-mt-28 rounded-[1.75rem] border border-white/60 bg-white/70 px-6 py-8 shadow-lg shadow-[#4A9B73]/5 backdrop-blur-md md:px-10 md:py-10"
     >
       {hideTitle ? null : (
         <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)] md:text-3xl">

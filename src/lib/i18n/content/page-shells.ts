@@ -29,6 +29,38 @@ export type PageShells = {
   invite: PageShell;
   locations: PageShell & { breadcrumb: string };
   expertiseList: PageShell;
+  conditions: {
+    heroBadge: string;
+    illustrationCaption: string;
+    illustrationSubcaption: string;
+    trustBadges: [string, string, string];
+    searchPlaceholder: string;
+    clearSearch: string;
+    filterLabel: string;
+    filterAll: string;
+    noResults: string;
+    categories: {
+      development: string;
+      sensory: string;
+      motor: string;
+      neurological: string;
+      learning: string;
+      behavioral: string;
+    };
+    therapyFocusLabel: string;
+    therapyFocus: Record<string, string>;
+    trustKicker: string;
+    trustTitle: string;
+    trustCards: [{ title: string; description: string }, { title: string; description: string }, { title: string; description: string }];
+    processKicker: string;
+    processTitle: string;
+    processSteps: [string, string, string, string, string];
+    processStepDescriptions: [string, string, string, string, string];
+    ctaTitle: string;
+    ctaDescription: string;
+    callCta: string;
+    whatsappCta: string;
+  };
   about: Omit<PageShell, "title" | "description"> & {
     title: string;
     description: string;
@@ -195,6 +227,76 @@ const en: PageShells = {
     title: "How we support growth and participation",
     description:
       "Evidence-informed approaches tailored to each child's strengths — explained in plain language for Mumbai families.",
+  },
+  conditions: {
+    heroBadge: "Supporting Every Child's Journey",
+    illustrationCaption: "Every child is unique",
+    illustrationSubcaption: "Personalised, evidence-based pediatric OT",
+    trustBadges: ["Early Identification", "Evidence-Based Therapy", "Individual Care Plans"],
+    searchPlaceholder: "Search conditions…",
+    clearSearch: "Clear search",
+    filterLabel: "Filter by category",
+    filterAll: "All",
+    noResults: "No conditions match your search. Try a different term or category.",
+    categories: {
+      development: "Development",
+      sensory: "Sensory",
+      motor: "Motor",
+      neurological: "Neurological",
+      learning: "Learning",
+      behavioral: "Behavioral",
+    },
+    therapyFocusLabel: "Therapy Focus",
+    therapyFocus: {
+      "autism-spectrum-disorder": "Sensory & Social",
+      adhd: "Executive Function",
+      "cerebral-palsy": "Motor & Independence",
+      "developmental-delay": "Foundational Skills",
+      "sensory-processing-difficulties": "Sensory Regulation",
+      "learning-difficulties": "Academic Skills",
+      "motor-coordination-challenges": "Motor Planning",
+      "handwriting-difficulties": "Fine Motor & Writing",
+      "attention-difficulties": "Focus & Regulation",
+    },
+    trustKicker: "Early Intervention",
+    trustTitle: "Why Early Intervention Matters",
+    trustCards: [
+      {
+        title: "Earlier Support",
+        description:
+          "Recognising concerns early opens more opportunities for skill-building during the years when children's brains are most adaptable.",
+      },
+      {
+        title: "Better Outcomes",
+        description:
+          "Targeted therapy during key developmental windows helps children participate more confidently in school, play, and daily routines.",
+      },
+      {
+        title: "Family Guidance",
+        description:
+          "Parents receive practical strategies and warm support — so progress continues beyond the clinic into everyday life at home.",
+      },
+    ],
+    processKicker: "Our Approach",
+    processTitle: "The Therapy Process",
+    processSteps: [
+      "Assessment",
+      "Personalised Plan",
+      "Therapy Sessions",
+      "Home Program",
+      "Progress Review",
+    ],
+    processStepDescriptions: [
+      "A warm first visit to understand your child's strengths, needs, and daily routines.",
+      "A tailored plan built around your child's goals and your family's priorities.",
+      "Play-based, evidence-informed sessions in our child-friendly Kandivali clinic.",
+      "Practical activities and strategies you can weave into everyday life at home.",
+      "Regular check-ins to celebrate progress and adjust support as your child grows.",
+    ],
+    ctaTitle: "Let's Support Your Child Together",
+    ctaDescription: `Book a consultation with ${siteConfig.doctorName} at our Kandivali West clinic.`,
+    callCta: "Call Us",
+    whatsappCta: "WhatsApp",
   },
   about: {
     metaTitle: "About Dr. Sharuja Sarap",
@@ -383,6 +485,76 @@ const hi: PageShells = {
     title: "हम विकास और भागीदारी को कैसे सहारा देते हैं",
     description: "हर बच्चे की ताकत के अनुसार साक्ष्य-सूचित दृष्टिकोण — मुंबई के परिवारों के लिए सादी भाषा में।",
   },
+  conditions: {
+    heroBadge: "हर बच्चे की यात्रा का साथ",
+    illustrationCaption: "हर बच्चा अनोखा है",
+    illustrationSubcaption: "व्यक्तिगत, साक्ष्य-आधारित बाल OT",
+    trustBadges: ["शीघ्र पहचान", "साक्ष्य-आधारित थेरेपी", "व्यक्तिगत देखभाल योजनाएँ"],
+    searchPlaceholder: "स्थितियाँ खोजें…",
+    clearSearch: "खोज साफ़ करें",
+    filterLabel: "श्रेणी से फ़िल्टर करें",
+    filterAll: "सभी",
+    noResults: "कोई स्थिति आपकी खोज से मेल नहीं खाती। दूसरा शब्द या श्रेणी आज़माएँ।",
+    categories: {
+      development: "विकास",
+      sensory: "संवेदी",
+      motor: "मोटर",
+      neurological: "न्यूरोलॉजिकल",
+      learning: "सीखना",
+      behavioral: "व्यवहार",
+    },
+    therapyFocusLabel: "थेरेपी फ़ोकस",
+    therapyFocus: {
+      "autism-spectrum-disorder": "संवेदी और सामाजिक",
+      adhd: "कार्यकारी कार्य",
+      "cerebral-palsy": "मोटर और स्वतंत्रता",
+      "developmental-delay": "मूलभूत कौशल",
+      "sensory-processing-difficulties": "संवेदी नियमन",
+      "learning-difficulties": "शैक्षणिक कौशल",
+      "motor-coordination-challenges": "मोटर योजना",
+      "handwriting-difficulties": "सूक्ष्म मोटर और लेखन",
+      "attention-difficulties": "ध्यान और नियमन",
+    },
+    trustKicker: "शीघ्र हस्तक्षेप",
+    trustTitle: "शीघ्र हस्तक्षेप क्यों महत्वपूर्ण है",
+    trustCards: [
+      {
+        title: "पहले सहायता",
+        description:
+          "चिंताओं को जल्दी पहचानने से उन वर्षों में कौशल विकास के अधिक अवसर मिलते हैं जब बच्चों का मस्तिष्क सबसे अनुकूलनीय होता है।",
+      },
+      {
+        title: "बेहतर परिणाम",
+        description:
+          "मुख्य विकासात्मक अवधि में लक्षित थेरेपी बच्चों को स्कूल, खेल और दैनिक दिनचर्या में अधिक आत्मविश्वास से भाग लेने में मदद करती है।",
+      },
+      {
+        title: "परिवार मार्गदर्शन",
+        description:
+          "माता-पिता को व्यावहारिक रणनीतियाँ और गर्म सहायता मिलती है — ताकि प्रगति क्लिनिक से परे घर की रोज़मर्रा की ज़िंदगी में जारी रहे।",
+      },
+    ],
+    processKicker: "हमारा दृष्टिकोण",
+    processTitle: "थेरेपी प्रक्रिया",
+    processSteps: [
+      "मूल्यांकन",
+      "व्यक्तिगत योजना",
+      "थेरेपी सत्र",
+      "घरेलू कार्यक्रम",
+      "प्रगति समीक्षा",
+    ],
+    processStepDescriptions: [
+      "आपके बच्चे की ताकत, ज़रूरतों और दैनिक दिनचर्या को समझने के लिए एक गर्म पहली मुलाकात।",
+      "आपके बच्चे के लक्ष्यों और परिवार की प्राथमिकताओं के आसपास एक अनुकूलित योजना।",
+      "हमारे बच्चों के अनुकूल कांदिवली क्लिनिक में खेल-आधारित, साक्ष्य-सूचित सत्र।",
+      "व्यावहारिक गतिविधियाँ और रणनीतियाँ जिन्हें आप घर की रोज़मर्रा की ज़िंदगी में शामिल कर सकते हैं।",
+      "प्रगति का जश्न मनाने और बच्चे के बढ़ने के साथ सहायता समायोजित करने के लिए नियमित जाँच।",
+    ],
+    ctaTitle: "आइए मिलकर आपके बच्चे का साथ दें",
+    ctaDescription: `कांदिवली क्लिनिक में ${siteConfig.doctorName} के साथ परामर्श बुक करें।`,
+    callCta: "कॉल करें",
+    whatsappCta: "WhatsApp",
+  },
   about: {
     metaTitle: "डॉ. शारुजा सराफ के बारे में",
     metaDescription: "कांदिवली में बाल OT — 18+ वर्षों से बच्चों और परिवारों की सेवा।",
@@ -500,6 +672,66 @@ const mr: PageShells = {
     title: "पालक विचारतात ते प्रश्न",
     searchPlaceholder: "प्रश्न शोधा...",
     noResults: "कोणतेही प्रश्न सापडले नाहीत.",
+  },
+  conditions: {
+    ...hi.conditions,
+    heroBadge: "प्रत्येक मुलाच्या प्रवासास साथ",
+    illustrationCaption: "प्रत्येक मूल अद्वितीय आहे",
+    illustrationSubcaption: "वैयक्तिक, पुरावा-आधारित बाल OT",
+    trustBadges: ["लवकर ओळख", "पुरावा-आधारित थेरपी", "वैयक्तिक काळजी योजना"],
+    searchPlaceholder: "स्थिती शोधा…",
+    clearSearch: "शोध साफ करा",
+    filterLabel: "श्रेणीनुसार फिल्टर करा",
+    filterAll: "सर्व",
+    noResults: "कोणतीही स्थिती तुमच्या शोधाशी जुळत नाही. दुसरा शब्द किंवा श्रेणी वापरून पहा.",
+    categories: {
+      development: "विकास",
+      sensory: "संवेदी",
+      motor: "मोटर",
+      neurological: "न्यूरोलॉजिकल",
+      learning: "शिकणे",
+      behavioral: "वर्तन",
+    },
+    therapyFocusLabel: "थेरपी फोकस",
+    trustKicker: "लवकर हस्तक्षेप",
+    trustTitle: "लवकर हस्तक्षेप का महत्त्वाचा आहे",
+    trustCards: [
+      {
+        title: "लवकर मदत",
+        description:
+          "चिंता लवकर ओळखल्यास मुलांचे मेंदू सर्वात अनुकूल असताना कौशल्ये विकसित करण्याची अधिक संधी मिळते.",
+      },
+      {
+        title: "चांगले परिणाम",
+        description:
+          "मुख्य विकासाच्या टप्प्यात लक्ष्यित थेरपी मुलांना शाळा, खेळ आणि दैनंदिन दिनचर्येत अधिक आत्मविश्वासाने सहभागी होण्यास मदत करते.",
+      },
+      {
+        title: "कुटुंब मार्गदर्शन",
+        description:
+          "पालकांना व्यावहारिक धोरणे आणि उबदार आधार मिळतो — जेणेकरून प्रगती क्लिनिकच्या बाहेर घरातील रोजच्या जीवनात सुरू राहते.",
+      },
+    ],
+    processKicker: "आमचा दृष्टिकोन",
+    processTitle: "थेरपी प्रक्रिया",
+    processSteps: [
+      "मूल्यांकन",
+      "वैयक्तिक योजना",
+      "थेरपी सत्रे",
+      "घरातील कार्यक्रम",
+      "प्रगती पुनरावलोकन",
+    ],
+    processStepDescriptions: [
+      "तुमच्या मुलाची ताकद, गरजा आणि दैनंदिन दिनचर्या समजण्यासाठी उबदार पहिली भेट.",
+      "तुमच्या मुलाच्या ध्येयांभोवती आणि कुटुंबाच्या प्राधान्यांभोवती तयार केलेली योजना.",
+      "आमच्या मुलांसाठी अनुकूल कांदिवली क्लिनिकमध्ये खेळ-आधारित, पुरावा-आधारित सत्रे.",
+      "घरातील रोजच्या जीवनात समाविष्ट करता येणाऱ्या व्यावहारिक क्रियाकलाप आणि धोरणे.",
+      "प्रगती साजरी करण्यासाठी आणि मूल वाढत असताना मदत समायोजित करण्यासाठी नियमित तपासणी.",
+    ],
+    ctaTitle: "चला एकत्र तुमच्या मुलाला आधार देऊया",
+    ctaDescription: `कांदिवली क्लिनिकमध्ये ${siteConfig.doctorName} यांच्यासोबत सल्ला बुक करा.`,
+    callCta: "कॉल करा",
+    whatsappCta: "WhatsApp",
   },
   about: {
     ...hi.about,
