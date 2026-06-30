@@ -35,6 +35,42 @@ export type PageShells = {
     credentials: string[];
     bookConversation: string;
     inviteCta: string;
+    sections: {
+      heroBadge: string;
+      watchJourney: string;
+      missionKicker: string;
+      missionTitle: string;
+      journeyKicker: string;
+      journeyTitle: string;
+      journeySteps: [string, string, string, string];
+      trustKicker: string;
+      trustTitle: string;
+      statsKicker: string;
+      statsTitle: string;
+      statLabels: {
+        years: string;
+        expertise: string;
+        programs: string;
+        partners: string;
+      };
+      certificationsTitle: string;
+      certificationsDescription: string;
+      clinicTitle: string;
+      clinicDescription: string;
+      testimonialsKicker: string;
+      testimonialsTitle: string;
+      testimonialsDescription: string;
+      faqKicker: string;
+      faqTitle: string;
+      faqDescription: string;
+      browseAllFaqs: string;
+      ctaTitle: string;
+      ctaDescription: string;
+      callCta: string;
+      whatsappCta: string;
+      readMoreStories: string;
+      viewGallery: string;
+    };
   };
   articleFooter: { title: string; description: string; book: string; more: string };
   geoFaqs: {
@@ -174,6 +210,49 @@ const en: PageShells = {
     ],
     bookConversation: "Book a Conversation",
     inviteCta: "Invite Sharuja to Your Program",
+    sections: {
+      heroBadge: "Meet Your Therapist",
+      watchJourney: "Watch My Journey",
+      missionKicker: "Philosophy",
+      missionTitle: "My Mission",
+      journeyKicker: "Background",
+      journeyTitle: "My Journey",
+      journeySteps: [
+        "Years of Clinical Practice",
+        "Academic Foundation",
+        "Specialized Training",
+        "Research & Community",
+      ],
+      trustKicker: "Family-Centered Care",
+      trustTitle: "Why Parents Trust Me",
+      statsKicker: "Experience",
+      statsTitle: "Numbers That Reflect Real Work",
+      statLabels: {
+        years: "Years of Experience",
+        expertise: "Areas of Expertise",
+        programs: "Program Types",
+        partners: "Partner Settings",
+      },
+      certificationsTitle: "Certifications & Training",
+      certificationsDescription:
+        "Advanced international certifications woven into evidence-based pediatric care.",
+      clinicTitle: "A Day At My Clinic",
+      clinicDescription:
+        "Warm, child-friendly spaces designed for play-led therapy and confident participation.",
+      testimonialsKicker: "Family Stories",
+      testimonialsTitle: "What Parents Say",
+      testimonialsDescription: "Real stories from families who found hope, support, and meaningful growth.",
+      faqKicker: "Questions",
+      faqTitle: "Common Questions About Me",
+      faqDescription: "Honest answers about working with Dr. Sharuja Sarap.",
+      browseAllFaqs: "Browse All FAQs",
+      ctaTitle: "Ready to take the next step?",
+      ctaDescription: `Book a consultation with ${siteConfig.doctorName} at our Kandivali West clinic.`,
+      callCta: "Call Us",
+      whatsappCta: "WhatsApp",
+      readMoreStories: "Read More Stories",
+      viewGallery: "View Full Gallery",
+    },
   },
   articleFooter: {
     title: "Ready to take the next step?",
@@ -318,6 +397,49 @@ const hi: PageShells = {
     ],
     bookConversation: "बातचीत बुक करें",
     inviteCta: "अपने कार्यक्रम में शारुजा को आमंत्रित करें",
+    sections: {
+      heroBadge: "अपनी थेरेपिस्ट से मिलें",
+      watchJourney: "मेरी यात्रा देखें",
+      missionKicker: "दर्शन",
+      missionTitle: "मेरा मिशन",
+      journeyKicker: "पृष्ठभूमि",
+      journeyTitle: "मेरी यात्रा",
+      journeySteps: [
+        "वर्षों का नैदानिक अभ्यास",
+        "शैक्षणिक आधार",
+        "विशेष प्रशिक्षण",
+        "अनुसंधान और समुदाय",
+      ],
+      trustKicker: "परिवार-केंद्रित देखभाल",
+      trustTitle: "माता-पिता मुझ पर क्यों भरोसा करते हैं",
+      statsKicker: "अनुभव",
+      statsTitle: "वास्तविक काम को दर्शाने वाले आँकड़े",
+      statLabels: {
+        years: "वर्षों का अनुभव",
+        expertise: "विशेषज्ञता के क्षेत्र",
+        programs: "कार्यक्रम प्रकार",
+        partners: "साझेदार सेटिंग्स",
+      },
+      certificationsTitle: "प्रमाणपत्र और प्रशिक्षण",
+      certificationsDescription:
+        "साक्ष्य-आधारित बाल देखभाल में उन्नत अंतर्राष्ट्रीय प्रमाणपत्र।",
+      clinicTitle: "मेरे क्लिनिक में एक दिन",
+      clinicDescription:
+        "खेल-आधारित थेरेपी और आत्मविश्वास भरी भागीदारी के लिए बनाए गए गर्म, बच्चों के अनुकूल स्थान।",
+      testimonialsKicker: "परिवार की कहानियाँ",
+      testimonialsTitle: "माता-पिता क्या कहते हैं",
+      testimonialsDescription: "उन परिवारों की वास्तविक कहानियाँ जिन्होंने आशा, सहारा और सार्थक विकास पाया।",
+      faqKicker: "प्रश्न",
+      faqTitle: "मेरे बारे में सामान्य प्रश्न",
+      faqDescription: "डॉ. शारुजा सराफ के साथ काम करने के बारे में ईमानदार जवाब।",
+      browseAllFaqs: "सभी FAQs देखें",
+      ctaTitle: "अगला कदम उठाने के लिए तैयार?",
+      ctaDescription: `कांदिवली क्लिनिक में ${siteConfig.doctorName} के साथ परामर्श बुक करें।`,
+      callCta: "कॉल करें",
+      whatsappCta: "WhatsApp",
+      readMoreStories: "और कहानियाँ पढ़ें",
+      viewGallery: "पूरी गैलरी देखें",
+    },
   },
   articleFooter: {
     title: "अगला कदम उठाने के लिए तैयार?",
@@ -391,6 +513,49 @@ const mr: PageShells = {
     ],
     bookConversation: "संभाषण बुक करा",
     inviteCta: "तुमच्या कार्यक्रमात शरुजा आमंत्रित करा",
+    sections: {
+      heroBadge: "तुमच्या थेरपिस्टला भेटा",
+      watchJourney: "माझा प्रवास पहा",
+      missionKicker: "तत्त्वज्ञान",
+      missionTitle: "माझे ध्येय",
+      journeyKicker: "पार्श्वभूमी",
+      journeyTitle: "माझा प्रवास",
+      journeySteps: [
+        "वर्षांचा नैदानिक सराव",
+        "शैक्षणिक पाया",
+        "विशेष प्रशिक्षण",
+        "संशोधन आणि समुदाय",
+      ],
+      trustKicker: "कुटुंब-केंद्रित काळजी",
+      trustTitle: "पालक माझ्यावर का विश्वास ठेवतात",
+      statsKicker: "अनुभव",
+      statsTitle: "वास्तविक काम दर्शवणारे आकडे",
+      statLabels: {
+        years: "वर्षांचा अनुभव",
+        expertise: "तज्ज्ञतेची क्षेत्रे",
+        programs: "कार्यक्रम प्रकार",
+        partners: "भागीदार सेटिंग्ज",
+      },
+      certificationsTitle: "प्रमाणपत्रे आणि प्रशिक्षण",
+      certificationsDescription:
+        "पुरावा-आधारित बाल काळजीमध्ये प्रगत आंतरराष्ट्रीय प्रमाणपत्रे.",
+      clinicTitle: "माझ्या क्लिनिकमध्ये एक दिवस",
+      clinicDescription:
+        "खेळ-आधारित थेरपी आणि आत्मविश्वासपूर्ण सहभागासाठी तयार केलेली उबदार, मुलांसाठी अनुकूल जागा.",
+      testimonialsKicker: "कुटुंबाच्या कथा",
+      testimonialsTitle: "पालक काय म्हणतात",
+      testimonialsDescription: "आशा, आधार आणि अर्थपूर्ण प्रगती मिळवलेल्या कुटुंबांच्या खऱ्या कथा.",
+      faqKicker: "प्रश्न",
+      faqTitle: "माझ्याबद्दल सामान्य प्रश्न",
+      faqDescription: "डॉ. शरुजा सराफ यांच्यासोबत काम करण्याबद्दल प्रामाणिक उत्तरे.",
+      browseAllFaqs: "सर्व FAQs पहा",
+      ctaTitle: "पुढचा पाऊल उचलण्यास तयार?",
+      ctaDescription: `कांदिवली क्लिनिकमध्ये ${siteConfig.doctorName} यांच्यासोबत सल्ला बुक करा.`,
+      callCta: "कॉल करा",
+      whatsappCta: "WhatsApp",
+      readMoreStories: "अधिक कथा वाचा",
+      viewGallery: "संपूर्ण गॅलरी पहा",
+    },
   },
   articleFooter: {
     title: "पुढचा पाऊल उचलण्यास तयार?",
