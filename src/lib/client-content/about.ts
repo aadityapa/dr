@@ -1,7 +1,13 @@
 export const aboutContent = {
   aboutMe: {
     title: "About Me",
-    greeting: "Hello, I'm Sharuja.",
+    greeting: "Hello,",
+    credentials: [
+      "I am Dr. Sharuja",
+      "Paediatric occupational therapist",
+      "Aquatic therapist",
+      "Brain gym instructor",
+    ],
     paragraphs: [
       "I am an occupational therapist with over 18 years of experience supporting children with developmental, sensory, and neurological needs. My work focuses on helping children participate confidently in everyday activities at home, school, and in the community.",
       "I hold a Master's degree in occupational therapy with a specialization in pediatrics and am currently pursuing my PhD. My academic and clinical background allows me to combine evidence-based practice with practical, family-centered intervention.",

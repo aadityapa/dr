@@ -36,6 +36,9 @@ export function AboutPreviewSection() {
             <p className="text-xs font-semibold uppercase tracking-widest text-[color:var(--color-terracotta)]">
               {copy.kicker}
             </p>
+            <h2 className="mt-3 font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)] md:text-4xl">
+              {copy.title}
+            </h2>
             {copy.credentials.length > 0 ? (
               <ul className="mt-4 max-w-prose space-y-1 leading-relaxed text-[color:var(--color-muted)]">
                 {copy.credentials.map((line) => (

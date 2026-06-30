@@ -63,9 +63,10 @@ export const hiHomeContent: LocaleContent["home"] = {
   },
   aboutPreview: {
     kicker: "मेरे बारे में",
-    title: "नमस्ते, मैं डॉ. शारुजा हूँ",
+    title: "नमस्ते,",
     bio: "",
     credentials: [
+      "मैं डॉ. शारुजा हूँ",
       "बाल चिकित्सा व्यावसायिक चिकित्सक",
       "जल चिकित्सक",
       "Brain gym प्रशिक्षक",
@@ -159,9 +160,10 @@ export const mrHomeContent: LocaleContent["home"] = {
   },
   aboutPreview: {
     kicker: "माझ्याबद्दल",
-    title: "नमस्कार, मी डॉ. शरुजा आहे",
+    title: "नमस्कार,",
     bio: "",
     credentials: [
+      "मी डॉ. शरुजा आहे",
       "बाल वैद्यकीय व्यावसायिक थेरपिस्ट",
       "जल चिकित्सक",
       "Brain gym प्रशिक्षक",

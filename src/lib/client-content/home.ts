@@ -27,9 +27,10 @@ export const homeContent = {
   },
   aboutPreview: {
     kicker: "About Me",
-    title: "Hello, I'm Dr. Sharuja",
+    title: "Hello,",
     bio: "",
     credentials: [
+      "I am Dr. Sharuja",
       "Paediatric occupational therapist",
       "Aquatic therapist",
       "Brain gym instructor",
