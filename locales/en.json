@@ -560,9 +560,14 @@
       },
       "aboutPreview": {
         "kicker": "About Me",
-        "title": "Meet Dr. Sharuja Sarap",
-        "bio": "With over 18 years of experience, Dr. Sharuja Sarap is a PhD-qualified pediatric occupational therapist and certified Brain Gym® instructor serving families in Kandivali, Mumbai. She partners with children and parents to build everyday skills with warmth, patience, and evidence-based care.",
-        "cta": "Learn More About Me"
+        "title": "Hello, I'm Dr. Sharuja",
+        "bio": "",
+        "credentials": [
+          "Paediatric occupational therapist",
+          "Aquatic therapist",
+          "Brain gym instructor"
+        ],
+        "cta": "Book a Conversation"
       },
       "howICanHelp": {
         "title": "How I Can Help",

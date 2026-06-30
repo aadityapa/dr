@@ -17,6 +17,7 @@ export function buildHomeLocaleContent(): LocaleContent["home"] {
       kicker: homeContent.aboutPreview.kicker,
       title: homeContent.aboutPreview.title,
       bio: homeContent.aboutPreview.bio,
+      credentials: [...homeContent.aboutPreview.credentials],
       cta: homeContent.aboutPreview.cta,
     },
     howICanHelp: {
@@ -62,9 +63,14 @@ export const hiHomeContent: LocaleContent["home"] = {
   },
   aboutPreview: {
     kicker: "मेरे बारे में",
-    title: "डॉ. शारुजा सराफ से मिलें",
-    bio: "18 से अधिक वर्षों के अनुभव के साथ, डॉ. शारुजा सराफ एक PhD योग्य बाल चिकित्सा व्यावसायिक चिकित्सक और प्रमाणित Brain Gym® प्रशिक्षक हैं, जो कांदिवली, मुंबई में परिवारों की सेवा करती हैं। वे बच्चों और माता-पिता के साथ मिलकर रोज़मर्रा के कौशल बनाती हैं।",
-    cta: "मेरे बारे में और जानें",
+    title: "नमस्ते, मैं डॉ. शारुजा हूँ",
+    bio: "",
+    credentials: [
+      "बाल चिकित्सा व्यावसायिक चिकित्सक",
+      "जल चिकित्सक",
+      "Brain gym प्रशिक्षक",
+    ],
+    cta: "बातचीत बुक करें",
   },
   howICanHelp: {
     title: "मैं कैसे मदद कर सकती हूँ",
@@ -153,9 +159,14 @@ export const mrHomeContent: LocaleContent["home"] = {
   },
   aboutPreview: {
     kicker: "माझ्याबद्दल",
-    title: "डॉ. शरुजा सराफ यांची ओळख",
-    bio: "१८ वर्षांहून अधिक अनुभवासह, डॉ. शरुजा सराफ ह्या PhD पात्र बाल वैद्यकीय व्यावसायिक थेरपिस्ट आणि प्रमाणित Brain Gym® प्रशिक्षक आहेत, ज्या कांदिवली, मुंबईतील कुटुंबांना सेवा देतात. त्या मुलांसोबत आणि पालकांसोबत रोजचे कौशल्य विकसित करतात.",
-    cta: "माझ्याबद्दल अधिक जाणून घ्या",
+    title: "नमस्कार, मी डॉ. शरुजा आहे",
+    bio: "",
+    credentials: [
+      "बाल वैद्यकीय व्यावसायिक थेरपिस्ट",
+      "जल चिकित्सक",
+      "Brain gym प्रशिक्षक",
+    ],
+    cta: "संभाषण बुक करा",
   },
   howICanHelp: {
     title: "मी कशी मदत करू शकते",

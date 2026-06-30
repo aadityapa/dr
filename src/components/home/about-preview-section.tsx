@@ -39,7 +39,15 @@ export function AboutPreviewSection() {
             <h2 className="mt-3 font-[family-name:var(--font-serif)] text-3xl text-[color:var(--color-sage-dark)] md:text-4xl">
               {copy.title}
             </h2>
-            <p className="mt-4 max-w-prose leading-relaxed text-[color:var(--color-muted)]">{copy.bio}</p>
+            {copy.credentials.length > 0 ? (
+              <ul className="mt-4 max-w-prose space-y-1 leading-relaxed text-[color:var(--color-muted)]">
+                {copy.credentials.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-4 max-w-prose leading-relaxed text-[color:var(--color-muted)]">{copy.bio}</p>
+            )}
           </Reveal>
 
           <Reveal delay={0.1} className="mt-8">

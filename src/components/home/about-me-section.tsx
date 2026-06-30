@@ -34,7 +34,15 @@ export function AboutMeSection() {
             <h2 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-4xl">
               {copy.title}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-[color:var(--color-muted)]">{copy.bio}</p>
+            {copy.credentials.length > 0 ? (
+              <ul className="mt-4 space-y-1 text-base leading-relaxed text-[color:var(--color-muted)]">
+                {copy.credentials.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-4 text-base leading-relaxed text-[color:var(--color-muted)]">{copy.bio}</p>
+            )}
           </Reveal>
 
           <Reveal delay={0.08} className="mt-5">

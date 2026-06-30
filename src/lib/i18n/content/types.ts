@@ -93,7 +93,7 @@ export type LocaleContent = {
   heroCard: { years: string; subtitle: string };
   home: {
     parentsReading: { kicker: string; title: string; paragraphs: string[] };
-    aboutPreview: { kicker: string; title: string; bio: string; cta: string };
+    aboutPreview: { kicker: string; title: string; bio: string; credentials: string[]; cta: string };
     howICanHelp: {
       title: string;
       cards: { title: string; text: string; link: string }[];
