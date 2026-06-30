@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { Reveal } from "@/components/shared/reveal";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { useLanguage } from "@/components/providers/language-provider";
 import { getSiteImage } from "@/lib/site-images";
@@ -48,13 +49,13 @@ export function AboutMeSection() {
             )}
           </Reveal>
 
-          <Reveal delay={0.08} className="mt-5">
-            <Link
-              href="/about"
-              className="inline-block text-sm font-medium text-[color:var(--color-sage-dark)] underline-offset-4 hover:underline"
-            >
-              {copy.cta} →
-            </Link>
+          <Reveal delay={0.08} className="mt-5 flex flex-wrap gap-3">
+            <Button asChild size="sm">
+              <Link href="/appointment">{copy.cta}</Link>
+            </Button>
+            <Button asChild size="sm" variant="outline">
+              <Link href="/about">{copy.learnMore}</Link>
+            </Button>
           </Reveal>
         </div>
       </div>

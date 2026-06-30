@@ -36,6 +36,7 @@ export const homeContent = {
       "Brain gym instructor",
     ],
     cta: "Book a Conversation",
+    learnMore: "Learn More About Me →",
   },
   howICanHelp: {
     title: "How I Can Help",

@@ -50,9 +50,12 @@ export function AboutPreviewSection() {
             )}
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-8">
+          <Reveal delay={0.1} className="mt-8 flex flex-wrap gap-3">
             <Button asChild>
-              <Link href="/about">{copy.cta}</Link>
+              <Link href="/appointment">{copy.cta}</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/about">{copy.learnMore}</Link>
             </Button>
           </Reveal>
         </div>

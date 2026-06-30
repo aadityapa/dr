@@ -19,6 +19,7 @@ export function buildHomeLocaleContent(): LocaleContent["home"] {
       bio: homeContent.aboutPreview.bio,
       credentials: [...homeContent.aboutPreview.credentials],
       cta: homeContent.aboutPreview.cta,
+      learnMore: homeContent.aboutPreview.learnMore,
     },
     howICanHelp: {
       title: homeContent.howICanHelp.title,
@@ -72,6 +73,7 @@ export const hiHomeContent: LocaleContent["home"] = {
       "Brain gym प्रशिक्षक",
     ],
     cta: "बातचीत बुक करें",
+    learnMore: "मेरे बारे में और जानें →",
   },
   howICanHelp: {
     title: "मैं कैसे मदद कर सकती हूँ",
@@ -169,6 +171,7 @@ export const mrHomeContent: LocaleContent["home"] = {
       "Brain gym प्रशिक्षक",
     ],
     cta: "संभाषण बुक करा",
+    learnMore: "माझ्याबद्दल अधिक जाणून घ्या →",
   },
   howICanHelp: {
     title: "मी कशी मदत करू शकते",
