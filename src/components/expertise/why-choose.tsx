@@ -16,7 +16,7 @@ export function WhyChooseSection({ shells }: Pick<ExpertisePageProps, "shells">)
   const reduced = useReducedMotion();
 
   return (
-    <Section className="relative overflow-hidden bg-[#FCFAF8]">
+    <Section compact className="relative overflow-hidden bg-[#FCFAF8]">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,#EAFBF2_0%,transparent_60%)]"
         aria-hidden
@@ -31,7 +31,7 @@ export function WhyChooseSection({ shells }: Pick<ExpertisePageProps, "shells">)
       <SectionHeading kicker={shells.trustKicker} title={shells.trustTitle} center />
 
       <motion.div
-        className="mt-14 grid gap-6 md:grid-cols-3 md:gap-7"
+        className="mt-8 grid gap-4 md:grid-cols-3 md:gap-5"
         variants={staggerContainer(0.12, 0.1)}
         {...scrollReveal}
       >
@@ -43,14 +43,14 @@ export function WhyChooseSection({ shells }: Pick<ExpertisePageProps, "shells">)
               key={card.title}
               variants={fadeUp}
               whileHover={reduced ? undefined : cardHover}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/45 p-7 shadow-[0_16px_48px_rgba(45,96,71,0.08)] backdrop-blur-xl md:p-9"
+              className="group relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/45 p-5 shadow-[0_16px_48px_rgba(45,96,71,0.08)] backdrop-blur-xl md:p-6"
             >
               <div
                 className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full opacity-60 blur-2xl transition-opacity group-hover:opacity-90"
                 style={{ backgroundColor: glow }}
                 aria-hidden
               />
-              <div className="relative mb-6 inline-flex rounded-[1.25rem] border border-white/80 bg-white/70 p-4 shadow-sm">
+              <div className="relative mb-4 inline-flex rounded-[1.25rem] border border-white/80 bg-white/70 p-4 shadow-sm">
                 <Icon className="h-8 w-8 text-[#4A9B73]" aria-hidden />
               </div>
               <h3 className="relative font-[family-name:var(--font-serif)] text-xl text-[#1a4a3a] md:text-2xl">

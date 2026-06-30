@@ -43,7 +43,7 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
   ] as const;
 
   return (
-    <section className="relative overflow-hidden bg-[#FFFDFB] px-4 py-16 md:px-8 md:py-24 lg:py-28">
+    <section className="relative overflow-hidden bg-[#FFFDFB] px-4 py-12 md:px-8 md:py-16">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_20%,#EAF4FF_0%,transparent_55%),radial-gradient(ellipse_70%_50%_at_85%_15%,#EAFBF2_0%,transparent_50%),radial-gradient(ellipse_60%_45%_at_70%_85%,#F4EDFF_0%,transparent_50%)]"
         aria-hidden
@@ -80,7 +80,7 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
           />
         ))}
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <motion.div
           variants={fadeUp}
           initial={reduced ? false : "hidden"}

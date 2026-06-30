@@ -18,9 +18,9 @@ export function ExpertiseCta({ shells, labels }: CtaProps) {
   const reduced = useReducedMotion();
 
   return (
-    <Section compact className="bg-[#FAFCFB]">
+    <Section compact className="bg-[#FAFCFB] !pb-8 md:!pb-10">
       <motion.div
-        className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#1a4a3a] via-[#2D6047] to-[#4A9B73] px-6 py-14 text-center text-white md:px-14 md:py-16"
+        className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#1a4a3a] via-[#2D6047] to-[#4A9B73] px-6 py-10 text-center text-white md:px-12 md:py-12"
         variants={fadeUp}
         {...scrollReveal}
         transition={{ duration: 0.6 }}
@@ -43,7 +43,7 @@ export function ExpertiseCta({ shells, labels }: CtaProps) {
         />
 
         <div className="relative mx-auto flex max-w-2xl flex-col items-center">
-          <div className="mb-6 flex items-center gap-3" aria-hidden>
+          <div className="mb-4 flex items-center gap-3" aria-hidden>
             <Sparkles className="h-6 w-6 text-white/70" />
             <Heart className="h-7 w-7 text-white/85" />
             <Sparkles className="h-6 w-6 text-white/70" />
@@ -56,7 +56,7 @@ export function ExpertiseCta({ shells, labels }: CtaProps) {
             {shells.ctaDescription}
           </p>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button
               asChild
               size="lg"

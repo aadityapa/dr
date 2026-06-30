@@ -38,7 +38,7 @@ export function ExpertisePageContent({ shells, labels }: ExpertisePageProps) {
     <>
       <ExpertiseHero shells={shells} />
 
-      <Section className="bg-[#FCFAF8] pt-6 md:pt-10">
+      <Section compact className="bg-[#FCFAF8] !pt-4 md:!pt-6 !pb-10 md:!pb-12">
         <ExpertiseSearchBar
           shells={shells}
           searchQuery={searchQuery}

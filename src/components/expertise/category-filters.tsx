@@ -33,7 +33,7 @@ export function ExpertiseCategoryFilters({
 
   return (
     <motion.div
-      className="mx-auto mt-6 max-w-5xl"
+      className="mx-auto mt-4 max-w-5xl"
       variants={fadeUp}
       {...scrollReveal}
       transition={{ duration: 0.5, delay: 0.08 }}

@@ -21,10 +21,9 @@ import { getExpertisePastelByKey } from "./expertise-pastels";
 export type TherapyCardProps = Pick<ExpertisePageProps, "shells"> & {
   area: ExpertiseArea;
   index: number;
-  tall?: boolean;
 };
 
-export function TherapyCard({ area, index, shells, tall }: TherapyCardProps) {
+export function TherapyCard({ area, index, shells }: TherapyCardProps) {
   const { locale, messages } = useLanguage();
   const reduced = useReducedMotion();
   const localized = getLocalizedExpertise(area.slug, locale) ?? area;
@@ -37,7 +36,6 @@ export function TherapyCard({ area, index, shells, tall }: TherapyCardProps) {
 
   return (
     <motion.li
-      className={tall ? "md:row-span-2" : undefined}
       variants={fadeUp}
       initial={reduced ? false : "hidden"}
       whileInView="visible"
@@ -52,7 +50,7 @@ export function TherapyCard({ area, index, shells, tall }: TherapyCardProps) {
         }}
       >
         <div
-          className="relative flex h-full flex-col rounded-[calc(2rem-1px)] p-6 backdrop-blur-xl md:p-7"
+          className="relative flex h-full flex-col rounded-[calc(2rem-1px)] p-5 backdrop-blur-xl md:p-6"
           style={{
             backgroundColor: `${pastel.bg}CC`,
             boxShadow: `0 12px 40px ${pastel.border}33, inset 0 1px 0 rgba(255,255,255,0.85)`,
@@ -84,7 +82,7 @@ export function TherapyCard({ area, index, shells, tall }: TherapyCardProps) {
           </div>
 
           <h2
-            className="relative mt-5 font-[family-name:var(--font-serif)] text-xl font-medium leading-snug md:text-[1.4rem]"
+            className="relative mt-4 font-[family-name:var(--font-serif)] text-xl font-medium leading-snug md:text-[1.4rem]"
             style={{ color: pastel.text }}
           >
             <Link href={`/expertise/${area.slug}`} className="hover:underline">
@@ -98,7 +96,7 @@ export function TherapyCard({ area, index, shells, tall }: TherapyCardProps) {
 
           <Link
             href={`/expertise/${area.slug}`}
-            className="relative mt-6 inline-flex w-fit items-center gap-2 overflow-hidden rounded-full border border-white/80 bg-white/60 px-4 py-2.5 text-sm font-semibold backdrop-blur-sm transition-colors hover:bg-white/90"
+            className="relative mt-5 inline-flex w-fit items-center gap-2 overflow-hidden rounded-full border border-white/80 bg-white/60 px-4 py-2.5 text-sm font-semibold backdrop-blur-sm transition-colors hover:bg-white/90"
             style={{ color: pastel.accent }}
           >
             <motion.span

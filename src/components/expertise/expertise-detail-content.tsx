@@ -35,7 +35,7 @@ export function ExpertiseDetailContent({
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#FFFDFB] px-4 py-14 md:px-8 md:py-20">
+      <section className="relative overflow-hidden bg-[#FFFDFB] px-4 py-12 md:px-8 md:py-16">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_30%_20%,#EAF4FF_0%,transparent_55%)]"
           aria-hidden
@@ -63,7 +63,7 @@ export function ExpertiseDetailContent({
         </motion.div>
       </section>
 
-      <Section className="bg-[#FCFAF8] pb-16 md:pb-24">
+      <Section compact className="bg-[#FCFAF8]">
         <div className="mx-auto max-w-4xl space-y-8">
           <ExpertiseDetailCard area={area} labels={labels} hideTitle />
 
