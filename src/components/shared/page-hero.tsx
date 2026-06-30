@@ -6,10 +6,11 @@ type PageHeroProps = {
   kicker?: string;
   title: string;
   description?: string;
+  credentials?: string[];
   children?: React.ReactNode;
 };
 
-export function PageHero({ kicker, title, description, children }: PageHeroProps) {
+export function PageHero({ kicker, title, description, credentials, children }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[color:var(--color-cream)] to-[color:var(--color-soft-green)]/30 px-4 py-20 md:px-8 md:py-28">
       <FloatingNature />
@@ -19,7 +20,13 @@ export function PageHero({ kicker, title, description, children }: PageHeroProps
           <h1 className="max-w-4xl font-[family-name:var(--font-serif)] text-4xl leading-tight text-[color:var(--color-sage-dark)] md:text-6xl">
             {title}
           </h1>
-          {description ? (
+          {credentials && credentials.length > 0 ? (
+            <ul className="mt-5 max-w-2xl space-y-1 text-lg leading-relaxed text-[color:var(--color-muted)]">
+              {credentials.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          ) : description ? (
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[color:var(--color-muted)]">{description}</p>
           ) : null}
           {children ? <div className="mt-8">{children}</div> : null}

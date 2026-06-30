@@ -29,7 +29,13 @@ export type PageShells = {
   invite: PageShell;
   locations: PageShell & { breadcrumb: string };
   expertiseList: PageShell;
-  about: PageShell & { bookConversation: string; inviteCta: string };
+  about: Omit<PageShell, "title" | "description"> & {
+    title: string;
+    description: string;
+    credentials: string[];
+    bookConversation: string;
+    inviteCta: string;
+  };
   articleFooter: { title: string; description: string; book: string; more: string };
   geoFaqs: {
     condition: {
@@ -158,8 +164,14 @@ const en: PageShells = {
     metaTitle: "About Dr. Sharuja Sarap",
     metaDescription: "Pediatric OT in Kandivali West, Mumbai — 18+ years supporting children and families.",
     kicker: "About Me",
-    title: "Hello, I'm Sharuja.",
-    description: "Pediatric occupational therapist in Kandivali West — walking alongside children and families for over 18 years.",
+    title: "Hello,",
+    description: "",
+    credentials: [
+      "I am Dr. Sharuja",
+      "Paediatric occupational therapist",
+      "Aquatic therapist",
+      "Brain gym instructor",
+    ],
     bookConversation: "Book a Conversation",
     inviteCta: "Invite Sharuja to Your Program",
   },
@@ -296,8 +308,14 @@ const hi: PageShells = {
     metaTitle: "डॉ. शारुजा सराफ के बारे में",
     metaDescription: "कांदिवली में बाल OT — 18+ वर्षों से बच्चों और परिवारों की सेवा।",
     kicker: "मेरे बारे में",
-    title: "नमस्ते, मैं शारुजा हूँ।",
-    description: "कांदिवली में बाल व्यावसायिक चिकित्सक — 18+ वर्षों से बच्चों और परिवारों के साथ।",
+    title: "नमस्ते,",
+    description: "",
+    credentials: [
+      "मैं डॉ. शारुजा हूँ",
+      "बाल चिकित्सा व्यावसायिक चिकित्सक",
+      "जल चिकित्सक",
+      "Brain gym प्रशिक्षक",
+    ],
     bookConversation: "बातचीत बुक करें",
     inviteCta: "अपने कार्यक्रम में शारुजा को आमंत्रित करें",
   },
@@ -363,7 +381,14 @@ const mr: PageShells = {
   },
   about: {
     ...hi.about,
-    title: "नमस्कार, मी शरुजा.",
+    title: "नमस्कार,",
+    description: "",
+    credentials: [
+      "मी डॉ. शरुजा आहे",
+      "बाल वैद्यकीय व्यावसायिक थेरपिस्ट",
+      "जल चिकित्सक",
+      "Brain gym प्रशिक्षक",
+    ],
     bookConversation: "संभाषण बुक करा",
     inviteCta: "तुमच्या कार्यक्रमात शरुजा आमंत्रित करा",
   },
