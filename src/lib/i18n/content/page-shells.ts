@@ -29,6 +29,39 @@ export type PageShells = {
   invite: PageShell;
   locations: PageShell & { breadcrumb: string };
   expertiseList: PageShell;
+  expertise: {
+    heroBadge: string;
+    illustrationCaption: string;
+    illustrationSubcaption: string;
+    trustBadges: [string, string, string];
+    searchPlaceholder: string;
+    clearSearch: string;
+    filterLabel: string;
+    filterAll: string;
+    noResults: string;
+    categories: {
+      movement: string;
+      sensory: string;
+      motor: string;
+      feeding: string;
+      aquatic: string;
+      learning: string;
+      neurological: string;
+    };
+    therapyFocusLabel: string;
+    therapyFocus: Record<string, string>;
+    trustKicker: string;
+    trustTitle: string;
+    trustCards: [{ title: string; description: string }, { title: string; description: string }, { title: string; description: string }];
+    processKicker: string;
+    processTitle: string;
+    processSteps: [string, string, string, string, string];
+    processStepDescriptions: [string, string, string, string, string];
+    ctaTitle: string;
+    ctaDescription: string;
+    callCta: string;
+    whatsappCta: string;
+  };
   conditions: {
     heroBadge: string;
     illustrationCaption: string;
@@ -224,9 +257,82 @@ const en: PageShells = {
     metaDescription:
       "Eleven certified pediatric OT approaches at Thrive With Sharuja, Kandivali — Brain Gym, sensory integration, aquatic therapy, handwriting, and more.",
     kicker: "Expertise & Approaches",
-    title: "How we support growth and participation",
+    title: "Looking Beyond a Diagnosis",
     description:
-      "Evidence-informed approaches tailored to each child's strengths — explained in plain language for Mumbai families.",
+      "Evidence-informed therapeutic approaches tailored to each child's strengths — explained in plain language for Mumbai families.",
+  },
+  expertise: {
+    heroBadge: "Expertise & Approaches",
+    illustrationCaption: "Every child is unique",
+    illustrationSubcaption: "Individualised, evidence-informed pediatric OT",
+    trustBadges: ["Certified Programmes", "Whole-Child Focus", "Family-Centred Care"],
+    searchPlaceholder: "Search approaches…",
+    clearSearch: "Clear search",
+    filterLabel: "Filter by category",
+    filterAll: "All",
+    noResults: "No approaches match your search. Try a different term or category.",
+    categories: {
+      movement: "Movement",
+      sensory: "Sensory",
+      motor: "Motor",
+      feeding: "Feeding",
+      aquatic: "Aquatic",
+      learning: "Learning",
+      neurological: "Neurological",
+    },
+    therapyFocusLabel: "Focus",
+    therapyFocus: {
+      "brain-gym": "Learning & Movement",
+      "double-doodle-play": "Creativity & Writing",
+      "sensory-integration": "Sensory Regulation",
+      rmti: "Foundational Movement",
+      "handwriting-without-tears": "Handwriting",
+      "oral-placement-therapy": "Feeding & Oral Motor",
+      "aquatic-therapy": "Water-Based Therapy",
+      piastm: "Soft Tissue",
+      "kinesio-taping": "Posture & Stability",
+      mnri: "Reflex Integration",
+      kdct: "Mobility & Recovery",
+    },
+    trustKicker: "Our Philosophy",
+    trustTitle: "Why Families Choose These Approaches",
+    trustCards: [
+      {
+        title: "Evidence-Informed Care",
+        description:
+          "Each programme is grounded in specialised training and integrated thoughtfully into your child's individual therapy plan.",
+      },
+      {
+        title: "Whole-Child Perspective",
+        description:
+          "We look beyond isolated skills to understand how movement, sensory processing, attention, and emotions work together in daily life.",
+      },
+      {
+        title: "Family Partnership",
+        description:
+          "Parents receive practical guidance and warm support — so progress continues beyond the clinic into everyday routines.",
+      },
+    ],
+    processKicker: "Our Approach",
+    processTitle: "The Therapy Process",
+    processSteps: [
+      "Assessment",
+      "Personalised Plan",
+      "Therapy Sessions",
+      "Home Program",
+      "Progress Review",
+    ],
+    processStepDescriptions: [
+      "A warm first visit to understand your child's strengths, needs, and daily routines.",
+      "A tailored plan built around your child's goals and your family's priorities.",
+      "Play-based, evidence-informed sessions in our child-friendly Kandivali clinic.",
+      "Practical activities and strategies you can weave into everyday life at home.",
+      "Regular check-ins to celebrate progress and adjust support as your child grows.",
+    ],
+    ctaTitle: "Let's Support Your Child Together",
+    ctaDescription: `Book a consultation with ${siteConfig.doctorName} at our Kandivali West clinic.`,
+    callCta: "Call Us",
+    whatsappCta: "WhatsApp",
   },
   conditions: {
     heroBadge: "Supporting Every Child's Journey",
@@ -482,8 +588,72 @@ const hi: PageShells = {
     metaDescription:
       "कांदिवली में थ्राइव विथ शारुजा पर ग्यारह प्रमाणित बाल OT दृष्टिकोण — ब्रेन जिम, संवेदी एकीकरण, जल चिकित्सा, हस्तलेखन और अधिक।",
     kicker: "विशेषज्ञता और दृष्टिकोण",
-    title: "हम विकास और भागीदारी को कैसे सहारा देते हैं",
+    title: "निदान से आगे देखना",
     description: "हर बच्चे की ताकत के अनुसार साक्ष्य-सूचित दृष्टिकोण — मुंबई के परिवारों के लिए सादी भाषा में।",
+  },
+  expertise: {
+    heroBadge: "विशेषज्ञता और दृष्टिकोण",
+    illustrationCaption: "हर बच्चा अनोखा है",
+    illustrationSubcaption: "व्यक्तिगत, साक्ष्य-आधारित बाल OT",
+    trustBadges: ["प्रमाणित कार्यक्रम", "पूरे बच्चे पर ध्यान", "परिवार-केंद्रित देखभाल"],
+    searchPlaceholder: "दृष्टिकोण खोजें…",
+    clearSearch: "खोज साफ़ करें",
+    filterLabel: "श्रेणी से फ़िल्टर करें",
+    filterAll: "सभी",
+    noResults: "कोई दृष्टिकोण आपकी खोज से मेल नहीं खाता। दूसरा शब्द या श्रेणी आज़माएँ।",
+    categories: {
+      movement: "गति",
+      sensory: "संवेदी",
+      motor: "मोटर",
+      feeding: "खिलाना",
+      aquatic: "जल चिकित्सा",
+      learning: "सीखना",
+      neurological: "न्यूरोलॉजिकल",
+    },
+    therapyFocusLabel: "फ़ोकस",
+    therapyFocus: {
+      "brain-gym": "सीखना और गति",
+      "double-doodle-play": "रचनात्मकता और लेखन",
+      "sensory-integration": "संवेदी नियमन",
+      rmti: "मूलभूत गति",
+      "handwriting-without-tears": "हस्तलेखन",
+      "oral-placement-therapy": "खिलाना और मौखिक मोटर",
+      "aquatic-therapy": "जल-आधारित थेरेपी",
+      piastm: "सॉफ्ट टिशू",
+      "kinesio-taping": "मुद्रा और स्थिरता",
+      mnri: "रिफ्लेक्स एकीकरण",
+      kdct: "गतिशीलता और रिकवरी",
+    },
+    trustKicker: "हमारा दर्शन",
+    trustTitle: "परिवार इन दृष्टिकोणों को क्यों चुनते हैं",
+    trustCards: [
+      {
+        title: "साक्ष्य-आधारित देखभाल",
+        description: "प्रत्येक कार्यक्रम विशेष प्रशिक्षण पर आधारित है और आपके बच्चे की व्यक्तिगत योजना में सोच-समझकर जोड़ा जाता है।",
+      },
+      {
+        title: "पूरे बच्चे का दृष्टिकोण",
+        description: "हम अलग-अलग कौशलों से आगे देखते हैं — गति, संवेदी प्रसंस्करण, ध्यान और भावनाएँ दैनिक जीवन में कैसे जुड़ती हैं।",
+      },
+      {
+        title: "परिवार के साथ साझेदारी",
+        description: "माता-पिता को व्यावहारिक मार्गदर्शन और गर्म सहायता मिलती है — ताकि प्रगति क्लिनिक से आगे घर में भी जारी रहे।",
+      },
+    ],
+    processKicker: "हमारा दृष्टिकोण",
+    processTitle: "थेरेपी प्रक्रिया",
+    processSteps: ["मूल्यांकन", "व्यक्तिगत योजना", "थेरेपी सत्र", "घरेलू कार्यक्रम", "प्रगति समीक्षा"],
+    processStepDescriptions: [
+      "आपके बच्चे की ताकत, ज़रूरतें और दैनिक दिनचर्या समझने के लिए एक गर्म पहली मुलाकात।",
+      "आपके बच्चे के लक्ष्यों और परिवार की प्राथमिकताओं के आसपास बनी योजना।",
+      "हमारे बच्चों के अनुकूल कांदिवली क्लिनिक में खेल-आधारित, साक्ष्य-सूचित सत्र।",
+      "घरेलू जीवन में शामिल करने योग्य व्यावहारिक गतिविधियाँ और रणनीतियाँ।",
+      "प्रगति का जश्न और बढ़ते बच्चे के अनुसार सहायता समायोजित करने के नियमित चेक-इन।",
+    ],
+    ctaTitle: "आइए मिलकर आपके बच्चे का साथ दें",
+    ctaDescription: `कांदिवली पश्चिम क्लिनिक में ${siteConfig.doctorName} के साथ परामर्श बुक करें।`,
+    callCta: "कॉल करें",
+    whatsappCta: "व्हाट्सऐप",
   },
   conditions: {
     heroBadge: "हर बच्चे की यात्रा का साथ",

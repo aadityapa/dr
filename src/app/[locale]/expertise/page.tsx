@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
-import { CategoryNavigation } from "@/components/expertise/category-navigation";
-import { ExpertiseListGrid } from "@/components/expertise/expertise-list-grid";
-import { LookingBeyondSection } from "@/components/expertise/looking-beyond-section";
-import { ParentFriendlyIntro } from "@/components/expertise/parent-friendly-intro";
-import { ExpertiseEcosystem } from "@/components/home/expertise-ecosystem";
+import { ExpertisePageContent } from "@/components/expertise/expertise-page-content";
+import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
-import { LocalizedPageHero } from "@/components/shared/localized-page-hero";
-import { Section } from "@/components/shared/section";
-import { SectionHeading } from "@/components/shared/section-heading";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import { getContent, getLabels, getPageShells } from "@/lib/i18n/localize";
+import { getLabels, getPageShells } from "@/lib/i18n/localize";
+import { expertiseCategorySlugs, getExpertise } from "@/lib/client-content/expertise";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { breadcrumbSchema, localBusinessSchema } from "@/lib/schema";
+import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale }> };
@@ -33,47 +28,49 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Brain Gym Mumbai",
       "Aquatic Therapy Mumbai",
       "Sensory Integration Mumbai",
-      "Autism Support Mumbai",
-      "ADHD Support Mumbai",
     ),
   });
+}
+
+function expertiseItemListSchema(locale: AppLocale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Expertise & Approaches",
+    description:
+      "Pediatric OT expertise and therapeutic approaches at Thrive With Sharuja, Kandivali West, Mumbai.",
+    numberOfItems: expertiseCategorySlugs.length,
+    itemListElement: expertiseCategorySlugs.map((slug, index) => {
+      const area = getExpertise(slug);
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: area?.title ?? slug,
+        url: `${siteConfig.url}/${locale}/expertise/${slug}`,
+      };
+    }),
+  };
 }
 
 export default async function ExpertisePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const messages = getMessages(locale);
+  const shells = getPageShells(locale);
   const labels = getLabels(locale);
-  const content = getContent(locale);
-  const landing = content.expertiseLanding;
 
   return (
-    <main>
+    <main className="bg-[#FFFDF9]">
       <JsonLd
-        id="expertise-breadcrumb-schema"
+        id="expertise-breadcrumb"
         data={breadcrumbSchema([
           { name: labels.home, url: `${siteConfig.url}/${locale}` },
           { name: messages.nav.services, url: `${siteConfig.url}/${locale}/expertise` },
         ])}
       />
-      <JsonLd id="expertise-local-schema" data={localBusinessSchema()} />
-      <LocalizedPageHero page="servicesList" />
-      <LookingBeyondSection />
-      <ParentFriendlyIntro />
-      <ExpertiseEcosystem />
-      <Section compact>
-        <CategoryNavigation />
-      </Section>
-      <Section>
-        <SectionHeading
-          title={landing.programmesTitle}
-          description={landing.programmesDescription}
-          center
-        />
-        <div className="mt-8">
-          <ExpertiseListGrid />
-        </div>
-      </Section>
+      <JsonLd id="expertise-item-list" data={expertiseItemListSchema(locale)} />
+      <Breadcrumbs items={[{ name: messages.nav.services, url: `${siteConfig.url}/${locale}/expertise` }]} />
+      <ExpertisePageContent shells={shells.expertise} labels={labels} homeLabel={labels.home} />
     </main>
   );
 }

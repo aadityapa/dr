@@ -1,65 +1,25 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { ProgressiveList } from "@/components/expertise/progressive-list";
+import { ExpertiseBottomCta } from "@/components/expertise/expertise-bottom-cta";
+import { ExpertiseDetailCard } from "@/components/expertise/expertise-detail-card";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
-import { PageHero } from "@/components/shared/page-hero";
 import { Section } from "@/components/shared/section";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { ServiceIcon } from "@/components/shared/service-icon";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import {
-  buildLocalizedExpertiseFaqs,
-  getLabels,
-  getLocalizedExpertise,
-} from "@/lib/i18n/localize";
+import { buildLocalizedExpertiseFaqs, getLabels, getLocalizedExpertise, getPageShells } from "@/lib/i18n/localize";
 import { expertiseAreas } from "@/lib/client-content/expertise";
+import { getCardPastelByKey } from "@/lib/pastel-palette";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "@/lib/schema";
-import { getServicePastel } from "@/lib/service-colors";
-import { getSiteImage, type SiteImageKey } from "@/lib/site-images";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
-
-const EXPERTISE_IMAGE_BY_SLUG: Partial<Record<string, { image: SiteImageKey; alt: string }>> = {
-  "looking-beyond-a-diagnosis": {
-    image: "swingSupport",
-    alt: "Dr. Sharuja supporting a child in the sensory gym during a pediatric therapy session",
-  },
-  "brain-gym": {
-    image: "handwritingPractice",
-    alt: "Therapist-guided fine motor and learning readiness activity during pediatric OT",
-  },
-  "double-doodle-play": {
-    image: "handwritingPractice",
-    alt: "Child practicing coordinated chalkboard work with therapist guidance",
-  },
-  "sensory-integration": {
-    image: "sensoryPath",
-    alt: "Child using colorful tactile stepping pads with therapist support in a sensory therapy room",
-  },
-  rmti: {
-    image: "sensoryGym",
-    alt: "Child using sensory gym equipment with therapist support for movement and regulation",
-  },
-  "handwriting-without-tears": {
-    image: "fineMotor",
-    alt: "Therapist-guided handwriting and fine motor practice on a chalkboard",
-  },
-  mnri: {
-    image: "sensoryGym",
-    alt: "Child using sensory gym equipment with therapist support for movement foundations",
-  },
-};
 
 export function generateStaticParams() {
   return expertiseAreas.map((area) => ({ slug: area.slug }));
@@ -87,12 +47,12 @@ export default async function ExpertiseDetailPage({ params }: Props) {
 
   const messages = getMessages(locale);
   const labels = getLabels(locale);
-  const pastel = getServicePastel(area.slug);
+  const shells = getPageShells(locale);
   const faqs = buildLocalizedExpertiseFaqs(area, locale);
-  const expertiseImage = EXPERTISE_IMAGE_BY_SLUG[area.slug];
+  const pastel = getCardPastelByKey(slug);
 
   return (
-    <main>
+    <main className="bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F4] to-[#F9FCFB]">
       <JsonLd
         id="expertise-detail-breadcrumb"
         data={breadcrumbSchema([
@@ -112,119 +72,58 @@ export default async function ExpertiseDetailPage({ params }: Props) {
           { name: area.title, url: `${siteConfig.url}/${locale}/expertise/${slug}` },
         ]}
       />
-      <PageHero kicker={labels.expertise} title={area.title} description={area.tagline} />
 
-      {expertiseImage ? (
-        <Section compact>
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-[2rem] shadow-xl ring-1 ring-[color:var(--color-border)]/50">
-            <Image
-              src={getSiteImage(expertiseImage.image)}
-              alt={expertiseImage.alt}
-              width={1200}
-              height={720}
-              sizes="(max-width: 1024px) 100vw, 1024px"
-              className="aspect-[16/9] w-full object-cover"
-            />
-          </div>
-        </Section>
-      ) : null}
+      <section className="relative overflow-hidden px-4 py-14 md:px-8 md:py-20">
+        <div
+          className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full blur-3xl"
+          style={{ backgroundColor: `${pastel.bg}99` }}
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-4xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-[#4A9B73]">{labels.expertise}</p>
+          <h1 className="mt-3 font-[family-name:var(--font-serif)] text-3xl font-bold text-[#004d4d] md:text-4xl lg:text-5xl">
+            {area.title}
+          </h1>
+          <p className="mt-5 max-w-3xl font-[family-name:var(--font-serif)] text-lg italic text-[#444] md:text-xl">
+            {area.tagline}
+          </p>
+        </div>
+      </section>
 
-      <Section>
-        <div className="mx-auto max-w-4xl space-y-12">
-          <article
-            className="flex items-start gap-4 rounded-2xl border p-6"
-            style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
-          >
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/80 shadow-sm">
-              <ServiceIcon name={area.icon} className="h-7 w-7" style={{ color: pastel.accent }} />
-            </div>
-            <div>
-              <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)]">
-                {labels.whatIsIt}
-              </h2>
-              <p className="mt-3 line-clamp-4 text-base leading-relaxed text-[color:var(--color-muted)] sm:line-clamp-none">
-                {area.understanding}
-              </p>
-            </div>
-          </article>
+      <Section className="pb-16 md:pb-24">
+        <div className="mx-auto max-w-4xl space-y-8">
+          <ExpertiseDetailCard area={area} labels={labels} hideTitle />
 
-          <article>
-            <SectionHeading title={labels.whatParentsNotice} />
-            <ProgressiveList
-              items={area.whatParentsMayNotice}
-              initialVisible={4}
-              expandLabel={labels.showMore}
-              collapseLabel={labels.showLess}
-              className="mt-4"
-            />
-          </article>
-
-          <article>
-            <SectionHeading title={labels.howThisHelps} />
-            <ProgressiveList
-              items={area.howThisHelps}
-              initialVisible={4}
-              icon="check"
-              expandLabel={labels.showMore}
-              collapseLabel={labels.showLess}
-              className="mt-4"
-            />
-          </article>
-
-          <article>
-            <SectionHeading title={labels.areasCommonlySupported} />
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {area.benefits.map((b) => (
-                <Card key={b}>
-                  <CardContent className="flex items-start gap-2 p-4 text-sm text-[color:var(--color-muted)]">
-                    <span className="mt-0.5 text-[color:var(--color-sage-dark)]">✓</span>
-                    {b}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </article>
-
-          {area.details.length > 0 && (
-            <article>
-              <SectionHeading title={labels.learnMore} />
-              <Accordion type="single" collapsible className="mt-4 space-y-2">
-                {area.details.map((detail, idx) => (
-                  <AccordionItem key={detail.title} value={`detail-${idx}`}>
-                    <AccordionTrigger className="text-left">{detail.title}</AccordionTrigger>
-                    <AccordionContent className="text-sm leading-relaxed text-[color:var(--color-muted)]">
-                      {detail.content}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </article>
-          )}
-
-          <article>
-            <SectionHeading title={labels.questionsParentsAsk} />
+          <div className="rounded-[1.75rem] border border-white/60 bg-white/50 p-6 shadow-lg backdrop-blur-md md:p-8">
+            <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[#004d4d]">
+              {labels.questionsParentsAsk}
+            </h2>
             <Accordion type="single" collapsible className="mt-4 space-y-2">
               {faqs.map((faq, idx) => (
-                <AccordionItem key={faq.q} value={`faq-${idx}`}>
-                  <AccordionTrigger className="text-left">{faq.q}</AccordionTrigger>
-                  <AccordionContent className="text-sm leading-relaxed text-[color:var(--color-muted)]">
+                <AccordionItem key={faq.q} value={`expertise-faq-${idx}`} className="border-[#E8E4DC]">
+                  <AccordionTrigger className="text-left text-[#333] hover:text-[#004d4d]">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-sm leading-relaxed text-[#555]">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
-          </article>
+          </div>
 
-          <div className="flex flex-wrap gap-3 rounded-2xl border border-[color:var(--color-border)]/60 bg-[color:var(--color-cream)]/30 p-6 pt-4">
-            <Button asChild size="lg">
+          <div className="flex flex-wrap gap-3">
+            <Button asChild size="lg" className="bg-[#004d4d] hover:bg-[#2D6047]">
               <Link href="/appointment">{labels.bookConsultation}</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/contact">{labels.askQuestion}</Link>
+            <Button asChild variant="outline" size="lg" className="border-[#4A9B73]/30 text-[#004d4d]">
+              <Link href="/expertise">{labels.exploreExpertise}</Link>
             </Button>
           </div>
         </div>
       </Section>
+
+      <ExpertiseBottomCta shells={shells.expertise} labels={labels} />
     </main>
   );
 }
