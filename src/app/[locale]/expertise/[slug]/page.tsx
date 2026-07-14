@@ -15,6 +15,8 @@ import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return expertiseAreas.map((area) => ({ slug: area.slug }));
 }
@@ -22,7 +24,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const area = getLocalizedExpertise(slug, locale);
-  if (!area) return {};
+  if (!area) notFound();
 
   return buildPageMetadata({
     title: `${area.title} — Pediatric OT Mumbai`,

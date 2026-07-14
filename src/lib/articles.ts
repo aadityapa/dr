@@ -66,7 +66,7 @@ const seedArticles: Article[] = [
     ],
   },
   {
-    slug: "handwriting-m struggles-when-to-seek-help",
+    slug: "handwriting-struggles-when-to-seek-help",
     title: "Handwriting Struggles: When to Seek Professional Help",
     description: "Is messy handwriting normal or a sign of underlying motor issues? Learn when to seek Handwriting Without Tears therapy in Mumbai.",
     excerpt: "Illegible handwriting after age 7–8 often signals underlying motor challenges — not laziness. Here's when to seek help.",

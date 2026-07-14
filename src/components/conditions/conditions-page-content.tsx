@@ -16,8 +16,6 @@ import { PremiumConditionsHero } from "./premium-conditions-hero";
 import { filterConditions, PremiumConditionCard } from "./premium-condition-card";
 import { TherapyProcessTimeline } from "./therapy-process-timeline";
 
-const TALL_INDICES = new Set([0, 3, 6]);
-
 export function ConditionsPageContent({ shells, labels }: ConditionsPageProps) {
   const { locale } = useLanguage();
   const reduced = useReducedMotion();
@@ -47,7 +45,6 @@ export function ConditionsPageContent({ shells, labels }: ConditionsPageProps) {
             <motion.ul
               key={`${searchQuery}-${activeCategory}`}
               className="mx-auto mt-10 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6"
-              style={{ gridAutoRows: "minmax(12rem, auto)" }}
               initial={reduced ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -60,7 +57,6 @@ export function ConditionsPageContent({ shells, labels }: ConditionsPageProps) {
                   condition={condition}
                   index={index}
                   shells={shells}
-                  tall={TALL_INDICES.has(clientConditions.indexOf(condition))}
                 />
               ))}
             </motion.ul>

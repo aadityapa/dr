@@ -96,8 +96,9 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
 
           <Link
             href={`/expertise/${area.slug}`}
-            className="relative mt-5 inline-flex w-fit items-center gap-2 overflow-hidden rounded-full border border-white/80 bg-white/60 px-4 py-2.5 text-sm font-semibold backdrop-blur-sm transition-colors hover:bg-white/90"
+            className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/80 bg-white/60 px-4 py-2.5 text-sm font-semibold backdrop-blur-sm transition-colors hover:bg-white/90 after:absolute after:inset-0 after:content-['']"
             style={{ color: pastel.accent }}
+            aria-label={localized.title}
           >
             <motion.span
               className="inline-flex items-center gap-2"

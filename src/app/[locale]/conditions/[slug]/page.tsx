@@ -21,6 +21,8 @@ import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return clientConditions.map((c) => ({ slug: c.slug }));
 }
@@ -28,7 +30,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const condition = getLocalizedClientCondition(slug, locale);
-  if (!condition) return {};
+  if (!condition) notFound();
 
   return buildPageMetadata({
     title: `${condition.title} — Pediatric OT Mumbai`,

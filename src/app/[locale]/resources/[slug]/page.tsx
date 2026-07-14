@@ -17,6 +17,8 @@ import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
 }
@@ -24,7 +26,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const base = getArticle(slug);
-  if (!base) return {};
+  if (!base) notFound();
   const article = getLocalizedArticle(base, locale);
 
   return buildPageMetadata({

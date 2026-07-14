@@ -13,11 +13,12 @@ import { siteConfig } from "@/lib/site-data";
 import type { AboutPageProps } from "./about-types";
 
 const SPECIALIZATIONS = [
-  "Brain Gym®",
   "Aquatic Therapy",
-  "Reflex Integration",
+  "Brain Gym®",
   "Handwriting Development",
-  "Oral Motor intervention",
+  "Oral Motor Intervention",
+  "Reflex Integration",
+  "Sensory Integration",
 ] as const;
 
 const floatEnter = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 } };

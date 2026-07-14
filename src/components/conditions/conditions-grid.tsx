@@ -37,7 +37,7 @@ export function ConditionsGrid() {
           return (
             <Reveal key={condition.slug} delay={i * 0.05}>
               <div
-                className="h-full rounded-2xl border p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="relative flex h-full flex-col rounded-2xl border p-6 transition-all hover:-translate-y-1 hover:shadow-lg"
                 style={{ backgroundColor: pastel.bg, borderColor: pastel.border }}
               >
                 <h2 className="font-[family-name:var(--font-serif)] text-xl" style={{ color: pastel.text }}>
@@ -45,13 +45,14 @@ export function ConditionsGrid() {
                     {localized.title}
                   </Link>
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-[color:var(--color-muted)] line-clamp-3">
                   {localized.understanding}
                 </p>
                 <Link
                   href={`/conditions/${condition.slug}`}
-                  className="mt-4 inline-block text-sm font-semibold hover:underline"
+                  className="mt-4 inline-block text-sm font-semibold hover:underline after:absolute after:inset-0 after:content-['']"
                   style={{ color: pastel.accent }}
+                  aria-label={localized.title}
                 >
                   {messages.common.learnMore} →
                 </Link>

@@ -19,10 +19,9 @@ import type { ConditionsPageProps } from "./conditions-types";
 type PremiumConditionCardProps = Pick<ConditionsPageProps, "shells"> & {
   condition: ClientCondition;
   index: number;
-  tall?: boolean;
 };
 
-export function PremiumConditionCard({ condition, index, shells, tall }: PremiumConditionCardProps) {
+export function PremiumConditionCard({ condition, index, shells }: PremiumConditionCardProps) {
   const { locale, messages } = useLanguage();
   const reduced = useReducedMotion();
   const localized = getLocalizedClientCondition(condition.slug, locale) ?? condition;
@@ -33,7 +32,7 @@ export function PremiumConditionCard({ condition, index, shells, tall }: Premium
 
   return (
     <motion.li
-      className={tall ? "md:row-span-2" : undefined}
+      className="h-full"
       initial={reduced ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -92,8 +91,9 @@ export function PremiumConditionCard({ condition, index, shells, tall }: Premium
 
         <Link
           href={`/conditions/${condition.slug}`}
-          className="relative mt-5 inline-flex items-center gap-2 text-sm font-semibold transition-colors"
+          className="mt-5 inline-flex items-center gap-2 text-sm font-semibold transition-colors after:absolute after:inset-0 after:content-['']"
           style={{ color: pastel.accent }}
+          aria-label={localized.title}
         >
           <motion.span
             className="inline-flex items-center gap-2"

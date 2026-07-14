@@ -21,6 +21,8 @@ import { SectionCta } from "@/components/shared/section-cta";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
@@ -28,7 +30,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const service = getLocalizedServiceBundle(slug, locale);
-  if (!service) return {};
+  if (!service) notFound();
 
   return buildPageMetadata({
     title: `${service.title} Mumbai — Kandivali`,
