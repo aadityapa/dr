@@ -40,7 +40,7 @@ export const aboutContent = {
     title: "Areas of Expertise",
     items: [
       "Child Development",
-      "Sensory Processing",
+      "Sensory Integration",
       "ADHD",
       "Autism Spectrum Disorders",
       "Learning Disabilities",
