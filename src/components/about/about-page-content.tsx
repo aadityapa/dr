@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { PremiumHero } from "./premium-hero";
 import { MissionSection } from "./mission";
 import { JourneyTimeline } from "./journey-timeline";
-import { TrustCards } from "./trust-cards";
 import { StatsSection } from "./stats";
 import { ExpertiseGrid } from "./expertise-grid";
 import { AboutTestimonials } from "./testimonials";
@@ -29,7 +28,6 @@ export function AboutPageContent(props: AboutPageProps) {
       <PremiumHero {...props} />
       <MissionSection {...props} />
       <JourneyTimeline {...props} />
-      <TrustCards {...props} />
       <StatsSection {...props} />
       <ExpertiseGrid {...props} />
       <CertCarousel {...props} />
