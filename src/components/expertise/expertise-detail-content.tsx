@@ -7,6 +7,7 @@ import { ExpertiseCta } from "@/components/expertise/cta";
 import { ExpertiseDetailCard } from "@/components/expertise/expertise-detail-card";
 import { fadeUp } from "@/components/expertise/animations";
 import { getExpertisePastelByKey } from "@/components/expertise/expertise-pastels";
+import { ExpertiseSpot } from "@/components/illustrations/scene-illustrations";
 import { Section } from "@/components/shared/section";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
@@ -35,7 +36,7 @@ export function ExpertiseDetailContent({
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#FFFDFB] px-4 py-12 md:px-8 md:py-16">
+      <section className="relative overflow-hidden bg-[#FFFDFB] px-4 pt-12 pb-8 md:px-8 md:pt-16 md:pb-10">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_30%_20%,#EAF4FF_0%,transparent_55%)]"
           aria-hidden
@@ -48,18 +49,21 @@ export function ExpertiseDetailContent({
           aria-hidden
         />
         <motion.div
-          className="relative mx-auto max-w-4xl"
+          className="relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
           initial={reduced ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#4A9B73]">{expertiseLabel}</p>
-          <h1 className="mt-3 max-w-[20ch] font-[family-name:var(--font-serif)] text-3xl font-bold leading-[1.08] text-[#1a4a3a] md:text-4xl lg:text-5xl">
-            {area.title}
-          </h1>
-          <p className="mt-5 max-w-[70ch] font-[family-name:var(--font-serif)] text-lg italic leading-relaxed text-[#444] md:text-xl">
-            {area.tagline}
-          </p>
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-[#4A9B73]">{expertiseLabel}</p>
+            <h1 className="mt-3 max-w-[20ch] font-[family-name:var(--font-serif)] text-3xl font-bold leading-[1.08] text-[#1a4a3a] md:text-4xl lg:text-5xl">
+              {area.title}
+            </h1>
+            <p className="mt-5 max-w-[70ch] font-[family-name:var(--font-serif)] text-lg italic leading-relaxed text-[#444] md:text-xl">
+              {area.tagline}
+            </p>
+          </div>
+          <ExpertiseSpot className="hidden lg:block" />
         </motion.div>
       </section>
 

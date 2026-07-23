@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { LibraryDownloadForm } from "@/components/forms/library-download-form";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PageHero } from "@/components/shared/page-hero";
+import { ReadingScene } from "@/components/illustrations/scene-illustrations";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionCta } from "@/components/shared/section-cta";
@@ -52,7 +53,7 @@ export default async function LibraryPage({ params }: Props) {
   return (
     <main>
       <Breadcrumbs items={[{ name: messages.nav.library, url: `${siteConfig.url}/${locale}/library` }]} />
-      <PageHero kicker={shells.library.kicker} title={shells.library.title} description={shells.library.description} />
+      <PageHero photoKey="library" art={<ReadingScene />} kicker={shells.library.kicker} title={shells.library.title} description={shells.library.description} />
 
       <Section>
         {categories.map((categoryKey) => (

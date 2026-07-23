@@ -478,7 +478,7 @@ const en: PageShells = {
       whenSeek: (title) => `When should we seek support for ${title}?`,
       whenSeekAnswer: "If daily routines feel harder than they should, that's enough to start a conversation.",
       whatNext: (doctor) => `What happens after we contact ${doctor}?`,
-      whatNextAnswer: () => "We begin with a warm first visit: listening, gentle observation, and plain-language explanation.",
+      whatNextAnswer: () => "From your first call to your child's therapy journey, we ensure a smooth, supportive, and personalized experience every step of the way.",
     },
     expertise: {
       whatIs: (title) => `What is ${title}?`,

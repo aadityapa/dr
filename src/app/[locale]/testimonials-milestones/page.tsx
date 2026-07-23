@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { PageHero } from "@/components/shared/page-hero";
+import { MilestonesScene } from "@/components/illustrations/scene-illustrations";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -35,7 +36,7 @@ export default async function TestimonialsMilestonesPage({ params }: Props) {
 
   return (
     <main>
-      <PageHero kicker={shells.testimonials.kicker} title={shells.testimonials.title} description={shells.testimonials.description} />
+      <PageHero photoKey="testimonials-milestones" art={<MilestonesScene />} kicker={shells.testimonials.kicker} title={shells.testimonials.title} description={shells.testimonials.description} />
 
       <Section>
         <SectionHeading title={content.milestonesTitle} center />

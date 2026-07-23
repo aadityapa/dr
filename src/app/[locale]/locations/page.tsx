@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { MapPin } from "lucide-react";
 
 import { PageHero } from "@/components/shared/page-hero";
+import { MapScene } from "@/components/illustrations/scene-illustrations";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
@@ -38,7 +39,7 @@ export default async function LocationsIndexPage({ params }: Props) {
 
   return (
     <main>
-      <PageHero kicker={shells.locations.kicker} title={shells.locations.title} description={shells.locations.description} />
+      <PageHero photoKey="locations" art={<MapScene />} kicker={shells.locations.kicker} title={shells.locations.title} description={shells.locations.description} />
 
       <Section>
         <div className="grid gap-6 md:grid-cols-2">

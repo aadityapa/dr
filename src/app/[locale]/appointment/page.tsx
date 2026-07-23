@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
 import { AppointmentForm } from "@/components/forms/appointment-form";
+import { AppointmentHeroArt } from "@/components/appointment/appointment-hero-art";
 import { PageHero } from "@/components/shared/page-hero";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
@@ -32,9 +33,11 @@ export default async function AppointmentPage({ params }: Props) {
   return (
     <main>
       <PageHero
+        photoKey="appointment"
         kicker={shells.appointment.kicker}
         title={shells.appointment.title}
         description={shells.appointment.description}
+        art={<AppointmentHeroArt />}
       />
 
       <Section className="pb-24">

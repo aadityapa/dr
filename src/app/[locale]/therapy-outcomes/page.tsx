@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { OutcomeComparison } from "@/components/therapy-outcomes/outcome-comparison";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PageHero } from "@/components/shared/page-hero";
+import { GrowthScene } from "@/components/illustrations/scene-illustrations";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -38,7 +39,7 @@ export default async function TherapyOutcomesPage({ params }: Props) {
   return (
     <main>
       <Breadcrumbs items={[{ name: messages.nav.outcomes, url: `${siteConfig.url}/${locale}/therapy-outcomes` }]} />
-      <PageHero kicker={shells.outcomes.kicker} title={shells.outcomes.title} description={shells.outcomes.description} />
+      <PageHero photoKey="therapy-outcomes" art={<GrowthScene />} kicker={shells.outcomes.kicker} title={shells.outcomes.title} description={shells.outcomes.description} />
       <Section>
         <OutcomeComparison
           areas={outcomes.areas}

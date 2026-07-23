@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { ScreeningForm } from "@/components/forms/screening-form";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PageHero } from "@/components/shared/page-hero";
+import { ChecklistScene } from "@/components/illustrations/scene-illustrations";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import type { AppLocale } from "@/i18n/routing";
@@ -33,7 +34,7 @@ export default async function ScreeningPage({ params }: Props) {
   return (
     <main>
       <Breadcrumbs items={[{ name: shells.screening.breadcrumb, url: `${siteConfig.url}/${locale}/screening` }]} />
-      <PageHero kicker={shells.screening.kicker} title={shells.screening.title} description={shells.screening.description} />
+      <PageHero photoKey="screening" art={<ChecklistScene />} kicker={shells.screening.kicker} title={shells.screening.title} description={shells.screening.description} />
       <Section className="rounded-[2rem] bg-white/70">
         <div className="mx-auto max-w-2xl">
           <SectionHeading title={shells.screening.formTitle} description={shells.screening.formDescription} />

@@ -5,6 +5,7 @@ import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { QuickConsultationForm } from "@/components/forms/quick-consultation-form";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PageHero } from "@/components/shared/page-hero";
+import { ContactScene } from "@/components/illustrations/scene-illustrations";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { Button } from "@/components/ui/button";
@@ -45,7 +46,7 @@ export default async function ContactPage({ params }: Props) {
   return (
     <main>
       <Breadcrumbs items={[{ name: messages.nav.contact, url: `${siteConfig.url}/${locale}/contact` }]} />
-      <PageHero kicker={shells.contact.kicker} title={shells.contact.title} description={shells.contact.description} />
+      <PageHero photoKey="contact" art={<ContactScene />} kicker={shells.contact.kicker} title={shells.contact.title} description={shells.contact.description} />
 
       <Section>
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">

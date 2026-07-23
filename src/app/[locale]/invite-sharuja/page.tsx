@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 
 import { InviteInquiryForm } from "@/components/forms/invite-inquiry-form";
 import { PageHero } from "@/components/shared/page-hero";
+import { SpeakerScene } from "@/components/illustrations/scene-illustrations";
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import type { AppLocale } from "@/i18n/routing";
@@ -30,7 +31,7 @@ export default async function InviteSharujaPage({ params }: Props) {
 
   return (
     <main>
-      <PageHero kicker={copy.hero.kicker} title={copy.hero.title} description={copy.hero.description} />
+      <PageHero photoKey="invite-sharuja" art={<SpeakerScene />} kicker={copy.hero.kicker} title={copy.hero.title} description={copy.hero.description} />
 
       <Section>
         <div className="grid gap-12 lg:grid-cols-2">

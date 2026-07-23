@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { NewsletterSignup } from "@/components/forms/newsletter-signup";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PageHero } from "@/components/shared/page-hero";
+import { ReadingScene } from "@/components/illustrations/scene-illustrations";
 import { Section } from "@/components/shared/section";
 import { SectionCta } from "@/components/shared/section-cta";
 import { ResourceGrid } from "@/components/resources/resource-grid";
@@ -38,6 +39,8 @@ export default async function ResourcesPage({ params }: Props) {
     <main>
       <Breadcrumbs items={[{ name: messages.nav.resources, url: `${siteConfig.url}/${locale}/resources` }]} />
       <PageHero
+        photoKey="resources"
+        art={<ReadingScene />}
         kicker={shells.resources.kicker}
         title={shells.resources.title}
         description={`${articles.length}+ ${shells.resources.description}`}

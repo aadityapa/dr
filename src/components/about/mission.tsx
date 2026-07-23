@@ -5,6 +5,7 @@ import { Heart } from "lucide-react";
 
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { MissionArt } from "@/components/illustrations/scene-illustrations";
 
 import type { AboutPageProps } from "./about-types";
 
@@ -19,10 +20,13 @@ export function MissionSection({ about, shells }: AboutPageProps) {
         aria-hidden
       />
       <div className="relative grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
-        <SectionHeading
-          kicker={shells.sections.missionKicker}
-          title={shells.sections.missionTitle}
-        />
+        <div>
+          <SectionHeading
+            kicker={shells.sections.missionKicker}
+            title={shells.sections.missionTitle}
+          />
+          <MissionArt className="mt-8" />
+        </div>
         <motion.blockquote
           className="rounded-[2rem] border border-white/60 bg-white/50 p-8 shadow-xl backdrop-blur-md md:p-10"
           initial={reduced ? false : { opacity: 0, y: 24 }}

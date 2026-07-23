@@ -26,7 +26,6 @@ type AppointmentInput = {
   gender?: string;
   schoolGrade?: string;
   concerns: string[];
-  hasDiagnosis: "yes" | "no";
   previousTherapies?: string[];
   biggestConcern: string;
   preferredTime: string;
@@ -54,7 +53,6 @@ export function AppointmentForm() {
         gender: z.string().optional(),
         schoolGrade: z.string().optional(),
         concerns: z.array(z.string()).min(1, formCopy.errors.concerns),
-        hasDiagnosis: z.enum(["yes", "no"], { message: formCopy.errors.hasDiagnosis }),
         previousTherapies: z.array(z.string()).optional(),
         biggestConcern: z.string().min(10, formCopy.errors.biggestConcern),
         preferredTime: z.string().min(1, formCopy.errors.preferredTime),
@@ -72,7 +70,7 @@ export function AppointmentForm() {
     formState: { errors, isSubmitting },
   } = useForm<AppointmentInput>({
     resolver: zodResolver(appointmentSchema),
-    defaultValues: { concerns: [], previousTherapies: [], hasDiagnosis: undefined },
+    defaultValues: { concerns: [], previousTherapies: [] },
   });
 
   const selectedConcerns = watch("concerns") ?? [];
@@ -182,21 +180,6 @@ export function AppointmentForm() {
           ))}
         </div>
         <p className="text-xs text-red-600">{errors.concerns?.message}</p>
-      </div>
-
-      <div className="md:col-span-2">
-        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.diagnosisLabel}</p>
-        <div className="flex gap-4">
-          <label className="flex items-center gap-2 text-sm">
-            <input type="radio" value="yes" {...register("hasDiagnosis")} />
-            {formCopy.yes}
-          </label>
-          <label className="flex items-center gap-2 text-sm">
-            <input type="radio" value="no" {...register("hasDiagnosis")} />
-            {formCopy.no}
-          </label>
-        </div>
-        <p className="text-xs text-red-600">{errors.hasDiagnosis?.message}</p>
       </div>
 
       <div className="md:col-span-2">

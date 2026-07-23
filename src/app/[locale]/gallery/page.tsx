@@ -4,6 +4,7 @@ import { setRequestLocale } from "next-intl/server";
 import { ClinicMediaShowcase } from "@/components/gallery/clinic-media-showcase";
 import { GalleryGrid } from "@/components/gallery/gallery-grid";
 import { PageHero } from "@/components/shared/page-hero";
+import { GalleryScene } from "@/components/illustrations/scene-illustrations";
 import { Section } from "@/components/shared/section";
 import type { AppLocale } from "@/i18n/routing";
 import { getPageShells, getPhase3Content } from "@/lib/i18n/localize";
@@ -52,7 +53,7 @@ export default async function GalleryPage({ params }: Props) {
 
   return (
     <main>
-      <PageHero kicker={shells.gallery.kicker} title={shells.gallery.title} description={shells.gallery.description} />
+      <PageHero photoKey="gallery" art={<GalleryScene />} kicker={shells.gallery.kicker} title={shells.gallery.title} description={shells.gallery.description} />
       <Section>
         <ClinicMediaShowcase slides={items} videos={videos} copy={gallery.mediaShowcase} />
       </Section>
