@@ -70,17 +70,19 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
         aria-hidden
       />
 
-      {!reduced &&
-        Array.from({ length: 18 }).map((_, i) => (
-          <motion.span
-            key={i}
-            className="pointer-events-none absolute h-1 w-1 rounded-full bg-[#4A9B73]/35 md:h-1.5 md:w-1.5"
-            style={{ left: `${6 + (i * 5.2) % 88}%`, top: `${10 + (i * 7.3) % 78}%` }}
-            animate={{ y: [0, -14, 0], opacity: [0.15, 0.55, 0.15] }}
-            transition={{ duration: 3.5 + (i % 4), repeat: Infinity, delay: i * 0.25 }}
-            aria-hidden
-          />
-        ))}
+      {/* Always render the same particle DOM; only animation is gated by reduced-motion */}
+      {Array.from({ length: 18 }).map((_, i) => (
+        <motion.span
+          key={i}
+          className="pointer-events-none absolute h-1 w-1 rounded-full bg-[#4A9B73]/35 md:h-1.5 md:w-1.5"
+          style={{ left: `${6 + (i * 5.2) % 88}%`, top: `${10 + (i * 7.3) % 78}%` }}
+          animate={
+            reduced ? undefined : { y: [0, -14, 0], opacity: [0.15, 0.55, 0.15] }
+          }
+          transition={{ duration: 3.5 + (i % 4), repeat: Infinity, delay: i * 0.25 }}
+          aria-hidden
+        />
+      ))}
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <motion.div

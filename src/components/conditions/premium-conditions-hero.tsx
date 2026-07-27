@@ -40,17 +40,19 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
         aria-hidden
       />
 
-      {!reduced &&
-        Array.from({ length: 12 }).map((_, i) => (
-          <motion.span
-            key={i}
-            className="pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-[#4A9B73]/30"
-            style={{ left: `${8 + (i * 7) % 84}%`, top: `${12 + (i * 11) % 76}%` }}
-            animate={{ y: [0, -12, 0], opacity: [0.2, 0.6, 0.2] }}
-            transition={{ duration: 4 + (i % 3), repeat: Infinity, delay: i * 0.3 }}
-            aria-hidden
-          />
-        ))}
+      {/* Always render the same particle DOM; only animation is gated by reduced-motion */}
+      {Array.from({ length: 12 }).map((_, i) => (
+        <motion.span
+          key={i}
+          className="pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-[#4A9B73]/30"
+          style={{ left: `${8 + (i * 7) % 84}%`, top: `${12 + (i * 11) % 76}%` }}
+          animate={
+            reduced ? undefined : { y: [0, -12, 0], opacity: [0.2, 0.6, 0.2] }
+          }
+          transition={{ duration: 4 + (i % 3), repeat: Infinity, delay: i * 0.3 }}
+          aria-hidden
+        />
+      ))}
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div
