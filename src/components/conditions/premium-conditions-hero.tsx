@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Brain, Heart, Puzzle, Sparkles, Target } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/components/providers/language-provider";
-import { useMotionReady } from "@/lib/use-motion-ready";
 
 import type { ConditionsPageProps } from "./conditions-types";
 
@@ -24,32 +23,31 @@ const TRUST_ICONS = [Sparkles, Target, Heart] as const;
 export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "shells">) {
   const { content } = useLanguage();
   const copy = content.pages.conditionsList;
-  const { motionReady } = useMotionReady();
-  const enterKey = motionReady ? "enter" : "hydrate";
+  const reduced = useReducedMotion();
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#FFFDF9] via-[#FAF8F4] to-[#F9FCFB] px-4 py-16 md:px-8 md:py-24">
       <motion.div
         className="pointer-events-none absolute -left-32 top-16 h-96 w-96 rounded-full bg-[#D8F0E4]/60 blur-3xl"
-        animate={motionReady ? { scale: [1, 1.08, 1], opacity: [0.5, 0.7, 0.5] } : undefined}
+        animate={reduced ? undefined : { scale: [1, 1.08, 1], opacity: [0.5, 0.7, 0.5] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
       />
       <motion.div
         className="pointer-events-none absolute -right-24 bottom-8 h-80 w-80 rounded-full bg-[#D6E8F5]/50 blur-3xl"
-        animate={motionReady ? { scale: [1, 1.1, 1], opacity: [0.4, 0.65, 0.4] } : undefined}
+        animate={reduced ? undefined : { scale: [1, 1.1, 1], opacity: [0.4, 0.65, 0.4] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         aria-hidden
       />
 
-      {/* Always render the same particle DOM; only animation is gated after mount */}
+      {/* Always render the same particle DOM; only animation is gated by reduced-motion */}
       {Array.from({ length: 12 }).map((_, i) => (
         <motion.span
           key={i}
           className="pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-[#4A9B73]/30"
           style={{ left: `${8 + (i * 7) % 84}%`, top: `${12 + (i * 11) % 76}%` }}
           animate={
-            motionReady ? { y: [0, -12, 0], opacity: [0.2, 0.6, 0.2] } : undefined
+            reduced ? undefined : { y: [0, -12, 0], opacity: [0.2, 0.6, 0.2] }
           }
           transition={{ duration: 4 + (i % 3), repeat: Infinity, delay: i * 0.3 }}
           aria-hidden
@@ -58,8 +56,7 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div
-          key={`copy-${enterKey}`}
-          initial={motionReady ? { opacity: 0, x: -28 } : false}
+          initial={reduced ? false : { opacity: 0, x: -28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
@@ -84,8 +81,8 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
               const Icon = TRUST_ICONS[i] ?? Sparkles;
               return (
                 <motion.li
-                  key={`${label}-${enterKey}`}
-                  initial={motionReady ? { opacity: 0, y: 12 } : false}
+                  key={label}
+                  initial={reduced ? false : { opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + i * 0.1 }}
                   className="flex items-center gap-2 rounded-full border border-white/70 bg-white/55 px-4 py-2 text-sm font-medium text-[#2D6047] shadow-sm backdrop-blur-md"
@@ -99,9 +96,8 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
         </motion.div>
 
         <motion.div
-          key={`visual-${enterKey}`}
           className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none"
-          initial={motionReady ? { opacity: 0, x: 28 } : false}
+          initial={reduced ? false : { opacity: 0, x: 28 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           aria-hidden
@@ -120,14 +116,14 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
 
             {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (
               <motion.div
-                key={`float-${i}-${enterKey}`}
+                key={i}
                 className={`absolute flex h-14 w-14 items-center justify-center rounded-2xl border border-white/70 bg-white/75 shadow-lg backdrop-blur-sm ${color}`}
                 style={{ left: x, top: y }}
-                initial={motionReady ? { opacity: 0, scale: 0.8 } : false}
+                initial={{ opacity: 0, scale: 0.8 }}
                 animate={
-                  motionReady
-                    ? { opacity: 1, scale: 1, y: [0, -10, 0] }
-                    : { opacity: 1, scale: 1 }
+                  reduced
+                    ? { opacity: 1, scale: 1 }
+                    : { opacity: 1, scale: 1, y: [0, -10, 0] }
                 }
                 transition={{
                   opacity: { delay: 0.2 + delay },
@@ -140,9 +136,8 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
             ))}
 
             <motion.div
-              key={`caption-${enterKey}`}
               className="absolute inset-x-8 bottom-8 rounded-2xl border border-white/60 bg-white/80 p-4 text-center shadow-md backdrop-blur-sm"
-              initial={motionReady ? { opacity: 0, y: 16 } : false}
+              initial={reduced ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >

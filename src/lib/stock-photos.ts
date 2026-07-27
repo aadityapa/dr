@@ -11,16 +11,16 @@ export type HeroPhoto = { src: string; alt: string };
 
 export const stockPhotos = {
   resources: {
-    src: "/images/gallery/ball-pit-xylophone-play.jpg",
-    alt: "Dr. Sharuja and a baby playing a colourful xylophone in the clinic ball pit",
+    src: "/images/therapy-rooms/climbing-wall.jpg",
+    alt: "A toddler on sensory stepping pads beside the colourful climbing wall",
   },
   library: {
-    src: "/images/gallery/finger-puppet-engagement.jpg",
-    alt: "Dr. Sharuja engaging a baby with colourful animal finger puppets",
+    src: "/images/gallery/therapist-guided-balance-play.jpg",
+    alt: "A toddler placing objects into colourful cups during a playful learning game",
   },
   contact: {
-    src: "/images/gallery/rattle-play-gym-ball.jpg",
-    alt: "Dr. Sharuja smiling with a baby on a therapy ball during a session",
+    src: "/images/therapy/handwriting-practice.jpg",
+    alt: "Dr. Sharuja playing a chalkboard game one-on-one with a young boy",
   },
   faqs: {
     src: "/images/gallery/balance-beam-coordination-game.jpg",
@@ -35,8 +35,8 @@ export const stockPhotos = {
     alt: "Supported standing practice in the spacious pediatric therapy gym",
   },
   screening: {
-    src: "/images/gallery/wall-ball-reaching-activity.jpg",
-    alt: "A baby reaching for colourful balls on the wall during a guided activity",
+    src: "/images/gallery/sensory-pathway-stepping-practice.jpg",
+    alt: "A toddler on sensory stepping pads doing a guided pom-pom sorting activity",
   },
   "testimonials-milestones": {
     src: "/images/gallery/jumping-rings-motor-planning.jpg",
@@ -47,8 +47,8 @@ export const stockPhotos = {
     alt: "A young girl climbing the clinic climbing wall with close therapist support",
   },
   "invite-sharuja": {
-    src: "/images/gallery/therapy-swing-vestibular-play.jpg",
-    alt: "A girl on a therapy swing beside the climbing wall with a smiling therapist",
+    src: "/images/gallery/supported-swing-session.jpg",
+    alt: "Dr. Sharuja working closely with a boy during a therapy swing session",
   },
   appointment: {
     src: "/images/gallery/infant-crawling-support.jpg",
