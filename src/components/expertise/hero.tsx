@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Brain,
   Heart,
@@ -17,6 +17,7 @@ import {
 
 import { Badge } from "@/components/ui/badge";
 import { lookingBeyondExpertise } from "@/lib/client-content/expertise";
+import { useMotionReady } from "@/lib/use-motion-ready";
 import { easeOutExpo, fadeUp, floatY } from "./animations";
 import type { ExpertisePageProps } from "./expertise-types";
 
@@ -35,7 +36,8 @@ const PILL_ICONS = [Sparkles, Target, Heart] as const;
 
 export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
   const intro = lookingBeyondExpertise;
-  const reduced = useReducedMotion();
+  const { motionReady, reduced } = useMotionReady();
+  const enterKey = motionReady ? "enter" : "hydrate";
 
   const floatingCards = [
     { title: shells.trustCards[0]!.title, sub: shells.trustCards[0]!.description },
@@ -53,31 +55,31 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
 
       <motion.div
         className="pointer-events-none absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-[#EAFBF2]/70 blur-3xl"
-        animate={reduced ? undefined : { scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] }}
+        animate={motionReady ? { scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] } : undefined}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
       />
       <motion.div
         className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[#EAF4FF]/60 blur-3xl"
-        animate={reduced ? undefined : { scale: [1, 1.08, 1], opacity: [0.35, 0.6, 0.35] }}
+        animate={motionReady ? { scale: [1, 1.08, 1], opacity: [0.35, 0.6, 0.35] } : undefined}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
         aria-hidden
       />
       <motion.div
         className="pointer-events-none absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-[#FFF9DE]/50 blur-3xl"
-        animate={reduced ? undefined : { x: [-20, 20, -20], y: [0, -16, 0] }}
+        animate={motionReady ? { x: [-20, 20, -20], y: [0, -16, 0] } : undefined}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
       />
 
-      {/* Always render the same particle DOM; only animation is gated by reduced-motion */}
+      {/* Always render the same particle DOM; only animation is gated after mount */}
       {Array.from({ length: 18 }).map((_, i) => (
         <motion.span
           key={i}
           className="pointer-events-none absolute h-1 w-1 rounded-full bg-[#4A9B73]/35 md:h-1.5 md:w-1.5"
           style={{ left: `${6 + (i * 5.2) % 88}%`, top: `${10 + (i * 7.3) % 78}%` }}
           animate={
-            reduced ? undefined : { y: [0, -14, 0], opacity: [0.15, 0.55, 0.15] }
+            motionReady ? { y: [0, -14, 0], opacity: [0.15, 0.55, 0.15] } : undefined
           }
           transition={{ duration: 3.5 + (i % 4), repeat: Infinity, delay: i * 0.25 }}
           aria-hidden
@@ -86,8 +88,9 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <motion.div
+          key={`copy-${enterKey}`}
           variants={fadeUp}
-          initial={reduced ? false : "hidden"}
+          initial={motionReady ? "hidden" : false}
           animate="visible"
           transition={{ duration: 0.75, ease: easeOutExpo }}
         >
@@ -112,8 +115,8 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
               const Icon = PILL_ICONS[i] ?? Sparkles;
               return (
                 <motion.li
-                  key={label}
-                  initial={reduced ? false : { opacity: 0, y: 14 }}
+                  key={`${label}-${enterKey}`}
+                  initial={motionReady ? { opacity: 0, y: 14 } : false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 + i * 0.09, ease: easeOutExpo }}
                   className="flex items-center gap-2 rounded-full border border-white/80 bg-white/50 px-4 py-2.5 text-sm font-medium text-[#2D6047] shadow-[0_4px_24px_rgba(74,155,115,0.08)] backdrop-blur-xl"
@@ -127,8 +130,9 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
         </motion.div>
 
         <motion.div
+          key={`visual-${enterKey}`}
           className="relative mx-auto aspect-square w-full max-w-lg lg:max-w-none"
-          initial={reduced ? false : { opacity: 0, x: 32 }}
+          initial={motionReady ? { opacity: 0, x: 32 } : false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.12 }}
           aria-hidden
@@ -136,8 +140,8 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
           <div className="relative h-full min-h-[20rem] w-full overflow-hidden rounded-[2.75rem] border border-white/70 bg-white/25 shadow-[0_24px_80px_rgba(45,96,71,0.12)] backdrop-blur-2xl">
             <div className="glossy-frame absolute inset-0 overflow-hidden rounded-[2.75rem]">
               <Image
-                src="/images/gallery/supported-standing-ball.jpg"
-                alt="Dr. Sharuja supporting a baby practicing standing at a textured therapy ball"
+                src="/images/gallery/therapy-swing-vestibular-play.jpg"
+                alt="A young girl on a therapy swing beside the climbing wall with a smiling therapist"
                 fill
                 sizes="(max-width: 1024px) 480px, 560px"
                 className="object-cover"
@@ -147,14 +151,14 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
 
             {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (
               <motion.div
-                key={i}
+                key={`float-${i}-${enterKey}`}
                 className={`absolute flex h-12 w-12 items-center justify-center rounded-2xl border border-white/80 bg-white/70 shadow-lg backdrop-blur-md md:h-14 md:w-14 ${color}`}
                 style={{ left: x, top: y }}
-                initial={{ opacity: 0, scale: 0.85 }}
+                initial={motionReady ? { opacity: 0, scale: 0.85 } : false}
                 animate={
-                  reduced
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 1, scale: 1, y: [0, -12, 0] }
+                  motionReady
+                    ? { opacity: 1, scale: 1, y: [0, -12, 0] }
+                    : { opacity: 1, scale: 1 }
                 }
                 transition={{
                   opacity: { delay: 0.25 + delay },
@@ -169,9 +173,9 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
             <div className="absolute inset-x-5 bottom-5 grid grid-cols-2 gap-2.5 md:inset-x-7 md:bottom-7 md:gap-3">
               {floatingCards.map((card, i) => (
                 <motion.div
-                  key={card.title}
+                  key={`${card.title}-${enterKey}`}
                   className="rounded-2xl border border-white/75 bg-white/75 p-3 shadow-md backdrop-blur-md md:p-3.5"
-                  initial={reduced ? false : { opacity: 0, y: 18 }}
+                  initial={motionReady ? { opacity: 0, y: 18 } : false}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + i * 0.1, ease: easeOutExpo }}
                   whileHover={reduced ? undefined : { y: -3, transition: { duration: 0.2 } }}
