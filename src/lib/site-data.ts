@@ -732,6 +732,7 @@ export const galleryCategories = [
   "Aquatic Therapy",
   "Therapy Equipment",
   "Child-Friendly Environment",
+  "Early Intervention",
 ] as const;
 
 export const galleryItems = [
@@ -800,6 +801,96 @@ export const galleryItems = [
     category: "Therapy Room",
     alt: "Therapist supporting a child during a sensory swing activity in the clinic gym",
     image: "/images/gallery/supported-swing-session.jpg",
+  },
+  {
+    title: "Sensory Rattle Play",
+    category: "Early Intervention",
+    alt: "Dr. Sharuja smiling with a baby seated on a textured therapy ball while playing with a bell rattle",
+    image: "/images/gallery/rattle-play-gym-ball.jpg",
+  },
+  {
+    title: "Finger Puppet Engagement",
+    category: "Early Intervention",
+    alt: "Dr. Sharuja engaging a baby face-to-face with colorful animal finger puppets during early intervention play",
+    image: "/images/gallery/finger-puppet-engagement.jpg",
+  },
+  {
+    title: "Crawling Milestone Practice",
+    category: "Early Intervention",
+    alt: "Baby practicing crawling on a padded therapy mat while Dr. Sharuja guards and encourages the movement",
+    image: "/images/gallery/infant-crawling-guidance.jpg",
+  },
+  {
+    title: "Hands-On Crawling Support",
+    category: "Early Intervention",
+    alt: "Therapist supporting an infant's hips during crawling practice on a soft blue mat in the therapy room",
+    image: "/images/gallery/infant-crawling-support.jpg",
+  },
+  {
+    title: "Supported Standing Practice",
+    category: "Early Intervention",
+    alt: "Infant practicing supported standing at a textured therapy ball in the spacious pediatric gym",
+    image: "/images/gallery/supported-standing-gym.jpg",
+  },
+  {
+    title: "Standing at the Ball",
+    category: "Early Intervention",
+    alt: "Baby pulling up to stand against a textured therapy ball with gentle therapist support",
+    image: "/images/gallery/supported-standing-ball.jpg",
+  },
+  {
+    title: "Reach and Grasp Wall Play",
+    category: "Early Intervention",
+    alt: "Baby reaching for colorful balls fixed to the wall, building shoulder strength and hand-eye coordination",
+    image: "/images/gallery/wall-ball-reaching-activity.jpg",
+  },
+  {
+    title: "Infant Leg Strengthening",
+    category: "Early Intervention",
+    alt: "Therapist guiding a gentle leg-strengthening and rolling exercise for an infant on the therapy mat",
+    image: "/images/gallery/infant-leg-strengthening.jpg",
+  },
+  {
+    title: "Blanket Swing Calming",
+    category: "Early Intervention",
+    alt: "Infant relaxing in a soft pink blanket swing held by two therapists for vestibular input",
+    image: "/images/gallery/blanket-swing-vestibular.jpg",
+  },
+  {
+    title: "Ball Pit Music Play",
+    category: "Child-Friendly Environment",
+    alt: "Baby playing a colorful xylophone in the ball pit with Dr. Sharuja during a sensory play session",
+    image: "/images/gallery/ball-pit-xylophone-play.jpg",
+  },
+  {
+    title: "Balance Beam Coordination",
+    category: "Therapy Equipment",
+    alt: "Young girl walking a wavy tactile balance beam while balancing a disc game with therapist guidance",
+    image: "/images/gallery/balance-beam-coordination-game.jpg",
+  },
+  {
+    title: "Trampoline Gross Motor Play",
+    category: "Therapy Equipment",
+    alt: "Girl jumping on a mini trampoline with hand support from a smiling therapist",
+    image: "/images/gallery/trampoline-jumping-gross-motor.jpg",
+  },
+  {
+    title: "Assisted Wall Climbing",
+    category: "Child-Friendly Environment",
+    alt: "Young girl climbing a colorful climbing wall with close therapist support for motor planning and strength",
+    image: "/images/gallery/climbing-wall-assisted-climb.jpg",
+  },
+  {
+    title: "Vestibular Swing Session",
+    category: "Therapy Room",
+    alt: "Girl seated on a therapy swing beside the climbing wall with a smiling therapist providing support",
+    image: "/images/gallery/therapy-swing-vestibular-play.jpg",
+  },
+  {
+    title: "Motor Planning Ring Jumps",
+    category: "Therapy Room",
+    alt: "Boy jumping through a course of colorful floor rings while the therapist cheers him on",
+    image: "/images/gallery/jumping-rings-motor-planning.jpg",
   },
 ];
 

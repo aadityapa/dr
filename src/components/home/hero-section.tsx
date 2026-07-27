@@ -78,10 +78,10 @@ export function HeroSection() {
         </div>
 
         <div className="hero-image relative">
-          <div className="relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[color:var(--color-sage)]/15 ring-1 ring-[color:var(--color-border)]/40">
+          <div className="water-reflection relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[color:var(--color-sage)]/15 ring-1 ring-[color:var(--color-border)]/40">
             <Image
               src={getSiteImage("heroMain")}
-              alt="Dr. Sharuja guiding a child on sensory swing equipment in the Thrive With Sharuja therapy gym"
+              alt="Dr. Sharuja smiling with a baby on a textured therapy ball during a playful sensory session at Thrive With Sharuja"
               width={640}
               height={720}
               priority

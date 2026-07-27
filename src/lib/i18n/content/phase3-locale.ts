@@ -291,6 +291,7 @@ const en: Phase3Content = {
       "Aquatic Therapy": "Aquatic Therapy",
       "Therapy Equipment": "Therapy Equipment",
       "Child-Friendly Environment": "Child-Friendly Environment",
+      "Early Intervention": "Early Intervention",
     },
     items: [
       {
@@ -322,6 +323,106 @@ const en: Phase3Content = {
         title: "Sensory Gym",
         category: "Therapy Room",
         alt: "Indoor pediatric sensory gym with a platform swing and colorful climbing equipment for motor development",
+      },
+      {
+        title: "Supported Stepping Practice",
+        category: "Child-Friendly Environment",
+        alt: "Child practicing careful stepping on colorful sensory floor pads in the pediatric therapy gym",
+      },
+      {
+        title: "Therapist-Guided Balance Play",
+        category: "Therapy Equipment",
+        alt: "Therapist guiding a child through a playful balance and coordination activity with clinic equipment",
+      },
+      {
+        title: "Climbing Wall Step Practice",
+        category: "Child-Friendly Environment",
+        alt: "Child practicing movement planning near a colorful climbing wall and sensory stepping pads",
+      },
+      {
+        title: "Ring Swing Movement Play",
+        category: "Therapy Room",
+        alt: "Child using a ring swing in a supervised pediatric sensory gym session",
+      },
+      {
+        title: "Supported Swing Session",
+        category: "Therapy Room",
+        alt: "Therapist supporting a child during a sensory swing activity in the clinic gym",
+      },
+      {
+        title: "Sensory Rattle Play",
+        category: "Early Intervention",
+        alt: "Dr. Sharuja smiling with a baby seated on a textured therapy ball while playing with a bell rattle",
+      },
+      {
+        title: "Finger Puppet Engagement",
+        category: "Early Intervention",
+        alt: "Dr. Sharuja engaging a baby face-to-face with colorful animal finger puppets during early intervention play",
+      },
+      {
+        title: "Crawling Milestone Practice",
+        category: "Early Intervention",
+        alt: "Baby practicing crawling on a padded therapy mat while Dr. Sharuja guards and encourages the movement",
+      },
+      {
+        title: "Hands-On Crawling Support",
+        category: "Early Intervention",
+        alt: "Therapist supporting an infant's hips during crawling practice on a soft blue mat in the therapy room",
+      },
+      {
+        title: "Supported Standing Practice",
+        category: "Early Intervention",
+        alt: "Infant practicing supported standing at a textured therapy ball in the spacious pediatric gym",
+      },
+      {
+        title: "Standing at the Ball",
+        category: "Early Intervention",
+        alt: "Baby pulling up to stand against a textured therapy ball with gentle therapist support",
+      },
+      {
+        title: "Reach and Grasp Wall Play",
+        category: "Early Intervention",
+        alt: "Baby reaching for colorful balls fixed to the wall, building shoulder strength and hand-eye coordination",
+      },
+      {
+        title: "Infant Leg Strengthening",
+        category: "Early Intervention",
+        alt: "Therapist guiding a gentle leg-strengthening and rolling exercise for an infant on the therapy mat",
+      },
+      {
+        title: "Blanket Swing Calming",
+        category: "Early Intervention",
+        alt: "Infant relaxing in a soft pink blanket swing held by two therapists for vestibular input",
+      },
+      {
+        title: "Ball Pit Music Play",
+        category: "Child-Friendly Environment",
+        alt: "Baby playing a colorful xylophone in the ball pit with Dr. Sharuja during a sensory play session",
+      },
+      {
+        title: "Balance Beam Coordination",
+        category: "Therapy Equipment",
+        alt: "Young girl walking a wavy tactile balance beam while balancing a disc game with therapist guidance",
+      },
+      {
+        title: "Trampoline Gross Motor Play",
+        category: "Therapy Equipment",
+        alt: "Girl jumping on a mini trampoline with hand support from a smiling therapist",
+      },
+      {
+        title: "Assisted Wall Climbing",
+        category: "Child-Friendly Environment",
+        alt: "Young girl climbing a colorful climbing wall with close therapist support for motor planning and strength",
+      },
+      {
+        title: "Vestibular Swing Session",
+        category: "Therapy Room",
+        alt: "Girl seated on a therapy swing beside the climbing wall with a smiling therapist providing support",
+      },
+      {
+        title: "Motor Planning Ring Jumps",
+        category: "Therapy Room",
+        alt: "Boy jumping through a course of colorful floor rings while the therapist cheers him on",
       },
     ],
     videos: [
@@ -648,6 +749,7 @@ const hi: Phase3Content = {
       "Aquatic Therapy": "जल चिकित्सा",
       "Therapy Equipment": "थेरेपी उपकरण",
       "Child-Friendly Environment": "बच्चों के अनुकूल वातावरण",
+      "Early Intervention": "प्रारंभिक हस्तक्षेप",
     },
     items: [
       {
@@ -679,6 +781,106 @@ const hi: Phase3Content = {
         title: "सेंसरी जिम",
         category: "Therapy Room",
         alt: "platform swing और रंगीन climbing equipment वाला indoor pediatric sensory gym",
+      },
+      {
+        title: "सहारे के साथ कदम अभ्यास",
+        category: "Child-Friendly Environment",
+        alt: "बाल थेरेपी जिम में रंगीन सेंसरी पैड पर सावधानी से कदम रखता बच्चा",
+      },
+      {
+        title: "थेरेपिस्ट-निर्देशित संतुलन खेल",
+        category: "Therapy Equipment",
+        alt: "क्लिनिक उपकरणों के साथ बच्चे को संतुलन और समन्वय गतिविधि कराती थेरेपिस्ट",
+      },
+      {
+        title: "क्लाइम्बिंग वॉल अभ्यास",
+        category: "Child-Friendly Environment",
+        alt: "रंगीन क्लाइम्बिंग वॉल और सेंसरी पैड के पास मूवमेंट प्लानिंग का अभ्यास करता बच्चा",
+      },
+      {
+        title: "रिंग झूला खेल",
+        category: "Therapy Room",
+        alt: "पर्यवेक्षित सेंसरी जिम सत्र में रिंग झूले का उपयोग करता बच्चा",
+      },
+      {
+        title: "सहारे के साथ झूला सत्र",
+        category: "Therapy Room",
+        alt: "क्लिनिक जिम में सेंसरी झूला गतिविधि के दौरान बच्चे को सहारा देती थेरेपिस्ट",
+      },
+      {
+        title: "सेंसरी झुनझुना खेल",
+        category: "Early Intervention",
+        alt: "टेक्सचर्ड थेरेपी बॉल पर बैठे शिशु के साथ झुनझुने से खेलतीं मुस्कुराती डॉ. शारुजा",
+      },
+      {
+        title: "फिंगर पपेट जुड़ाव",
+        category: "Early Intervention",
+        alt: "प्रारंभिक हस्तक्षेप खेल के दौरान रंगीन फिंगर पपेट से शिशु से संवाद करतीं डॉ. शारुजा",
+      },
+      {
+        title: "रेंगने का अभ्यास",
+        category: "Early Intervention",
+        alt: "गद्देदार थेरेपी मैट पर रेंगने का अभ्यास करता शिशु, प्रोत्साहित करतीं डॉ. शारुजा",
+      },
+      {
+        title: "रेंगने में सहायता",
+        category: "Early Intervention",
+        alt: "थेरेपी कक्ष में नरम मैट पर रेंगने के अभ्यास में शिशु के कूल्हों को सहारा देती थेरेपिस्ट",
+      },
+      {
+        title: "सहारे के साथ खड़ा होना",
+        category: "Early Intervention",
+        alt: "विशाल बाल जिम में टेक्सचर्ड थेरेपी बॉल के सहारे खड़े होने का अभ्यास करता शिशु",
+      },
+      {
+        title: "बॉल के सहारे खड़ा होना",
+        category: "Early Intervention",
+        alt: "थेरेपिस्ट के कोमल सहारे से टेक्सचर्ड बॉल पकड़कर खड़ा होता शिशु",
+      },
+      {
+        title: "पहुंचना और पकड़ना",
+        category: "Early Intervention",
+        alt: "दीवार पर लगी रंगीन गेंदों तक पहुंचता शिशु — कंधे की मजबूती और हाथ-आंख समन्वय",
+      },
+      {
+        title: "शिशु पैर मजबूती",
+        category: "Early Intervention",
+        alt: "थेरेपी मैट पर शिशु के लिए कोमल पैर-मजबूती और करवट व्यायाम करातीं थेरेपिस्ट",
+      },
+      {
+        title: "कंबल झूला शांति",
+        category: "Early Intervention",
+        alt: "वेस्टिबुलर इनपुट के लिए दो थेरेपिस्ट द्वारा पकड़े नरम कंबल झूले में आराम करता शिशु",
+      },
+      {
+        title: "बॉल पिट संगीत खेल",
+        category: "Child-Friendly Environment",
+        alt: "सेंसरी खेल सत्र में डॉ. शारुजा के साथ बॉल पिट में रंगीन जाइलोफोन बजाता शिशु",
+      },
+      {
+        title: "संतुलन बीम समन्वय",
+        category: "Therapy Equipment",
+        alt: "थेरेपिस्ट के मार्गदर्शन में लहरदार बैलेंस बीम पर चलते हुए डिस्क गेम संभालती बच्ची",
+      },
+      {
+        title: "ट्रैम्पोलिन खेल",
+        category: "Therapy Equipment",
+        alt: "मुस्कुराती थेरेपिस्ट के हाथों के सहारे मिनी ट्रैम्पोलिन पर कूदती बच्ची",
+      },
+      {
+        title: "सहायता से दीवार चढ़ाई",
+        category: "Child-Friendly Environment",
+        alt: "मोटर प्लानिंग और मजबूती के लिए थेरेपिस्ट के करीबी सहयोग से रंगीन दीवार चढ़ती बच्ची",
+      },
+      {
+        title: "वेस्टिबुलर झूला सत्र",
+        category: "Therapy Room",
+        alt: "क्लाइम्बिंग वॉल के पास थेरेपी झूले पर बैठी बच्ची, सहारा देतीं मुस्कुराती थेरेपिस्ट",
+      },
+      {
+        title: "मोटर प्लानिंग रिंग कूद",
+        category: "Therapy Room",
+        alt: "रंगीन रिंगों के रास्ते पर कूदता बच्चा, उत्साह बढ़ातीं थेरेपिस्ट",
       },
     ],
     videos: [
@@ -1005,6 +1207,7 @@ const mr: Phase3Content = {
       "Aquatic Therapy": "जलचिकित्सा",
       "Therapy Equipment": "थेरपी उपकरण",
       "Child-Friendly Environment": "मुलांसाठी अनुकूल वातावरण",
+      "Early Intervention": "लवकर हस्तक्षेप",
     },
     items: [
       {
@@ -1036,6 +1239,106 @@ const mr: Phase3Content = {
         title: "Sensory Gym",
         category: "Therapy Room",
         alt: "platform swing आणि रंगीत climbing equipment असलेला indoor pediatric sensory gym",
+      },
+      {
+        title: "आधारासह पाऊल सराव",
+        category: "Child-Friendly Environment",
+        alt: "बाल थेरपी जिममध्ये रंगीत सेन्सरी पॅडवर काळजीपूर्वक पाऊल टाकणारे मूल",
+      },
+      {
+        title: "थेरपिस्ट-मार्गदर्शित संतुलन खेळ",
+        category: "Therapy Equipment",
+        alt: "क्लिनिक उपकरणांसह मुलाला संतुलन आणि समन्वय क्रिया करून घेणाऱ्या थेरपिस्ट",
+      },
+      {
+        title: "क्लाइंबिंग वॉल सराव",
+        category: "Child-Friendly Environment",
+        alt: "रंगीत क्लाइंबिंग वॉल आणि सेन्सरी पॅडजवळ हालचाल नियोजनाचा सराव करणारे मूल",
+      },
+      {
+        title: "रिंग झोका खेळ",
+        category: "Therapy Room",
+        alt: "पर्यवेक्षित सेन्सरी जिम सत्रात रिंग झोक्याचा वापर करणारे मूल",
+      },
+      {
+        title: "आधारासह झोका सत्र",
+        category: "Therapy Room",
+        alt: "क्लिनिक जिममध्ये सेन्सरी झोका क्रियेदरम्यान मुलाला आधार देणाऱ्या थेरपिस्ट",
+      },
+      {
+        title: "सेन्सरी खुळखुळा खेळ",
+        category: "Early Intervention",
+        alt: "टेक्श्चर्ड थेरपी बॉलवर बसलेल्या बाळासोबत खुळखुळ्याने खेळणाऱ्या हसतमुख डॉ. शारुजा",
+      },
+      {
+        title: "फिंगर पपेट संवाद",
+        category: "Early Intervention",
+        alt: "लवकर हस्तक्षेप खेळादरम्यान रंगीत फिंगर पपेटने बाळाशी संवाद साधणाऱ्या डॉ. शारुजा",
+      },
+      {
+        title: "रांगण्याचा सराव",
+        category: "Early Intervention",
+        alt: "गादीच्या थेरपी मॅटवर रांगण्याचा सराव करणारे बाळ, प्रोत्साहन देणाऱ्या डॉ. शारुजा",
+      },
+      {
+        title: "रांगण्यास मदत",
+        category: "Early Intervention",
+        alt: "थेरपी कक्षात मऊ मॅटवर रांगण्याच्या सरावात बाळाच्या कमरेला आधार देणाऱ्या थेरपिस्ट",
+      },
+      {
+        title: "आधाराने उभे राहणे",
+        category: "Early Intervention",
+        alt: "प्रशस्त बाल जिममध्ये टेक्श्चर्ड थेरपी बॉलच्या आधाराने उभे राहण्याचा सराव करणारे बाळ",
+      },
+      {
+        title: "बॉलच्या आधाराने उभे राहणे",
+        category: "Early Intervention",
+        alt: "थेरपिस्टच्या हळुवार आधाराने टेक्श्चर्ड बॉल धरून उभे राहणारे बाळ",
+      },
+      {
+        title: "पोहोचणे आणि पकडणे",
+        category: "Early Intervention",
+        alt: "भिंतीवरील रंगीत चेंडूंपर्यंत पोहोचणारे बाळ — खांद्याची ताकद आणि हात-डोळा समन्वय",
+      },
+      {
+        title: "बाळाच्या पायांचे बळकटीकरण",
+        category: "Early Intervention",
+        alt: "थेरपी मॅटवर बाळासाठी हळुवार पाय-बळकटीकरण आणि कूस व्यायाम करून घेणाऱ्या थेरपिस्ट",
+      },
+      {
+        title: "ब्लँकेट झोका शांतता",
+        category: "Early Intervention",
+        alt: "व्हेस्टिब्युलर इनपुटसाठी दोन थेरपिस्टनी धरलेल्या मऊ ब्लँकेट झोक्यात विसावलेले बाळ",
+      },
+      {
+        title: "बॉल पिट संगीत खेळ",
+        category: "Child-Friendly Environment",
+        alt: "सेन्सरी खेळ सत्रात डॉ. शारुजांसोबत बॉल पिटमध्ये रंगीत झायलोफोन वाजवणारे बाळ",
+      },
+      {
+        title: "संतुलन बीम समन्वय",
+        category: "Therapy Equipment",
+        alt: "थेरपिस्टच्या मार्गदर्शनाखाली नागमोडी बॅलन्स बीमवर चालत डिस्क गेम सांभाळणारी मुलगी",
+      },
+      {
+        title: "ट्रॅम्पोलिन खेळ",
+        category: "Therapy Equipment",
+        alt: "हसतमुख थेरपिस्टच्या हातांच्या आधाराने मिनी ट्रॅम्पोलिनवर उड्या मारणारी मुलगी",
+      },
+      {
+        title: "मदतीने भिंत चढणे",
+        category: "Child-Friendly Environment",
+        alt: "मोटर नियोजन आणि ताकदीसाठी थेरपिस्टच्या जवळच्या आधाराने रंगीत भिंत चढणारी मुलगी",
+      },
+      {
+        title: "व्हेस्टिब्युलर झोका सत्र",
+        category: "Therapy Room",
+        alt: "क्लाइंबिंग वॉलजवळ थेरपी झोक्यावर बसलेली मुलगी, आधार देणाऱ्या हसतमुख थेरपिस्ट",
+      },
+      {
+        title: "मोटर नियोजन रिंग उड्या",
+        category: "Therapy Room",
+        alt: "रंगीत रिंगांच्या मार्गावर उड्या मारणारा मुलगा, प्रोत्साहन देणाऱ्या थेरपिस्ट",
       },
     ],
     videos: [

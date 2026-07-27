@@ -220,7 +220,7 @@
       "organisation": "Organisation / School *",
       "email": "Email *",
       "phone": "Phone *",
-      "eventType": "Event Type (e.g. Parent Workshop, School Training) *",
+      "eventType": "Event Type (e.g. Parent Workshop, Therapist Workshop, Home Program Training) *",
       "message": "Tell us about your program, audience, and preferred dates *",
       "consent": "I consent to being contacted about this inquiry. *",
       "submit": "Send Inquiry",

@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 
+import { emailFailureResponse, rateLimit, safeJson } from "@/lib/api-helpers";
+
 const screeningFields = [
   "soundSensitivity",
   "textureAvoidance",
@@ -48,7 +50,13 @@ const fieldLabels: Record<(typeof screeningFields)[number], string> = {
 };
 
 export async function POST(request: Request) {
-  const body = await request.json();
+  const limited = rateLimit(request);
+  if (limited) return limited;
+
+  const body = await safeJson(request);
+  if (body === null) {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
   const parsed = schema.safeParse(body);
   if (!parsed.success) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
@@ -70,15 +78,20 @@ export async function POST(request: Request) {
     `Additional concerns: ${parsed.data.concerns}`,
   ].join("\n");
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (apiKey) {
-    const resend = new Resend(apiKey);
-    await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL ?? "Clinic <onboarding@resend.dev>",
-      to: process.env.RESEND_TO_EMAIL ?? "sharujasaraf@gmail.com",
-      subject: `Sensory Screening: ${parsed.data.childName}`,
-      text: summary,
-    });
+  try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (apiKey) {
+      const resend = new Resend(apiKey);
+      await resend.emails.send({
+        from: process.env.RESEND_FROM_EMAIL ?? "Clinic <onboarding@resend.dev>",
+        to: process.env.RESEND_TO_EMAIL ?? "sharujasaraf@gmail.com",
+        subject: `Sensory Screening: ${parsed.data.childName}`,
+        text: summary,
+      });
+    }
+  } catch (error) {
+    console.error("[api/screening] email delivery failed:", error);
+    return emailFailureResponse();
   }
 
   return NextResponse.json({ ok: true });

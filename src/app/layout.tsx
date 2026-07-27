@@ -74,6 +74,12 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} ${playfair.variable} ${devanagari.variable} antialiased`}>
+        <script
+          // Applies saved dark/light mode + accent colour before first paint (no flash).
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("tws-theme");var d=t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;var e=document.documentElement;if(d){e.classList.add("dark");}e.style.colorScheme=d?"dark":"light";var a=localStorage.getItem("tws-accent");if(a&&a!=="sage"){e.setAttribute("data-accent",a);}}catch(_){}})();`,
+          }}
+        />
         {children}
         <Script
           id="org-schema"

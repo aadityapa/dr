@@ -7,6 +7,7 @@ import { StickyCtaBar } from "@/components/layout/sticky-cta-bar";
 import { ClientEnhancements } from "@/components/providers/client-enhancements";
 import { LanguageProvider, useLanguage } from "@/components/providers/language-provider";
 import { ScrollProgress } from "@/components/providers/scroll-progress";
+import { WatercolorCanvas } from "@/components/providers/watercolor-canvas";
 
 function SkipLink() {
   const { messages } = useLanguage();
@@ -24,6 +25,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
     <LanguageProvider>
       <SkipLink />
+      <WatercolorCanvas />
       <ScrollProgress />
       <ClientEnhancements />
       <Navbar />

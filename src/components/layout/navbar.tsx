@@ -5,6 +5,7 @@ import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
+import { ThemeControls } from "@/components/providers/theme-controls";
 import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import { getNavLabel } from "@/lib/i18n";
@@ -50,7 +51,7 @@ function NavMoreDropdown({
         <ChevronDown className={cn("h-3.5 w-3.5 transition", open && "rotate-180")} aria-hidden="true" />
       </button>
       {open && (
-        <div className="absolute left-0 top-full z-50 mt-1 min-w-[11rem] rounded-xl border border-[color:var(--color-border)] bg-white py-1 shadow-lg">
+        <div className="absolute left-0 top-full z-50 mt-1 min-w-[11rem] rounded-xl border border-[color:var(--color-border)] bg-[color:var(--color-snow)] py-1 shadow-lg shadow-black/5">
           {items.map((item) => (
             <Link
               key={item.href}
@@ -81,28 +82,35 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   const allNavItems = [...primaryNavItems, ...secondaryNavItems];
+  // Only 4 top-level items on desktop — the rest live in "More", so the bar
+  // can never overflow, in any language, at any width.
+  const desktopPrimary = primaryNavItems.slice(0, 4);
+  const desktopMore = [...primaryNavItems.slice(4), ...secondaryNavItems];
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)]/60 bg-[color:var(--color-snow)]/95 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-[4.25rem] sm:gap-4 md:px-6 lg:px-8">
         {/* Logo — fixed width, never overlaps nav */}
-        <Link href="/" className="shrink-0 leading-tight">
-          <span className="block truncate font-[family-name:var(--font-serif)] text-base font-semibold text-[color:var(--color-sage-dark)] sm:text-lg">
+        <Link href="/" className="group shrink-0 pr-2 leading-none">
+          <span className="block whitespace-nowrap font-[family-name:var(--font-serif)] text-base font-semibold tracking-tight text-[color:var(--color-sage-dark)] transition-colors group-hover:text-[color:var(--color-sage-text)] sm:text-lg">
             {siteConfig.shortName}
+          </span>
+          <span className="mt-0.5 hidden whitespace-nowrap text-[0.6rem] font-medium uppercase tracking-[0.22em] text-[color:var(--color-muted)] md:block">
+            Pediatric Occupational Therapy
           </span>
         </Link>
 
         {/* Desktop primary nav */}
         <nav
-          className="hidden min-w-0 flex-1 items-center justify-center gap-0.5 xl:flex"
+          className="hidden min-w-0 flex-1 items-center justify-center xl:flex"
           aria-label="Main navigation"
         >
-          {primaryNavItems.map((item) => (
+          {desktopPrimary.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={cn(
-                "whitespace-nowrap rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors",
+                "whitespace-nowrap rounded-full px-2.5 py-1.5 text-[0.8125rem] font-medium transition-colors",
                 pathname === item.href
                   ? "bg-[color:var(--color-soft-green)]/50 text-[color:var(--color-sage-dark)]"
                   : "text-[color:var(--color-muted)] hover:text-[color:var(--color-sage-dark)]",
@@ -111,16 +119,17 @@ export function Navbar() {
               {getNavLabel(messages, item.href)}
             </Link>
           ))}
-          <NavMoreDropdown items={secondaryNavItems} pathname={pathname} />
+          <NavMoreDropdown items={desktopMore} pathname={pathname} />
         </nav>
 
         {/* Actions */}
         <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5">
+          <ThemeControls />
           <LanguageSwitcher className="hidden sm:block" />
 
           <a
             href={`tel:${siteConfig.phone}`}
-            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-medium text-[color:var(--color-sage-dark)] hover:underline lg:flex"
+            className="hidden items-center gap-1.5 whitespace-nowrap text-sm font-medium text-[color:var(--color-sage-dark)] hover:underline 2xl:flex"
             aria-label={`Call ${siteConfig.phoneDisplay}`}
           >
             <Phone className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
@@ -135,7 +144,7 @@ export function Navbar() {
           <LanguageSwitcher className="sm:hidden" />
           <a
             href={`tel:${siteConfig.phone}`}
-            className="rounded-xl border border-[color:var(--color-border)] p-2 lg:hidden"
+            className="rounded-xl border border-[color:var(--color-border)] p-2 transition-colors hover:bg-[color:var(--color-soft-green)]/50 2xl:hidden"
             aria-label={`Call ${siteConfig.phoneDisplay}`}
           >
             <Phone className="h-4 w-4 text-[color:var(--color-sage-dark)]" />
@@ -156,7 +165,7 @@ export function Navbar() {
       <nav
         aria-label="Mobile navigation"
         className={cn(
-          "grid overflow-hidden border-t border-[color:var(--color-border)] bg-white transition-[grid-template-rows,opacity] duration-300 xl:hidden",
+          "grid overflow-hidden border-t border-[color:var(--color-border)] bg-[color:var(--color-snow)] transition-[grid-template-rows,opacity] duration-300 xl:hidden",
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
         )}
       >
