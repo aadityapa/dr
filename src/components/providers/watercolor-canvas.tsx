@@ -3,26 +3,24 @@
 import { useEffect, useRef } from "react";
 
 /**
- * WatercolorCanvas — site-wide watercolour pigment-mixing effect.
+ * WatercolorCanvas — site-wide watercolour pigment-mixing effect with a
+ * water-reflection shimmer pass.
  *
- * Renders soft drifting pigment blobs (brand pastels) that bleed into each
- * other, plus interactive blooms that follow the pointer / touch, like drops
- * of paint spreading on wet paper.
+ * Layer 1: saturated pastel pigment blobs drift and multiply into each other
+ * like wet paint; pointer movement drops new pigment that blooms and fades.
+ * Layer 2: soft elongated light streaks drift diagonally with screen
+ * blending — reading as light reflecting off water.
  *
- * Performance safeguards:
- *  - Internal canvas renders at a tiny resolution (~1/7 of viewport) and is
- *    upscaled by CSS with blur — the softness is free, fill cost is tiny.
- *  - Animation throttled to ~30fps; paused when the tab is hidden.
- *  - `prefers-reduced-motion` → renders one static wash, no animation loop.
- *  - Mobile gets fewer blobs.
- *  - `pointer-events: none` + `aria-hidden` — never blocks the UI.
+ * Performance safeguards: tiny internal resolution upscaled with CSS blur,
+ * ~30fps cap, paused on hidden tabs, static wash for reduced motion, fewer
+ * blobs on mobile, pointer-events: none.
  */
 
 type Blob = {
   hue: string;
-  x: number; // 0..1 viewport space
+  x: number;
   y: number;
-  r: number; // radius as fraction of min(viewport)
+  r: number;
   spdX: number;
   spdY: number;
   phase: number;
@@ -34,23 +32,34 @@ type Drop = {
   x: number;
   y: number;
   born: number;
-  life: number; // ms
+  life: number;
   maxR: number;
 };
 
+type Streak = {
+  x: number;
+  y: number;
+  len: number; // ellipse x-radius as fraction of width
+  thick: number; // ellipse y-radius as fraction of height
+  angle: number;
+  spd: number;
+  phase: number;
+};
+
+// Saturated pastels — visible mixing, still on-brand.
 const PIGMENTS = [
-  "182, 213, 233", // sky
-  "214, 232, 245", // pastel blue
-  "216, 240, 228", // mint
-  "228, 221, 245", // lavender
-  "252, 232, 220", // peach
-  "245, 224, 232", // rose
-  "232, 237, 232", // soft sage
-  "253, 243, 212", // pastel yellow
+  "137, 184, 222", // sky
+  "166, 214, 189", // mint
+  "183, 166, 226", // lavender
+  "247, 183, 151", // peach
+  "240, 163, 193", // rose
+  "247, 215, 130", // sun
+  "149, 196, 178", // sage
+  "150, 205, 220", // aqua
 ];
 
-const SCALE = 0.14; // internal resolution factor
-const FRAME_MS = 33; // ~30fps
+const SCALE = 0.14;
+const FRAME_MS = 33;
 
 export function WatercolorCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -75,16 +84,28 @@ export function WatercolorCanvas() {
     resize();
 
     const rand = (a: number, b: number) => a + Math.random() * (b - a);
-    const blobCount = isMobile ? 5 : 8;
+
+    const blobCount = isMobile ? 6 : 9;
     const blobs: Blob[] = Array.from({ length: blobCount }, (_, i) => ({
       hue: PIGMENTS[i % PIGMENTS.length],
       x: rand(0.05, 0.95),
       y: rand(0.05, 0.95),
-      r: rand(0.28, 0.5),
-      spdX: rand(-0.012, 0.012),
-      spdY: rand(-0.012, 0.012),
+      r: rand(0.3, 0.52),
+      spdX: rand(-0.014, 0.014),
+      spdY: rand(-0.014, 0.014),
       phase: rand(0, Math.PI * 2),
       drift: rand(0.4, 1),
+    }));
+
+    // Water-reflection light streaks (screen-blended shimmer)
+    const streaks: Streak[] = Array.from({ length: isMobile ? 3 : 5 }, () => ({
+      x: rand(0, 1),
+      y: rand(0.1, 0.9),
+      len: rand(0.2, 0.4),
+      thick: rand(0.02, 0.05),
+      angle: rand(-0.35, -0.15),
+      spd: rand(0.008, 0.02),
+      phase: rand(0, Math.PI * 2),
     }));
 
     let drops: Drop[] = [];
@@ -93,7 +114,7 @@ export function WatercolorCanvas() {
 
     const addDrop = (clientX: number, clientY: number, strong = false) => {
       const now = performance.now();
-      if (now - lastDropAt < (strong ? 60 : 120)) return;
+      if (now - lastDropAt < (strong ? 60 : 110)) return;
       lastDropAt = now;
       pigmentIdx = (pigmentIdx + 1) % PIGMENTS.length;
       drops.push({
@@ -101,22 +122,16 @@ export function WatercolorCanvas() {
         x: clientX / window.innerWidth,
         y: clientY / window.innerHeight,
         born: now,
-        life: strong ? 2600 : 1800,
-        maxR: strong ? 0.22 : 0.14,
+        life: strong ? 2800 : 2000,
+        maxR: strong ? 0.26 : 0.17,
       });
-      if (drops.length > 24) drops = drops.slice(-24);
+      if (drops.length > 26) drops = drops.slice(-26);
     };
 
     const onMove = (e: PointerEvent) => addDrop(e.clientX, e.clientY);
     const onDown = (e: PointerEvent) => addDrop(e.clientX, e.clientY, true);
 
-    const drawBlob = (
-      x: number,
-      y: number,
-      r: number,
-      hue: string,
-      alpha: number,
-    ) => {
+    const drawBlob = (x: number, y: number, r: number, hue: string, alpha: number) => {
       const px = x * w;
       const py = y * h;
       const pr = Math.max(2, r * Math.min(w, h) * 2.2);
@@ -128,11 +143,32 @@ export function WatercolorCanvas() {
       ctx.fillRect(px - pr, py - pr, pr * 2, pr * 2);
     };
 
+    const drawStreak = (st: Streak, t: number) => {
+      const shimmer = 0.1 + 0.08 * (0.5 + 0.5 * Math.sin(t * 0.0011 + st.phase));
+      const px = st.x * w;
+      const py = st.y * h;
+      const rx = Math.max(3, st.len * w);
+      const ry = Math.max(1.5, st.thick * h);
+      ctx.save();
+      ctx.translate(px, py);
+      ctx.rotate(st.angle);
+      ctx.scale(rx, ry);
+      const g = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
+      g.addColorStop(0, `rgba(255, 255, 255, ${shimmer})`);
+      g.addColorStop(0.6, `rgba(255, 255, 255, ${shimmer * 0.4})`);
+      g.addColorStop(1, "rgba(255, 255, 255, 0)");
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(0, 0, 1, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    };
+
     const render = (t: number) => {
       ctx.clearRect(0, 0, w, h);
-      // "multiply" makes overlapping pigments darken and mix like real paint
-      ctx.globalCompositeOperation = "multiply";
 
+      // Pass 1 — pigment mixing ("multiply" darkens overlaps like real paint)
+      ctx.globalCompositeOperation = "multiply";
       for (const b of blobs) {
         const wobX = Math.sin(t * 0.00012 * b.drift + b.phase) * 0.09;
         const wobY = Math.cos(t * 0.00009 * b.drift + b.phase * 1.7) * 0.09;
@@ -143,23 +179,35 @@ export function WatercolorCanvas() {
         if (b.y < -0.2) b.y = 1.2;
         if (b.y > 1.2) b.y = -0.2;
         const breathe = 1 + Math.sin(t * 0.0002 * b.drift + b.phase) * 0.12;
-        drawBlob(b.x + wobX, b.y + wobY, b.r * breathe, b.hue, 0.55);
+        drawBlob(b.x + wobX, b.y + wobY, b.r * breathe, b.hue, 0.72);
       }
 
       const now = performance.now();
       drops = drops.filter((d) => now - d.born < d.life);
       for (const d of drops) {
-        const p = (now - d.born) / d.life; // 0..1
-        const spread = Math.sqrt(p); // fast bloom, slow settle — like wet paper
+        const p = (now - d.born) / d.life;
+        const spread = Math.sqrt(p);
         const fade = 1 - p * p;
-        drawBlob(d.x, d.y, d.maxR * spread, d.hue, 0.5 * fade);
+        drawBlob(d.x, d.y, d.maxR * spread, d.hue, 0.62 * fade);
+      }
+
+      // Pass 2 — water-reflection shimmer (screen lightens like glints)
+      ctx.globalCompositeOperation = "screen";
+      for (const st of streaks) {
+        st.x += st.spd * 0.016;
+        st.y += st.spd * 0.006;
+        if (st.x > 1.3) {
+          st.x = -0.3;
+          st.y = Math.random() * 0.8 + 0.1;
+        }
+        if (st.y > 1.2) st.y = -0.1;
+        drawStreak(st, t);
       }
 
       ctx.globalCompositeOperation = "source-over";
     };
 
     if (reduced) {
-      // Static wash only — no animation loop.
       render(1000);
       const onStaticResize = () => {
         resize();
