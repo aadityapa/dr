@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion, useReducedMotion } from "framer-motion";
 import {
   Brain,
@@ -130,7 +132,16 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
           aria-hidden
         >
           <div className="relative h-full min-h-[20rem] w-full overflow-hidden rounded-[2.75rem] border border-white/70 bg-white/25 shadow-[0_24px_80px_rgba(45,96,71,0.12)] backdrop-blur-2xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#EAF4FF]/50 via-[#EAFBF2]/35 to-[#F4EDFF]/45" />
+            <div className="glossy-frame absolute inset-0 overflow-hidden rounded-[2.75rem]">
+              <Image
+                src="/images/gallery/supported-standing-ball.jpg"
+                alt="Dr. Sharuja supporting a baby practicing standing at a textured therapy ball"
+                fill
+                sizes="(max-width: 1024px) 480px, 560px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-white/10 to-white/15" />
+            </div>
 
             {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (
               <motion.div

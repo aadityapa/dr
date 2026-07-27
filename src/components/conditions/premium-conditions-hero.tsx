@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion, useReducedMotion } from "framer-motion";
 import { Brain, Heart, Puzzle, Sparkles, Target } from "lucide-react";
 
@@ -99,7 +101,16 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
           aria-hidden
         >
           <div className="relative h-full min-h-[18rem] w-full rounded-[2.5rem] border border-white/60 bg-white/30 shadow-xl shadow-[#4A9B73]/10 backdrop-blur-md">
-            <div className="absolute inset-6 rounded-[2rem] bg-gradient-to-br from-[#D8F0E4]/40 via-[#D6E8F5]/30 to-[#E4DDF5]/40" />
+            <div className="glossy-frame absolute inset-6 overflow-hidden rounded-[2rem]">
+              <Image
+                src="/images/gallery/infant-crawling-guidance.jpg"
+                alt="Dr. Sharuja encouraging a baby during crawling practice at the clinic"
+                fill
+                sizes="(max-width: 1024px) 420px, 520px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-white/10" />
+            </div>
 
             {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (
               <motion.div
