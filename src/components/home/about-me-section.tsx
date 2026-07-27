@@ -9,6 +9,15 @@ import { useLanguage } from "@/components/providers/language-provider";
 import { getSiteImage } from "@/lib/site-images";
 import { siteConfig } from "@/lib/site-data";
 
+const EXPERTISE_CHIPS = [
+  "Aquatic Therapy",
+  "Brain Gym\u00ae",
+  "Handwriting Development",
+  "Oral Motor Intervention",
+  "Reflex Integration",
+  "Sensory Integration",
+] as const;
+
 export function AboutMeSection() {
   const { content } = useLanguage();
   const copy = content.home.aboutPreview;
@@ -38,15 +47,27 @@ export function AboutMeSection() {
             <h2 className="mt-3 font-[family-name:var(--font-serif)] text-2xl text-[color:var(--color-sage-dark)] md:text-3xl">
               {copy.title}
             </h2>
-            {copy.credentials.length > 0 ? (
+            {copy.credentials.length > 0 && (
               <ul className="mt-4 space-y-1 text-base leading-relaxed text-[color:var(--color-muted)]">
                 {copy.credentials.map((line) => (
                   <li key={line}>{line}</li>
                 ))}
               </ul>
-            ) : (
-              <p className="mt-4 text-base leading-relaxed text-[color:var(--color-muted)]">{copy.bio}</p>
             )}
+            {copy.bio && (
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-[color:var(--color-muted)]">{copy.bio}</p>
+            )}
+          </Reveal>
+
+          <Reveal delay={0.05} className="mt-5 flex flex-wrap gap-2">
+            {EXPERTISE_CHIPS.map((chip) => (
+              <span
+                key={chip}
+                className="rounded-full border border-[color:var(--color-border)] bg-white/70 px-3.5 py-1.5 text-xs font-medium text-[color:var(--color-sage-text)]"
+              >
+                {chip}
+              </span>
+            ))}
           </Reveal>
 
           <Reveal delay={0.08} className="mt-5 flex flex-wrap gap-3">

@@ -10,7 +10,7 @@ export function ParentsReadingSection() {
     const copy = content.home.parentsReading;
     return (
       <section className="w-full bg-white px-4 py-12 md:px-8 md:py-16">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-4xl">
           <Reveal>
             <h2 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-4xl">
               {copy.title}
@@ -30,7 +30,7 @@ export function ParentsReadingSection() {
 
   return (
     <section className="w-full bg-white px-4 py-12 md:px-8 md:py-16">
-      <div className="mx-auto max-w-3xl space-y-4">
+      <div className="mx-auto max-w-4xl space-y-4">
         <Reveal>
           <h2 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-4xl">
             To the Parents Reading This...
