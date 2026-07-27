@@ -8,6 +8,7 @@ const MASCOT_H = 52;
 
 export function CartoonCursor() {
   const [enabled, setEnabled] = useState(false);
+  const [reduced, setReduced] = useState(false);
   const lastPos = useRef({ x: 0, y: 0 });
 
   const x = useMotionValue(-120);
@@ -23,8 +24,11 @@ export function CartoonCursor() {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-    if (prefersReducedMotion || !isFinePointer) return;
+    // Mouse users always get the mascot; reduced-motion users get a calm
+    // version (no idle bounce) instead of losing it entirely.
+    if (!isFinePointer) return;
 
+    setReduced(prefersReducedMotion);
     setEnabled(true);
 
     const move = (event: MouseEvent) => {
@@ -69,8 +73,8 @@ export function CartoonCursor() {
     >
       <motion.div
         className="cartoon-cursor__rig"
-        animate={{ y: [0, -5, 0] }}
-        transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+        animate={reduced ? undefined : { y: [0, -5, 0] }}
+        transition={reduced ? undefined : { duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="cartoon-cursor__shadow" />
         <div className="cartoon-cursor__character">

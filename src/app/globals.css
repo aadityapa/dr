@@ -308,13 +308,16 @@ body {
   z-index: 30; /* under navbar/CTA (z-50), over page sections */
   pointer-events: none;
   mix-blend-mode: multiply;
-  opacity: 0.7;
+  opacity: 0.38;
   filter: blur(14px) saturate(1.25);
+  /* Keep the centre (content area) clear — pigments live at the edges */
+  -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 42%, rgba(0, 0, 0, 0.25), #000 80%);
+  mask-image: radial-gradient(ellipse 95% 85% at 50% 42%, rgba(0, 0, 0, 0.25), #000 80%);
 }
 
 @media (max-width: 768px) {
   .watercolor-canvas {
-    opacity: 0.45;
+    opacity: 0.3;
     filter: blur(12px) saturate(1.08);
   }
 }
