@@ -88,7 +88,7 @@ export function Navbar() {
   const desktopMore = [...primaryNavItems.slice(4), ...secondaryNavItems];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--color-border)]/60 bg-[color:var(--color-snow)]/95 backdrop-blur-xl">
+    <header className="glass-nav sticky top-0 z-50 border-b border-[color:var(--color-border)]/60 bg-[color:var(--color-snow)]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-[4.25rem] sm:gap-4 md:px-6 lg:px-8">
         {/* Logo — fixed width, never overlaps nav */}
         <Link href="/" className="group shrink-0 pr-2 leading-none">

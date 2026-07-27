@@ -4,7 +4,7 @@ export const mr: Messages = {
   nav: {
     home: "मुख्यपृष्ठ",
     about: "आमच्याबद्दल",
-    services: "तज्ज्ञता आणि दृष्टिकोन",
+    services: "तज्ज्ञता",
     conditions: "स्थिती",
     gallery: "गॅलरी",
     resources: "संसाधने",

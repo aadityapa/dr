@@ -4,7 +4,7 @@ export const en: Messages = {
   nav: {
     home: "Home",
     about: "About",
-    services: "Expertise & Approaches",
+    services: "Expertise",
     conditions: "Conditions",
     gallery: "Gallery",
     resources: "Resources",

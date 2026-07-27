@@ -43,7 +43,14 @@ export function ThemeControls({ className }: { className?: string }) {
     setMounted(true);
   }, []);
 
+  const animateThemeChange = () => {
+    const el = document.documentElement;
+    el.classList.add("theme-anim");
+    window.setTimeout(() => el.classList.remove("theme-anim"), 650);
+  };
+
   const toggleDark = () => {
+    animateThemeChange();
     const next = !dark;
     setDark(next);
     const el = document.documentElement;
@@ -55,6 +62,7 @@ export function ThemeControls({ className }: { className?: string }) {
   };
 
   const cycleAccent = () => {
+    animateThemeChange();
     const next = ACCENTS[(ACCENTS.indexOf(accent) + 1) % ACCENTS.length];
     setAccent(next);
     const el = document.documentElement;

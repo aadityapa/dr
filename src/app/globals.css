@@ -369,6 +369,128 @@ summary:focus-visible {
   border-width: 0;
 }
 
+/* ── Dark-mode fixes: hardcoded light surfaces & gradients ─────────── */
+html.dark [class*="bg-[#D6E8F5]"],
+html.dark [class*="bg-[#D8F0E4]"],
+html.dark [class*="bg-[#EAF4FF]"],
+html.dark [class*="bg-[#EAFBF2]"],
+html.dark [class*="bg-[#F0F0F0]"] {
+  background-color: #1a231d !important;
+}
+
+html.dark .from-white {
+  --tw-gradient-from: #18211b var(--tw-gradient-from-position) !important;
+}
+
+html.dark .from-white\/40 {
+  --tw-gradient-from: rgba(24, 33, 27, 0.4) var(--tw-gradient-from-position) !important;
+}
+
+html.dark .via-white {
+  --tw-gradient-via: #18211b var(--tw-gradient-via-position) !important;
+}
+
+html.dark .via-white\/20 {
+  --tw-gradient-via: rgba(24, 33, 27, 0.2) var(--tw-gradient-via-position) !important;
+}
+
+html.dark .to-white\/40 {
+  --tw-gradient-to: rgba(24, 33, 27, 0.4) var(--tw-gradient-to-position) !important;
+}
+
+html.dark [class*="text-[color:var(--color-soft-green)"] {
+  color: #cfe3d6 !important;
+}
+
+/* ── Glass navbar ──────────────────────────────────────────────────── */
+.glass-nav {
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.15)
+  );
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 1px 12px rgba(47, 77, 59, 0.06);
+}
+
+html.dark .glass-nav {
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.01)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 1px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Glossy photo frames (soft top-light + hover glint) ────────────── */
+.glossy-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.32),
+    rgba(255, 255, 255, 0.08) 30%,
+    transparent 48%
+  );
+  pointer-events: none;
+}
+
+.glossy-frame::after {
+  content: "";
+  position: absolute;
+  top: -25%;
+  bottom: -25%;
+  left: -85%;
+  z-index: 2;
+  width: 45%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.9s ease;
+  pointer-events: none;
+}
+
+.glossy-frame:hover::after {
+  left: 140%;
+}
+
+/* ── Page-change entrance animation ────────────────────────────────── */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Smooth theme-change transition (applied briefly on toggle) ────── */
+html.theme-anim,
+html.theme-anim *,
+html.theme-anim *::before,
+html.theme-anim *::after {
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease,
+    border-color 0.5s ease,
+    fill 0.5s ease,
+    stroke 0.5s ease,
+    box-shadow 0.5s ease !important;
+}
+
 /* ── 3D cartoon cursor mascot ── */
 .cartoon-cursor {
   width: 44px;

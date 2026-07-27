@@ -22,7 +22,7 @@ export function HeroPhoto({ src, alt, fallback }: HeroPhotoProps) {
 
   return (
     <div className="pointer-events-none absolute inset-y-0 right-4 hidden items-center md:flex lg:right-10">
-      <div className="relative h-[300px] w-[280px] rotate-2 overflow-hidden rounded-[2rem] border-[6px] border-white shadow-[0_20px_60px_rgba(45,96,71,0.18)] ring-4 ring-[color:var(--color-peach)] lg:h-[380px] lg:w-[360px]">
+      <div className="glossy-frame relative h-[300px] w-[280px] rotate-2 overflow-hidden rounded-[2rem] border-[6px] border-white shadow-[0_20px_60px_rgba(45,96,71,0.18)] ring-4 ring-[color:var(--color-peach)] lg:h-[380px] lg:w-[360px]">
         <Image
           src={src}
           alt={alt}

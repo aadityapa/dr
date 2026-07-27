@@ -38,8 +38,8 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         aria-haspopup="listbox"
       >
         <Globe className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-        <span className="hidden sm:inline">{localeLabels[locale]}</span>
-        <span className="sm:hidden uppercase">{locale}</span>
+        <span className="hidden 2xl:inline">{localeLabels[locale]}</span>
+        <span className="uppercase 2xl:hidden">{locale}</span>
         <ChevronDown className={cn("h-3 w-3 transition", open && "rotate-180")} aria-hidden="true" />
       </button>
       {open && (

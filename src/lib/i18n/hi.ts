@@ -4,7 +4,7 @@ export const hi: Messages = {
   nav: {
     home: "होम",
     about: "हमारे बारे में",
-    services: "विशेषज्ञता और दृष्टिकोण",
+    services: "विशेषज्ञता",
     conditions: "स्थितियाँ",
     gallery: "गैलरी",
     resources: "संसाधन",
