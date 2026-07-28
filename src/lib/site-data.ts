@@ -44,7 +44,7 @@ export const doctorProfile = {
     "RMTI (Rhythmic Movement Training Integration)",
     "HWT (Handwriting Without Tears)",
     "OPT (Oral Placement Therapy)",
-    "Aquatherapy (IATF, WST, BRRM)",
+    "IATF Aquatherapy (WST,BRRM)",
     "PIASTM (Pediatric Instrument Assisted Soft Tissue Mobilization)",
     "KT Level 1–3 (Kinesio Taping)",
     "MNRI (Masgutova Neurosensorimotor Reflex Integration)",
