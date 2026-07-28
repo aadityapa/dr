@@ -178,9 +178,6 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
-            <p className="hidden text-center lg:block lg:max-w-xs lg:text-right">
-              {messages.footer.disclaimer.slice(0, 72)}…
-            </p>
           </div>
         </div>
       </div>
