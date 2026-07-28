@@ -31,7 +31,7 @@ const hi: AboutContent = {
     items: aboutContent.availableFor.items as unknown as string[],
   },
   expertise: {
-    title: "विशेषज्ञता के क्षेत्र",
+    title: "हम जिन स्थितियों में सहायता करते हैं",
     items: aboutContent.expertise.items as unknown as string[],
   },
   suitableFor: {
@@ -61,7 +61,7 @@ const mr: AboutContent = {
     items: aboutContent.availableFor.items as unknown as string[],
   },
   expertise: {
-    title: "तज्ज्ञतेची क्षेत्रे",
+    title: "आम्ही ज्या स्थितींमध्ये आधार देतो",
     items: aboutContent.expertise.items as unknown as string[],
   },
   suitableFor: {

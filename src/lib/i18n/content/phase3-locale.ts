@@ -249,28 +249,16 @@ const en: Phase3Content = {
     ],
     testimonials: [
       {
-        parent: "Parent of Aarav, 6",
+        parent: "Mother of Anup Mehta",
         quote:
-          "Dr. Sharuja understood our son from the very first session. His confidence at school and his ability to manage sensory overload have improved tremendously.",
-        milestone: "Calmer school participation and improved self-regulation",
+          "Finding the right support for a child with Down syndrome makes all the difference, and we found that at Jeet Child Development Center. After three years of continuous occupational therapy, we have seen immense growth in our son's daily skills and confidence. Dr. Sharuja and her team are exceptionally skilled, deeply compassionate, and completely invested in every child's success.",
+        milestone: "Three years of growth in daily skills and confidence",
       },
       {
-        parent: "Parent of Meera, 8",
+        parent: "Parents of Mehaan Gandhi",
         quote:
-          "The handwriting program was a game-changer. Meera now writes with confidence, and her teachers have noticed a remarkable difference.",
-        milestone: "Legible handwriting and classroom readiness",
-      },
-      {
-        parent: "Parent of Vihaan, 5",
-        quote:
-          "Aquatic therapy brought joy back into our child's life. He looks forward to every session and his balance and strength have grown so much.",
-        milestone: "Improved balance and joyful participation in therapy",
-      },
-      {
-        parent: "Parent of Ananya, 7",
-        quote:
-          "We felt heard, supported, and hopeful from day one. Dr. Sharuja's gentle approach made all the difference for our family.",
-        milestone: "Stronger family routines and emotional connection",
+          "We are very happy with the progress Mehaan has made through occupational therapy at JEET CDC. Since starting therapy with Dr. Sharuja, he has become calmer, more attentive, and listens to instructions much better. We are grateful for the care, patience, and support provided throughout his journey.",
+        milestone: "Calmer, more attentive, and following instructions better",
       },
     ],
   },
@@ -556,28 +544,16 @@ const hi: Phase3Content = {
     ],
     testimonials: [
       {
-        parent: "आरव, 6 के माता-पिता",
+        parent: "अनुप मेहता की माँ",
         quote:
-          "डॉ. शारुजा ने पहले सत्र से ही हमारे बेटे को समझा। स्कूल में उसका आत्मविश्वास और सेंसरी ओवरलोड संभालने की क्षमता बहुत बढ़ी।",
-        milestone: "शांत स्कूल भागीदारी और बेहतर आत्म-नियमन",
+          "डाउन सिंड्रोम वाले बच्चे के लिए सही सहायता मिलना बहुत मायने रखता है, और वह हमें जीत चाइल्ड डेवलपमेंट सेंटर में मिली। तीन साल की निरंतर ऑक्यूपेशनल थेरेपी के बाद हमारे बेटे के दैनिक कौशल और आत्मविश्वास में अपार वृद्धि देखी है। डॉ. शारुजा और उनकी टीम अत्यंत कुशल, करुणामय और हर बच्चे की सफलता के लिए समर्पित हैं।",
+        milestone: "तीन वर्षों में दैनिक कौशल और आत्मविश्वास में वृद्धि",
       },
       {
-        parent: "मीरा, 8 के माता-पिता",
+        parent: "मेहान गांधी के माता-पिता",
         quote:
-          "लिखने का कार्यक्रम बदलाव लाया। मीरा अब आत्मविश्वास से लिखती है, और शिक्षकों ने स्पष्ट अंतर देखा।",
-        milestone: "पढ़ने योग्य लिखावट और कक्षा की तैयारी",
-      },
-      {
-        parent: "विहान, 5 के माता-पिता",
-        quote:
-          "जल चिकित्सा ने हमारे बच्चे के जीवन में खुशी वापस लाई। वह हर सत्र का इंतज़ार करता है और उसका संतुलन व ताकत बहुत बढ़ी।",
-        milestone: "बेहतर संतुलन और थेरेपी में खुशी से भागीदारी",
-      },
-      {
-        parent: "अनanya, 7 के माता-पिता",
-        quote:
-          "पहले दिन से हमें सुना, सहारा और आशा मिली। डॉ. शारुजा के कोमल तरीके ने हमारे परिवार के लिए सब बदल दिया।",
-        milestone: "मज़बूत परिवार दिनचर्या और भावनात्मक जुड़ाव",
+          "ऑक्यूपेशनल थेरेपी से मेहान की प्रगति से हम बहुत खुश हैं। डॉ. शारुजा के साथ थेरेपी शुरू करने के बाद वह शांत और अधिक एकाग्र हुआ है, और निर्देशों को बेहतर सुनता है। पूरी यात्रा में मिली देखभाल, धैर्य और सहयोग के लिए हम आभारी हैं।",
+        milestone: "शांत, अधिक एकाग्र और निर्देशों का बेहतर पालन",
       },
     ],
   },
@@ -1014,28 +990,16 @@ const mr: Phase3Content = {
     ],
     testimonials: [
       {
-        parent: "आरव, 6 चे पालक",
+        parent: "अनुप मेहताची आई",
         quote:
-          "डॉ. शरुजा पहिल्याच सत्रात आमच्या मुलाला समजल्या. शाळेत आत्मविश्वास आणि sensory overload हाताळण्याची क्षमता खूप वाढली.",
-        milestone: "शांत शाळा सहभाग आणि चांगले self-regulation",
+          "डाउन सिंड्रोम असलेल्या मुलासाठी योग्य आधार मिळणे खूप महत्त्वाचे असते, आणि तो आम्हाला जीत चाइल्ड डेव्हलपमेंट सेंटरमध्ये मिळाला. तीन वर्षांच्या सातत्यपूर्ण ऑक्युपेशनल थेरपीनंतर आमच्या मुलाच्या दैनंदिन कौशल्यांत आणि आत्मविश्वासात प्रचंड वाढ झाली आहे. डॉ. शरुजा आणि त्यांची टीम अत्यंत कुशल, करुणामय आणि प्रत्येक मुलाच्या यशासाठी समर्पित आहे.",
+        milestone: "तीन वर्षांत दैनंदिन कौशल्ये आणि आत्मविश्वासात वाढ",
       },
       {
-        parent: "मीरा, 8 चे पालक",
+        parent: "मेहान गांधीचे पालक",
         quote:
-          "लेखन कार्यक्रमाने फरक पाडला. मीरा आता आत्मविश्वासाने लिहite आणि शिक्षकांनी स्पष्ट फरक पाहिला.",
-        milestone: "वाचनीय लेखन आणि वर्गासाठी तयारी",
-      },
-      {
-        parent: "विहान, 5 चे पालक",
-        quote:
-          "जलचिकित्सेने आमच्या मुलाच्या जीवनात आनंद परत आणला. तो प्रत्येक सत्राची वाट पाहतो आणि संतुलन व शक्ती खूप वाढली.",
-        milestone: "चांगले संतुलन आणि थेरपीमध्ये आनंदाने सहभाग",
-      },
-      {
-        parent: "अनanya, 7 चे पालक",
-        quote:
-          "पहिल्या दिवसापासून आम्हाला ऐकले, सहारा आणि आशा मिळाली. डॉ. शरुजांच्या सौम्य पद्धतीने आमच्या कुटुंबासाठी सर्व बदलले.",
-        milestone: "मजबूत कुटुंब दिनचर्या आणि भावनिक जोड",
+          "ऑक्युपेशनल थेरपीमुळे मेहानच्या प्रगतीने आम्ही खूप आनंदी आहोत. डॉ. शरुजांसोबत थेरपी सुरू केल्यापासून तो शांत आणि अधिक लक्ष देणारा झाला आहे, आणि सूचना चांगल्या ऐकतो. संपूर्ण प्रवासात मिळालेल्या काळजी, संयम आणि आधाराबद्दल आम्ही कृतज्ञ आहोत.",
+        milestone: "शांत, अधिक लक्ष देणारा आणि सूचनांचे चांगले पालन",
       },
     ],
   },

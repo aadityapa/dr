@@ -690,28 +690,16 @@ export const conditions = [
 
 export const testimonials = [
   {
-    parent: "Parent of Aarav, 6",
+    parent: "Mother of Anup Mehta",
     quote:
-      "Dr. Sharuja understood our son from the very first session. His confidence at school and his ability to manage sensory overload have improved tremendously.",
-    milestone: "Calmer school participation and improved self-regulation",
+      "Finding the right support for a child with Down syndrome makes all the difference, and we found that at Jeet Child Development Center. After three years of continuous occupational therapy, we have seen immense growth in our son's daily skills and confidence. Dr. Sharuja and her team are exceptionally skilled, deeply compassionate, and completely invested in every child's success.",
+    milestone: "Three years of growth in daily skills and confidence",
   },
   {
-    parent: "Parent of Meera, 8",
+    parent: "Parents of Mehaan Gandhi",
     quote:
-      "The handwriting program was a game-changer. Meera now writes with confidence, and her teachers have noticed a remarkable difference.",
-    milestone: "Legible handwriting and classroom readiness",
-  },
-  {
-    parent: "Parent of Vihaan, 5",
-    quote:
-      "Aquatic therapy brought joy back into our child's life. He looks forward to every session and his balance and strength have grown so much.",
-    milestone: "Improved balance and joyful participation in therapy",
-  },
-  {
-    parent: "Parent of Ananya, 7",
-    quote:
-      "We felt heard, supported, and hopeful from day one. Dr. Sharuja's gentle approach made all the difference for our family.",
-    milestone: "Stronger family routines and emotional connection",
+      "We are very happy with the progress Mehaan has made through occupational therapy at JEET CDC. Since starting therapy with Dr. Sharuja, he has become calmer, more attentive, and listens to instructions much better. We are grateful for the care, patience, and support provided throughout his journey.",
+    milestone: "Calmer, more attentive, and following instructions better",
   },
 ];
 

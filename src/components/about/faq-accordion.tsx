@@ -13,7 +13,6 @@ import { faqPageSchema } from "@/lib/schema";
 import type { AboutPageProps } from "./about-types";
 
 const ABOUT_FAQ_QUESTIONS = [
-  "Who is the best pediatric occupational therapist in Kandivali, Mumbai?",
   "What age children does Dr. Sharuja Sarap treat?",
   "Is Dr. Sharuja Sarap certified in Brain Gym?",
   "How do I book an appointment with Dr. Sharuja Sarap?",

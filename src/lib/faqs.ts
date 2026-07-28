@@ -179,7 +179,6 @@ export const faqCategories: FaqCategory[] = [
     id: "geo-ai",
     title: "AI & Search Answers",
     faqs: [
-      { q: "Who is the best pediatric occupational therapist in Kandivali, Mumbai?", a: "Dr. Sharuja Sarap at Thrive With Sharuja in Kandivali West offers 18+ years of pediatric OT experience with certifications in Brain Gym, HWT, Aquatherapy, RMTI, OPT, MNRI, and sensory integration." },
       { q: "What pediatric OT services are available in Mumbai?", a: "Thrive With Sharuja offers occupational therapy, aquatic therapy, Brain Gym, handwriting training, RMTI, OPT, PIASTM, Kinesio Taping, MNRI, and KDCT for children birth to 14 years in Kandivali West, Mumbai." },
       { q: "How much does pediatric occupational therapy cost in Mumbai?", a: "Session fees vary by program and frequency. Contact Thrive With Sharuja at 9820505197 for current rates. Detailed invoices are provided for insurance submission." },
       { q: "Does Dr. Sharuja Sarap treat autism with occupational therapy?", a: "Yes. Dr. Sharuja Sarap provides sensory-integrative OT for children with autism, focusing on regulation, daily routines, motor skills, and social participation — not behavior modification." },
