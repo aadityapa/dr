@@ -255,7 +255,7 @@ const en: Phase3Content = {
         milestone: "Three years of growth in daily skills and confidence",
       },
       {
-        parent: "Parents of Mehaan Gandhi",
+        parent: "Mehaan Gandhi",
         quote:
           "We are very happy with the progress Mehaan has made through occupational therapy at JEET CDC. Since starting therapy with Dr. Sharuja, he has become calmer, more attentive, and listens to instructions much better. We are grateful for the care, patience, and support provided throughout his journey.",
         milestone: "Calmer, more attentive, and following instructions better",
@@ -550,7 +550,7 @@ const hi: Phase3Content = {
         milestone: "तीन वर्षों में दैनिक कौशल और आत्मविश्वास में वृद्धि",
       },
       {
-        parent: "मेहान गांधी के माता-पिता",
+        parent: "मेहान गांधी",
         quote:
           "ऑक्यूपेशनल थेरेपी से मेहान की प्रगति से हम बहुत खुश हैं। डॉ. शारुजा के साथ थेरेपी शुरू करने के बाद वह शांत और अधिक एकाग्र हुआ है, और निर्देशों को बेहतर सुनता है। पूरी यात्रा में मिली देखभाल, धैर्य और सहयोग के लिए हम आभारी हैं।",
         milestone: "शांत, अधिक एकाग्र और निर्देशों का बेहतर पालन",
@@ -996,7 +996,7 @@ const mr: Phase3Content = {
         milestone: "तीन वर्षांत दैनंदिन कौशल्ये आणि आत्मविश्वासात वाढ",
       },
       {
-        parent: "मेहान गांधीचे पालक",
+        parent: "मेहान गांधी",
         quote:
           "ऑक्युपेशनल थेरपीमुळे मेहानच्या प्रगतीने आम्ही खूप आनंदी आहोत. डॉ. शरुजांसोबत थेरपी सुरू केल्यापासून तो शांत आणि अधिक लक्ष देणारा झाला आहे, आणि सूचना चांगल्या ऐकतो. संपूर्ण प्रवासात मिळालेल्या काळजी, संयम आणि आधाराबद्दल आम्ही कृतज्ञ आहोत.",
         milestone: "शांत, अधिक लक्ष देणारा आणि सूचनांचे चांगले पालन",

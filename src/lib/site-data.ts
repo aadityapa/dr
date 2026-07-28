@@ -696,7 +696,7 @@ export const testimonials = [
     milestone: "Three years of growth in daily skills and confidence",
   },
   {
-    parent: "Parents of Mehaan Gandhi",
+    parent: "Mehaan Gandhi",
     quote:
       "We are very happy with the progress Mehaan has made through occupational therapy at JEET CDC. Since starting therapy with Dr. Sharuja, he has become calmer, more attentive, and listens to instructions much better. We are grateful for the care, patience, and support provided throughout his journey.",
     milestone: "Calmer, more attentive, and following instructions better",
