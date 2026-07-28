@@ -16,7 +16,6 @@ const ABOUT_FAQ_QUESTIONS = [
   "What age children does Dr. Sharuja Sarap treat?",
   "Is Dr. Sharuja Sarap certified in Brain Gym?",
   "How do I book an appointment with Dr. Sharuja Sarap?",
-  "How do I book a consultation with Dr. Sharuja Sarap?",
 ] as const;
 
 const aboutFaqs = ABOUT_FAQ_QUESTIONS.map((q) => allFaqs.find((faq) => faq.q === q)).filter(

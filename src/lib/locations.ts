@@ -49,7 +49,7 @@ export const locationPages: LocationPage[] = [
       "Comprehensive pediatric OT with 10+ specialized programs",
       "Warm, child-friendly clinic environment",
       "Family-centered approach with home program support",
-      "500+ families supported over 18 years",
+      "500+ families supported 18+ years",
     ],
     services: ["Occupational Therapy", "Sensory Integration", "Aquatic Therapy", "Brain Gym", "Handwriting Training"],
     areaServed: ["Mumbai", "Kandivali", "Borivali", "Malad", "Goregaon", "Andheri", "Dahisar"],

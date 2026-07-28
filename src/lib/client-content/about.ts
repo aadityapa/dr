@@ -9,7 +9,7 @@ export const aboutContent = {
       "Brain gym instructor",
     ],
     paragraphs: [
-      "I am an occupational therapist with over 18 years of experience supporting children with developmental, sensory, and neurological needs. My work focuses on helping children participate confidently in everyday activities at home, school, and in the community.",
+      "I am an occupational therapist with 18+ years of experience supporting children with developmental, sensory, and neurological needs. My work focuses on helping children participate confidently in everyday activities at home, school, and in the community.",
       "I hold a Master's degree in occupational therapy with a specialization in pediatrics and am currently pursuing my PhD. My academic and clinical background allows me to combine evidence-based practice with practical, family-centered intervention.",
       "Over the years, I have received specialized training in areas such as Brain Gym® (Instructor), Aquatic Therapy, Reflex Integration, Sensory Integration, Handwriting Development, and Oral Motor intervention. These approaches allow me to support children across a wide range of developmental and functional needs.",
       "In addition to clinical practice, I actively participate in research, workshops, conferences, and academic lectures, sharing knowledge with parents, educators, and fellow professionals.",

@@ -4,7 +4,7 @@ export const aboutVoice = {
   heroKicker: "About Dr. Sharuja",
   heroTitle: "Someone who listens before she plans",
   heroDescription:
-    "For 18 years, Dr. Sharuja has sat with worried parents in Kandivali — hearing the stories behind the struggles. Mornings that fall apart. Homework that never ends. A child who seems brilliant but can't get through a school day. She doesn't rush you. She explains things plainly. And she builds therapy around your child, not a checklist.",
+    "For 18+ years, Dr. Sharuja has sat with worried parents in Kandivali — hearing the stories behind the struggles. Mornings that fall apart. Homework that never ends. A child who seems brilliant but can't get through a school day. She doesn't rush you. She explains things plainly. And she builds therapy around your child, not a checklist.",
   storyTitle: "Why parents trust her",
   storyParagraphs: [
     "Parents tell us they feel heard here. Not lectured. Not judged. Just understood.",

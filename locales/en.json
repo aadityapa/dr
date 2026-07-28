@@ -356,7 +356,7 @@
       "kicker": "Someone who gets it",
       "title": "Hi, I'm Dr. Sharuja Sarap",
       "description": "Pediatric occupational therapist · Kandivali West, Mumbai",
-      "bio": "Dr. Sharuja has spent 18 years sitting with worried parents and curious children — in our clinic in Kandivali, and in homes across Mumbai. She doesn't rush. She listens. She explains things in plain language. And she builds therapy around what your child actually needs, not what a checklist says they should do.",
+      "bio": "Dr. Sharuja has spent 18+ years sitting with worried parents and curious children — in our clinic in Kandivali, and in homes across Mumbai. She doesn't rush. She listens. She explains things in plain language. And she builds therapy around what your child actually needs, not what a checklist says they should do.",
       "stats": [
         {
           "value": "18+",
@@ -401,7 +401,7 @@
           "milestone": "Three years of growth in daily skills and confidence"
         },
         {
-          "parent": "Mehaan Gandhi",
+          "parent": "Mother of Mehaan Gandhi",
           "quote": "We are very happy with the progress Mehaan has made through occupational therapy at JEET CDC. Since starting therapy with Dr. Sharuja, he has become calmer, more attentive, and listens to instructions much better. We are grateful for the care, patience, and support provided throughout his journey.",
           "milestone": "Calmer, more attentive, and following instructions better"
         }
@@ -551,7 +551,7 @@
       "aboutPreview": {
         "kicker": "About Me",
         "title": "Hello,",
-        "bio": "I am an occupational therapist with over 18 years of experience supporting children with developmental, sensory, and neurological needs. My work focuses on helping children participate confidently in everyday activities at home, school, and in the community.",
+        "bio": "I am an occupational therapist with 18+ years of experience supporting children with developmental, sensory, and neurological needs. My work focuses on helping children participate confidently in everyday activities at home, school, and in the community.",
         "credentials": [
           "I am Dr. Sharuja",
           "Paediatric occupational therapist",
@@ -576,7 +576,7 @@
           },
           {
             "title": "About Me",
-            "text": "Over 18 years of experience supporting children and families across a wide range of needs.",
+            "text": "Over 18+ years of experience supporting children and families across a wide range of needs.",
             "link": "Learn more →"
           }
         ]

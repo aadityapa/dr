@@ -71,10 +71,6 @@ export function buildExpertiseFaqs(
       a: `If something in daily life feels harder than it should — focus, movement, feeding, writing, or regulation — a consultation can help you understand whether this approach fits. Many families in Mumbai start without a formal diagnosis.`,
     },
     {
-      q: "When should I seek Occupational Therapy for my child?",
-      a: `Consider pediatric OT when everyday routines — mornings, school, mealtimes, handwriting, or play — feel harder than they should. At ${siteConfig.name} in Kandivali, Dr. Sharuja Sarap can help you understand whether ${areaTitle} or another approach is the right starting point.`,
-    },
-    {
       q: `What happens next if we book a consultation in Kandivali?`,
       a: `You'll meet Dr. Sharuja for a warm, unhurried conversation about your child. We observe gently, explain in plain language, and outline a thoughtful plan — including home strategies and how ${areaTitle} may fit alongside other supports.`,
     },
