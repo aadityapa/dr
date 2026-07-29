@@ -27,6 +27,7 @@ type AppointmentInput = {
   schoolGrade?: string;
   concerns: string[];
   previousTherapies?: string[];
+  hasDiagnosis?: string;
   biggestConcern: string;
   preferredTime: string;
   consent: true;
@@ -54,6 +55,7 @@ export function AppointmentForm() {
         schoolGrade: z.string().optional(),
         concerns: z.array(z.string()).min(1, formCopy.errors.concerns),
         previousTherapies: z.array(z.string()).optional(),
+        hasDiagnosis: z.string().optional(),
         biggestConcern: z.string().min(10, formCopy.errors.biggestConcern),
         preferredTime: z.string().min(1, formCopy.errors.preferredTime),
         consent: z.literal(true, { message: formCopy.errors.consent }),
@@ -180,6 +182,21 @@ export function AppointmentForm() {
           ))}
         </div>
         <p className="text-xs text-red-600">{errors.concerns?.message}</p>
+      </div>
+
+      <div className="md:col-span-2">
+        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.diagnosisLabel}</p>
+        <div className="flex gap-4">
+          {[formCopy.yes, formCopy.no].map((opt) => (
+            <label
+              key={opt}
+              className="flex items-center gap-2 text-sm text-[color:var(--color-muted)]"
+            >
+              <input type="radio" value={opt} {...register("hasDiagnosis")} className="accent-[color:var(--color-sage)]" />
+              {opt}
+            </label>
+          ))}
+        </div>
       </div>
 
       <div className="md:col-span-2">

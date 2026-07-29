@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ClipboardList, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import { QuickConsultationForm } from "@/components/forms/quick-consultation-form";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
@@ -52,6 +52,21 @@ export default async function ContactPage({ params }: Props) {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal>
             <div className="space-y-6">
+              <Link
+                href="/appointment"
+                className="glossy-btn flex items-center gap-4 rounded-2xl border border-[color:var(--color-sage)]/40 bg-[color:var(--color-soft-green)]/60 p-5 transition-all hover:shadow-lg"
+              >
+                <ClipboardList className="h-6 w-6 shrink-0 text-[color:var(--color-sage-text)]" aria-hidden="true" />
+                <div>
+                  <p className="font-semibold text-[color:var(--color-sage-dark)]">
+                    New Child Consultation Request Form
+                  </p>
+                  <p className="mt-0.5 text-sm text-[color:var(--color-muted)]">
+                    Share a few details about your child before scheduling — it takes about 3 minutes.
+                  </p>
+                </div>
+              </Link>
+
               <div className="grid gap-4 sm:grid-cols-2">
                 <a
                   href={`tel:${siteConfig.phone}`}
