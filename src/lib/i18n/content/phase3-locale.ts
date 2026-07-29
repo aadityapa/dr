@@ -260,6 +260,12 @@ const en: Phase3Content = {
           "We are very happy with the progress Mehaan has made through occupational therapy at JEET CDC. Since starting therapy with Dr. Sharuja, he has become calmer, more attentive, and listens to instructions much better. We are grateful for the care, patience, and support provided throughout his journey.",
         milestone: "Calmer, more attentive, and following instructions better",
       },
+      {
+        parent: "Kintu Gandhi (Ridhan's Mom)",
+        quote:
+          "My son is on the autism spectrum, and we have been taking occupational therapy sessions with Dr. Sharuja for the last 4.5 years. The doctor, her team of trained therapists, and the supporting staff are all helpful, co-operative, and very motivating. They try their best to make my child independent in every way — and they counsel us parents too, giving us the confidence to face the social world outside. Whenever my son enters the session room, he is greeted with a sweet smile and a peppy hello to lift his mood. Me and my child are lucky to have them.",
+        milestone: "4.5 years of steady progress towards independence",
+      },
     ],
   },
   outcomes: {
@@ -554,6 +560,12 @@ const hi: Phase3Content = {
         quote:
           "ऑक्यूपेशनल थेरेपी से मेहान की प्रगति से हम बहुत खुश हैं। डॉ. शारुजा के साथ थेरेपी शुरू करने के बाद वह शांत और अधिक एकाग्र हुआ है, और निर्देशों को बेहतर सुनता है। पूरी यात्रा में मिली देखभाल, धैर्य और सहयोग के लिए हम आभारी हैं।",
         milestone: "शांत, अधिक एकाग्र और निर्देशों का बेहतर पालन",
+      },
+      {
+        parent: "किंतु गांधी (रिधान की माँ)",
+        quote:
+          "मेरा बेटा ऑटिज़्म स्पेक्ट्रम पर है, और हम पिछले साढ़े चार वर्षों से डॉ. शारुजा के साथ ऑक्यूपेशनल थेरेपी कर रहे हैं। डॉक्टर, उनकी प्रशिक्षित थेरेपिस्ट टीम और सहायक स्टाफ — सभी बहुत सहयोगी और प्रेरणादायक हैं। वे मेरे बच्चे को हर तरह से आत्मनिर्भर बनाने की पूरी कोशिश करते हैं — और हम माता-पिता का भी मार्गदर्शन कर बाहरी दुनिया का सामना करने का आत्मविश्वास देते हैं। जब भी मेरा बेटा सत्र कक्ष में आता है, मीठी मुस्कान से उसका स्वागत होता है। हम भाग्यशाली हैं कि वे हमारे साथ हैं।",
+        milestone: "आत्मनिर्भरता की ओर साढ़े चार वर्षों की निरंतर प्रगति",
       },
     ],
   },
@@ -1000,6 +1012,12 @@ const mr: Phase3Content = {
         quote:
           "ऑक्युपेशनल थेरपीमुळे मेहानच्या प्रगतीने आम्ही खूप आनंदी आहोत. डॉ. शरुजांसोबत थेरपी सुरू केल्यापासून तो शांत आणि अधिक लक्ष देणारा झाला आहे, आणि सूचना चांगल्या ऐकतो. संपूर्ण प्रवासात मिळालेल्या काळजी, संयम आणि आधाराबद्दल आम्ही कृतज्ञ आहोत.",
         milestone: "शांत, अधिक लक्ष देणारा आणि सूचनांचे चांगले पालन",
+      },
+      {
+        parent: "किंतु गांधी (रिधानची आई)",
+        quote:
+          "माझा मुलगा ऑटिझम स्पेक्ट्रमवर आहे, आणि गेली साडेचार वर्षे आम्ही डॉ. शरुजांकडे ऑक्युपेशनल थेरपी घेत आहोत. डॉक्टर, त्यांची प्रशिक्षित थेरपिस्ट टीम आणि सहाय्यक कर्मचारी — सर्व अतिशय सहकार्यशील आणि प्रेरणादायक आहेत. ते माझ्या मुलाला प्रत्येक बाबतीत स्वावलंबी बनवण्याचा पूर्ण प्रयत्न करतात — आणि आम्हा पालकांचेही समुपदेशन करून बाहेरच्या जगाला सामोरे जाण्याचा आत्मविश्वास देतात. माझा मुलगा सत्र कक्षात येताच गोड हास्याने त्याचे स्वागत होते. ते आमच्यासोबत आहेत हे आमचे भाग्य.",
+        milestone: "स्वावलंबनाकडे साडेचार वर्षांची सातत्यपूर्ण प्रगती",
       },
     ],
   },

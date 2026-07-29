@@ -17,7 +17,7 @@ export function SuccessStoriesSection() {
     <Section id="success-stories" compact className="bg-[color:var(--color-almond)]">
       <SectionHeading kicker={copy.kicker} title={copy.title} description={copy.description} center />
 
-      <div className="mx-auto mt-8 grid max-w-5xl gap-6 md:grid-cols-2">
+      <div className="mx-auto mt-8 grid max-w-6xl gap-6 md:grid-cols-3">
         {copy.items.map((t, i) => {
           const pastel = getCardPastel(i + 6);
           return (

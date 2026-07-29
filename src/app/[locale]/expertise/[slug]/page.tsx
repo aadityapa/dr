@@ -7,10 +7,10 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import { buildLocalizedExpertiseFaqs, getLabels, getLocalizedExpertise, getPageShells } from "@/lib/i18n/localize";
+import { getLabels, getLocalizedExpertise, getPageShells } from "@/lib/i18n/localize";
 import { expertiseAreas } from "@/lib/client-content/expertise";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { breadcrumbSchema, faqPageSchema, serviceSchema } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
@@ -44,7 +44,6 @@ export default async function ExpertiseDetailPage({ params }: Props) {
   const messages = getMessages(locale);
   const labels = getLabels(locale);
   const shells = getPageShells(locale);
-  const faqs = buildLocalizedExpertiseFaqs(area, locale);
 
   return (
     <main className="bg-gradient-to-b from-[#FFFDFB] via-[#FCFAF8] to-[#FAFCFB]">
@@ -60,7 +59,6 @@ export default async function ExpertiseDetailPage({ params }: Props) {
         id="expertise-detail-service"
         data={serviceSchema({ title: area.title, summary: area.tagline, slug })}
       />
-      <JsonLd id="expertise-detail-faq" data={faqPageSchema(faqs)} />
       <Breadcrumbs
         items={[
           { name: messages.nav.services, url: `${siteConfig.url}/${locale}/expertise` },
@@ -73,7 +71,6 @@ export default async function ExpertiseDetailPage({ params }: Props) {
         labels={labels}
         shells={shells.expertise}
         expertiseLabel={labels.expertise}
-        faqs={faqs}
       />
     </main>
   );
