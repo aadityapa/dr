@@ -13,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 const schema = z.object({
   name: z.string().min(2, "Name is required"),
   phone: z.string().min(10, "Valid phone number required"),
-  childAge: z.string().optional(),
+  dateOfBirth: z.string().optional(),
   concern: z.string().min(5, "Please describe your concern briefly"),
 });
 
@@ -38,7 +38,7 @@ export function QuickConsultationForm() {
           parentName: data.name,
           phone: data.phone,
           email: "consult@thrivewithsharuja.local",
-          message: `Quick consultation request.\nChild age: ${data.childAge ?? "Not specified"}\n\nConcern: ${data.concern}`,
+          message: `Quick consultation request.\nDate of birth: ${data.dateOfBirth || "Not specified"}\n\nConcern: ${data.concern}`,
         }),
       });
       if (!res.ok) throw new Error("Failed");
@@ -79,10 +79,15 @@ export function QuickConsultationForm() {
         </div>
       </div>
       <div>
-        <label htmlFor="qc-age" className="mb-1 block text-sm font-medium text-[color:var(--color-sage-dark)]">
-          Child&apos;s Age (optional)
+        <label htmlFor="qc-dob" className="mb-1 block text-sm font-medium text-[color:var(--color-sage-dark)]">
+          Date of birth
         </label>
-        <Input id="qc-age" {...register("childAge")} placeholder="e.g. 5 years" />
+        <Input
+          id="qc-dob"
+          type="date"
+          {...register("dateOfBirth")}
+          aria-label="Child's date of birth (optional)"
+        />
       </div>
       <div>
         <label htmlFor="qc-concern" className="mb-1 block text-sm font-medium text-[color:var(--color-sage-dark)]">
