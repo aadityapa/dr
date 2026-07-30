@@ -27,12 +27,12 @@ export const mr: Messages = {
   },
   hero: {
     badge: "बाल वैद्यकीय व्यावसायिक थेरपी · मुंबई",
-    headline: "Helping Children Thrive in Everyday Life",
+    headline: "प्रत्येक मुलाला रोजच्या जीवनात बहरण्यास मदत",
     subheadline:
-      "Every child has unique strengths, abilities, and potential. When everyday activities feel challenging, children may need additional support to participate with confidence and independence.",
+      "प्रत्येक मुलामध्ये वेगळी बलस्थाने, क्षमता आणि शक्यता असतात. जेव्हा रोजच्या क्रिया आव्हानात्मक वाटतात, तेव्हा मुलांना आत्मविश्वासाने आणि स्वावलंबनाने सहभागी होण्यासाठी थोड्या अधिक आधाराची गरज असू शकते.",
     subheadline2:
-      "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
-    tagline: "Because every child deserves the opportunity to participate, belong, and thrive.",
+      "माझे काम प्रत्येक मुलाला एक व्यक्ती म्हणून समजून घेण्यावर आणि खेळ, हालचाल व रोजच्या अनुभवांतून वाढीच्या अर्थपूर्ण संधी निर्माण करण्यावर केंद्रित आहे. कुटुंबांसोबत मिळून, मी मुलांना शिकण्यासाठी, सहभागी होण्यासाठी आणि बालपण अर्थपूर्ण करणाऱ्या क्षणांमध्ये बहरण्यासाठी आवश्यक कौशल्ये घडवण्यात साथ देते.",
+    tagline: "कारण प्रत्येक मूल सहभागी होण्याची, आपलेपण मिळवण्याची आणि बहरण्याची संधी मिळण्यास पात्र आहे.",
     primaryCta: "सल्ला बुक करा",
     secondaryCta: "माझ्याबद्दल जाणून घ्या",
   },

@@ -27,12 +27,12 @@ export const hi: Messages = {
   },
   hero: {
     badge: "बाल चिकित्सा व्यावसायिक चिकित्सा · मुंबई",
-    headline: "Helping Children Thrive in Everyday Life",
+    headline: "हर बच्चे को रोज़मर्रा की ज़िंदगी में खिलने में मदद",
     subheadline:
-      "Every child has unique strengths, abilities, and potential. When everyday activities feel challenging, children may need additional support to participate with confidence and independence.",
+      "हर बच्चे में अनोखी ताकतें, क्षमताएँ और संभावनाएँ होती हैं। जब रोज़मर्रा की गतिविधियाँ चुनौतीपूर्ण लगती हैं, तो बच्चों को आत्मविश्वास और आत्मनिर्भरता के साथ भाग लेने के लिए थोड़े अतिरिक्त सहारे की ज़रूरत हो सकती है।",
     subheadline2:
-      "My work is centered on understanding each child as an individual and creating meaningful opportunities for growth through play, movement, and everyday experiences. Together with families, I support children in building the skills they need to learn, participate, and thrive in the moments that make childhood meaningful.",
-    tagline: "Because every child deserves the opportunity to participate, belong, and thrive.",
+      "मेरा काम हर बच्चे को एक व्यक्ति के रूप में समझने और खेल, गति व रोज़मर्रा के अनुभवों के ज़रिए विकास के सार्थक अवसर बनाने पर केंद्रित है। परिवारों के साथ मिलकर, मैं बच्चों को वे कौशल बनाने में सहयोग देती हूँ जिनकी उन्हें सीखने, भाग लेने और बचपन को सार्थक बनाने वाले पलों में खिलने के लिए ज़रूरत होती है।",
+    tagline: "क्योंकि हर बच्चा भाग लेने, अपनापन पाने और खिलने का अवसर पाने का हक़दार है।",
     primaryCta: "परामर्श बुक करें",
     secondaryCta: "मेरे बारे में जानें",
   },
