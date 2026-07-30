@@ -17,8 +17,8 @@ export const conditionsDepthContent: ConditionDepthContent[] = [
     slug: "autism-spectrum-disorder",
     parentExplanation: [
       ...baseExplanation("Autism Spectrum Disorder (ASD)"),
-      "Autism is a neurodevelopmental difference — not an illness to cure. Many autistic children experience the world intensely through their senses, communicate and connect in unique ways, and develop deep passions that reflect their individual strengths. OT supports the skills for navigating a world that is not always designed for neurodivergent children.",
-      "Common areas where OT makes a difference for autistic children include sensory regulation (reducing overwhelm in busy environments), daily living skills (dressing, feeding, grooming), fine motor skills (handwriting, cutting, buttoning), gross motor coordination (playground participation, sports), and emotional regulation (managing transitions and unexpected changes).",
+      "Autism is a neurodevelopmental difference — not an illness to cure. Many children with autism experience the world intensely through their senses, communicate and connect in unique ways, and develop deep passions that reflect their individual strengths. OT supports the skills for navigating a world that is not always designed for neurodivergent children.",
+      "Common areas where OT makes a difference for children with autism include sensory regulation (reducing overwhelm in busy environments), daily living skills (dressing, feeding, grooming), fine motor skills (handwriting, cutting, buttoning), gross motor coordination (playground participation, sports), and emotional regulation (managing transitions and unexpected changes).",
     ],
     whenToSeeDoctor: [
       "Sensory sensitivities causing meltdowns in everyday environments",

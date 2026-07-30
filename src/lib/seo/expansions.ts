@@ -198,16 +198,16 @@ const conditionExpansions: Record<string, SeoExpansion> = {
       {
         heading: "Understanding Autism Through a Strengths-Based Lens",
         paragraphs: [
-          "Autism Spectrum Disorder (ASD) is a neurodevelopmental difference that shapes how a child perceives sensory input, communicates, interacts socially, and engages with routines. It is not an illness to cure. Autistic children often experience the world with extraordinary intensity — sounds that others filter out, textures that feel unbearable, changes that feel catastrophic, and interests that become passionate expertise.",
-          "Families in Mumbai face unique pressures: crowded malls, noisy festivals, competitive schooling, and social expectations that do not accommodate neurodivergent children. OT does not try to make autistic children appear neurotypical. It builds the sensory, motor, and daily living skills that help them participate in the life they and their family choose — with less overwhelm and more autonomy.",
-          "Dr. Sharuja Sarap approaches ASD with 18+ years of pediatric experience and advanced training in sensory integration, Brain Gym, MNRI reflex integration, and Handwriting Without Tears. Her clinic provides a predictable, sensory-aware environment where autistic children can regulate before being asked to perform.",
+          "Autism Spectrum Disorder (ASD) is a neurodevelopmental difference that shapes how a child perceives sensory input, communicates, interacts socially, and engages with routines. It is not an illness to cure. Children with autism often experience the world with extraordinary intensity — sounds that others filter out, textures that feel unbearable, changes that feel catastrophic, and interests that become passionate expertise.",
+          "Families in Mumbai face unique pressures: crowded malls, noisy festivals, competitive schooling, and social expectations that do not accommodate neurodivergent children. OT does not try to make children with autism appear neurotypical. It builds the sensory, motor, and daily living skills that help them participate in the life they and their family choose — with less overwhelm and more autonomy.",
+          "Dr. Sharuja Sarap approaches ASD with 18+ years of pediatric experience and advanced training in sensory integration, Brain Gym, MNRI reflex integration, and Handwriting Without Tears. Her clinic provides a predictable, sensory-aware environment where children with autism can regulate before being asked to perform.",
         ],
       },
       {
         heading: "How OT Addresses Core Challenges in ASD",
         paragraphs: [
-          "Sensory processing differences are central for many autistic children. OT begins with a sensory profile assessment — identifying whether your child seeks or avoids movement, touch, sound, and visual input. This profile drives every recommendation: a sensory diet of scheduled input, environmental modifications at home and school, and therapy activities that build tolerance gradually rather than through flooding.",
-          "Motor differences are equally important. Many autistic children have coordination challenges, low muscle tone, or difficulty with motor planning — making playground participation, handwriting, and self-care frustrating. Structured, play-based OT builds these skills without the social pressure of group sports or crowded classrooms.",
+          "Sensory processing differences are central for many children with autism. OT begins with a sensory profile assessment — identifying whether your child seeks or avoids movement, touch, sound, and visual input. This profile drives every recommendation: a sensory diet of scheduled input, environmental modifications at home and school, and therapy activities that build tolerance gradually rather than through flooding.",
+          "Motor differences are equally important. Many children with autism have coordination challenges, low muscle tone, or difficulty with motor planning — making playground participation, handwriting, and self-care frustrating. Structured, play-based OT builds these skills without the social pressure of group sports or crowded classrooms.",
           "Daily living skills — dressing, feeding, grooming, toileting — are often overlooked in medical models of autism care. OT breaks these tasks into manageable steps, adapts tools when needed, and teaches parents how to scaffold independence without nightly battles.",
           "Emotional regulation support uses movement, deep pressure, visual schedules, and co-regulation strategies. Transitions — leaving home, ending screen time, shifting between activities — are practised with predictable routines that reduce meltdown frequency over time.",
         ],
@@ -215,7 +215,7 @@ const conditionExpansions: Record<string, SeoExpansion> = {
       {
         heading: "Working With Schools and Families in Mumbai",
         paragraphs: [
-          "School is often the hardest environment for autistic children: fluorescent lights, assembly noise, unpredictable schedules, and social complexity. Dr. Sarap collaborates with parents to suggest practical classroom accommodations — seating away from doors, movement breaks, reduced handwriting load, or sensory tools — that many Mumbai schools accept when presented clearly.",
+          "School is often the hardest environment for children with autism: fluorescent lights, assembly noise, unpredictable schedules, and social complexity. Dr. Sarap collaborates with parents to suggest practical classroom accommodations — seating away from doors, movement breaks, reduced handwriting load, or sensory tools — that many Mumbai schools accept when presented clearly.",
           "Parent coaching is central. You learn to read early signs of overload, implement sensory strategies before meltdowns escalate, and advocate for your child without apology. Siblings and extended family benefit when daily routines become more predictable.",
           "Therapy frequency is tailored to need — typically one to two sessions weekly, with home programs adjusted as your child develops. Progress is reviewed every few months with honest conversation about what is working and what needs adjustment.",
         ],
@@ -230,7 +230,7 @@ const conditionExpansions: Record<string, SeoExpansion> = {
       },
     ],
     mythsAndFacts: [
-      { myth: "Autistic children cannot improve functional skills.", fact: "With consistent OT, many children make significant gains in daily participation." },
+      { myth: "Children with autism cannot improve functional skills.", fact: "With consistent OT, many children make significant gains in daily participation." },
       { myth: "OT tries to eliminate autistic behaviours.", fact: "Our approach builds skills for participation while respecting each child's identity." },
       { myth: "A diagnosis is required before starting.", fact: "Therapy can begin based on observed sensory and motor challenges during evaluation." },
       { myth: "More exposure to overwhelming environments will help.", fact: "Gradual, supported sensory exposure works. Flooding typically increases distress." },
@@ -365,7 +365,7 @@ const conditionExpansions: Record<string, SeoExpansion> = {
     mythsAndFacts: [
       { myth: "Sensory issues are not real.", fact: "Sensory processing differences are well documented in occupational therapy research." },
       { myth: "Children will adapt if forced to tolerate stimuli.", fact: "Flooding without support typically increases anxiety and avoidance." },
-      { myth: "Only autistic children have sensory issues.", fact: "Sensory processing difficulties occur in many developmental profiles." },
+      { myth: "Only children with autism have sensory issues.", fact: "Sensory processing difficulties occur in many developmental profiles." },
       { myth: "They will grow out of it.", fact: "Some improve with maturity. Many benefit from explicit OT strategies." },
     ],
     homeStrategies: [

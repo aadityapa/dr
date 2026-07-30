@@ -37,7 +37,7 @@ export const clientConditions: ClientCondition[] = [
     title: "Autism Spectrum Disorder (ASD)",
     understandingHeading: "Understanding Autism",
     understanding:
-      "Every autistic child experiences the world in their own unique way. Some children may communicate differently, respond more strongly to sounds, lights, touch, or movement, prefer predictable routines, or find social situations difficult to understand. While every child is different, understanding their unique needs can help create opportunities for meaningful growth, learning, and participation.",
+      "Every child with autism experiences the world in their own unique way. Some children may communicate differently, respond more strongly to sounds, lights, touch, or movement, prefer predictable routines, or find social situations difficult to understand. While every child is different, understanding their unique needs can help create opportunities for meaningful growth, learning, and participation.",
     whatParentsNotice: {
       intro: "You may notice your child:",
       sections: [

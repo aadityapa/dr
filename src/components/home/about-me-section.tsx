@@ -10,6 +10,15 @@ import { getAboutContent } from "@/lib/i18n/content/about-locale";
 import { getSiteImage } from "@/lib/site-images";
 import { siteConfig } from "@/lib/site-data";
 
+const EXPERTISE_CHIPS = [
+  "Aquatic Therapy",
+  "Brain Gym\u00ae",
+  "Handwriting Development",
+  "Oral Motor Intervention",
+  "Reflex Integration",
+  "Sensory Integration",
+] as const;
+
 export function AboutMeSection() {
   const { content, locale } = useLanguage();
   const copy = content.home.aboutPreview;
@@ -54,6 +63,17 @@ export function AboutMeSection() {
 
           <Reveal delay={0.05} className="mt-5 flex flex-wrap gap-2">
             {expertiseChips.map((chip) => (
+              <span
+                key={chip}
+                className="rounded-full border border-[color:var(--color-border)] bg-white/70 px-3.5 py-1.5 text-xs font-medium text-[color:var(--color-sage-text)]"
+              >
+                {chip}
+              </span>
+            ))}
+          </Reveal>
+
+          <Reveal delay={0.05} className="mt-5 flex flex-wrap gap-2">
+            {EXPERTISE_CHIPS.map((chip) => (
               <span
                 key={chip}
                 className="rounded-full border border-[color:var(--color-border)] bg-white/70 px-3.5 py-1.5 text-xs font-medium text-[color:var(--color-sage-text)]"

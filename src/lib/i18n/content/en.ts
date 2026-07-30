@@ -178,7 +178,7 @@ export const enContent: LocaleContent = {
         a: "OT supports sensory regulation, motor planning, daily routines, and social participation for children with ASD. Dr. Sharuja Sarap uses structured, play-led interventions that respect each child's unique communication and learning style.",
       },
       {
-        q: "Can OT reduce meltdowns in autistic children?",
+        q: "Can OT reduce meltdowns in children with autism?",
         a: "Many meltdowns stem from sensory overload or difficulty with transitions. OT identifies triggers and builds regulation strategies, often reducing frequency and intensity over time.",
       },
       {

@@ -22,7 +22,7 @@ export const conditionsContent: ConditionContent[] = [
     title: "Autism Spectrum Disorder (ASD)",
     metaDescription: "Pediatric OT for autism in Mumbai & Kandivali. Dr. Sharuja Sarap supports sensory regulation, daily routines & social participation for children with ASD.",
     keywords: ["autism occupational therapy Mumbai", "ASD therapy Kandivali", "sensory therapy autism Mumbai"],
-    intro: "Every autistic child experiences the world in their own unique way. Some children may communicate differently, respond more strongly to sounds, lights, touch, or movement, prefer predictable routines, or find social situations difficult to understand. While every child is different, understanding their unique needs can help create opportunities for meaningful growth, learning, and participation.",
+    intro: "Every child with autism experiences the world in their own unique way. Some children may communicate differently, respond more strongly to sounds, lights, touch, or movement, prefer predictable routines, or find social situations difficult to understand. While every child is different, understanding their unique needs can help create opportunities for meaningful growth, learning, and participation.",
     symptoms: [
       "Prefers to play alone or interacts differently with other children (Social Communication & Social Interaction)",
       "Uses fewer words than expected, repeats phrases, or finds it difficult to express needs (Communication Difficulties)",

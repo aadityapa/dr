@@ -7,16 +7,15 @@ import { ConditionsBottomCta } from "@/components/conditions/conditions-bottom-c
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
 import { Section } from "@/components/shared/section";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
-import { buildLocalizedConditionFaqs, getLabels, getLocalizedClientCondition, getPageShells } from "@/lib/i18n/localize";
+import { getLabels, getLocalizedClientCondition, getPageShells } from "@/lib/i18n/localize";
 import { clientConditions } from "@/lib/client-content/conditions";
 import { getCardPastelByKey } from "@/lib/pastel-palette";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
+import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
@@ -50,7 +49,6 @@ export default async function ConditionDetailPage({ params }: Props) {
   const messages = getMessages(locale);
   const labels = getLabels(locale);
   const shells = getPageShells(locale);
-  const faqs = buildLocalizedConditionFaqs(condition.title, locale);
   const pastel = getCardPastelByKey(slug);
 
   return (
@@ -63,7 +61,6 @@ export default async function ConditionDetailPage({ params }: Props) {
           { name: condition.title, url: `${siteConfig.url}/${locale}/conditions/${slug}` },
         ])}
       />
-      <JsonLd id="condition-faq" data={faqPageSchema(faqs)} />
       <Breadcrumbs
         items={[
           { name: messages.nav.conditions, url: `${siteConfig.url}/${locale}/conditions` },
@@ -92,23 +89,6 @@ export default async function ConditionDetailPage({ params }: Props) {
         <div className="mx-auto max-w-4xl space-y-8">
           <ConditionDetailCard condition={condition} labels={labels} hideTitle />
 
-          <div className="rounded-[1.75rem] border border-white/60 bg-white/50 p-6 shadow-lg backdrop-blur-md md:p-8">
-            <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[#004d4d]">
-              {labels.questionsParentsAsk}
-            </h2>
-            <Accordion type="single" collapsible className="mt-4 space-y-2">
-              {faqs.map((faq, idx) => (
-                <AccordionItem key={faq.q} value={`condition-faq-${idx}`} className="border-[#E8E4DC]">
-                  <AccordionTrigger className="text-left text-[#333] hover:text-[#004d4d]">
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-sm leading-relaxed text-[#555]">
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
 
           <div className="flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-[#004d4d] hover:bg-[#2D6047]">
