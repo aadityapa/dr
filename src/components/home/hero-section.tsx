@@ -94,7 +94,7 @@ export function HeroSection() {
       <a
         href="#meet-doctor"
         className="hero-scroll absolute bottom-6 left-1/2 hidden -translate-x-1/2 text-[color:var(--color-muted)] motion-safe:animate-bounce md:block"
-        aria-label="Scroll to learn more"
+        aria-label={messages.common.scrollToLearnMore}
       >
         <ChevronDown className="h-6 w-6" />
       </a>

@@ -70,7 +70,7 @@ export function NewsletterSignup({ className }: NewsletterSignupProps) {
           {formCopy.success}
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-5" aria-label="Newsletter signup form">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-5" aria-label={formCopy.formAriaLabel}>
           <div className="flex flex-col gap-3 sm:flex-row">
             <div className="flex-1">
               <label htmlFor={emailId} className="sr-only">

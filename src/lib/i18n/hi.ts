@@ -66,6 +66,7 @@ export const hi: Messages = {
     learnMore: "और जानें →",
     sending: "भेजा जा रहा है...",
     sendMessage: "संदेश भेजें",
+    scrollToLearnMore: "और जानने के लिए स्क्रॉल करें",
   },
   forms: {
     contact: {
@@ -178,7 +179,27 @@ export const hi: Messages = {
         concerns: "कृपया अपनी मुख्य चिंताएँ बताएँ",
       },
     },
+    quickConsultation: {
+      formAriaLabel: "त्वरित परामर्श फ़ॉर्म",
+      parentName: "माता-पिता का नाम",
+      namePlaceholder: "आपका नाम",
+      phone: "फ़ोन",
+      dateOfBirth: "जन्म तिथि",
+      dateOfBirthAriaLabel: "बच्चे की जन्म तिथि (वैकल्पिक)",
+      concern: "आपकी चिंता",
+      concernPlaceholder: "आप जो देख रहे हैं उसे संक्षेप में बताएँ…",
+      submit: "कॉल बैक का अनुरोध करें",
+      successTitle: "धन्यवाद!",
+      successMessage: "डॉ. शारुजा सराफ की टीम 24 घंटे के भीतर आपसे संपर्क करेगी।",
+      error: "कुछ गड़बड़ हो गई। कृपया सीधे 9820505197 पर कॉल करें।",
+      errors: {
+        name: "कृपया अपना नाम लिखें",
+        phone: "कृपया सही फ़ोन नंबर लिखें",
+        concern: "कृपया अपनी चिंता संक्षेप में बताएँ",
+      },
+    },
     newsletter: {
+      formAriaLabel: "न्यूज़लेटर साइन-अप फ़ॉर्म",
       title: "माता-पिता संसाधन, आपके इनबॉक्स में",
       description: "कभी-कभार विकास सुझाव, गाइड और क्लिनिक अपडेट। कोई स्पैम नहीं — कभी भी अनसब्सक्राइब करें।",
       emailLabel: "ईमेल पता",

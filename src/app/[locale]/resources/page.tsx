@@ -12,6 +12,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
 import { getPageShells } from "@/lib/i18n/localize";
 import { articles } from "@/lib/articles";
+import { localizeArticle } from "@/lib/i18n/content/articles-localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-data";
 
@@ -34,6 +35,7 @@ export default async function ResourcesPage({ params }: Props) {
   setRequestLocale(locale);
   const shells = getPageShells(locale);
   const messages = getMessages(locale);
+  const localizedArticles = articles.map((a) => localizeArticle(a, locale));
 
   return (
     <main>
@@ -47,7 +49,15 @@ export default async function ResourcesPage({ params }: Props) {
       />
 
       <Section>
-        <ResourceGrid articles={articles} />
+        <ResourceGrid
+          articles={localizedArticles}
+          labels={{
+            searchPlaceholder: shells.resources.searchPlaceholder,
+            articleCountOne: shells.resources.articleCountOne,
+            articleCountMany: shells.resources.articleCountMany,
+            noResults: shells.resources.noResults,
+          }}
+        />
 
         <div className="mt-12">
           <NewsletterSignup className="mx-auto max-w-2xl" />
@@ -55,8 +65,8 @@ export default async function ResourcesPage({ params }: Props) {
 
         <div className="mt-10">
           <SectionCta
-            title="Explore our digital library"
-            description="Download free checklists, parent guides, and screening tools — with instant email delivery."
+            title={shells.resources.libraryCtaTitle}
+            description={shells.resources.libraryCtaDescription}
           />
         </div>
       </Section>

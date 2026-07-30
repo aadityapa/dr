@@ -13,9 +13,30 @@ export type PageShell = {
 export type PageShells = {
   appointment: PageShell & { clinicHours: string };
   screening: PageShell & { formTitle: string; formDescription: string; breadcrumb: string };
-  contact: PageShell;
+  contact: PageShell & {
+    consultationCardTitle: string;
+    consultationCardDescription: string;
+    phoneLabel: string;
+    emailLabel: string;
+    addressLabel: string;
+    clinicHoursLabel: string;
+    clinicHours: { days: string; hours: string }[];
+    getDirections: string;
+    mapTitle: string;
+    callbackTitle: string;
+    callbackDescription: string;
+  };
   gallery: PageShell;
-  resources: PageShell & { readGuide: string; minRead: string };
+  resources: PageShell & {
+    readGuide: string;
+    minRead: string;
+    searchPlaceholder: string;
+    articleCountOne: string;
+    articleCountMany: string;
+    noResults: string;
+    libraryCtaTitle: string;
+    libraryCtaDescription: string;
+  };
   library: PageShell;
   outcomes: PageShell;
   testimonials: PageShell;
@@ -23,8 +44,11 @@ export type PageShells = {
     stillHaveQuestions: string;
     stillDescription: string;
     searchPlaceholder: string;
+    searchAriaLabel: string;
+    categoryTabsLabel: string;
     noResults: string;
-    questionCount: string;
+    countSummary: (questions: number, categories: number) => string;
+    resultsSummary: (results: number, query: string) => string;
   };
   invite: PageShell;
   locations: PageShell & { breadcrumb: string };
@@ -123,6 +147,8 @@ export type PageShells = {
       };
       certificationsTitle: string;
       certificationsDescription: string;
+      certPrevious: string;
+      certNext: string;
       clinicTitle: string;
       clinicDescription: string;
       testimonialsKicker: string;
@@ -190,6 +216,21 @@ const en: PageShells = {
     kicker: "Get in Touch",
     title: "We're here when you're ready",
     description: "Share your concern — we'll call or WhatsApp you within 24 hours.",
+    consultationCardTitle: "New Child Consultation Request Form",
+    consultationCardDescription:
+      "Share a few details about your child before scheduling — it takes about 3 minutes.",
+    phoneLabel: "Phone",
+    emailLabel: "Email",
+    addressLabel: "Clinic Address",
+    clinicHoursLabel: "Clinic Hours",
+    clinicHours: [
+      { days: "Monday – Friday", hours: "9 AM – 5 PM" },
+      { days: "Saturday", hours: "9 AM – 12 PM" },
+    ],
+    getDirections: "Get Directions",
+    mapTitle: "Clinic location on Google Maps",
+    callbackTitle: "Request a Call Back",
+    callbackDescription: "Tell us a little about your child — we'll reach out soon.",
   },
   gallery: {
     metaTitle: "Clinic Gallery",
@@ -206,6 +247,12 @@ const en: PageShells = {
     description: "Evidence-informed articles to help you understand what you're seeing.",
     readGuide: "Read guide →",
     minRead: "min read",
+    searchPlaceholder: "Search articles…",
+    articleCountOne: "article",
+    articleCountMany: "articles",
+    noResults: "No articles match your search. Try a different keyword.",
+    libraryCtaTitle: "Explore our digital library",
+    libraryCtaDescription: "Download free checklists, parent guides, and screening tools — with instant email delivery.",
   },
   library: {
     metaTitle: "Parent Library",
@@ -237,8 +284,13 @@ const en: PageShells = {
     stillHaveQuestions: "Still have questions?",
     stillDescription: "Dr. Sharuja Sarap and our team are happy to help. Book a consultation or call us directly.",
     searchPlaceholder: "Search FAQs...",
+    searchAriaLabel: "Search frequently asked questions",
+    categoryTabsLabel: "FAQ categories",
     noResults: "No FAQs match your search. Try different keywords.",
-    questionCount: "questions across categories",
+    countSummary: (questions, categories) =>
+      `${questions} questions across ${categories} categories`,
+    resultsSummary: (results, query) =>
+      `${results} result${results === 1 ? "" : "s"} for “${query}”`,
   },
   invite: {
     metaTitle: "Invite Sharuja",
@@ -450,6 +502,8 @@ const en: PageShells = {
       certificationsTitle: "Certifications & Training",
       certificationsDescription:
         "Advanced international certifications woven into evidence-based pediatric care.",
+      certPrevious: "Previous certification",
+      certNext: "Next certification",
       clinicTitle: "A Day At My Clinic",
       clinicDescription:
         "Warm, child-friendly spaces designed for play-led therapy and confident participation.",
@@ -524,6 +578,21 @@ const hi: PageShells = {
     kicker: "संपर्क",
     title: "जब आप तैयार हों, हम यहाँ हैं",
     description: "अपनी चिंता साझा करें — 24 घंटे में कॉल या WhatsApp करेंगे।",
+    consultationCardTitle: "नए बच्चे के लिए परामर्श अनुरोध फ़ॉर्म",
+    consultationCardDescription:
+      "समय तय करने से पहले अपने बच्चे के बारे में कुछ बातें बताएँ — इसमें लगभग 3 मिनट लगते हैं।",
+    phoneLabel: "फ़ोन",
+    emailLabel: "ईमेल",
+    addressLabel: "क्लिनिक का पता",
+    clinicHoursLabel: "क्लिनिक का समय",
+    clinicHours: [
+      { days: "सोमवार – शुक्रवार", hours: "सुबह 9 – शाम 5" },
+      { days: "शनिवार", hours: "सुबह 9 – दोपहर 12" },
+    ],
+    getDirections: "रास्ता देखें",
+    mapTitle: "Google Maps पर क्लिनिक का स्थान",
+    callbackTitle: "कॉल बैक का अनुरोध करें",
+    callbackDescription: "अपने बच्चे के बारे में थोड़ा बताएँ — हम जल्द ही आपसे संपर्क करेंगे।",
   },
   gallery: {
     metaTitle: "क्लिनिक गैलरी",
@@ -540,6 +609,12 @@ const hi: PageShells = {
     description: "आप जो देख रहे हैं उसे समझने में मदद करने वाले लेख।",
     readGuide: "गाइड पढ़ें →",
     minRead: "मिनट पढ़ें",
+    searchPlaceholder: "लेख खोजें…",
+    articleCountOne: "लेख",
+    articleCountMany: "लेख",
+    noResults: "आपकी खोज से कोई लेख मेल नहीं खाता। कोई दूसरा शब्द आज़माएँ।",
+    libraryCtaTitle: "हमारी डिजिटल लाइब्रेरी देखें",
+    libraryCtaDescription: "मुफ़्त चेकलिस्ट, माता-पिता गाइड और स्क्रीनिंग टूल डाउनलोड करें — तुरंत ईमेल पर।",
   },
   library: {
     metaTitle: "माता-पिता पुस्तकालय",
@@ -571,8 +646,12 @@ const hi: PageShells = {
     stillHaveQuestions: "अभी भी सवाल हैं?",
     stillDescription: "डॉ. शारुजा और हमारी टीम मदद के लिए तैयार हैं। परामर्श बुक करें या सीधे कॉल करें।",
     searchPlaceholder: "सामान्य प्रश्न खोजें...",
+    searchAriaLabel: "अक्सर पूछे जाने वाले सवाल खोजें",
+    categoryTabsLabel: "सवालों की श्रेणियाँ",
     noResults: "कोई प्रश्न नहीं मिला। अलग कीवर्ड आज़माएँ।",
-    questionCount: "श्रेणियों में प्रश्न",
+    countSummary: (questions, categories) =>
+      `${categories} श्रेणियों में ${questions} सवाल`,
+    resultsSummary: (results, query) => `“${query}” के लिए ${results} परिणाम`,
   },
   invite: {
     metaTitle: "शारुजा को आमंत्रित करें",
@@ -774,6 +853,8 @@ const hi: PageShells = {
       certificationsTitle: "प्रमाणपत्र और प्रशिक्षण",
       certificationsDescription:
         "साक्ष्य-आधारित बाल देखभाल में उन्नत अंतर्राष्ट्रीय प्रमाणपत्र।",
+      certPrevious: "पिछला प्रमाणपत्र",
+      certNext: "अगला प्रमाणपत्र",
       clinicTitle: "मेरे क्लिनिक में एक दिन",
       clinicDescription:
         "खेल-आधारित थेरेपी और आत्मविश्वास भरी भागीदारी के लिए बनाए गए गर्म, बच्चों के अनुकूल स्थान।",
@@ -845,12 +926,46 @@ const mr: PageShells = {
     title: "विचारशील पालकांसाठी मार्गदर्शक",
     readGuide: "मार्गदर्शक वाचा →",
     minRead: "मिनिट वाचा",
+    searchPlaceholder: "लेख शोधा…",
+    articleCountOne: "लेख",
+    articleCountMany: "लेख",
+    noResults: "तुमच्या शोधाशी कोणताही लेख जुळत नाही. दुसरा शब्द वापरून पहा.",
+    libraryCtaTitle: "आमची डिजिटल लायब्ररी पहा",
+    libraryCtaDescription: "मोफत चेकलिस्ट, पालक मार्गदर्शक आणि स्क्रीनिंग साधने डाउनलोड करा — त्वरित ईमेलवर.",
+  },
+  contact: {
+    ...hi.contact,
+    metaTitle: "संपर्क साधा",
+    metaDescription: "कांदिवली, मुंबईतील थ्राइव विथ Sharuja शी संपर्क साधा.",
+    kicker: "संपर्क",
+    title: "तुम्ही तयार असाल तेव्हा आम्ही इथे आहोत",
+    description: "तुमची चिंता सांगा — 24 तासांत कॉल किंवा WhatsApp करू.",
+    consultationCardTitle: "नवीन मुलासाठी सल्ला विनंती फॉर्म",
+    consultationCardDescription:
+      "वेळ ठरवण्यापूर्वी तुमच्या मुलाबद्दल थोडी माहिती द्या — यास सुमारे 3 मिनिटे लागतात.",
+    phoneLabel: "फोन",
+    emailLabel: "ईमेल",
+    addressLabel: "क्लिनिकचा पत्ता",
+    clinicHoursLabel: "क्लिनिकची वेळ",
+    clinicHours: [
+      { days: "सोमवार – शुक्रवार", hours: "सकाळी 9 – संध्याकाळी 5" },
+      { days: "शनिवार", hours: "सकाळी 9 – दुपारी 12" },
+    ],
+    getDirections: "दिशा मिळवा",
+    mapTitle: "Google Maps वर क्लिनिकचे स्थान",
+    callbackTitle: "कॉल बॅकची विनंती करा",
+    callbackDescription: "तुमच्या मुलाबद्दल थोडे सांगा — आम्ही लवकरच संपर्क करू.",
   },
   faqs: {
     ...hi.faqs,
     title: "पालक विचारतात ते प्रश्न",
     searchPlaceholder: "प्रश्न शोधा...",
+    searchAriaLabel: "वारंवार विचारले जाणारे प्रश्न शोधा",
+    categoryTabsLabel: "प्रश्नांच्या श्रेणी",
     noResults: "कोणतेही प्रश्न सापडले नाहीत.",
+    countSummary: (questions, categories) =>
+      `${categories} श्रेणींमध्ये ${questions} प्रश्न`,
+    resultsSummary: (results, query) => `“${query}” साठी ${results} निकाल`,
   },
   conditions: {
     ...hi.conditions,
@@ -953,6 +1068,8 @@ const mr: PageShells = {
       certificationsTitle: "प्रमाणपत्रे आणि प्रशिक्षण",
       certificationsDescription:
         "पुरावा-आधारित बाल काळजीमध्ये प्रगत आंतरराष्ट्रीय प्रमाणपत्रे.",
+      certPrevious: "मागील प्रमाणपत्र",
+      certNext: "पुढील प्रमाणपत्र",
       clinicTitle: "माझ्या क्लिनिकमध्ये एक दिवस",
       clinicDescription:
         "खेळ-आधारित थेरपी आणि आत्मविश्वासपूर्ण सहभागासाठी तयार केलेली उबदार, मुलांसाठी अनुकूल जागा.",

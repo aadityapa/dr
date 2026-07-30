@@ -58,7 +58,7 @@ export function CertCarousel({ shells }: AboutPageProps) {
               type="button"
               onClick={prev}
               className="rounded-full bg-white/80 p-2 shadow-md transition hover:bg-white"
-              aria-label="Previous certification"
+              aria-label={shells.sections.certPrevious}
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -68,7 +68,7 @@ export function CertCarousel({ shells }: AboutPageProps) {
               type="button"
               onClick={next}
               className="rounded-full bg-white/80 p-2 shadow-md transition hover:bg-white"
-              aria-label="Next certification"
+              aria-label={shells.sections.certNext}
             >
               <ChevronRight className="h-5 w-5" />
             </button>

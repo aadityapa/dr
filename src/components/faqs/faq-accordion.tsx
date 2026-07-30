@@ -60,7 +60,7 @@ export function FaqAccordion() {
   return (
     <div ref={listRef}>
       <div className="mb-4 text-sm text-[color:var(--color-muted)]">
-        {totalCount} {shells.faqs.questionCount} {faqCategories.length} categories
+        {shells.faqs.countSummary(totalCount, faqCategories.length)}
       </div>
 
       <div className="relative mb-6">
@@ -71,12 +71,12 @@ export function FaqAccordion() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="pl-11"
-          aria-label="Search frequently asked questions"
+          aria-label={shells.faqs.searchAriaLabel}
         />
       </div>
 
       {!searchResults && (
-        <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="FAQ categories">
+        <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label={shells.faqs.categoryTabsLabel}>
           {faqCategories.map((cat) => (
             <button
               key={cat.id}
@@ -102,7 +102,7 @@ export function FaqAccordion() {
 
       {searchResults && searchResults.length > 0 && (
         <p className="mb-4 text-sm text-[color:var(--color-muted)]">
-          {searchResults.length} result{searchResults.length === 1 ? "" : "s"} for &ldquo;{query}&rdquo;
+          {shells.faqs.resultsSummary(searchResults.length, query)}
         </p>
       )}
 

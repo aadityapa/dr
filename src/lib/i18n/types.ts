@@ -64,6 +64,7 @@ export type Messages = {
     learnMore: string;
     sending: string;
     sendMessage: string;
+    scrollToLearnMore: string;
   };
   forms: {
     contact: {
@@ -146,7 +147,27 @@ export type Messages = {
         concerns: string;
       };
     };
+    quickConsultation: {
+      formAriaLabel: string;
+      parentName: string;
+      namePlaceholder: string;
+      phone: string;
+      dateOfBirth: string;
+      dateOfBirthAriaLabel: string;
+      concern: string;
+      concernPlaceholder: string;
+      submit: string;
+      successTitle: string;
+      successMessage: string;
+      error: string;
+      errors: {
+        name: string;
+        phone: string;
+        concern: string;
+      };
+    };
     newsletter: {
+      formAriaLabel: string;
       title: string;
       description: string;
       emailLabel: string;

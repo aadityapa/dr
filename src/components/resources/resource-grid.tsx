@@ -12,11 +12,17 @@ import { paginateItems } from "@/lib/pagination";
 
 type ResourceGridProps = {
   articles: Article[];
+  labels: {
+    searchPlaceholder: string;
+    articleCountOne: string;
+    articleCountMany: string;
+    noResults: string;
+  };
 };
 
 const PAGE_SIZE = 12;
 
-export function ResourceGrid({ articles }: ResourceGridProps) {
+export function ResourceGrid({ articles, labels }: ResourceGridProps) {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const gridRef = useRef<HTMLDivElement>(null);
@@ -47,24 +53,24 @@ export function ResourceGrid({ articles }: ResourceGridProps) {
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Input
           type="search"
-          placeholder="Search articles…"
+          placeholder={labels.searchPlaceholder}
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
             setPage(1);
           }}
-          aria-label="Search articles"
+          aria-label={labels.searchPlaceholder}
           className="max-w-md"
         />
         <p className="text-sm text-[color:var(--color-muted)]">
-          {filtered.length} article{filtered.length !== 1 ? "s" : ""}
+          {filtered.length} {filtered.length === 1 ? labels.articleCountOne : labels.articleCountMany}
         </p>
       </div>
 
 
       {paginated.length === 0 ? (
         <p className="py-12 text-center text-sm text-[color:var(--color-muted)]">
-          No articles match your search. Try a different keyword.
+          {labels.noResults}
         </p>
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

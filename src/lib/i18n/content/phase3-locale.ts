@@ -1213,7 +1213,7 @@ const mr: Phase3Content = {
         alt: "swing supports, climbing holds आणि movement tools असलेले रंगीत sensory gym equipment",
       },
       {
-        title: "Movement Play Zone",
+        title: "हालचाल खेळ क्षेत्र",
         category: "Child-Friendly Environment",
         alt: "climbing wall, tactile pads आणि मुलांसाठी अनुकूल movement equipment असलेला उजळ pediatric therapy play zone",
       },

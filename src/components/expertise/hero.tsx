@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/components/providers/language-provider";
+import { getLocalizedExpertise } from "@/lib/i18n/localize";
 import { lookingBeyondExpertise } from "@/lib/client-content/expertise";
 import { easeOutExpo, fadeUp, floatY } from "./animations";
 import type { ExpertisePageProps } from "./expertise-types";
@@ -34,7 +36,8 @@ const FLOAT_ICONS = [
 const PILL_ICONS = [Sparkles, Target, Heart] as const;
 
 export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
-  const intro = lookingBeyondExpertise;
+  const { locale } = useLanguage();
+  const intro = getLocalizedExpertise(lookingBeyondExpertise.slug, locale) ?? lookingBeyondExpertise;
   const reduced = useReducedMotion();
 
   const floatingCards = [

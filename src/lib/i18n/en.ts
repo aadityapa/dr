@@ -66,6 +66,7 @@ export const en: Messages = {
     learnMore: "Learn more →",
     sending: "Sending...",
     sendMessage: "Send Message",
+    scrollToLearnMore: "Scroll to learn more",
   },
   forms: {
     contact: {
@@ -179,7 +180,27 @@ export const en: Messages = {
         concerns: "Please describe your main concerns",
       },
     },
+    quickConsultation: {
+      formAriaLabel: "Quick consultation form",
+      parentName: "Parent Name",
+      namePlaceholder: "Your name",
+      phone: "Phone",
+      dateOfBirth: "Date of birth",
+      dateOfBirthAriaLabel: "Child's date of birth (optional)",
+      concern: "Your Concern",
+      concernPlaceholder: "Briefly describe what you're noticing...",
+      submit: "Request a Call Back",
+      successTitle: "Thank you!",
+      successMessage: "Dr. Sharuja Sarap's team will contact you within 24 hours.",
+      error: "Something went wrong. Please call 9820505197 directly.",
+      errors: {
+        name: "Name is required",
+        phone: "Valid phone number required",
+        concern: "Please describe your concern briefly",
+      },
+    },
     newsletter: {
+      formAriaLabel: "Newsletter signup form",
       title: "Parent resources, in your inbox",
       description: "Occasional development tips, guides, and clinic updates. No spam — unsubscribe anytime.",
       emailLabel: "Email address",
