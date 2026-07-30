@@ -18,24 +18,20 @@ const PAGE_SIZE = 12;
 
 export function ResourceGrid({ articles }: ResourceGridProps) {
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("All");
   const [page, setPage] = useState(1);
   const gridRef = useRef<HTMLDivElement>(null);
 
-  const categories = useMemo(() => ["All", ...new Set(articles.map((a) => a.category))], [articles]);
-
   const filtered = useMemo(() => {
     return articles.filter((a) => {
-      const matchesCategory = category === "All" || a.category === category;
       const q = query.toLowerCase();
       const matchesQuery =
         !q ||
         a.title.toLowerCase().includes(q) ||
         a.excerpt.toLowerCase().includes(q) ||
         a.category.toLowerCase().includes(q);
-      return matchesCategory && matchesQuery;
+      return matchesQuery;
     });
-  }, [articles, category, query]);
+  }, [articles, query]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
@@ -65,29 +61,10 @@ export function ResourceGrid({ articles }: ResourceGridProps) {
         </p>
       </div>
 
-      <div className="mb-8 flex flex-wrap gap-2">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            onClick={() => {
-              setCategory(cat);
-              setPage(1);
-            }}
-            className={`rounded-full px-3 py-1 text-xs font-medium transition ${
-              category === cat
-                ? "bg-[color:var(--color-sage-dark)] text-white"
-                : "bg-[color:var(--color-soft-green)] text-[color:var(--color-sage-dark)] hover:bg-[color:var(--color-sage)]/20"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
 
       {paginated.length === 0 ? (
         <p className="py-12 text-center text-sm text-[color:var(--color-muted)]">
-          No articles match your search. Try a different keyword or category.
+          No articles match your search. Try a different keyword.
         </p>
       ) : (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
