@@ -8,6 +8,57 @@ export type AboutContent = {
   availableFor: { title: string; items: string[] };
   expertise: { title: string; items: string[] };
   suitableFor: { title: string; items: string[] };
+  specializations: string[];
+  faqs: { q: string; a: string }[];
+};
+
+const enSpecializations = [
+  "Aquatic Therapy",
+  "Brain Gym®",
+  "Handwriting Development",
+  "Oral Motor Intervention",
+  "Reflex Integration",
+  "Sensory Integration",
+];
+
+const en: AboutContent = {
+  aboutMe: {
+    title: aboutContent.aboutMe.title,
+    greeting: aboutContent.aboutMe.greeting,
+    credentials: [...aboutContent.aboutMe.credentials],
+    paragraphs: [...aboutContent.aboutMe.paragraphs],
+  },
+  inviteSharuja: {
+    title: aboutContent.inviteSharuja.title,
+    paragraphs: [...aboutContent.inviteSharuja.paragraphs],
+  },
+  availableFor: {
+    title: aboutContent.availableFor.title,
+    items: [...aboutContent.availableFor.items],
+  },
+  expertise: {
+    title: aboutContent.expertise.title,
+    items: [...aboutContent.expertise.items],
+  },
+  suitableFor: {
+    title: aboutContent.suitableFor.title,
+    items: [...aboutContent.suitableFor.items],
+  },
+  specializations: enSpecializations,
+  faqs: [
+    {
+      q: "What age children does Dr. Sharuja Sarap treat?",
+      a: "Children from birth to 14 years with sensory, motor, attention, handwriting, or daily living challenges.",
+    },
+    {
+      q: "Is Dr. Sharuja Sarap certified in Brain Gym?",
+      a: "Yes. Dr. Sharuja Sarap is a Certified Brain Gym Instructor & Practitioner with 18+ years of pediatric experience in Mumbai.",
+    },
+    {
+      q: "How do I book an appointment with Dr. Sharuja Sarap?",
+      a: "Call 9820505197, WhatsApp 919820505197, email sharujasaraf@gmail.com, or book online at drsharujasarap.vercel.app/appointment.",
+    },
+  ],
 };
 
 const hi: AboutContent = {
@@ -18,26 +69,89 @@ const hi: AboutContent = {
       "मैं डॉ. शारुजा हूँ",
       "बाल चिकित्सा व्यावसायिक चिकित्सक",
       "जल चिकित्सक",
-      "Brain gym प्रशिक्षक",
+      "Brain Gym® प्रशिक्षक",
     ],
-    paragraphs: aboutContent.aboutMe.paragraphs as unknown as string[],
+    paragraphs: [
+      "मैं 18+ वर्षों के अनुभव वाली व्यावसायिक चिकित्सक हूँ, जो विकासात्मक, संवेदी और न्यूरोलॉजिकल आवश्यकताओं वाले बच्चों का समर्थन करती हूँ। मेरा कार्य बच्चों को घर, स्कूल और समुदाय की रोज़मर्रा की गतिविधियों में आत्मविश्वास से भाग लेने में मदद करता है।",
+      "मेरे पास बाल चिकित्सा विशेषज्ञता के साथ व्यावसायिक चिकित्सा में मास्टर डिग्री है और वर्तमान में मैं पीएचडी कर रही हूँ। मेरी शैक्षणिक और नैदानिक पृष्ठभूमि मुझे साक्ष्य-आधारित अभ्यास को व्यावहारिक, परिवार-केंद्रित हस्तक्षेप के साथ जोड़ने देती है।",
+      "वर्षों में मुझे Brain Gym® (प्रशिक्षक), जल चिकित्सा, रिफ्लेक्स एकीकरण, संवेदी एकीकरण, हस्तलेखन विकास और मौखिक मोटर हस्तक्षेप जैसे क्षेत्रों में विशेष प्रशिक्षण मिला है। ये दृष्टिकोण मुझे विकासात्मक और कार्यात्मक आवश्यकताओं की व्यापक श्रेणी वाले बच्चों का समर्थन करने देते हैं।",
+      "नैदानिक अभ्यास के अलावा, मैं सक्रिय रूप से अनुसंधान, कार्यशालाओं, सम्मेलनों और शैक्षणिक व्याख्यानों में भाग लेती हूँ — माता-पिता, शिक्षकों और साथी पेशेवरों के साथ ज्ञान साझा करती हूँ।",
+      "मेरा दर्शन सरल है: हर बच्चे के भाग लेने, अपनापन पाने और सीखने का अपना अनोखा तरीका होता है। मेरी भूमिका परिवारों को उस क्षमता को खोजने और सहारा देने में मदद करना है।",
+    ],
   },
   inviteSharuja: {
     title: "शारुजा को आमंत्रित करें",
-    paragraphs: aboutContent.inviteSharuja.paragraphs as unknown as string[],
+    paragraphs: [
+      "मैं बच्चों के साथ काम करने वाले माता-पिता, शिक्षकों और पेशेवरों के लिए सत्र, कार्यशालाएँ और प्रशिक्षण कार्यक्रम आयोजित करने के लिए उपलब्ध हूँ।",
+      "ये सत्र नैदानिक अनुसंधान और वास्तविक जीवन के अनुभवों के बीच की दूरी पाटने के लिए डिज़ाइन किए गए हैं — रोज़मर्रा की सेटिंग में लागू की जा सकने वाली व्यावहारिक रणनीतियाँ देते हुए।",
+    ],
   },
   availableFor: {
     title: "उपलब्ध सेवाएँ",
-    items: aboutContent.availableFor.items as unknown as string[],
+    items: [
+      "माता-पिता शिक्षा कार्यक्रम",
+      "स्कूल कार्यशालाएँ",
+      "शिक्षक प्रशिक्षण कार्यक्रम",
+      "कॉलेज और विश्वविद्यालय व्याख्यान",
+      "अस्पताल प्रशिक्षण सत्र",
+      "पेशेवर विकास कार्यक्रम",
+      "सामुदायिक जागरूकता कार्यक्रम",
+      "सम्मेलन प्रस्तुतियाँ",
+    ],
   },
   expertise: {
     title: "हम जिन स्थितियों में सहायता करते हैं",
-    items: aboutContent.expertise.items as unknown as string[],
+    items: [
+      "ऑटिज़म स्पेक्ट्रम डिसऑर्डर",
+      "एडीएचडी",
+      "सेरेब्रल पाल्सी",
+      "विकास में देरी",
+      "संवेदी प्रसंस्करण की कठिनाइयाँ",
+      "सीखने की कठिनाइयाँ",
+      "हस्तलेखन की कठिनाइयाँ",
+      "फाइन मोटर चुनौतियाँ",
+      "ग्रोस मोटर कठिनाइयाँ",
+      "खाने और मौखिक मोटर कठिनाइयाँ",
+      "प्राइमिटिव रिफ्लेक्स रिटेंशन",
+      "भावनात्मक नियमन की कठिनाइयाँ",
+    ],
   },
   suitableFor: {
     title: "उपयुक्त के लिए",
-    items: aboutContent.suitableFor.items as unknown as string[],
+    items: [
+      "स्कूल",
+      "प्रीस्कूल",
+      "कॉलेज",
+      "विश्वविद्यालय",
+      "अस्पताल",
+      "क्लिनिक",
+      "एनजीओ",
+      "माता-पिता समूह",
+      "पेशेवर संगठन",
+    ],
   },
+  specializations: [
+    "जल चिकित्सा",
+    "Brain Gym®",
+    "हस्तलेखन विकास",
+    "मौखिक मोटर हस्तक्षेप",
+    "रिफ्लेक्स एकीकरण",
+    "संवेदी एकीकरण",
+  ],
+  faqs: [
+    {
+      q: "डॉ. शारुजा सराफ किस उम्र के बच्चों का इलाज करती हैं?",
+      a: "जन्म से 14 वर्ष तक के बच्चे जिन्हें संवेदी, मोटर, ध्यान, हस्तलेखन या दैनिक जीवन चुनौतियाँ हैं।",
+    },
+    {
+      q: "क्या डॉ. शारुजा सराफ ब्रेन जिम में प्रमाणित हैं?",
+      a: "हाँ। डॉ. शारुजा सराफ प्रमाणित ब्रेन जिम प्रशिक्षक और व्यवसायी हैं, मुंबई में 18+ वर्षों के बाल अनुभव के साथ।",
+    },
+    {
+      q: "डॉ. शारुजा सराफ के साथ अपॉइंटमेंट कैसे बुक करूँ?",
+      a: "9820505197 पर कॉल करें, WhatsApp 919820505197, sharujasaraf@gmail.com पर ईमेल करें, या drsharujasarap.vercel.app/appointment पर ऑनलाइन बुक करें।",
+    },
+  ],
 };
 
 const mr: AboutContent = {
@@ -48,34 +162,97 @@ const mr: AboutContent = {
       "मी डॉ. शरुजा आहे",
       "बाल वैद्यकीय व्यावसायिक थेरपिस्ट",
       "जल चिकित्सक",
-      "Brain gym प्रशिक्षक",
+      "Brain Gym® प्रशिक्षक",
     ],
-    paragraphs: aboutContent.aboutMe.paragraphs as unknown as string[],
+    paragraphs: [
+      "मी १८+ वर्षांच्या अनुभवाची व्यावसायिक थेरपिस्ट आहे, जी विकासात्मक, संवेदी आणि न्यूरोलॉजिकल गरजा असलेल्या मुलांना आधार देते. माझे काम मुलांना घरी, शाळेत आणि समाजातील दैनंदिन क्रियांमध्ये आत्मविश्वासाने सहभागी होण्यास मदत करते.",
+      "माझ्याकडे बाल वैद्यकीय विशेषज्ञतेसह व्यावसायिक थेरपीमध्ये मास्टर पदवी आहे आणि सध्या मी पीएचडी करत आहे. माझी शैक्षणिक आणि नैदानिक पार्श्वभूमी मला पुरावा-आधारित सराव व्यावहारिक, कुटुंब-केंद्रित हस्तक्षेपाशी जोडू देते.",
+      "वर्षांमध्ये मला Brain Gym® (प्रशिक्षक), जलचिकित्सा, रिफ्लेक्स एकीकरण, संवेदी एकीकरण, हस्तलेखन विकास आणि मौखिक मोटर हस्तक्षेप यांसारख्या क्षेत्रांमध्ये विशेष प्रशिक्षण मिळाले आहे. हे दृष्टिकोन मला विकासात्मक आणि कार्यात्मक गरजांच्या विस्तृत श्रेणीतील मुलांना आधार देऊ देतात.",
+      "नैदानिक सरावाव्यतिरिक्त, मी सक्रियपणे संशोधन, कार्यशाळा, परिषदा आणि शैक्षणिक व्याख्यानांमध्ये सहभागी होते — पालक, शिक्षक आणि सहव्यावसायिकांसोबत ज्ञान सामायिक करते.",
+      "माझे तत्त्वज्ञान सोपे आहे: प्रत्येक मुलाचा सहभागी होण्याचा, आपलेपणा मिळवण्याचा आणि शिकण्याचा स्वतःचा अनोखा मार्ग असतो. माझी भूमिका कुटुंबांना ती क्षमता शोधण्यात आणि तिला आधार देण्यात मदत करणे आहे.",
+    ],
   },
   inviteSharuja: {
     title: "शरुजाला आमंत्रित करा",
-    paragraphs: aboutContent.inviteSharuja.paragraphs as unknown as string[],
+    paragraphs: [
+      "मी मुलांसोबत काम करणाऱ्या पालक, शिक्षक आणि व्यावसायिकांसाठी सत्रे, कार्यशाळा आणि प्रशिक्षण कार्यक्रम आयोजित करण्यासाठी उपलब्ध आहे.",
+      "ही सत्रे नैदानिक संशोधन आणि वास्तविक जीवनातील अनुभव यांच्यातील अंतर कमी करण्यासाठी तयार केली आहेत — दैनंदिन सेटिंगमध्ये लागू करता येतील अशा व्यावहारिक रणनीती देत.",
+    ],
   },
   availableFor: {
     title: "उपलब्ध सेवा",
-    items: aboutContent.availableFor.items as unknown as string[],
+    items: [
+      "पालक शिक्षण कार्यक्रम",
+      "शाळा कार्यशाळा",
+      "शिक्षक प्रशिक्षण कार्यक्रम",
+      "कॉलेज आणि विद्यापीठ व्याख्याने",
+      "रुग्णालय प्रशिक्षण सत्रे",
+      "व्यावसायिक विकास कार्यक्रम",
+      "सामुदायिक जागरूकता कार्यक्रम",
+      "परिषद सादरीकरणे",
+    ],
   },
   expertise: {
     title: "आम्ही ज्या स्थितींमध्ये आधार देतो",
-    items: aboutContent.expertise.items as unknown as string[],
+    items: [
+      "ऑटिझम स्पेक्ट्रम डिसऑर्डर",
+      "एडीएचडी",
+      "सेरेब्रल पाल्सी",
+      "विकासातील विलंब",
+      "संवेदी प्रक्रियेच्या अडचणी",
+      "शिकण्याच्या अडचणी",
+      "हस्तलेखनाच्या अडचणी",
+      "फाइन मोटर आव्हाने",
+      "ग्रोस मोटर अडचणी",
+      "खाणे आणि मौखिक मोटर अडचणी",
+      "प्राइमिटिव्ह रिफ्लेक्स रिटेन्शन",
+      "भावनिक नियमन अडचणी",
+    ],
   },
   suitableFor: {
     title: "योग्य प्रेक्षक",
-    items: aboutContent.suitableFor.items as unknown as string[],
+    items: [
+      "शाळा",
+      "प्रीस्कूल",
+      "कॉलेज",
+      "विद्यापीठे",
+      "रुग्णालये",
+      "क्लिनिक",
+      "एनजीओ",
+      "पालक गट",
+      "व्यावसायिक संघटना",
+    ],
   },
+  specializations: [
+    "जलचिकित्सा",
+    "Brain Gym®",
+    "हस्तलेखन विकास",
+    "मौखिक मोटर हस्तक्षेप",
+    "रिफ्लेक्स एकीकरण",
+    "संवेदी एकीकरण",
+  ],
+  faqs: [
+    {
+      q: "डॉ. शरुजा सराफ कोणत्या वयाच्या मुलांवर उपचार करतात?",
+      a: "जन्मापासून १४ वर्षांपर्यंतची मुले ज्यांना संवेदी, मोटर, लक्ष, हस्तलेखन किंवा दैनंदिन जीवनातील आव्हाने आहेत.",
+    },
+    {
+      q: "डॉ. शरुजा सराफ ब्रेन जिममध्ये प्रमाणित आहेत का?",
+      a: "होय. डॉ. शरुजा सराफ प्रमाणित ब्रेन जिम प्रशिक्षक आणि व्यवसायी आहेत, मुंबईत १८+ वर्षांच्या बाल अनुभवासह.",
+    },
+    {
+      q: "डॉ. शरुजा सराफ यांच्यासोबत अपॉइंटमेंट कशी बुक करू?",
+      a: "9820505197 वर कॉल करा, WhatsApp 919820505197, sharujasaraf@gmail.com वर ईमेल करा, किंवा drsharujasarap.vercel.app/appointment वर ऑनलाइन बुक करा.",
+    },
+  ],
 };
 
 const content: Record<Locale, AboutContent> = {
-  en: aboutContent as unknown as AboutContent,
+  en,
   hi,
   mr,
 };
 
 export function getAboutContent(locale: Locale): AboutContent {
-  return content[locale] ?? aboutContent;
+  return content[locale] ?? en;
 }

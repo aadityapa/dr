@@ -12,15 +12,6 @@ import { siteConfig } from "@/lib/site-data";
 
 import type { AboutPageProps } from "./about-types";
 
-const SPECIALIZATIONS = [
-  "Aquatic Therapy",
-  "Brain Gym®",
-  "Handwriting Development",
-  "Oral Motor Intervention",
-  "Reflex Integration",
-  "Sensory Integration",
-] as const;
-
 const floatEnter = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 } };
 
 export function PremiumHero({ about, shells }: AboutPageProps) {
@@ -70,7 +61,7 @@ export function PremiumHero({ about, shells }: AboutPageProps) {
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
-            {SPECIALIZATIONS.map((pill, i) => (
+            {about.specializations.map((pill, i) => (
               <motion.span
                 key={pill}
                 initial={reduced ? false : { opacity: 0, scale: 0.92 }}
@@ -110,7 +101,7 @@ export function PremiumHero({ about, shells }: AboutPageProps) {
                 <Award className="h-5 w-5 text-[color:var(--color-sage)]" />
                 <div>
                   <p className="text-lg font-bold text-[color:var(--color-sage-dark)]">18+</p>
-                  <p className="text-[10px] text-[color:var(--color-muted)]">Years</p>
+                  <p className="text-[10px] text-[color:var(--color-muted)]">{shells.sections.heroYearsLabel}</p>
                 </div>
               </div>
             </motion.div>
@@ -125,7 +116,7 @@ export function PremiumHero({ about, shells }: AboutPageProps) {
                 <BookOpen className="h-5 w-5 text-[color:var(--color-terracotta)]" />
                 <div>
                   <p className="text-xs font-semibold text-[color:var(--color-sage-dark)]">PhD</p>
-                  <p className="text-[10px] text-[color:var(--color-muted)]">In progress</p>
+                  <p className="text-[10px] text-[color:var(--color-muted)]">{shells.sections.heroPhdLabel}</p>
                 </div>
               </div>
             </motion.div>
@@ -140,7 +131,7 @@ export function PremiumHero({ about, shells }: AboutPageProps) {
                 <Sparkles className="h-5 w-5 text-[color:var(--color-sky)]" />
                 <div>
                   <p className="text-xs font-semibold text-[color:var(--color-sage-dark)]">Brain Gym®</p>
-                  <p className="text-[10px] text-[color:var(--color-muted)]">Instructor</p>
+                  <p className="text-[10px] text-[color:var(--color-muted)]">{shells.sections.heroInstructorLabel}</p>
                 </div>
               </div>
             </motion.div>

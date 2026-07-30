@@ -96,7 +96,7 @@ export function Navbar() {
             {siteConfig.shortName}
           </span>
           <span className="mt-0.5 hidden whitespace-nowrap text-[0.6rem] font-medium uppercase tracking-[0.22em] text-[color:var(--color-muted)] md:block">
-            Pediatric Occupational Therapy
+            {messages.site.title}
           </span>
         </Link>
 

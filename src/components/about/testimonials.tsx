@@ -7,11 +7,10 @@ import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { testimonials } from "@/lib/site-data";
 
 import type { AboutPageProps } from "./about-types";
 
-export function AboutTestimonials({ shells }: AboutPageProps) {
+export function AboutTestimonials({ shells, testimonials }: AboutPageProps) {
   const reduced = useReducedMotion();
 
   return (

@@ -103,6 +103,9 @@ export type PageShells = {
     sections: {
       heroBadge: string;
       watchJourney: string;
+      heroYearsLabel: string;
+      heroPhdLabel: string;
+      heroInstructorLabel: string;
       missionKicker: string;
       missionTitle: string;
       journeyKicker: string;
@@ -421,6 +424,9 @@ const en: PageShells = {
     sections: {
       heroBadge: "Meet Your Therapist",
       watchJourney: "Watch My Journey",
+      heroYearsLabel: "Years",
+      heroPhdLabel: "In progress",
+      heroInstructorLabel: "Instructor",
       missionKicker: "Philosophy",
       missionTitle: "My Mission",
       journeyKicker: "Background",
@@ -742,6 +748,9 @@ const hi: PageShells = {
     sections: {
       heroBadge: "अपनी थेरेपिस्ट से मिलें",
       watchJourney: "मेरी यात्रा देखें",
+      heroYearsLabel: "वर्ष",
+      heroPhdLabel: "प्रगति में",
+      heroInstructorLabel: "प्रशिक्षक",
       missionKicker: "दर्शन",
       missionTitle: "मेरा मिशन",
       journeyKicker: "पृष्ठभूमि",
@@ -918,6 +927,9 @@ const mr: PageShells = {
     sections: {
       heroBadge: "तुमच्या थेरपिस्टला भेटा",
       watchJourney: "माझा प्रवास पहा",
+      heroYearsLabel: "वर्षे",
+      heroPhdLabel: "प्रगतीत",
+      heroInstructorLabel: "प्रशिक्षक",
       missionKicker: "तत्त्वज्ञान",
       missionTitle: "माझे ध्येय",
       journeyKicker: "पार्श्वभूमी",

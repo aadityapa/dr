@@ -5,4 +5,7 @@ export type AboutPageProps = {
   about: AboutContent;
   shells: PageShells["about"];
   homeLabel: string;
+  faqs: { q: string; a: string }[];
+  testimonials: { parent: string; quote: string; milestone: string }[];
+  clinicImages: { title: string; alt: string; image: string }[];
 };

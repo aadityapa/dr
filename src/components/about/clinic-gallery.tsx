@@ -12,7 +12,7 @@ import { getSiteImage } from "@/lib/site-images";
 
 import type { AboutPageProps } from "./about-types";
 
-const CLINIC_IMAGES = [
+const CLINIC_IMAGE_SOURCES = [
   ...galleryItems.filter((item) => item.image.includes("/gallery/") || item.image.includes("/therapy")),
   {
     title: "Sensory Gym",
@@ -31,8 +31,9 @@ const CLINIC_IMAGES = [
   },
 ].slice(0, 9);
 
-export function ClinicGallery({ shells }: AboutPageProps) {
+export function ClinicGallery({ shells, clinicImages }: AboutPageProps) {
   const reduced = useReducedMotion();
+  const images = clinicImages.length > 0 ? clinicImages : CLINIC_IMAGE_SOURCES;
 
   return (
     <Section id="clinic-gallery">
@@ -43,7 +44,7 @@ export function ClinicGallery({ shells }: AboutPageProps) {
       />
 
       <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
-        {CLINIC_IMAGES.map((item, i) => (
+        {images.map((item, i) => (
           <motion.figure
             key={`${item.title}-${i}`}
             className="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-white/50 bg-white/40 shadow-lg"

@@ -6,21 +6,14 @@ import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { useLanguage } from "@/components/providers/language-provider";
+import { getAboutContent } from "@/lib/i18n/content/about-locale";
 import { getSiteImage } from "@/lib/site-images";
 import { siteConfig } from "@/lib/site-data";
 
-const EXPERTISE_CHIPS = [
-  "Aquatic Therapy",
-  "Brain Gym\u00ae",
-  "Handwriting Development",
-  "Oral Motor Intervention",
-  "Reflex Integration",
-  "Sensory Integration",
-] as const;
-
 export function AboutMeSection() {
-  const { content } = useLanguage();
+  const { content, locale } = useLanguage();
   const copy = content.home.aboutPreview;
+  const expertiseChips = getAboutContent(locale).specializations;
 
   return (
     <section id="about-me" className="w-full bg-[color:var(--color-almond)]/40 px-4 py-12 md:px-8 md:py-16">
@@ -60,7 +53,7 @@ export function AboutMeSection() {
           </Reveal>
 
           <Reveal delay={0.05} className="mt-5 flex flex-wrap gap-2">
-            {EXPERTISE_CHIPS.map((chip) => (
+            {expertiseChips.map((chip) => (
               <span
                 key={chip}
                 className="rounded-full border border-[color:var(--color-border)] bg-white/70 px-3.5 py-1.5 text-xs font-medium text-[color:var(--color-sage-text)]"

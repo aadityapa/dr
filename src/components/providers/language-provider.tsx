@@ -76,8 +76,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   );
 
   const value = useMemo(
-    () => ({ locale: displayLocale, messages, content, setLocale, isTransitioning }),
-    [displayLocale, messages, content, setLocale, isTransitioning],
+    () => ({
+      // Prefer the route locale outside transitions so the switcher never
+      // sticks on EN while the URL (and content) are already hi/mr.
+      locale: isTransitioning ? displayLocale : locale,
+      messages,
+      content,
+      setLocale,
+      isTransitioning,
+    }),
+    [displayLocale, locale, isTransitioning, messages, content, setLocale],
   );
 
   return (
