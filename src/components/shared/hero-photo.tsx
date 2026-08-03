@@ -6,6 +6,8 @@ import { useState } from "react";
 type HeroPhotoProps = {
   src: string;
   alt: string;
+  /** Landscape source — render in a wider frame so nothing important is cropped. */
+  wide?: boolean;
   /** Rendered instead of the photo if the image fails to load. */
   fallback?: React.ReactNode;
 };
@@ -15,19 +17,23 @@ type HeroPhotoProps = {
  * Desktop only (md+). If the remote image fails, it silently falls back to
  * the page's illustration so the live site never shows a broken image.
  */
-export function HeroPhoto({ src, alt, fallback }: HeroPhotoProps) {
+export function HeroPhoto({ src, alt, fallback, wide = false }: HeroPhotoProps) {
   const [failed, setFailed] = useState(false);
 
   if (failed) return <>{fallback ?? null}</>;
 
   return (
     <div className="pointer-events-none absolute inset-y-0 right-4 hidden items-center md:flex lg:right-10">
-      <div className="glossy-frame relative h-[300px] w-[280px] rotate-2 overflow-hidden rounded-[2rem] border-[6px] border-white shadow-[0_20px_60px_rgba(45,96,71,0.18)] ring-4 ring-[color:var(--color-peach)] lg:h-[380px] lg:w-[360px]">
+      <div className={`glossy-frame relative rotate-2 overflow-hidden rounded-[2rem] border-[6px] border-white shadow-[0_20px_60px_rgba(45,96,71,0.18)] ring-4 ring-[color:var(--color-peach)] ${
+          wide
+            ? "h-[240px] w-[360px] lg:h-[300px] lg:w-[450px]"
+            : "h-[300px] w-[280px] lg:h-[380px] lg:w-[360px]"
+        }`}>
         <Image
           src={src}
           alt={alt}
           fill
-          sizes="(max-width: 1024px) 280px, 360px"
+          sizes={wide ? "(max-width: 1024px) 360px, 450px" : "(max-width: 1024px) 280px, 360px"}
           className="object-cover"
           onError={() => setFailed(true)}
         />

@@ -327,6 +327,21 @@ body {
   background-size: 20px 20px;
 }
 
+/* ── Organic photo-cluster frames (see components/shared/photo-cluster.tsx) ──
+   Defined here rather than as Tailwind arbitrary values, because a "/" inside
+   an arbitrary class is parsed as an opacity modifier and breaks the shape. */
+.blob-frame-a {
+  border-radius: 46% 54% 44% 56% / 38% 36% 64% 62%;
+}
+
+.blob-frame-b {
+  border-radius: 58% 42% 46% 54% / 52% 48% 52% 48%;
+}
+
+.blob-frame-c {
+  border-radius: 2.5rem 2.5rem 2.5rem 4.5rem;
+}
+
 .organic-blob {
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }

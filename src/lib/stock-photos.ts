@@ -7,7 +7,7 @@
  * broken image.
  */
 
-export type HeroPhoto = { src: string; alt: string };
+export type HeroPhoto = { src: string; alt: string; wide?: boolean };
 
 export const stockPhotos = {
   resources: {
@@ -47,8 +47,9 @@ export const stockPhotos = {
     alt: "A young girl climbing the clinic climbing wall with close therapist support",
   },
   "invite-sharuja": {
-    src: "/images/gallery/supported-swing-session.jpg",
-    alt: "Dr. Sharuja working closely with a boy during a therapy swing session",
+    src: "/images/gallery/speaking-engagement-seminar.jpg",
+    alt: "Dr. Sharuja Sarap addressing an audience of parents and professionals at a seminar",
+    wide: true,
   },
   appointment: {
     src: "/images/gallery/infant-crawling-support.jpg",

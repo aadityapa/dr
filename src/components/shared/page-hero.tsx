@@ -1,7 +1,7 @@
 import { FloatingNature } from "@/components/shared/floating-nature";
 import { SoftColorWash } from "@/components/illustrations/scene-illustrations";
 import { HeroPhoto } from "@/components/shared/hero-photo";
-import { stockPhotos, type StockPhotoKey } from "@/lib/stock-photos";
+import { stockPhotos, type HeroPhoto as HeroPhotoData, type StockPhotoKey } from "@/lib/stock-photos";
 import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
 
@@ -16,12 +16,12 @@ type PageHeroProps = {
 };
 
 export function PageHero({ kicker, title, description, credentials, children, art, photoKey }: PageHeroProps) {
-  const photo = photoKey ? stockPhotos[photoKey] : undefined;
+  const photo: HeroPhotoData | undefined = photoKey ? stockPhotos[photoKey] : undefined;
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--color-peach)]/50 via-[color:var(--color-cream)] to-[color:var(--color-sky)]/30 px-4 py-20 md:px-8 md:py-28">
       <SoftColorWash />
       <FloatingNature />
-      {photo ? <HeroPhoto src={photo.src} alt={photo.alt} fallback={art} /> : art}
+      {photo ? <HeroPhoto src={photo.src} alt={photo.alt} wide={photo.wide} fallback={art} /> : art}
       <div className="relative mx-auto max-w-7xl">
         <Reveal>
           {kicker ? <Badge className="mb-4">{kicker}</Badge> : null}

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 
@@ -10,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { useLanguage } from "@/components/providers/language-provider";
+import { PhotoCluster } from "@/components/shared/photo-cluster";
 import { getSiteImage } from "@/lib/site-images";
 
 export function HeroSection() {
@@ -78,16 +78,23 @@ export function HeroSection() {
         </div>
 
         <div className="hero-image relative">
-          <div className="water-reflection relative overflow-hidden rounded-[2rem] shadow-2xl shadow-[color:var(--color-sage)]/15 ring-1 ring-[color:var(--color-border)]/40">
-            <Image
-              src={getSiteImage("heroMain")}
-              alt="Dr. Sharuja smiling with a baby on a textured therapy ball during a playful sensory session at Thrive With Sharuja"
-              width={640}
-              height={720}
-              priority
-              className="aspect-[4/5] w-full object-cover"
-            />
-          </div>
+          <PhotoCluster
+            priority
+            photos={[
+              {
+                src: getSiteImage("heroMain"),
+                alt: "Dr. Sharuja smiling with a baby on a textured therapy ball during a playful sensory session",
+              },
+              {
+                src: "/images/gallery/finger-puppet-engagement.jpg",
+                alt: "Dr. Sharuja engaging a baby with colourful animal finger puppets",
+              },
+              {
+                src: "/images/gallery/jumping-rings-motor-planning.jpg",
+                alt: "A boy jumping through colourful floor rings as the therapist cheers him on",
+              },
+            ]}
+          />
         </div>
       </div>
 
