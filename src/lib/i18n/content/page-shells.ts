@@ -211,8 +211,9 @@ const en: PageShells = {
     formDescription: "This questionnaire is not a diagnosis — it helps us understand your concerns and recommend next steps.",
   },
   contact: {
-    metaTitle: "Contact Us",
-    metaDescription: "Contact Thrive With Sharuja for pediatric OT in Kandivali West, Mumbai.",
+    metaTitle: "Contact Pediatric OT Clinic in Kandivali, Mumbai",
+    metaDescription:
+      "Call, WhatsApp or visit Thrive With Sharuja — pediatric occupational therapy in Kandivali West, Mumbai. Clinic address, hours and consultation booking.",
     kicker: "Get in Touch",
     title: "We're here when you're ready",
     description: "Share your concern — we'll call or WhatsApp you within 24 hours.",
@@ -233,8 +234,9 @@ const en: PageShells = {
     callbackDescription: "Tell us a little about your child — we'll reach out soon.",
   },
   gallery: {
-    metaTitle: "Clinic Gallery",
-    metaDescription: "Tour our child-friendly pediatric OT clinic in Kandivali West, Mumbai.",
+    metaTitle: "Clinic Gallery — Pediatric OT Sensory Gym, Mumbai",
+    metaDescription:
+      "See inside our child-friendly pediatric occupational therapy clinic in Kandivali West, Mumbai — sensory gym, therapy equipment and real session photos.",
     kicker: "Our Space",
     title: "A place where children feel safe to explore",
     description: "Soft colours, room to move, and corners for quiet when it's all too much.",
@@ -255,8 +257,9 @@ const en: PageShells = {
     libraryCtaDescription: "Download free checklists, parent guides, and screening tools — with instant email delivery.",
   },
   library: {
-    metaTitle: "Parent Library",
-    metaDescription: "Downloadable parent resources from Thrive With Sharuja, Kandivali West, Mumbai.",
+    metaTitle: "Free Parent Guides & Checklists — Pediatric OT",
+    metaDescription:
+      "Download free parent guides, screening checklists and home-therapy tools from Dr. Sharuja Sarap, pediatric occupational therapist in Kandivali West, Mumbai.",
     kicker: "Library",
     title: "Resources you can take home",
     description: "Practical guides for parents navigating sensory, motor, and developmental concerns.",
@@ -277,7 +280,7 @@ const en: PageShells = {
   },
   faqs: {
     metaTitle: "FAQs — Pediatric OT Questions Answered",
-    metaDescription: `100+ answers about pediatric OT from ${siteConfig.doctorName} in Mumbai.`,
+    metaDescription: `Clear answers on pediatric occupational therapy, autism, ADHD, sensory processing and handwriting from ${siteConfig.doctorName} in Kandivali West, Mumbai.`,
     kicker: "FAQs",
     title: "Questions Parents Ask Us",
     description: `Honest answers from ${siteConfig.doctorName} — OT, autism, ADHD, aquatic therapy, Brain Gym®, and more.`,
@@ -293,8 +296,9 @@ const en: PageShells = {
       `${results} result${results === 1 ? "" : "s"} for “${query}”`,
   },
   invite: {
-    metaTitle: "Invite Sharuja",
-    metaDescription: "Invite Dr. Sharuja Sarap for parent programs and school workshops in Mumbai.",
+    metaTitle: "Invite Dr. Sharuja — Workshops & Talks, Mumbai",
+    metaDescription:
+      "Invite Dr. Sharuja Sarap for school workshops, parent education programmes, teacher training and conference talks on child development across Mumbai.",
     kicker: "Invite Sharuja",
     title: "Bring expert guidance to your community",
     description: "Available for parent programs, school workshops, and community events.",
@@ -573,8 +577,9 @@ const hi: PageShells = {
     formDescription: "यह निदान नहीं — आपकी चिंताओं को समझने और अगले कदम सुझाने में मदद करता है।",
   },
   contact: {
-    metaTitle: "संपर्क करें",
-    metaDescription: "कांदिवली, मुंबई में थ्राइव विथ शारुजा से संपर्क करें।",
+    metaTitle: "संपर्क करें — बाल OT क्लिनिक, कांदिवली मुंबई",
+    metaDescription:
+      "कांदिवली पश्चिम, मुंबई में बाल व्यावसायिक चिकित्सा के लिए थ्राइव विथ शारुजा से संपर्क करें — फ़ोन, WhatsApp, क्लिनिक का पता, समय और अपॉइंटमेंट बुकिंग।",
     kicker: "संपर्क",
     title: "जब आप तैयार हों, हम यहाँ हैं",
     description: "अपनी चिंता साझा करें — 24 घंटे में कॉल या WhatsApp करेंगे।",
@@ -595,8 +600,9 @@ const hi: PageShells = {
     callbackDescription: "अपने बच्चे के बारे में थोड़ा बताएँ — हम जल्द ही आपसे संपर्क करेंगे।",
   },
   gallery: {
-    metaTitle: "क्लिनिक गैलरी",
-    metaDescription: "कांदिवली में हमारे बच्चों के अनुकूल OT क्लिनिक की झलक।",
+    metaTitle: "क्लिनिक गैलरी — सेंसरी जिम, कांदिवली मुंबई",
+    metaDescription:
+      "कांदिवली पश्चिम, मुंबई के हमारे बाल-अनुकूल व्यावसायिक चिकित्सा क्लिनिक की झलक — सेंसरी जिम, थेरेपी उपकरण और वास्तविक सत्रों की तस्वीरें।",
     kicker: "हमारी जगह",
     title: "जहाँ बच्चे सुरक्षित महसूस करें",
     description: "कोमल रंग, हिलने की जगह, और शांति के कोने।",
@@ -617,29 +623,32 @@ const hi: PageShells = {
     libraryCtaDescription: "मुफ़्त चेकलिस्ट, माता-पिता गाइड और स्क्रीनिंग टूल डाउनलोड करें — तुरंत ईमेल पर।",
   },
   library: {
-    metaTitle: "माता-पिता पुस्तकालय",
-    metaDescription: "कांदिवली से डाउनलोड योग्य माता-पिता संसाधन।",
+    metaTitle: "मुफ़्त अभिभावक गाइड और चेकलिस्ट — बाल OT",
+    metaDescription:
+      "कांदिवली पश्चिम, मुंबई की बाल व्यावसायिक चिकित्सक डॉ. शारुजा सराफ से मुफ़्त अभिभावक गाइड, स्क्रीनिंग चेकलिस्ट और घरेलू थेरेपी संसाधन डाउनलोड करें।",
     kicker: "पुस्तकालय",
     title: "घर ले जाने योग्य संसाधन",
     description: "संवेदी, मोटर और विकास संबंधी चिंताओं के लिए व्यावहारिक गाइड।",
   },
   outcomes: {
-    metaTitle: "थेरेपी परिणाम",
-    metaDescription: "थ्राइव विथ शारुजा में परिवार अक्सर क्या अनुभव करते हैं।",
+    metaTitle: "थेरेपी परिणाम — बाल OT प्रगति, मुंबई",
+    metaDescription:
+      "कांदिवली, मुंबई में बाल व्यावसायिक चिकित्सा से परिवार आमतौर पर क्या बदलाव देखते हैं — सेंसरी नियमन, मोटर कौशल, हस्तलेखन और रोज़मर्रा की आत्मनिर्भरता।",
     kicker: "परिणाम",
     title: "हर बच्चे की प्रगति अलग दिखती है",
     description: "जहाँ परिवार सार्थक बदलाव देखते हैं — हमेशा व्यक्तिगत, हमेशा छोटे कदमों में।",
   },
   testimonials: {
-    metaTitle: "प्रशंसापत्र और उपलब्धियाँ",
-    metaDescription: "थ्राइव विथ शारुजा परिवारों की कहानियाँ।",
+    metaTitle: "प्रशंसापत्र — अभिभावकों के अनुभव, मुंबई",
+    metaDescription:
+      "कांदिवली, मुंबई में डॉ. शारुजा सराफ के साथ बाल व्यावसायिक चिकित्सा करने वाले परिवारों की सच्ची कहानियाँ और उनके बच्चों की उपलब्धियाँ।",
     kicker: "कहानियाँ",
     title: "शब्द जो हमारे लिए बहुत मायने रखते हैं",
     description: "माता-पिता की सहमति से साझा। हर बच्चे का रास्ता अलग है।",
   },
   faqs: {
     metaTitle: "सामान्य प्रश्न — बाल OT",
-    metaDescription: `${siteConfig.doctorName} से 100+ जवाब, मुंबई।`,
+    metaDescription: `बाल व्यावसायिक चिकित्सा, ऑटिज़म, ADHD, सेंसरी प्रोसेसिंग और हस्तलेखन पर ${siteConfig.doctorName} के स्पष्ट उत्तर — कांदिवली पश्चिम, मुंबई।`,
     kicker: "सामान्य प्रश्न",
     title: "माता-पिता के सवाल",
     description: `${siteConfig.doctorName} से ईमानदार जवाब — OT, ऑटिज़म, ADHD, जल चिकित्सा, Brain Gym® और अधिक।`,
@@ -909,6 +918,7 @@ const mr: PageShells = {
   appointment: {
     ...hi.appointment,
     metaTitle: "बाल OT सल्ला बुक करा",
+    metaDescription: `कांदिवली पश्चिम, मुंबई येथील ${siteConfig.name} मध्ये ${siteConfig.doctorName} यांच्यासोबत बाल ऑक्युपेशनल थेरपी सल्ला बुक करा.`,
     kicker: "सल्ला",
     title: "तुमच्या मुलाबद्दल सांगा",
     description: "खालील फॉर्म भरा — 24 तासांत संपर्क करू. कोणताही दबाव नाही.",
@@ -917,12 +927,15 @@ const mr: PageShells = {
   screening: {
     ...hi.screening,
     metaTitle: "मूलभूत संवेदी स्क्रीनिंग प्रश्नावली",
+    metaDescription: `मुंबईतील मुलांसाठी ${siteConfig.doctorName} यांच्याकडून मोफत संवेदी स्क्रीनिंग — पुढचे पाऊल काय, हे समजून घेण्यासाठी.`,
     breadcrumb: "संवेदी स्क्रीनिंग",
     formTitle: "तुमच्या मुलाबद्दल सांगा",
     formDescription: "हे निदान नाही — तुमच्या चिंता समजण्यास आणि पुढचे पाऊल सुचवण्यास मदत करते.",
   },
   resources: {
     ...hi.resources,
+    metaTitle: "पालकांसाठी लेख आणि मार्गदर्शक",
+    metaDescription: "बाल ऑक्युपेशनल थेरपी, ऑटिझम, ADHD आणि बालविकासावर डॉ. शरुजा सराफ यांचे सोप्या भाषेतील मार्गदर्शन.",
     title: "विचारशील पालकांसाठी मार्गदर्शक",
     readGuide: "मार्गदर्शक वाचा →",
     minRead: "मिनिट वाचा",
@@ -935,8 +948,9 @@ const mr: PageShells = {
   },
   contact: {
     ...hi.contact,
-    metaTitle: "संपर्क साधा",
-    metaDescription: "कांदिवली, मुंबईतील थ्राइव विथ Sharuja शी संपर्क साधा.",
+    metaTitle: "संपर्क — बाल OT क्लिनिक, कांदिवली मुंबई",
+    metaDescription:
+      "कांदिवली पश्चिम, मुंबईतील बाल ऑक्युपेशनल थेरपीसाठी Thrive With Sharuja शी संपर्क साधा — फोन, WhatsApp, क्लिनिकचा पत्ता, वेळ आणि सल्ला बुकिंग.",
     kicker: "संपर्क",
     title: "तुम्ही तयार असाल तेव्हा आम्ही इथे आहोत",
     description: "तुमची चिंता सांगा — 24 तासांत कॉल किंवा WhatsApp करू.",
@@ -958,6 +972,8 @@ const mr: PageShells = {
   },
   faqs: {
     ...hi.faqs,
+    metaTitle: "सामान्य प्रश्न — बाल OT, मुंबई",
+    metaDescription: `बाल ऑक्युपेशनल थेरपी, ऑटिझम, ADHD, सेन्सरी प्रोसेसिंग आणि हस्ताक्षर यांविषयी ${siteConfig.doctorName} यांची स्पष्ट उत्तरे — कांदिवली पश्चिम, मुंबई.`,
     title: "पालक विचारतात ते प्रश्न",
     searchPlaceholder: "प्रश्न शोधा...",
     searchAriaLabel: "वारंवार विचारले जाणारे प्रश्न शोधा",
@@ -1029,6 +1045,8 @@ const mr: PageShells = {
   },
   about: {
     ...hi.about,
+    metaTitle: "डॉ. शरुजा सराफ यांच्याविषयी",
+    metaDescription: "कांदिवली पश्चिम, मुंबईतील बाल ऑक्युपेशनल थेरपिस्ट — 18+ वर्षे मुलांना आणि कुटुंबांना आधार.",
     title: "नमस्कार,",
     description: "",
     credentials: [
@@ -1087,6 +1105,48 @@ const mr: PageShells = {
       readMoreStories: "अधिक कथा वाचा",
       viewGallery: "संपूर्ण गॅलरी पहा",
     },
+  },
+  gallery: {
+    ...hi.gallery,
+    metaTitle: "क्लिनिक गॅलरी — सेन्सरी जिम, कांदिवली मुंबई",
+    metaDescription:
+      "कांदिवली पश्चिम, मुंबई येथील आमच्या बाल-अनुकूल ऑक्युपेशनल थेरपी क्लिनिकची झलक — सेन्सरी जिम, थेरपी साधने आणि खऱ्या सत्रांचे फोटो.",
+  },
+  library: {
+    ...hi.library,
+    metaTitle: "मोफत पालक मार्गदर्शक आणि चेकलिस्ट — बाल OT",
+    metaDescription:
+      "कांदिवली पश्चिम, मुंबईतील बाल ऑक्युपेशनल थेरपिस्ट डॉ. शरुजा सराफ यांच्याकडून मोफत पालक मार्गदर्शक, चेकलिस्ट आणि घरगुती थेरपी साधने डाउनलोड करा.",
+  },
+  outcomes: {
+    ...hi.outcomes,
+    metaTitle: "थेरपीचे परिणाम — बाल OT प्रगती, मुंबई",
+    metaDescription:
+      "कांदिवली, मुंबईतील बाल ऑक्युपेशनल थेरपीनंतर कुटुंबे सहसा कोणते बदल पाहतात — संवेदी नियमन, मोटर कौशल्ये, हस्ताक्षर आणि रोजचे स्वावलंबन.",
+  },
+  testimonials: {
+    ...hi.testimonials,
+    metaTitle: "पालकांचे अनुभव आणि यशोगाथा, मुंबई",
+    metaDescription:
+      "कांदिवली, मुंबईत डॉ. शरुजा सराफ यांच्यासोबत बाल ऑक्युपेशनल थेरपी घेतलेल्या कुटुंबांच्या खऱ्या कथा आणि मुलांनी गाठलेले टप्पे.",
+  },
+  invite: {
+    ...hi.invite,
+    metaTitle: "डॉ. शरुजा यांना आमंत्रित करा",
+    metaDescription:
+      "शाळा कार्यशाळा, पालक शिक्षण कार्यक्रम, शिक्षक प्रशिक्षण आणि व्याख्यानांसाठी डॉ. शरुजा सराफ यांना मुंबईत आमंत्रित करा.",
+  },
+  locations: {
+    ...hi.locations,
+    metaTitle: "आम्ही सेवा देत असलेली ठिकाणे",
+    metaDescription:
+      "कांदिवली पश्चिम आणि संपूर्ण मुंबईत डॉ. शरुजा सराफ यांची बाल ऑक्युपेशनल थेरपी सेवा — तुमच्या जवळ.",
+  },
+  expertiseList: {
+    ...hi.expertiseList,
+    metaTitle: "तज्ज्ञता आणि उपचारपद्धती — बाल OT मुंबई",
+    metaDescription:
+      "कांदिवलीतील Thrive With Sharuja येथे अकरा प्रमाणित बाल OT पद्धती — Brain Gym®, सेन्सरी इंटिग्रेशन, जलचिकित्सा, हस्ताक्षर आणि बरेच काही.",
   },
   articleFooter: {
     title: "पुढचा पाऊल उचलण्यास तयार?",

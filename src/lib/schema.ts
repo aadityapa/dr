@@ -3,6 +3,20 @@ import { doctorProfile, googleReviews, services, siteConfig } from "@/lib/site-d
 export type BreadcrumbItem = { name: string; url: string };
 export type FaqItem = { q: string; a: string };
 
+/** Neighbourhoods families actually travel from — used for local/geo signals. */
+export const SERVICE_AREAS = [
+  "Kandivali West",
+  "Kandivali East",
+  "Borivali",
+  "Malad",
+  "Goregaon",
+  "Dahisar",
+  "Andheri",
+  "Mira Road",
+  "Mumbai",
+  "Maharashtra",
+];
+
 function postalAddress() {
   return {
     "@type": "PostalAddress" as const,
@@ -55,8 +69,30 @@ export function medicalClinicSchema() {
     email: siteConfig.email,
     description: siteConfig.description,
     address: postalAddress(),
+    geo: { "@type": "GeoCoordinates", latitude: 19.21, longitude: 72.84 },
+    hasMap: googleReviews.mapsUrl,
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "12:00",
+      },
+    ],
     openingHours: "Mo-Sa 09:00-17:00",
+    priceRange: "$$",
+    currenciesAccepted: "INR",
+    image: `${siteConfig.url}/opengraph-image`,
+    isAcceptingNewPatients: true,
+    areaServed: SERVICE_AREAS.map((name) => ({ "@type": "Place", name })),
     medicalSpecialty: "Pediatric Occupational Therapy",
+    availableLanguage: ["English", "Hindi", "Marathi"],
     availableService: services.map((s) => ({
       "@type": "MedicalTherapy",
       name: s.title,
@@ -83,7 +119,9 @@ export function localBusinessSchema(overrides?: { name?: string; description?: s
       longitude: 72.84,
     },
     openingHours: "Mo-Sa 09:00-17:00",
-    areaServed: overrides?.areaServed ?? ["Mumbai", "Kandivali West", "Borivali", "Malad", "Goregaon"],
+    areaServed: overrides?.areaServed ?? SERVICE_AREAS,
+    availableLanguage: ["English", "Hindi", "Marathi"],
+    currenciesAccepted: "INR",
     priceRange: "$$",
     image: `${siteConfig.url}/opengraph-image`,
     sameAs: [googleReviews.mapsUrl],
@@ -235,5 +273,21 @@ export function reviewListSchema() {
       },
       reviewBody: r.text,
     })),
+  };
+}
+
+/**
+ * AEO — marks the passages an answer engine or voice assistant should read
+ * aloud when summarising a page.
+ */
+export function speakableSchema(cssSelectors: string[] = ["h1", "h2", "p"]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors,
+    },
+    url: siteConfig.url,
   };
 }
