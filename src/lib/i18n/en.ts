@@ -63,7 +63,7 @@ export const en: Messages = {
     selectLanguage: "Select language",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    learnMore: "Learn more →",
+    learnMore: "Learn more",
     sending: "Sending...",
     sendMessage: "Send Message",
     scrollToLearnMore: "Scroll to learn more",

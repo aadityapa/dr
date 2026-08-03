@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+
 import Link from "next/link";
 
 import { useLanguage } from "@/components/providers/language-provider";
@@ -161,9 +163,10 @@ export function ConditionRelatedServices({
               <p className="mt-2 text-sm text-[color:var(--color-muted)]">{summaries[slug]}</p>
               <Link
                 href={`/services/${slug}`}
-                className="mt-3 inline-block text-sm font-semibold text-[color:var(--color-sage-dark)] hover:underline"
+                className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[color:var(--color-sage-dark)] hover:underline"
               >
                 {content.common.learnMore}
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden />
               </Link>
             </CardContent>
           </Card>

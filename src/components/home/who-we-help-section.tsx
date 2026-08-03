@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+
 import { Reveal } from "@/components/shared/reveal";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -35,10 +37,11 @@ export function WhoWeHelpSection() {
                   {localized?.reassurance ?? condition.understanding}
                 </p>
                 <span
-                  className="mt-3 inline-block text-xs font-semibold group-hover:underline"
+                  className="mt-3 inline-flex items-center gap-1 text-xs font-semibold group-hover:underline"
                   style={{ color: pastel.accent }}
                 >
                   {messages.common.learnMore}
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden />
                 </span>
               </Link>
             </Reveal>

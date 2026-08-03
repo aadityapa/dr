@@ -74,11 +74,6 @@ export const heroClusters = {
 
 /** Clusters used by the Conditions and Expertise landing panels. */
 export const panelClusters = {
-  "conditions": [
-    { src: "/images/gallery/balance-beam-coordination-game.jpg", alt: "A young girl walking a tactile balance beam with therapist guidance" },
-    { src: "/images/gallery/ball-pit-xylophone-play.jpg", alt: "A baby playing a colourful xylophone in the clinic ball pit" },
-    { src: "/images/gallery/blanket-swing-vestibular.jpg", alt: "An infant relaxing in a soft blanket swing held by two therapists" },
-  ],
   "expertise": [
     { src: "/images/gallery/climbing-wall-assisted-climb.jpg", alt: "A young girl climbing the colourful climbing wall with therapist support" },
     { src: "/images/gallery/climbing-wall-step-practice.jpg", alt: "A child practising movement planning beside the climbing wall" },

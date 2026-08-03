@@ -63,7 +63,7 @@ export const mr: Messages = {
     selectLanguage: "भाषा निवडा",
     openMenu: "मेनू उघडा",
     closeMenu: "मेनू बंद करा",
-    learnMore: "अधिक जाणून घ्या →",
+    learnMore: "अधिक जाणून घ्या",
     sending: "पाठवत आहे...",
     sendMessage: "संदेश पाठवा",
     scrollToLearnMore: "अधिक जाणून घेण्यासाठी स्क्रोल करा",

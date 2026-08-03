@@ -1,14 +1,14 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Activity,
-  Brain,
-  Ear,
-  Eye,
-  Footprints,
-  Pencil,
+  Baby,
   BookOpen,
-  HeartHandshake,
-  Sprout,
+  Focus,
+  Footprints,
+  ListChecks,
+  PenLine,
+  PersonStanding,
+  Users,
+  Waves,
 } from "lucide-react";
 
 export type ConditionCategory =
@@ -41,15 +41,16 @@ export const conditionCategories: Record<string, ConditionCategory[]> = {
 };
 
 export const conditionIcons: Record<string, LucideIcon> = {
-  "autism-spectrum-disorder": Brain,
-  adhd: Activity,
-  "cerebral-palsy": HeartHandshake,
-  "developmental-delay": Sprout,
-  "sensory-processing-difficulties": Ear,
-  "learning-difficulties": BookOpen,
-  "motor-coordination-challenges": Footprints,
-  "handwriting-difficulties": Pencil,
-  "attention-difficulties": Eye,
+  // Each icon mirrors the card's "therapy focus" label.
+  "autism-spectrum-disorder": Users, // sensory & social — connection
+  adhd: ListChecks, // executive function — planning & follow-through
+  "cerebral-palsy": PersonStanding, // motor & independence — posture, movement
+  "developmental-delay": Baby, // foundational skills — early milestones
+  "sensory-processing-difficulties": Waves, // sensory regulation — sensory input
+  "learning-difficulties": BookOpen, // academic skills — reading & writing
+  "motor-coordination-challenges": Footprints, // motor planning — sequencing movement
+  "handwriting-difficulties": PenLine, // fine motor & writing — pencil control
+  "attention-difficulties": Focus, // focus & regulation — sustained attention
 };
 
 export function getUnderstandingSnippet(text: string, maxSentences = 2): string {

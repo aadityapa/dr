@@ -1,14 +1,17 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Award,
+  Activity,
+  Bandage,
   Brain,
-  Hand,
+  Droplets,
+  Footprints,
   HeartHandshake,
   PenLine,
+  Palette,
   Sparkles,
-  Target,
   Utensils,
   Waves,
+  Wind,
 } from "lucide-react";
 
 export type ExpertiseCategory =
@@ -46,18 +49,19 @@ export const expertiseCategoriesMap: Record<string, ExpertiseCategory[]> = {
 };
 
 export const expertiseIcons: Record<string, LucideIcon> = {
-  "looking-beyond-a-diagnosis": HeartHandshake,
-  "brain-gym": Brain,
-  "double-doodle-play": PenLine,
-  "sensory-integration": Sparkles,
-  rmti: Target,
-  "handwriting-without-tears": PenLine,
-  "oral-placement-therapy": Utensils,
-  "aquatic-therapy": Waves,
-  piastm: Hand,
-  "kinesio-taping": Award,
-  mnri: Brain,
-  kdct: HeartHandshake,
+  // One distinct icon per approach, chosen to reflect what it actually does.
+  "looking-beyond-a-diagnosis": HeartHandshake, // whole-child, family partnership
+  "brain-gym": Brain, // movement-based learning readiness
+  "double-doodle-play": Palette, // bilateral drawing & creative play
+  "sensory-integration": Sparkles, // organising sensory input
+  rmti: Activity, // rhythmic movement training
+  "handwriting-without-tears": PenLine, // letter formation & pencil control
+  "oral-placement-therapy": Utensils, // feeding & oral motor skills
+  "aquatic-therapy": Waves, // water-based therapy
+  piastm: Wind, // soft-tissue mobilisation
+  "kinesio-taping": Bandage, // therapeutic taping
+  mnri: Footprints, // reflex integration & movement patterns
+  kdct: Droplets, // dry cupping therapy
 };
 
 export function getUnderstandingSnippet(text: string, maxSentences = 2): string {

@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+
 import Link from "next/link";
 
 import { useLanguage } from "@/components/providers/language-provider";
@@ -42,8 +44,9 @@ export function ServicesPreview() {
                 <p className="mt-2 flex-1 text-sm font-medium leading-relaxed" style={{ color: pastel.accent }}>
                   {localized?.headline ?? service.headline}
                 </p>
-                <span className="mt-4 text-xs font-semibold" style={{ color: pastel.accent }}>
+                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold" style={{ color: pastel.accent }}>
                   {content.common.learnMore}
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden />
                 </span>
               </Link>
             </Reveal>
