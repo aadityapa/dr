@@ -3,20 +3,12 @@
 import Image from "next/image";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Brain, Heart, Puzzle, Sparkles, Target } from "lucide-react";
+import { Heart, Sparkles, Target } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/components/providers/language-provider";
 
 import type { ConditionsPageProps } from "./conditions-types";
-
-const FLOAT_ICONS = [
-  { Icon: Brain, color: "text-[#4A9B73]", delay: 0, x: "12%", y: "18%" },
-  { Icon: Puzzle, color: "text-[#7B5BB5]", delay: 0.4, x: "68%", y: "12%" },
-  { Icon: Sparkles, color: "text-[#D4845C]", delay: 0.8, x: "78%", y: "58%" },
-  { Icon: Heart, color: "text-[#C45A82]", delay: 1.2, x: "22%", y: "68%" },
-  { Icon: Target, color: "text-[#3D7AB5]", delay: 1.6, x: "52%", y: "42%" },
-] as const;
 
 const TRUST_ICONS = [Sparkles, Target, Heart] as const;
 
@@ -114,26 +106,6 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
               <div className="absolute inset-0 bg-gradient-to-t from-white/45 via-transparent to-transparent" />
             </div>
 
-            {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (
-              <motion.div
-                key={i}
-                className={`absolute flex h-14 w-14 items-center justify-center rounded-2xl border border-white/70 bg-white/75 shadow-lg backdrop-blur-sm ${color}`}
-                style={{ left: x, top: y }}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={
-                  reduced
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 1, scale: 1, y: [0, -10, 0] }
-                }
-                transition={{
-                  opacity: { delay: 0.2 + delay },
-                  scale: { delay: 0.2 + delay },
-                  y: { duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay },
-                }}
-              >
-                <Icon className="h-7 w-7" />
-              </motion.div>
-            ))}
 
             <motion.div
               className="absolute inset-x-8 bottom-8 rounded-2xl border border-white/60 bg-white/80 p-4 text-center shadow-md backdrop-blur-sm"

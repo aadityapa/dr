@@ -5,34 +5,17 @@ import { panelClusters } from "@/lib/stock-photos";
 
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  Brain,
   Heart,
-  PenLine,
-  Puzzle,
-  Rainbow,
   Sparkles,
-  Star,
   Target,
-  Waves,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/components/providers/language-provider";
 import { getLocalizedExpertise } from "@/lib/i18n/localize";
 import { lookingBeyondExpertise } from "@/lib/client-content/expertise";
-import { easeOutExpo, fadeUp, floatY } from "./animations";
+import { easeOutExpo, fadeUp } from "./animations";
 import type { ExpertisePageProps } from "./expertise-types";
-
-const FLOAT_ICONS = [
-  { Icon: Brain, color: "text-[#2D6047]", delay: 0, x: "10%", y: "14%" },
-  { Icon: Heart, color: "text-[#C45A82]", delay: 0.35, x: "72%", y: "10%" },
-  { Icon: Puzzle, color: "text-[#7B5BB5]", delay: 0.7, x: "82%", y: "52%" },
-  { Icon: Target, color: "text-[#3D7AB5]", delay: 1.05, x: "18%", y: "62%" },
-  { Icon: PenLine, color: "text-[#D4845C]", delay: 1.4, x: "48%", y: "38%" },
-  { Icon: Waves, color: "text-[#2A9DA8]", delay: 1.75, x: "58%", y: "72%" },
-  { Icon: Rainbow, color: "text-[#C9A020]", delay: 2.1, x: "34%", y: "28%" },
-  { Icon: Star, color: "text-[#4A9B73]", delay: 2.45, x: "64%", y: "32%" },
-] as const;
 
 const PILL_ICONS = [Sparkles, Target, Heart] as const;
 
@@ -142,26 +125,6 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
               <PhotoCluster photos={panelClusters.expertise} />
             </div>
 
-            {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (
-              <motion.div
-                key={i}
-                className={`absolute flex h-12 w-12 items-center justify-center rounded-2xl border border-white/80 bg-white/70 shadow-lg backdrop-blur-md md:h-14 md:w-14 ${color}`}
-                style={{ left: x, top: y }}
-                initial={{ opacity: 0, scale: 0.85 }}
-                animate={
-                  reduced
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 1, scale: 1, y: [0, -12, 0] }
-                }
-                transition={{
-                  opacity: { delay: 0.25 + delay },
-                  scale: { delay: 0.25 + delay },
-                  y: { ...floatY(4.5 + i * 0.4), delay },
-                }}
-              >
-                <Icon className="h-6 w-6 md:h-7 md:w-7" />
-              </motion.div>
-            ))}
 
             <div className="absolute inset-x-5 bottom-5 grid grid-cols-2 gap-2.5 md:inset-x-7 md:bottom-7 md:gap-3">
               {floatingCards.map((card, i) => (

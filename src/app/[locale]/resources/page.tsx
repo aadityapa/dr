@@ -7,7 +7,7 @@ import { PageHero } from "@/components/shared/page-hero";
 import { ReadingScene } from "@/components/illustrations/scene-illustrations";
 import { Section } from "@/components/shared/section";
 import { SectionCta } from "@/components/shared/section-cta";
-import { ResourceGrid } from "@/components/resources/resource-grid";
+import { ArticleCards } from "@/components/resources/article-cards";
 import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
 import { getPageShells } from "@/lib/i18n/localize";
@@ -35,7 +35,8 @@ export default async function ResourcesPage({ params }: Props) {
   setRequestLocale(locale);
   const shells = getPageShells(locale);
   const messages = getMessages(locale);
-  const localizedArticles = articles.map((a) => localizeArticle(a, locale));
+  // Featured selection — the four core parent guides.
+  const featuredArticles = articles.slice(0, 4).map((a) => localizeArticle(a, locale));
 
   return (
     <main>
@@ -45,19 +46,11 @@ export default async function ResourcesPage({ params }: Props) {
         art={<ReadingScene />}
         kicker={shells.resources.kicker}
         title={shells.resources.title}
-        description={`${articles.length}+ ${shells.resources.description}`}
+        description={shells.resources.description}
       />
 
       <Section>
-        <ResourceGrid
-          articles={localizedArticles}
-          labels={{
-            searchPlaceholder: shells.resources.searchPlaceholder,
-            articleCountOne: shells.resources.articleCountOne,
-            articleCountMany: shells.resources.articleCountMany,
-            noResults: shells.resources.noResults,
-          }}
-        />
+        <ArticleCards articles={featuredArticles} readMoreLabel={shells.resources.readGuide} />
 
         <div className="mt-12">
           <NewsletterSignup className="mx-auto max-w-2xl" />

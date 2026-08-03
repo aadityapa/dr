@@ -86,17 +86,6 @@ export function PhotoCluster({ photos, className, priority = false }: PhotoClust
           />
         </motion.div>
 
-        {/* decorative accent — echoes the playful puzzle motif */}
-        <motion.span
-          aria-hidden
-          animate={reduced ? undefined : { rotate: [0, 8, 0], y: [0, -6, 0] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="organic-blob absolute left-[42%] top-[-4%] h-14 w-14 bg-[color:var(--color-terracotta)]/80 shadow-lg md:h-16 md:w-16"
-        />
-        <span
-          aria-hidden
-          className="absolute bottom-[6%] right-[6%] h-10 w-10 rounded-full bg-[color:var(--color-sun)]/80 shadow-md"
-        />
       </div>
     </div>
   );
