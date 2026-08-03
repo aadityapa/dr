@@ -1,6 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import { PhotoCluster } from "@/components/shared/photo-cluster";
+import { panelClusters } from "@/lib/stock-photos";
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Brain, Heart, Puzzle, Sparkles, Target } from "lucide-react";
@@ -103,15 +104,8 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
           aria-hidden
         >
           <div className="relative h-full min-h-[18rem] w-full rounded-[2.5rem] border border-white/60 bg-white/30 shadow-xl shadow-[#4A9B73]/10 backdrop-blur-md">
-            <div className="glossy-frame absolute inset-6 overflow-hidden rounded-[2rem]">
-              <Image
-                src="/images/gallery/ring-swing-movement-play.jpg"
-                alt="A boy on a hoop swing in the sensory gym with therapist support"
-                fill
-                sizes="(max-width: 1024px) 420px, 520px"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-white/10" />
+            <div className="absolute inset-4 md:inset-6">
+              <PhotoCluster photos={panelClusters.conditions} />
             </div>
 
             {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (

@@ -1,6 +1,7 @@
 "use client";
 
-import Image from "next/image";
+import { PhotoCluster } from "@/components/shared/photo-cluster";
+import { panelClusters } from "@/lib/stock-photos";
 
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -137,15 +138,8 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
           aria-hidden
         >
           <div className="relative h-full min-h-[20rem] w-full overflow-hidden rounded-[2.75rem] border border-white/70 bg-white/25 shadow-[0_24px_80px_rgba(45,96,71,0.12)] backdrop-blur-2xl">
-            <div className="glossy-frame absolute inset-0 overflow-hidden rounded-[2.75rem]">
-              <Image
-                src="/images/gallery/therapy-swing-vestibular-play.jpg"
-                alt="A young girl on a therapy swing beside the climbing wall with a smiling therapist"
-                fill
-                sizes="(max-width: 1024px) 480px, 560px"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-white/10 to-white/15" />
+            <div className="absolute inset-4 md:inset-6">
+              <PhotoCluster photos={panelClusters.expertise} />
             </div>
 
             {FLOAT_ICONS.map(({ Icon, color, delay, x, y }, i) => (

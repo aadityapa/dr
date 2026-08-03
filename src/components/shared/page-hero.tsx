@@ -1,7 +1,8 @@
 import { FloatingNature } from "@/components/shared/floating-nature";
 import { SoftColorWash } from "@/components/illustrations/scene-illustrations";
 import { HeroPhoto } from "@/components/shared/hero-photo";
-import { stockPhotos, type HeroPhoto as HeroPhotoData, type StockPhotoKey } from "@/lib/stock-photos";
+import { PhotoCluster } from "@/components/shared/photo-cluster";
+import { heroClusters, stockPhotos, type StockPhotoKey } from "@/lib/stock-photos";
 import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
 
@@ -15,31 +16,60 @@ type PageHeroProps = {
   photoKey?: StockPhotoKey;
 };
 
+/**
+ * Shared inner-page hero.
+ *
+ * Invite Sharuja gets a full-bleed seminar banner; every other page gets the
+ * homepage-style organic photo cluster, centred between heading and copy.
+ */
 export function PageHero({ kicker, title, description, credentials, children, art, photoKey }: PageHeroProps) {
-  const photo: HeroPhotoData | undefined = photoKey ? stockPhotos[photoKey] : undefined;
+  const banner = photoKey && photoKey in stockPhotos ? stockPhotos[photoKey as keyof typeof stockPhotos] : undefined;
+  const cluster =
+    photoKey && photoKey in heroClusters ? heroClusters[photoKey as keyof typeof heroClusters] : undefined;
+
+  const body = (
+    <div className="relative mx-auto flex max-w-4xl flex-col items-center px-4 text-center md:px-8">
+      <Reveal className="flex w-full flex-col items-center">
+        {credentials && credentials.length > 0 ? (
+          <ul className="max-w-2xl space-y-1 text-lg leading-relaxed text-[color:var(--color-muted)]">
+            {credentials.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+        ) : description ? (
+          <p className="max-w-2xl text-lg leading-relaxed text-[color:var(--color-muted)]">{description}</p>
+        ) : null}
+        {children ? <div className="mt-8">{children}</div> : null}
+      </Reveal>
+    </div>
+  );
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--color-peach)]/50 via-[color:var(--color-cream)] to-[color:var(--color-sky)]/30 px-4 py-20 md:px-8 md:py-28">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--color-peach)]/50 via-[color:var(--color-cream)] to-[color:var(--color-sky)]/30 py-20 md:py-28">
       <SoftColorWash />
       <FloatingNature />
-      {photo ? <HeroPhoto src={photo.src} alt={photo.alt} wide={photo.wide} fallback={art} /> : art}
-      <div className="relative mx-auto max-w-7xl">
-        <Reveal>
+
+      <div className="relative mx-auto flex max-w-4xl flex-col items-center px-4 text-center md:px-8">
+        <Reveal className="flex w-full flex-col items-center">
           {kicker ? <Badge className="mb-4">{kicker}</Badge> : null}
-          <h1 className="max-w-4xl font-[family-name:var(--font-serif)] text-4xl leading-tight text-[color:var(--color-sage-dark)] md:text-6xl">
+          <h1 className="font-[family-name:var(--font-serif)] text-4xl leading-tight text-[color:var(--color-sage-dark)] md:text-6xl">
             {title}
           </h1>
-          {credentials && credentials.length > 0 ? (
-            <ul className="mt-5 max-w-2xl space-y-1 text-lg leading-relaxed text-[color:var(--color-muted)]">
-              {credentials.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-          ) : description ? (
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[color:var(--color-muted)]">{description}</p>
-          ) : null}
-          {children ? <div className="mt-8">{children}</div> : null}
         </Reveal>
       </div>
+
+      {banner ? (
+        /* full-bleed banner sits outside the centred container */
+        <HeroPhoto src={banner.src} alt={banner.alt} fallback={art} />
+      ) : cluster ? (
+        <div className="relative mx-auto my-10 w-full max-w-2xl px-4 md:my-12 md:px-8">
+          <PhotoCluster photos={cluster} />
+        </div>
+      ) : (
+        art
+      )}
+
+      {body}
     </section>
   );
 }
