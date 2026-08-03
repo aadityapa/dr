@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 
 import { ConditionDetailCard } from "@/components/conditions/condition-detail-card";
 import { ConditionsBottomCta } from "@/components/conditions/conditions-bottom-cta";
+import Image from "next/image";
+
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
 import { Section } from "@/components/shared/section";
@@ -16,6 +18,7 @@ import { clientConditions } from "@/lib/client-content/conditions";
 import { getCardPastelByKey } from "@/lib/pastel-palette";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
+import { getConditionImage } from "@/lib/condition-images";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
@@ -48,6 +51,7 @@ export default async function ConditionDetailPage({ params }: Props) {
 
   const messages = getMessages(locale);
   const labels = getLabels(locale);
+  const conditionImage = getConditionImage(slug);
   const shells = getPageShells(locale);
   const pastel = getCardPastelByKey(slug);
 
@@ -82,6 +86,21 @@ export default async function ConditionDetailPage({ params }: Props) {
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#444] md:text-lg">
             {condition.understanding.slice(0, 200)}…
           </p>
+
+          {conditionImage ? (
+            <div className="glow-frame mx-auto mt-9 aspect-[16/9] w-full max-w-3xl md:mt-11">
+              <div className="glow-frame__inner h-full w-full">
+                <Image
+                  src={conditionImage.src}
+                  alt={conditionImage.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 768px"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          ) : null}
         </div>
       </section>
 
