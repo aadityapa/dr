@@ -434,14 +434,11 @@ html.dark .glow-frame > .glow-frame__inner {
   }
 }
 
-/* ── About-page clinic gallery: curved swipe rail ──────────────────── */
+/* ── About-page clinic gallery: auto-gliding curved rail ───────────── */
 .clinic-rail {
   scrollbar-width: none;
   -ms-overflow-style: none;
-  scroll-padding-inline: 50%;
-  /* perspective gives the rotation real depth as cards travel the arc */
   perspective: 1400px;
-  cursor: grab;
   overscroll-behavior-x: contain;
 }
 
@@ -449,24 +446,29 @@ html.dark .glow-frame > .glow-frame__inner {
   display: none;
 }
 
-.clinic-rail:active {
-  cursor: grabbing;
-}
-
+/* No CSS transition here — the arc transform is written every frame by JS,
+   so a transition would lag behind and smear the motion. */
 .clinic-card {
   transform-origin: 50% 120%;
-  transition:
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.45s ease;
   will-change: transform, opacity;
 }
 
+.clinic-fade-left {
+  background: linear-gradient(90deg, var(--color-snow) 10%, transparent 100%);
+}
+
+.clinic-fade-right {
+  background: linear-gradient(270deg, var(--color-snow) 10%, transparent 100%);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .clinic-card {
-    transition: none;
-  }
   .clinic-rail {
     perspective: none;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 50%;
+  }
+  .clinic-card {
+    scroll-snap-align: center;
   }
 }
 

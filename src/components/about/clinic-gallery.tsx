@@ -1,11 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { useLanguage } from "@/components/providers/language-provider";
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Button } from "@/components/ui/button";
@@ -34,124 +32,126 @@ const CLINIC_IMAGE_SOURCES = [
   },
 ].slice(0, 9);
 
+/** Pixels per second the rail glides. Slow enough to read each caption. */
+const SPEED = 34;
+
 /**
- * Swipeable clinic gallery with a curved "arc" motion.
+ * Auto-gliding clinic gallery with curved motion.
  *
- * Cards sit on a native scroll-snap rail (so touch, trackpad and keyboard all
- * work natively), and each card is transformed by its distance from the centre
- * of the viewport — dipping down, rotating and receding as it moves away. The
- * result reads as a gentle arc that the photos travel along as you swipe.
+ * The rail scrolls itself continuously and loops seamlessly (the set is
+ * rendered twice; when the first copy has passed, the scroll position jumps
+ * back by exactly one copy — invisible because the content is identical).
  *
- * Mouse users can also click-and-drag. `prefers-reduced-motion` flattens the
- * arc to a plain, still rail.
+ * Each card is transformed by its distance from the centre of the rail, so the
+ * photos dip, lean and recede along an arc as they travel.
+ *
+ * Motion pauses on hover/focus and when the tab or section is out of view.
+ * With `prefers-reduced-motion` the rail stops animating and becomes a normal
+ * swipeable strip instead.
  */
 export function ClinicGallery({ shells, clinicImages }: AboutPageProps) {
   const reduced = useReducedMotion();
-  const { messages } = useLanguage();
   const images = clinicImages.length > 0 ? clinicImages : CLINIC_IMAGE_SOURCES;
+  const loop = [...images, ...images];
 
   const railRef = useRef<HTMLUListElement>(null);
   const cardRefs = useRef<(HTMLLIElement | null)[]>([]);
-  const [active, setActive] = useState(0);
+  const paused = useRef(false);
+  const visible = useRef(true);
 
-  /** Position each card along the arc based on its distance from centre. */
+  /** Lay each card on the arc according to its distance from centre. */
   const paint = useCallback(() => {
     const rail = railRef.current;
     if (!rail) return;
-    const railBox = rail.getBoundingClientRect();
-    const centre = railBox.left + railBox.width / 2;
+    const box = rail.getBoundingClientRect();
+    const centre = box.left + box.width / 2;
 
-    let nearest = 0;
-    let nearestDist = Infinity;
-
-    cardRefs.current.forEach((card, i) => {
-      if (!card) return;
-      const box = card.getBoundingClientRect();
-      const cardCentre = box.left + box.width / 2;
-      // -1 … 0 … 1 across the rail
-      const d = Math.max(-1.6, Math.min(1.6, (cardCentre - centre) / (railBox.width / 2)));
+    for (const card of cardRefs.current) {
+      if (!card) continue;
+      const b = card.getBoundingClientRect();
+      const d = Math.max(-1.6, Math.min(1.6, (b.left + b.width / 2 - centre) / (box.width / 2)));
       const abs = Math.abs(d);
-
-      if (abs < nearestDist) {
-        nearestDist = abs;
-        nearest = i;
-      }
 
       if (reduced) {
         card.style.transform = "";
         card.style.opacity = "1";
         card.style.zIndex = "1";
-        return;
+        continue;
       }
 
-      const dip = Math.pow(abs, 1.7) * 64; // arc: centre sits highest
-      const rotate = d * 7; // lean into the curve
-      const scale = 1 - abs * 0.13;
-      const opacity = 1 - abs * 0.35;
-
-      card.style.transform = `translate3d(0, ${dip}px, 0) rotate(${rotate}deg) scale(${Math.max(0.7, scale)})`;
-      card.style.opacity = String(Math.max(0.3, opacity));
+      const dip = Math.pow(abs, 1.7) * 64;
+      const rotate = d * 7;
+      const scale = Math.max(0.7, 1 - abs * 0.13);
+      card.style.transform = `translate3d(0, ${dip}px, 0) rotate(${rotate}deg) scale(${scale})`;
+      card.style.opacity = String(Math.max(0.3, 1 - abs * 0.35));
       card.style.zIndex = String(100 - Math.round(abs * 100));
-    });
-
-    setActive(nearest);
+    }
   }, [reduced]);
 
+  // continuous auto-glide with a seamless wrap
   useEffect(() => {
     const rail = railRef.current;
-    if (!rail) return;
-
-    let frame = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(paint);
-    };
-
-    paint();
-    rail.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(frame);
-      rail.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [paint]);
-
-  const scrollToCard = (index: number) => {
-    const card = cardRefs.current[index];
-    card?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", inline: "center", block: "nearest" });
-  };
-
-  const step = (dir: -1 | 1) => {
-    scrollToCard(Math.min(images.length - 1, Math.max(0, active + dir)));
-  };
-
-  // click-and-drag for mouse users (touch already works natively)
-  const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
-  const onPointerDown = (e: React.PointerEvent) => {
-    if (e.pointerType !== "mouse") return;
-    const rail = railRef.current;
-    if (!rail) return;
-    drag.current = { down: true, startX: e.clientX, startScroll: rail.scrollLeft, moved: false };
-  };
-  const onPointerMove = (e: React.PointerEvent) => {
-    const rail = railRef.current;
-    if (!drag.current.down || !rail) return;
-    const dx = e.clientX - drag.current.startX;
-    if (Math.abs(dx) > 4) drag.current.moved = true;
-    rail.scrollLeft = drag.current.startScroll - dx;
-  };
-  const endDrag = () => {
-    drag.current.down = false;
-  };
-
-  // Swallow the click that follows a drag so a swipe never counts as a tap.
-  const onClickCapture = (e: React.MouseEvent) => {
-    if (drag.current.moved) {
-      e.preventDefault();
-      e.stopPropagation();
-      drag.current.moved = false;
+    if (!rail || reduced) {
+      paint();
+      return;
     }
+
+    let raf = 0;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      raf = requestAnimationFrame(tick);
+      const dt = Math.min(64, now - last); // clamp after a background tab stall
+      last = now;
+
+      if (!paused.current && visible.current) {
+        // Exact loop period = distance from card 0 to the first duplicate.
+        // (scrollWidth / 2 is subtly wrong: it misses half an inter-copy gap
+        // and makes the wrap visibly jump.)
+        const first = cardRefs.current[0];
+        const firstDuplicate = cardRefs.current[images.length];
+        const period =
+          first && firstDuplicate ? firstDuplicate.offsetLeft - first.offsetLeft : rail.scrollWidth / 2;
+
+        let next = rail.scrollLeft + (SPEED * dt) / 1000;
+        if (period > 0 && next >= period) next -= period; // identical content → invisible
+        rail.scrollLeft = next;
+      }
+      paint();
+    };
+
+    raf = requestAnimationFrame(tick);
+
+    const onVisibility = () => {
+      visible.current = document.visibilityState === "visible";
+      last = performance.now();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    // don't animate while the section is off screen
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        visible.current = entry.isIntersecting && document.visibilityState === "visible";
+        last = performance.now();
+      },
+      { threshold: 0.05 },
+    );
+    io.observe(rail);
+
+    window.addEventListener("resize", paint);
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("visibilitychange", onVisibility);
+      io.disconnect();
+      window.removeEventListener("resize", paint);
+    };
+  }, [paint, reduced, images.length]);
+
+  const hold = () => {
+    paused.current = true;
+  };
+  const release = () => {
+    paused.current = false;
   };
 
   return (
@@ -162,32 +162,35 @@ export function ClinicGallery({ shells, clinicImages }: AboutPageProps) {
         center
       />
 
-      <div className="relative mt-12">
+      <div
+        className="relative mt-12"
+        onMouseEnter={hold}
+        onMouseLeave={release}
+        onFocusCapture={hold}
+        onBlurCapture={release}
+      >
+        {/* soft edge fades so cards melt away instead of cutting off */}
+        <div className="clinic-fade-left pointer-events-none absolute inset-y-0 left-0 z-[200] w-16 md:w-32" aria-hidden />
+        <div className="clinic-fade-right pointer-events-none absolute inset-y-0 right-0 z-[200] w-16 md:w-32" aria-hidden />
+
         <ul
           ref={railRef}
-          className="clinic-rail flex snap-x snap-mandatory gap-6 overflow-x-auto pb-20 pt-6"
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerLeave={endDrag}
-          onClickCapture={onClickCapture}
+          className={`clinic-rail flex gap-6 pb-20 pt-6 ${reduced ? "overflow-x-auto" : "overflow-x-hidden"}`}
         >
-          {/* leading spacer so the first card can reach the centre */}
-          <li aria-hidden className="shrink-0 basis-[calc(50%-9.5rem)] sm:basis-[calc(50%-11.5rem)]" />
-
-          {images.map((item, i) => (
+          {loop.map((item, i) => (
             <li
               key={`${item.title}-${i}`}
               ref={(el) => {
                 cardRefs.current[i] = el;
               }}
-              className="clinic-card relative w-[19rem] shrink-0 snap-center sm:w-[23rem]"
+              aria-hidden={i >= images.length}
+              className="clinic-card relative w-[19rem] shrink-0 sm:w-[23rem]"
             >
               <figure className="glossy-frame overflow-hidden rounded-[1.75rem] border border-white/60 bg-white/60 shadow-[0_22px_60px_rgba(45,96,71,0.20)] backdrop-blur-sm">
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
                   <Image
                     src={item.image}
-                    alt={item.alt}
+                    alt={i < images.length ? item.alt : ""}
                     fill
                     sizes="(max-width: 640px) 19rem, 23rem"
                     className="pointer-events-none object-cover"
@@ -200,49 +203,7 @@ export function ClinicGallery({ shells, clinicImages }: AboutPageProps) {
               </figure>
             </li>
           ))}
-
-          <li aria-hidden className="shrink-0 basis-[calc(50%-9.5rem)] sm:basis-[calc(50%-11.5rem)]" />
         </ul>
-
-        {/* controls */}
-        <div className="pointer-events-none absolute inset-x-0 top-[38%] hidden justify-between px-2 md:flex">
-          <button
-            type="button"
-            onClick={() => step(-1)}
-            disabled={active === 0}
-            aria-label={messages.common.previousSlide}
-            className="pointer-events-auto rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-snow)]/90 p-3 shadow-lg backdrop-blur transition hover:bg-[color:var(--color-soft-green)]/60 disabled:opacity-30"
-          >
-            <ChevronLeft className="h-5 w-5 text-[color:var(--color-sage-dark)]" />
-          </button>
-          <button
-            type="button"
-            onClick={() => step(1)}
-            disabled={active === images.length - 1}
-            aria-label={messages.common.nextSlide}
-            className="pointer-events-auto rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-snow)]/90 p-3 shadow-lg backdrop-blur transition hover:bg-[color:var(--color-soft-green)]/60 disabled:opacity-30"
-          >
-            <ChevronRight className="h-5 w-5 text-[color:var(--color-sage-dark)]" />
-          </button>
-        </div>
-
-        {/* dots */}
-        <div className="mt-2 flex items-center justify-center gap-2">
-          {images.map((item, i) => (
-            <button
-              key={`dot-${item.title}-${i}`}
-              type="button"
-              onClick={() => scrollToCard(i)}
-              aria-label={`${messages.common.goToSlide} ${i + 1}`}
-              aria-current={i === active}
-              className={`h-2 rounded-full transition-all ${
-                i === active
-                  ? "w-7 bg-[color:var(--color-sage-dark)]"
-                  : "w-2 bg-[color:var(--color-sage)]/40 hover:bg-[color:var(--color-sage)]/70"
-              }`}
-            />
-          ))}
-        </div>
       </div>
 
       <div className="mt-8 text-center">
