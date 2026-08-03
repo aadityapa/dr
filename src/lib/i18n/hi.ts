@@ -67,6 +67,9 @@ export const hi: Messages = {
     sending: "भेजा जा रहा है...",
     sendMessage: "संदेश भेजें",
     scrollToLearnMore: "और जानने के लिए स्क्रॉल करें",
+    previousSlide: "पिछली तस्वीर",
+    nextSlide: "अगली तस्वीर",
+    goToSlide: "तस्वीर पर जाएँ",
   },
   forms: {
     contact: {

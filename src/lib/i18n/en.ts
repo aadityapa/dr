@@ -67,6 +67,9 @@ export const en: Messages = {
     sending: "Sending...",
     sendMessage: "Send Message",
     scrollToLearnMore: "Scroll to learn more",
+    previousSlide: "Previous photo",
+    nextSlide: "Next photo",
+    goToSlide: "Go to photo",
   },
   forms: {
     contact: {

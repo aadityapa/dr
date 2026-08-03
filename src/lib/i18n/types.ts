@@ -65,6 +65,9 @@ export type Messages = {
     sending: string;
     sendMessage: string;
     scrollToLearnMore: string;
+    previousSlide: string;
+    nextSlide: string;
+    goToSlide: string;
   };
   forms: {
     contact: {

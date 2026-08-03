@@ -434,6 +434,42 @@ html.dark .glow-frame > .glow-frame__inner {
   }
 }
 
+/* ── About-page clinic gallery: curved swipe rail ──────────────────── */
+.clinic-rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-padding-inline: 50%;
+  /* perspective gives the rotation real depth as cards travel the arc */
+  perspective: 1400px;
+  cursor: grab;
+  overscroll-behavior-x: contain;
+}
+
+.clinic-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.clinic-rail:active {
+  cursor: grabbing;
+}
+
+.clinic-card {
+  transform-origin: 50% 120%;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clinic-card {
+    transition: none;
+  }
+  .clinic-rail {
+    perspective: none;
+  }
+}
+
 /* ── Organic photo-cluster frames (see components/shared/photo-cluster.tsx) ──
    Defined here rather than as Tailwind arbitrary values, because a "/" inside
    an arbitrary class is parsed as an opacity modifier and breaks the shape. */

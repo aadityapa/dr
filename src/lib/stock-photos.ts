@@ -10,6 +10,11 @@
 export type HeroPhoto = { src: string; alt: string; wide?: boolean };
 
 export const stockPhotos = {
+  resources: {
+    src: "/images/conditions/resources-banner.png",
+    alt: "Illustration of parent guides, an open book, a checklist and a download icon",
+    wide: true,
+  },
   "invite-sharuja": {
     src: "/images/gallery/speaking-engagement-seminar.jpg",
     alt: "Dr. Sharuja Sarap addressing an audience of parents and professionals at a seminar",
@@ -20,11 +25,6 @@ export const stockPhotos = {
 export type ClusterPhotos = [HeroPhoto, HeroPhoto, HeroPhoto];
 
 export const heroClusters = {
-  "resources": [
-    { src: "/images/gallery/infant-crawling-support.jpg", alt: "Therapist supporting an infant during crawling practice" },
-    { src: "/images/gallery/infant-leg-strengthening.jpg", alt: "Gentle leg-strengthening exercise for an infant on the therapy mat" },
-    { src: "/images/gallery/ring-swing-movement-play.jpg", alt: "A boy on a hoop swing in the sensory gym with therapist support" },
-  ],
   "library": [
     { src: "/images/gallery/sensory-pathway-stepping-practice.jpg", alt: "A toddler stepping across colourful sensory floor pads" },
     { src: "/images/gallery/supported-standing-ball.jpg", alt: "A baby pulling up to stand against a textured therapy ball" },

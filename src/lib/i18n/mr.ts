@@ -67,6 +67,9 @@ export const mr: Messages = {
     sending: "पाठवत आहे...",
     sendMessage: "संदेश पाठवा",
     scrollToLearnMore: "अधिक जाणून घेण्यासाठी स्क्रोल करा",
+    previousSlide: "मागील फोटो",
+    nextSlide: "पुढील फोटो",
+    goToSlide: "फोटोवर जा",
   },
   forms: {
     contact: {
