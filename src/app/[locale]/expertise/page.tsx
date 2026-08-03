@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: mumbaiKeywords(
       "Pediatric Occupational Therapist Mumbai",
       "OT Kandivali",
-      "Brain Gym Mumbai",
+      "Brain Gym® Mumbai",
       "Aquatic Therapy Mumbai",
       "Sensory Integration Mumbai",
     ),

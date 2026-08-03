@@ -39,7 +39,7 @@ export const conditionsDepthContent: ConditionDepthContent[] = [
     ],
     internalLinks: [
       { label: "Occupational Therapy", href: "/services/occupational-therapy" },
-      { label: "Brain Gym", href: "/services/brain-gym" },
+      { label: "Brain Gym®", href: "/services/brain-gym" },
       { label: "Handwriting Training", href: "/services/handwriting-training" },
       { label: "Sensory Screening", href: "/screening" },
       { label: "Therapy Outcomes", href: "/therapy-outcomes" },
@@ -68,7 +68,7 @@ export const conditionsDepthContent: ConditionDepthContent[] = [
       "Increased academic confidence and self-esteem",
     ],
     internalLinks: [
-      { label: "Brain Gym", href: "/services/brain-gym" },
+      { label: "Brain Gym®", href: "/services/brain-gym" },
       { label: "Occupational Therapy", href: "/services/occupational-therapy" },
       { label: "Handwriting Training", href: "/services/handwriting-training" },
       { label: "Free Screening", href: "/screening" },

@@ -49,7 +49,7 @@ const serviceExpansions: Record<string, SeoExpansion> = {
           "School is where developmental challenges become most visible. Illegible handwriting, inability to copy from the board, fatigue during exams, difficulty sitting on the floor for assembly, and social withdrawal during group work are common referral triggers. OT addresses the underlying motor and sensory systems that make classroom participation possible.",
           "Handwriting difficulties often reflect weak postural control, poor visual-motor integration, or sensory defensiveness in the hands — not laziness. Attention challenges may stem from an under-responsive vestibular system that craves movement, or an over-responsive auditory system that cannot filter classroom noise. OT identifies the root pattern and builds targeted interventions.",
           "For children preparing for Grade 1, OT supports school readiness: pencil grip, scissor skills, following two-step instructions, toileting independence, and tolerance of uniform textures. Starting before formal schooling prevents the confidence damage that comes from falling behind in the first term.",
-          "Dr. Sarap's certifications in Handwriting Without Tears, Brain Gym, and sensory integration mean school-related goals can be addressed holistically within one clinic rather than through fragmented referrals across the city.",
+          "Dr. Sarap's certifications in Handwriting Without Tears, Brain Gym®, and sensory integration mean school-related goals can be addressed holistically within one clinic rather than through fragmented referrals across the city.",
         ],
       },
     ],
@@ -111,40 +111,40 @@ const serviceExpansions: Record<string, SeoExpansion> = {
         heading: "Movement as a Foundation for Learning",
         paragraphs: [
           "Brain Gym® is a structured movement program designed to activate neural pathways that support attention, reading, writing, coordination, and emotional balance. Developed from educational kinesiology, it rests on a simple insight: the body and brain are not separate systems. When the body is poorly integrated — when left and right sides do not communicate smoothly, when eyes do not track across midline, when postural reflexes remain immature — learning suffers regardless of intelligence or effort.",
-          "Dr. Sharuja Sarap is a Certified Brain Gym Instructor and Practitioner. She integrates specific Brain Gym movements into pediatric OT sessions and teaches families short routines to use before homework, exams, and challenging transitions. For children with ADHD, learning difficulties, and coordination challenges common in Mumbai's academically demanding school culture, these tools offer practical relief without medication.",
-          "Brain Gym is not exercise for fitness. Movements are precise, brief, and purposeful — often taking less than five minutes. A child might do cross-crawl marching, lazy eights for eye tracking, or hook-ups for calming before a test. The goal is neurological readiness, not physical exhaustion.",
+          "Dr. Sharuja Sarap is a Certified Brain Gym® Instructor and Practitioner. She integrates specific Brain Gym® movements into pediatric OT sessions and teaches families short routines to use before homework, exams, and challenging transitions. For children with ADHD, learning difficulties, and coordination challenges common in Mumbai's academically demanding school culture, these tools offer practical relief without medication.",
+          "Brain Gym® is not exercise for fitness. Movements are precise, brief, and purposeful — often taking less than five minutes. A child might do cross-crawl marching, lazy eights for eye tracking, or hook-ups for calming before a test. The goal is neurological readiness, not physical exhaustion.",
         ],
       },
       {
-        heading: "Who Benefits Most from Brain Gym",
+        heading: "Who Benefits Most from Brain Gym®",
         paragraphs: [
-          "Children who struggle to start homework, lose focus within minutes, reverse letters and numbers beyond age seven, or become emotionally flooded during academic tasks are strong candidates. Brain Gym also supports children with dyspraxia, visual-motor integration difficulties, and retained primitive reflexes that affect posture and coordination.",
-          "Teachers in Mumbai schools increasingly notice children who cannot sit still, copy from the board, or complete written work in time. Brain Gym gives these children bodily tools they can use independently — in the classroom, at the tuition desk, or before cricket practice. Empowerment matters: children learn that they can shift their own state with movement.",
-          "Brain Gym works best as part of a broader OT plan. Sensory regulation, fine motor foundations, and environmental modifications are addressed alongside movement-based learning readiness. Dr. Sarap assesses which Brain Gym activities match each child's profile rather than applying a generic sequence.",
+          "Children who struggle to start homework, lose focus within minutes, reverse letters and numbers beyond age seven, or become emotionally flooded during academic tasks are strong candidates. Brain Gym® also supports children with dyspraxia, visual-motor integration difficulties, and retained primitive reflexes that affect posture and coordination.",
+          "Teachers in Mumbai schools increasingly notice children who cannot sit still, copy from the board, or complete written work in time. Brain Gym® gives these children bodily tools they can use independently — in the classroom, at the tuition desk, or before cricket practice. Empowerment matters: children learn that they can shift their own state with movement.",
+          "Brain Gym® works best as part of a broader OT plan. Sensory regulation, fine motor foundations, and environmental modifications are addressed alongside movement-based learning readiness. Dr. Sarap assesses which Brain Gym® activities match each child's profile rather than applying a generic sequence.",
         ],
       },
       {
-        heading: "What a Brain Gym-Informed Session Looks Like",
+        heading: "What a Brain Gym®-Informed Session Looks Like",
         paragraphs: [
-          "Sessions begin with observation of postural tone, midline crossing ability, eye tracking, and attention baseline. The therapist selects four to six Brain Gym movements targeted to the child's needs — perhaps activities that integrate the vestibular system, activate bilateral coordination, or calm an over-aroused nervous system.",
+          "Sessions begin with observation of postural tone, midline crossing ability, eye tracking, and attention baseline. The therapist selects four to six Brain Gym® movements targeted to the child's needs — perhaps activities that integrate the vestibular system, activate bilateral coordination, or calm an over-aroused nervous system.",
           "Children practise movements with coaching on quality rather than speed. Parents observe and learn the sequence for home use. A written or illustrated home card is provided for consistency. Schools may receive a one-page summary of recommended classroom movement breaks if parents request it.",
-          "Progress is tracked through functional measures: homework duration, teacher reports, reading fluency, and the child's own sense of readiness before tasks. Brain Gym is not a standalone miracle — but families consistently report that short movement routines reduce homework battles and morning school stress.",
+          "Progress is tracked through functional measures: homework duration, teacher reports, reading fluency, and the child's own sense of readiness before tasks. Brain Gym® is not a standalone miracle — but families consistently report that short movement routines reduce homework battles and morning school stress.",
         ],
       },
       {
-        heading: "Brain Gym and Mumbai School Pressure",
+        heading: "Brain Gym® and Mumbai School Pressure",
         paragraphs: [
           "Mumbai's competitive academic environment places enormous demand on children's executive function long before they are developmentally ready. Tuition culture, early testing, and large class sizes mean children with attention and coordination differences fall behind quickly — often labelled as lazy or unmotivated when the real issue is neurological readiness.",
-          "Brain Gym offers a non-pharmaceutical, child-friendly complement to other supports. It does not replace paediatric assessment for ADHD or learning disorders. It gives children active strategies they can use daily while other interventions proceed.",
-          "Dr. Sarap's dual expertise in Brain Gym and sensory-integrative OT means families do not need to choose between movement for learning and movement for regulation — both are woven into one coherent plan at Thrive With Sharuja.",
+          "Brain Gym® offers a non-pharmaceutical, child-friendly complement to other supports. It does not replace paediatric assessment for ADHD or learning disorders. It gives children active strategies they can use daily while other interventions proceed.",
+          "Dr. Sarap's dual expertise in Brain Gym® and sensory-integrative OT means families do not need to choose between movement for learning and movement for regulation — both are woven into one coherent plan at Thrive With Sharuja.",
         ],
       },
     ],
     mythsAndFacts: [
-      { myth: "Brain Gym is just stretching.", fact: "Movements are selected for specific neurological purposes — midline integration, eye tracking, or calming." },
+      { myth: "Brain Gym® is just stretching.", fact: "Movements are selected for specific neurological purposes — midline integration, eye tracking, or calming." },
       { myth: "It only helps hyperactive children.", fact: "Children with slow processing, poor coordination, and reading difficulties also benefit." },
-      { myth: "Teachers will not allow movement breaks.", fact: "Brief, discreet Brain Gym activities can be done at the desk or before exams with teacher cooperation." },
-      { myth: "Brain Gym replaces tutoring.", fact: "It prepares the brain for learning. Academic instruction still matters." },
+      { myth: "Teachers will not allow movement breaks.", fact: "Brief, discreet Brain Gym® activities can be done at the desk or before exams with teacher cooperation." },
+      { myth: "Brain Gym® replaces tutoring.", fact: "It prepares the brain for learning. Academic instruction still matters." },
     ],
   },
   "handwriting-training": {
@@ -179,7 +179,7 @@ const serviceExpansions: Record<string, SeoExpansion> = {
         paragraphs: [
           "Legible, fluent handwriting supports exam performance, note-taking in secondary school, and the confidence to participate in written classroom activities. Children who once hid their notebooks begin volunteering answers and completing homework without battles.",
           "OT does not promise calligraphy. The goal is functional, readable, efficient writing that meets school demands without pain or avoidance. For some children, keyboard accommodations remain appropriate for lengthy assignments — OT helps families and schools make informed decisions.",
-          "Handwriting training at Thrive With Sharuja is integrated with broader OT when needed. A child working on handwriting may also need sensory regulation for sitting tolerance or Brain Gym for visual tracking — all coordinated under one treatment plan.",
+          "Handwriting training at Thrive With Sharuja is integrated with broader OT when needed. A child working on handwriting may also need sensory regulation for sitting tolerance or Brain Gym® for visual tracking — all coordinated under one treatment plan.",
         ],
       },
     ],
@@ -200,7 +200,7 @@ const conditionExpansions: Record<string, SeoExpansion> = {
         paragraphs: [
           "Autism Spectrum Disorder (ASD) is a neurodevelopmental difference that shapes how a child perceives sensory input, communicates, interacts socially, and engages with routines. It is not an illness to cure. Children with autism often experience the world with extraordinary intensity — sounds that others filter out, textures that feel unbearable, changes that feel catastrophic, and interests that become passionate expertise.",
           "Families in Mumbai face unique pressures: crowded malls, noisy festivals, competitive schooling, and social expectations that do not accommodate neurodivergent children. OT does not try to make children with autism appear neurotypical. It builds the sensory, motor, and daily living skills that help them participate in the life they and their family choose — with less overwhelm and more autonomy.",
-          "Dr. Sharuja Sarap approaches ASD with 18+ years of pediatric experience and advanced training in sensory integration, Brain Gym, MNRI reflex integration, and Handwriting Without Tears. Her clinic provides a predictable, sensory-aware environment where children with autism can regulate before being asked to perform.",
+          "Dr. Sharuja Sarap approaches ASD with 18+ years of pediatric experience and advanced training in sensory integration, Brain Gym®, MNRI reflex integration, and Handwriting Without Tears. Her clinic provides a predictable, sensory-aware environment where children with autism can regulate before being asked to perform.",
         ],
       },
       {
@@ -256,7 +256,7 @@ const conditionExpansions: Record<string, SeoExpansion> = {
       {
         heading: "OT Strategies That Work for ADHD",
         paragraphs: [
-          "Movement before seated work is non-negotiable for many children with ADHD. Brain Gym routines, heavy work activities, and proprioceptive input help the nervous system reach a state where focus is possible. These are taught to children and parents for daily use — not only in the clinic.",
+          "Movement before seated work is non-negotiable for many children with ADHD. Brain Gym® routines, heavy work activities, and proprioceptive input help the nervous system reach a state where focus is possible. These are taught to children and parents for daily use — not only in the clinic.",
           "Environmental modification reduces distraction: homework stations away from TV, clear desk surfaces, timers for work blocks, and movement breaks every 15–20 minutes. OT helps families design setups that work in small Mumbai apartments.",
           "Sensory tools — fidget items, wobble cushions, resistance bands on chair legs — can be used discreetly in classrooms when schools cooperate. Dr. Sarap provides written recommendations that parents can share with teachers.",
           "Executive function coaching through OT addresses organisation: packing school bags, planning homework order, using checklists, and breaking large tasks into steps. These are life skills that tutoring alone does not teach.",
@@ -274,11 +274,11 @@ const conditionExpansions: Record<string, SeoExpansion> = {
     mythsAndFacts: [
       { myth: "ADHD is caused by screen time or poor parenting.", fact: "ADHD has strong neurological and genetic components. Environment matters but does not cause ADHD." },
       { myth: "Children will outgrow ADHD.", fact: "Many learn to manage symptoms with support. Early skill building prevents secondary anxiety and low self-esteem." },
-      { myth: "Only medication helps.", fact: "OT, Brain Gym, and environmental strategies provide meaningful benefits for many children." },
+      { myth: "Only medication helps.", fact: "OT, Brain Gym®, and environmental strategies provide meaningful benefits for many children." },
       { myth: "Boys and girls show ADHD the same way.", fact: "Girls often present with inattention rather than hyperactivity and may be underdiagnosed." },
     ],
     homeStrategies: [
-      "Do Brain Gym or jumping jacks before homework — every day.",
+      "Do Brain Gym® or jumping jacks before homework — every day.",
       "Use a visual timer for 15-minute work blocks.",
       "Pack the school bag the night before together.",
       "Praise starting tasks, not only finishing them.",
@@ -358,7 +358,7 @@ const conditionExpansions: Record<string, SeoExpansion> = {
         paragraphs: [
           "Sensory processing differences often persist across the lifespan, but children learn to recognise their needs, request breaks, use tools, and recover faster from overload. The goal is self-awareness and functional participation — not elimination of sensory sensitivity.",
           "Families report that consistent OT reduces meltdown frequency, improves sleep, restores mealtime peace, and makes public outings possible again. Parent stress drops when they understand the 'why' behind behaviour and have strategies that work.",
-          "Dr. Sarap's training across sensory integration, Brain Gym, MNRI, and aquatic therapy allows complex sensory-motor profiles to be addressed holistically in one clinic.",
+          "Dr. Sarap's training across sensory integration, Brain Gym®, MNRI, and aquatic therapy allows complex sensory-motor profiles to be addressed holistically in one clinic.",
         ],
       },
     ],

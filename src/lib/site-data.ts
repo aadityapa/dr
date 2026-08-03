@@ -38,7 +38,7 @@ export const doctorProfile = {
   qualifications: [
     "Ph.D. Scholar",
     "Master's in Pediatric Occupational Therapy",
-    "Certified Brain Gym Instructor & Practitioner",
+    "Certified Brain Gym® Instructor & Practitioner",
   ],
   certifications: [
     "RMTI (Rhythmic Movement Training Integration)",
@@ -116,7 +116,7 @@ export const googleReviews = {
       author: "Vikram S.",
       rating: 4,
       date: "2025-08-03",
-      text: "Excellent pediatric OT in Kandivali. Brain Gym sessions helped our child with focus and coordination. Booking is easy and the team is responsive on WhatsApp.",
+      text: "Excellent pediatric OT in Kandivali. Brain Gym® sessions helped our child with focus and coordination. Booking is easy and the team is responsive on WhatsApp.",
     },
   ],
 };
@@ -260,7 +260,7 @@ export const services = [
     summary:
       "Short, simple movements before seated work can change everything. We teach your child (and you) routines that help the brain feel ready to learn.",
     content:
-      "Does your child fidget, lose focus in minutes, or struggle to start homework? Brain Gym uses brief, purposeful movement — not exercise drills — to help the body and brain work together. Many parents tell us homework gets shorter and calmer once their child has a movement routine they actually enjoy.",
+      "Does your child fidget, lose focus in minutes, or struggle to start homework? Brain Gym® uses brief, purposeful movement — not exercise drills — to help the body and brain work together. Many parents tell us homework gets shorter and calmer once their child has a movement routine they actually enjoy.",
     icon: "Brain",
     ageGroups: "4 to 14 years",
     brainGymSupports: [
@@ -284,11 +284,11 @@ export const services = [
     ],
     faqs: [
       {
-        q: "Is Brain Gym only for children with learning difficulties?",
+        q: "Is Brain Gym® only for children with learning difficulties?",
         a: "No. It benefits any child who needs support with focus, coordination, or academic readiness.",
       },
       {
-        q: "Can Brain Gym be combined with OT?",
+        q: "Can Brain Gym® be combined with OT?",
         a: "Yes. It integrates beautifully with occupational therapy for holistic development.",
       },
     ],
@@ -914,7 +914,7 @@ export const clinicVideos = [
 export const seoKeywords = [
   "Pediatric Occupational Therapist Mumbai",
   "OT Kandivali",
-  "Brain Gym Mumbai",
+  "Brain Gym® Mumbai",
   "Aquatic Therapy Mumbai",
   "Sensory Integration Mumbai",
   "Autism Support Mumbai",

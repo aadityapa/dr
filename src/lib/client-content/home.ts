@@ -33,7 +33,7 @@ export const homeContent = {
       "I am Dr. Sharuja",
       "Paediatric occupational therapist",
       "Aquatic therapist",
-      "Brain gym instructor",
+      "Brain Gym® instructor",
     ],
     cta: "Book a Conversation",
     learnMore: "Learn More About Me →",

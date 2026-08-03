@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: mumbaiKeywords(
       "occupational therapy Mumbai",
       "aquatic therapy Mumbai",
-      "Brain Gym Mumbai",
+      "Brain Gym® Mumbai",
       "handwriting therapy Mumbai",
     ),
   });

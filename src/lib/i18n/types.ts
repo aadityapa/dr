@@ -83,27 +83,12 @@ export type Messages = {
     };
     appointment: {
       parentName: string;
-      fatherName: string;
-      motherName: string;
-      guardianName: string;
       phone: string;
-      email: string;
       childName: string;
-      dateOfBirth: string;
       age: string;
       gender: string;
-      schoolGrade: string;
-      concernsLabel: string;
-      concernOptions: string[];
-      diagnosisLabel: string;
-      yes: string;
-      no: string;
-      previousTherapiesLabel: string;
-      previousTherapyOptions: string[];
-      biggestConcern: string;
-      preferredTimeLabel: string;
-      timeSlots: string[];
-      consent: string;
+      genderOptions: string[];
+      primaryConcern: string;
       submit: string;
       submitting: string;
       successTitle: string;
@@ -113,14 +98,9 @@ export type Messages = {
       errors: {
         parentName: string;
         phone: string;
-        email: string;
         childName: string;
         age: string;
-        concerns: string;
-        hasDiagnosis: string;
-        biggestConcern: string;
-        preferredTime: string;
-        consent: string;
+        primaryConcern: string;
       };
     };
     screening: {

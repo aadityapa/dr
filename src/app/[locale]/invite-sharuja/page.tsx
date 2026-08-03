@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: shells.invite.metaDescription,
     path: "/invite-sharuja",
     locale,
-    keywords: ["parent workshop Mumbai", "school OT training", "Brain Gym workshop", "invite speaker pediatric OT"],
+    keywords: ["parent workshop Mumbai", "school OT training", "Brain Gym® workshop", "invite speaker pediatric OT"],
   });
 }
 

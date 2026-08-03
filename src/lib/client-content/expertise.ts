@@ -29,9 +29,9 @@ export const expertiseAreas: ExpertiseArea[] = [
     slug: "brain-gym",
     title: "Brain Gym®",
     tagline: "Learning Through Movement",
-    pillLabel: "Brain Gym",
+    pillLabel: "Brain Gym®",
     icon: "Brain",
-    understanding: "Children learn best when their bodies, minds, and emotions are working together. Brain Gym® is a movement-based educational approach that uses simple, purposeful activities to support learning readiness, attention, coordination, self-regulation, and overall participation in everyday activities.\n\nMany children experience challenges with focus, organization, emotional regulation, coordination, handwriting, reading, listening, or managing classroom demands. Sometimes these difficulties are not simply related to academic skills—they may also involve how the brain and body work together to process information, organize responses, and engage effectively in learning.\n\nBrain Gym activities are designed to support whole-child development by encouraging better integration of movement, sensory processing, attention, and learning. Through carefully selected movements and activities, children are provided opportunities to improve body awareness, coordination, concentration, confidence, and readiness for learning.",
+    understanding: "Children learn best when their bodies, minds, and emotions are working together. Brain Gym® is a movement-based educational approach that uses simple, purposeful activities to support learning readiness, attention, coordination, self-regulation, and overall participation in everyday activities.\n\nMany children experience challenges with focus, organization, emotional regulation, coordination, handwriting, reading, listening, or managing classroom demands. Sometimes these difficulties are not simply related to academic skills—they may also involve how the brain and body work together to process information, organize responses, and engage effectively in learning.\n\nBrain Gym® activities are designed to support whole-child development by encouraging better integration of movement, sensory processing, attention, and learning. Through carefully selected movements and activities, children are provided opportunities to improve body awareness, coordination, concentration, confidence, and readiness for learning.",
     whatParentsNoticeIntro: "Parents often seek support when they notice that their child:",
     whatParentsMayNotice: [
       "Finds it difficult to focus or sustain attention",
@@ -43,7 +43,7 @@ export const expertiseAreas: ExpertiseArea[] = [
       "Has difficulty managing emotions during everyday situations"
     ],
     approachSummary: [
-      "Brain Gym activities are individualized and integrated into therapy in a playful, engaging, and child-friendly manner. The focus is not simply on academic performance, but on helping children participate more comfortably, confidently, and successfully in everyday life."
+      "Brain Gym® activities are individualized and integrated into therapy in a playful, engaging, and child-friendly manner. The focus is not simply on academic performance, but on helping children participate more comfortably, confidently, and successfully in everyday life."
     ],
     areasCommonlySupported: [
       "Attention and Concentration",

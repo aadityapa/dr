@@ -21,7 +21,7 @@ const topicSeeds: TopicSeed[] = [
   { category: "ADHD", topic: "ADHD and homework struggles", keywords: ["ADHD homework", "child focus homework", "ADHD school Mumbai"] },
   { category: "ADHD", topic: "ADHD and impulse control", keywords: ["ADHD impulse", "child self-control", "ADHD behavior therapy"] },
   { category: "ADHD", topic: "ADHD and executive function", keywords: ["ADHD executive function", "planning skills children", "ADHD organization"] },
-  { category: "ADHD", topic: "ADHD and movement breaks", keywords: ["ADHD movement therapy", "Brain Gym ADHD", "active learning ADHD"] },
+  { category: "ADHD", topic: "ADHD and movement breaks", keywords: ["ADHD movement therapy", "Brain Gym® ADHD", "active learning ADHD"] },
   { category: "ADHD", topic: "ADHD and emotional regulation", keywords: ["ADHD emotions", "child frustration ADHD", "ADHD meltdowns"] },
   { category: "ADHD", topic: "ADHD and classroom participation", keywords: ["ADHD classroom Mumbai", "school attention", "ADHD teacher strategies"] },
   { category: "ADHD", topic: "ADHD and sleep", keywords: ["ADHD sleep children", "restless child ADHD", "ADHD bedtime"] },

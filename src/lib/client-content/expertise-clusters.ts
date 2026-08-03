@@ -37,7 +37,7 @@ export const expertiseClusters: ExpertiseCluster[] = [
       "Goals that carry from clinic to school, sports, and home",
     ],
     relatedCertifications: [
-      "Brain Gym",
+      "Brain Gym®",
       "RMTI",
       "PIASTM",
       "Kinesio Taping",
@@ -66,7 +66,7 @@ export const expertiseClusters: ExpertiseCluster[] = [
       "Movement routines that help before difficult tasks",
       "Plain-language guidance so you understand the 'why' behind behaviour",
     ],
-    relatedCertifications: ["Occupational Therapy", "Brain Gym"],
+    relatedCertifications: ["Occupational Therapy", "Brain Gym®"],
     learnMoreHref: "/expertise/sensory-integration",
   },
   {
@@ -112,7 +112,7 @@ export const expertiseClusters: ExpertiseCluster[] = [
       "Practical home routines that fit busy Mumbai evenings",
       "School collaboration when you're ready to share strategies with teachers",
     ],
-    relatedCertifications: ["HWT", "Brain Gym"],
+    relatedCertifications: ["HWT", "Brain Gym®"],
     learnMoreHref: "/expertise/handwriting-without-tears",
   },
   {

@@ -83,7 +83,7 @@ export const conditionVoiceOverrides: Record<string, ConditionVoiceOverride> = {
       "Your child is starting to believe they're 'bad'",
     ],
     therapyRole: [
-      "Brain Gym and movement routines before seated work",
+      "Brain Gym® and movement routines before seated work",
       "Sensory tools that help — not shame — fidgety bodies",
       "Homework setups that work in small Mumbai apartments",
       "Executive function help: packing bags, breaking tasks down",
@@ -229,7 +229,7 @@ export const conditionVoiceOverrides: Record<string, ConditionVoiceOverride> = {
     ],
     therapyRole: [
       "We check what's blocking learning — motor, sensory, attention",
-      "Brain Gym and movement before seated work",
+      "Brain Gym® and movement before seated work",
       "Handwriting support when writing is the bottleneck",
       "Home study setups that actually work",
       "School letters when you need accommodations",

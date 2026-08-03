@@ -11,7 +11,7 @@ const reasons = [
   {
     icon: Award,
     title: "18+ Years of Expertise",
-    description: `Dr. ${siteConfig.doctorName.replace("Dr. ", "")} brings deep pediatric OT experience with 10+ specialized programs including Brain Gym, HWT, Aquatherapy, RMTI, OPT, and MNRI.`,
+    description: `Dr. ${siteConfig.doctorName.replace("Dr. ", "")} brings deep pediatric OT experience with 10+ specialized programs including Brain Gym®, HWT, Aquatherapy, RMTI, OPT, and MNRI.`,
   },
   {
     icon: Heart,
@@ -92,7 +92,7 @@ export function MeetDoctorPreviewSection() {
             <ul className="mt-4 space-y-2 text-sm text-[color:var(--color-muted)]">
               <li>• Ph.D. Scholar</li>
               <li>• Master&apos;s in Pediatric Occupational Therapy</li>
-              <li>• Certified Brain Gym Instructor & Practitioner</li>
+              <li>• Certified Brain Gym® Instructor & Practitioner</li>
               <li>• Handwriting Without Tears (HWT)</li>
               <li>• IATF Aquatherapy · MNRI · OPT · PIASTM · KT</li>
             </ul>

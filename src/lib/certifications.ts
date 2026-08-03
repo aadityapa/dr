@@ -24,8 +24,8 @@ export const certificationGroupLabels: Record<CertificationGroup, string> = {
 export const certificationCards: CertificationCard[] = [
   {
     id: "brain-gym",
-    shortName: "Brain Gym",
-    fullName: "Certified Brain Gym Instructor & Practitioner",
+    shortName: "Brain Gym®",
+    fullName: "Certified Brain Gym® Instructor & Practitioner",
     description: "Movement-based activities that support focus, learning readiness, and mind-body connection.",
     group: "movement",
     bg: "#E8F4EC",

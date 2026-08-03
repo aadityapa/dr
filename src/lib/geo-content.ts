@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-data";
 export const localSeoKeywords = [
   "Pediatric Occupational Therapist Mumbai",
   "OT Kandivali",
-  "Brain Gym Mumbai",
+  "Brain Gym® Mumbai",
   "Aquatic Therapy Mumbai",
   "Sensory Integration Mumbai",
   "Autism Support Mumbai",

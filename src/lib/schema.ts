@@ -103,7 +103,7 @@ export function personSchema() {
       "Pediatric Occupational Therapy",
       "Sensory Integration Therapy",
       "Aquatic Therapy",
-      "Brain Gym",
+      "Brain Gym®",
       "Handwriting Training",
       ...doctorProfile.certifications,
     ],

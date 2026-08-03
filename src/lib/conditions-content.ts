@@ -74,8 +74,8 @@ export const conditionsContent: ConditionContent[] = [
   {
     slug: "adhd",
     title: "Attention Deficit Hyperactivity Disorder (ADHD)",
-    metaDescription: "ADHD occupational therapy in Mumbai. Dr. Sharuja Sarap helps children with attention, impulse control & executive function through OT and Brain Gym in Kandivali.",
-    keywords: ["ADHD occupational therapy Mumbai", "attention therapy Kandivali", "Brain Gym ADHD Mumbai"],
+    metaDescription: "ADHD occupational therapy in Mumbai. Dr. Sharuja Sarap helps children with attention, impulse control & executive function through OT and Brain Gym® in Kandivali.",
+    keywords: ["ADHD occupational therapy Mumbai", "attention therapy Kandivali", "Brain Gym® ADHD Mumbai"],
     intro: "Children with ADHD are often bright, curious, creative, and full of energy. However, they may experience challenges with attention, impulse control, organization, emotional regulation, and managing everyday demands. ADHD is a neurodevelopmental condition that affects how the brain regulates attention, activity levels, self-control, and executive functioning skills. These challenges are not caused by laziness, poor parenting, or lack of intelligence. Many children with ADHD want to do well but may find it difficult to consistently manage tasks, emotions, and expectations.",
     symptoms: [
       "Starts a task but quickly moves on to something else before finishing (Sustained Attention Difficulties)",
@@ -118,7 +118,7 @@ export const conditionsContent: ConditionContent[] = [
     whenToBegin: "Children with ADHD often bring creativity, curiosity, enthusiasm, energy, and unique ways of thinking to the world around them. By understanding their needs and supporting skill development, we can help them participate more confidently and successfully in everyday life. Consider seeking support if: attention difficulties are affecting learning or daily activities, homework has become a daily struggle, emotional outbursts occur frequently, teachers consistently report concerns, your child becomes frustrated because they know what to do but struggle to do it consistently, or daily routines require constant reminders and supervision.",
     faqs: [
       { q: "Can OT replace ADHD medication?", a: "OT and medication address different aspects of ADHD. Many families use OT alongside medical management. We do not prescribe medication but collaborate with your pediatrician." },
-      { q: "How does Brain Gym help ADHD?", a: "Targeted movements activate neural pathways for focus, coordination, and learning readiness — complementing traditional OT strategies." },
+      { q: "How does Brain Gym® help ADHD?", a: "Targeted movements activate neural pathways for focus, coordination, and learning readiness — complementing traditional OT strategies." },
       { q: "Will my hyperactive child have to sit still in sessions?", a: "No. Sessions incorporate movement and sensory input. We work with your child's energy, not against it." },
     ],
     relatedServices: ["occupational-therapy", "brain-gym", "handwriting-training"],
@@ -284,8 +284,8 @@ export const conditionsContent: ConditionContent[] = [
   {
     slug: "learning-difficulties",
     title: "Learning Disabilities",
-    metaDescription: "OT for learning difficulties in Mumbai. Dr. Sharuja Sarap uses movement-based approaches & Brain Gym in Kandivali to support reading, writing & classroom success.",
-    keywords: ["learning difficulties occupational therapy Mumbai", "learning support Kandivali", "Brain Gym learning Mumbai"],
+    metaDescription: "OT for learning difficulties in Mumbai. Dr. Sharuja Sarap uses movement-based approaches & Brain Gym® in Kandivali to support reading, writing & classroom success.",
+    keywords: ["learning difficulties occupational therapy Mumbai", "learning support Kandivali", "Brain Gym® learning Mumbai"],
     intro: "Every child learns differently. Some children may work harder than their peers to develop skills related to reading, writing, spelling, mathematics, attention, memory, or organization. Despite having average or above-average intelligence, they may continue to struggle with specific academic tasks. Learning disabilities are not a reflection of laziness, lack of effort, or poor parenting. Often, children know the answer but find it difficult to process, organize, remember, or express information in the expected way.",
     symptoms: [
       "Takes much longer than expected to complete homework (Learning & Processing Difficulties)",
@@ -436,7 +436,7 @@ export const conditionsContent: ConditionContent[] = [
   {
     slug: "attention-difficulties",
     title: "Attention, Focus & Concentration Challenges",
-    metaDescription: "Attention & focus therapy for children in Mumbai. Dr. Sharuja Sarap uses OT & Brain Gym in Kandivali to build learning readiness & sustained focus.",
+    metaDescription: "Attention & focus therapy for children in Mumbai. Dr. Sharuja Sarap uses OT & Brain Gym® in Kandivali to build learning readiness & sustained focus.",
     keywords: ["attention therapy children Mumbai", "focus therapy Kandivali", "learning readiness OT Mumbai"],
     intro: "Many children find it difficult to stay focused, follow instructions, complete tasks, or remain engaged in activities for extended periods of time. While attention challenges are sometimes associated with ADHD, they can also occur due to sensory processing differences, learning difficulties, emotional factors, executive functioning challenges, developmental delays, or simply because the demands being placed on the child exceed their current skills. Attention is not just about \"sitting still.\" It involves listening, processing information, staying organized, filtering distractions, remembering instructions, and completing tasks successfully.",
     symptoms: [

@@ -82,7 +82,7 @@ export const additionalConditionsContent: ConditionContent[] = [
       "Sensory profile assessment to understand regulation triggers",
       "Sensory integration activities for nervous system calming",
       "Co-regulation strategies for parents and caregivers",
-      "Movement-based regulation tools — Brain Gym, rhythmic movement",
+      "Movement-based regulation tools — Brain Gym®, rhythmic movement",
       "Visual supports and routine structures for predictability",
       "Graded exposure to challenging emotional situations",
       "Self-awareness activities adapted to child's developmental level",

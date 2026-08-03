@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Pediatric Occupational Therapist Mumbai",
       "OT Kandivali",
       "Dr. Sharuja Sarap OT",
-      "Brain Gym Mumbai",
+      "Brain Gym® Mumbai",
       "Sensory Integration Mumbai",
     ),
   });

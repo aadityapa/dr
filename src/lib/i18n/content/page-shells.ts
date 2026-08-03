@@ -280,7 +280,7 @@ const en: PageShells = {
     metaDescription: `100+ answers about pediatric OT from ${siteConfig.doctorName} in Mumbai.`,
     kicker: "FAQs",
     title: "Questions Parents Ask Us",
-    description: `Honest answers from ${siteConfig.doctorName} — OT, autism, ADHD, aquatic therapy, Brain Gym, and more.`,
+    description: `Honest answers from ${siteConfig.doctorName} — OT, autism, ADHD, aquatic therapy, Brain Gym®, and more.`,
     stillHaveQuestions: "Still have questions?",
     stillDescription: "Dr. Sharuja Sarap and our team are happy to help. Book a consultation or call us directly.",
     searchPlaceholder: "Search FAQs...",
@@ -310,7 +310,7 @@ const en: PageShells = {
   expertiseList: {
     metaTitle: "Expertise & Approaches — Pediatric OT Mumbai",
     metaDescription:
-      "Eleven certified pediatric OT approaches at Thrive With Sharuja, Kandivali — Brain Gym, sensory integration, aquatic therapy, handwriting, and more.",
+      "Eleven certified pediatric OT approaches at Thrive With Sharuja, Kandivali — Brain Gym®, sensory integration, aquatic therapy, handwriting, and more.",
     kicker: "Expertise & Approaches",
     title: "Looking Beyond a Diagnosis",
     description:
@@ -469,7 +469,7 @@ const en: PageShells = {
       "I am Dr. Sharuja",
       "Paediatric occupational therapist",
       "Aquatic therapist",
-      "Brain gym instructor",
+      "Brain Gym® instructor",
     ],
     bookConversation: "Book a Conversation",
     inviteCta: "Invite Sharuja to Your Program",
@@ -642,7 +642,7 @@ const hi: PageShells = {
     metaDescription: `${siteConfig.doctorName} से 100+ जवाब, मुंबई।`,
     kicker: "सामान्य प्रश्न",
     title: "माता-पिता के सवाल",
-    description: `${siteConfig.doctorName} से ईमानदार जवाब — OT, ऑटिज़म, ADHD, जल चिकित्सा, Brain Gym और अधिक।`,
+    description: `${siteConfig.doctorName} से ईमानदार जवाब — OT, ऑटिज़म, ADHD, जल चिकित्सा, Brain Gym® और अधिक।`,
     stillHaveQuestions: "अभी भी सवाल हैं?",
     stillDescription: "डॉ. शारुजा और हमारी टीम मदद के लिए तैयार हैं। परामर्श बुक करें या सीधे कॉल करें।",
     searchPlaceholder: "सामान्य प्रश्न खोजें...",
@@ -671,7 +671,7 @@ const hi: PageShells = {
   expertiseList: {
     metaTitle: "विशेषज्ञता और दृष्टिकोण — बाल OT मुंबई",
     metaDescription:
-      "कांदिवली में थ्राइव विथ शारुजा पर ग्यारह प्रमाणित बाल OT दृष्टिकोण — ब्रेन जिम, संवेदी एकीकरण, जल चिकित्सा, हस्तलेखन और अधिक।",
+      "कांदिवली में थ्राइव विथ शारुजा पर ग्यारह प्रमाणित बाल OT दृष्टिकोण — Brain Gym®, संवेदी एकीकरण, जल चिकित्सा, हस्तलेखन और अधिक।",
     kicker: "विशेषज्ञता और दृष्टिकोण",
     title: "निदान से आगे देखना",
     description: "हर बच्चे की ताकत के अनुसार साक्ष्य-सूचित दृष्टिकोण — मुंबई के परिवारों के लिए सादी भाषा में।",
@@ -820,7 +820,7 @@ const hi: PageShells = {
       "मैं डॉ. शारुजा हूँ",
       "बाल चिकित्सा व्यावसायिक चिकित्सक",
       "जल चिकित्सक",
-      "Brain gym प्रशिक्षक",
+      "Brain Gym® प्रशिक्षक",
     ],
     bookConversation: "बातचीत बुक करें",
     inviteCta: "अपने कार्यक्रम में शारुजा को आमंत्रित करें",
@@ -1035,7 +1035,7 @@ const mr: PageShells = {
       "मी डॉ. शरुजा आहे",
       "बाल वैद्यकीय व्यावसायिक थेरपिस्ट",
       "जल चिकित्सक",
-      "Brain gym प्रशिक्षक",
+      "Brain Gym® प्रशिक्षक",
     ],
     bookConversation: "संभाषण बुक करा",
     inviteCta: "तुमच्या कार्यक्रमात शरुजा आमंत्रित करा",

@@ -51,8 +51,8 @@ const en: AboutContent = {
       a: "Children from birth to 14 years with sensory, motor, attention, handwriting, or daily living challenges.",
     },
     {
-      q: "Is Dr. Sharuja Sarap certified in Brain Gym?",
-      a: "Yes. Dr. Sharuja Sarap is a Certified Brain Gym Instructor & Practitioner with 18+ years of pediatric experience in Mumbai.",
+      q: "Is Dr. Sharuja Sarap certified in Brain Gym®?",
+      a: "Yes. Dr. Sharuja Sarap is a Certified Brain Gym® Instructor & Practitioner with 18+ years of pediatric experience in Mumbai.",
     },
     {
       q: "How do I book an appointment with Dr. Sharuja Sarap?",
@@ -144,8 +144,8 @@ const hi: AboutContent = {
       a: "जन्म से 14 वर्ष तक के बच्चे जिन्हें संवेदी, मोटर, ध्यान, हस्तलेखन या दैनिक जीवन चुनौतियाँ हैं।",
     },
     {
-      q: "क्या डॉ. शारुजा सराफ ब्रेन जिम में प्रमाणित हैं?",
-      a: "हाँ। डॉ. शारुजा सराफ प्रमाणित ब्रेन जिम प्रशिक्षक और व्यवसायी हैं, मुंबई में 18+ वर्षों के बाल अनुभव के साथ।",
+      q: "क्या डॉ. शारुजा सराफ Brain Gym® में प्रमाणित हैं?",
+      a: "हाँ। डॉ. शारुजा सराफ प्रमाणित Brain Gym® प्रशिक्षक और व्यवसायी हैं, मुंबई में 18+ वर्षों के बाल अनुभव के साथ।",
     },
     {
       q: "डॉ. शारुजा सराफ के साथ अपॉइंटमेंट कैसे बुक करूँ?",
@@ -237,8 +237,8 @@ const mr: AboutContent = {
       a: "जन्मापासून १४ वर्षांपर्यंतची मुले ज्यांना संवेदी, मोटर, लक्ष, हस्तलेखन किंवा दैनंदिन जीवनातील आव्हाने आहेत.",
     },
     {
-      q: "डॉ. शरुजा सराफ ब्रेन जिममध्ये प्रमाणित आहेत का?",
-      a: "होय. डॉ. शरुजा सराफ प्रमाणित ब्रेन जिम प्रशिक्षक आणि व्यवसायी आहेत, मुंबईत १८+ वर्षांच्या बाल अनुभवासह.",
+      q: "डॉ. शरुजा सराफ Brain Gym®मध्ये प्रमाणित आहेत का?",
+      a: "होय. डॉ. शरुजा सराफ प्रमाणित Brain Gym® प्रशिक्षक आणि व्यवसायी आहेत, मुंबईत १८+ वर्षांच्या बाल अनुभवासह.",
     },
     {
       q: "डॉ. शरुजा सराफ यांच्यासोबत अपॉइंटमेंट कशी बुक करू?",

@@ -79,66 +79,28 @@
     },
     "appointment": {
       "parentName": "Parent Name *",
-      "fatherName": "Father Name",
-      "motherName": "Mother Name",
-      "guardianName": "Guardian Name",
-      "phone": "Phone *",
-      "email": "Email *",
-      "childName": "Child Name *",
-      "dateOfBirth": "Date of Birth",
+      "phone": "Phone Number *",
+      "childName": "Child's Name *",
       "age": "Age *",
       "gender": "Gender",
-      "schoolGrade": "School Grade",
-      "concernsLabel": "Concerns *",
-      "concernOptions": [
-        "Sensory Processing",
-        "Attention & Focus",
-        "Autism",
-        "Developmental Delay",
-        "Learning Difficulties",
-        "Handwriting",
-        "Motor Coordination",
-        "Emotional Regulation",
-        "Feeding",
-        "Other"
+      "genderOptions": [
+        "Boy",
+        "Girl",
+        "Prefer not to say"
       ],
-      "diagnosisLabel": "Diagnosis",
-      "yes": "Yes",
-      "no": "No",
-      "previousTherapiesLabel": "Previous Therapies",
-      "previousTherapyOptions": [
-        "Occupational Therapy",
-        "Speech Therapy",
-        "Physiotherapy",
-        "Special Education",
-        "None"
-      ],
-      "biggestConcern": "Biggest Concern *",
-      "preferredTimeLabel": "Preferred Appointment Time *",
-      "timeSlots": [
-        "Morning (9–12)",
-        "Afternoon (12–3)",
-        "Late Afternoon (3–5)",
-        "Saturday Morning"
-      ],
-      "consent": "I consent to Thrive With Sharuja contacting me about this consultation request and storing my information for scheduling purposes. *",
+      "primaryConcern": "Primary concern for counseling *",
       "submit": "Submit Consultation Request",
       "submitting": "Submitting...",
       "successTitle": "Thank you — we received your request!",
-      "successMessage": "We will contact you within 24 hours. For faster response, message us on WhatsApp.",
+      "successMessage": "We will contact you shortly to confirm your appointment.",
       "whatsappUs": "WhatsApp Us",
-      "error": "Something went wrong. Please call us directly or try WhatsApp.",
+      "error": "Something went wrong. Please call 9820505197 directly.",
       "errors": {
-        "parentName": "Parent name is required",
-        "phone": "Valid phone number required",
-        "email": "Valid email required",
-        "childName": "Child name is required",
-        "age": "Child age is required",
-        "concerns": "Select at least one concern",
-        "hasDiagnosis": "Please select",
-        "biggestConcern": "Please share your biggest concern",
-        "preferredTime": "Preferred time is required",
-        "consent": "Consent is required"
+        "parentName": "Please enter the parent's name",
+        "phone": "Please enter a valid phone number",
+        "childName": "Please enter your child's name",
+        "age": "Please enter your child's age",
+        "primaryConcern": "Please describe your main concern"
       }
     },
     "screening": {
@@ -399,7 +361,7 @@
       "qualifications": [
         "Ph.D. Scholar",
         "Master's in Pediatric Occupational Therapy",
-        "Certified Brain Gym Instructor & Practitioner"
+        "Certified Brain Gym® Instructor & Practitioner"
       ],
       "fullProfile": "Full Profile & Certifications",
       "bookConsultation": "Book Consultation"
@@ -456,7 +418,7 @@
         },
         {
           "author": "Vikram S.",
-          "text": "Excellent pediatric OT in Kandivali. Brain Gym sessions helped our child with focus and coordination. Booking is easy and the team is responsive on WhatsApp."
+          "text": "Excellent pediatric OT in Kandivali. Brain Gym® sessions helped our child with focus and coordination. Booking is easy and the team is responsive on WhatsApp."
         }
       ]
     },
@@ -582,7 +544,7 @@
           "I am Dr. Sharuja",
           "Paediatric occupational therapist",
           "Aquatic therapist",
-          "Brain gym instructor"
+          "Brain Gym® instructor"
         ],
         "cta": "Book a Conversation",
         "learnMore": "Learn More About Me →"
@@ -850,7 +812,7 @@
           "Your child is starting to believe they're 'bad'"
         ],
         "therapyRole": [
-          "Brain Gym and movement routines before seated work",
+          "Brain Gym® and movement routines before seated work",
           "Sensory tools that help — not shame — fidgety bodies",
           "Homework setups that work in small Mumbai apartments",
           "Executive function help: packing bags, breaking tasks down",
@@ -1035,7 +997,7 @@
         ],
         "therapyRole": [
           "We check what's blocking learning — motor, sensory, attention",
-          "Brain Gym and movement before seated work",
+          "Brain Gym® and movement before seated work",
           "Handwriting support when writing is the bottleneck",
           "Home study setups that actually work",
           "School letters when you need accommodations"

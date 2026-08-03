@@ -107,7 +107,7 @@ export const servicesDepthContent: ServiceDepthContent[] = [
     slug: "brain-gym",
     overview: [
       ...clinicIntro("Brain Gym®"),
-      "Brain Gym® is a movement-based program that activates neural pathways supporting learning, attention, coordination, and emotional regulation. As a Certified Brain Gym Instructor & Practitioner, Dr. Sharuja Sarap integrates specific physical activities that prepare the body-brain system for focused work.",
+      "Brain Gym® is a movement-based program that activates neural pathways supporting learning, attention, coordination, and emotional regulation. As a Certified Brain Gym® Instructor & Practitioner, Dr. Sharuja Sarap integrates specific physical activities that prepare the body-brain system for focused work.",
       "The principle is straightforward: specific movements integrate left and right brain hemispheres, improve eye tracking, enhance midline crossing, and build the neurological foundations essential for reading, writing, and classroom participation.",
     ],
     signsYourChildMayNeed: [
@@ -121,10 +121,10 @@ export const servicesDepthContent: ServiceDepthContent[] = [
       "Emotional dysregulation during academic demands",
     ],
     parentGuide: [
-      "Practice assigned Brain Gym movements for 5–10 minutes before homework.",
+      "Practice assigned Brain Gym® movements for 5–10 minutes before homework.",
       "Create a consistent, distraction-free study environment.",
       "Use movement breaks during long seated tasks — 2 minutes every 20 minutes.",
-      "Share Brain Gym progress with teachers for classroom integration.",
+      "Share Brain Gym® progress with teachers for classroom integration.",
       "Avoid framing movement activities as punishment — they are brain preparation.",
     ],
     researchReferences: [
@@ -140,7 +140,7 @@ export const servicesDepthContent: ServiceDepthContent[] = [
       "Reduced homework frustration for child and parents",
       "Increased learning confidence and motivation",
     ],
-    whenToSeekHelp: "Seek Brain Gym support when attention or learning difficulties are affecting school performance, especially in primary school years when academic demands increase significantly.",
+    whenToSeekHelp: "Seek Brain Gym® support when attention or learning difficulties are affecting school performance, especially in primary school years when academic demands increase significantly.",
   },
   {
     slug: "handwriting-training",

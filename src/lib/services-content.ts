@@ -38,7 +38,7 @@ export const servicesExtendedContent: ServiceExtendedContent[] = [
       "Celebrate small wins — progress in OT is often gradual but meaningful",
     ],
     additionalFaqs: [
-      { q: "How is pediatric OT at Thrive With Sharuja different?", a: "Dr. Sharuja Sarap combines 18+ years of experience with certifications in Brain Gym, HWT, Aquatherapy, MNRI, and sensory integration for truly holistic care." },
+      { q: "How is pediatric OT at Thrive With Sharuja different?", a: "Dr. Sharuja Sarap combines 18+ years of experience with certifications in Brain Gym®, HWT, Aquatherapy, MNRI, and sensory integration for truly holistic care." },
       { q: "Do you coordinate with my child's school?", a: "Yes. We provide written recommendations and are happy to speak with teachers when families request it." },
       { q: "What is your therapy philosophy?", a: "Evidence-informed, play-based OT that meets each child where they are and builds skills families can use every day." },
       { q: "How many sessions will my child need?", a: "This varies by goals and severity. After evaluation, Dr. Sharuja Sarap provides a realistic timeline — typically 8–24 weeks for focused goals, with longer support for complex profiles." },
@@ -81,18 +81,18 @@ export const servicesExtendedContent: ServiceExtendedContent[] = [
       whenToBegin: "When school or homework is becoming a daily battle — especially in primary years when expectations jump quickly.",
     },
     caseExamples: [
-      { title: "Focus transformation", description: "An 8-year-old with ADHD who could not sit through a 10-minute homework session built 25-minute focused work periods after 8 weeks of Brain Gym integrated with OT." },
-      { title: "Reading readiness", description: "A 6-year-old struggling with letter recognition and eye tracking showed marked improvement in reading fluency after Brain Gym activities targeting visual-motor integration." },
+      { title: "Focus transformation", description: "An 8-year-old with ADHD who could not sit through a 10-minute homework session built 25-minute focused work periods after 8 weeks of Brain Gym® integrated with OT." },
+      { title: "Reading readiness", description: "A 6-year-old struggling with letter recognition and eye tracking showed marked improvement in reading fluency after Brain Gym® activities targeting visual-motor integration." },
     ],
     parentGuidance: [
-      "Practice assigned Brain Gym movements for 5–10 minutes before homework",
+      "Practice assigned Brain Gym® movements for 5–10 minutes before homework",
       "Create a consistent study environment with minimal distractions",
       "Use movement breaks during long seated tasks",
-      "Share Brain Gym progress with teachers for classroom integration",
+      "Share Brain Gym® progress with teachers for classroom integration",
     ],
     additionalFaqs: [
-      { q: "Is Brain Gym scientifically validated?", a: "Brain Gym is widely used in educational and therapeutic settings globally. Dr. Sharuja Sarap integrates it within her evidence-informed OT framework." },
-      { q: "Can Brain Gym replace tutoring?", a: "Brain Gym addresses the body-brain foundations for learning; it complements rather than replaces academic tutoring." },
+      { q: "Is Brain Gym® scientifically validated?", a: "Brain Gym® is widely used in educational and therapeutic settings globally. Dr. Sharuja Sarap integrates it within her evidence-informed OT framework." },
+      { q: "Can Brain Gym® replace tutoring?", a: "Brain Gym® addresses the body-brain foundations for learning; it complements rather than replaces academic tutoring." },
     ],
   },
   {

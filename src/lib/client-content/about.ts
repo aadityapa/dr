@@ -6,7 +6,7 @@ export const aboutContent = {
       "I am Dr. Sharuja",
       "Paediatric occupational therapist",
       "Aquatic therapist",
-      "Brain gym instructor",
+      "Brain Gym® instructor",
     ],
     paragraphs: [
       "I am an occupational therapist with 18+ years of experience supporting children with developmental, sensory, and neurological needs. My work focuses on helping children participate confidently in everyday activities at home, school, and in the community.",

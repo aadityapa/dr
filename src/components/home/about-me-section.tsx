@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site-data";
 
 const EXPERTISE_CHIPS = [
   "Aquatic Therapy",
-  "Brain Gym\u00ae",
+  "Brain Gym®\u00ae",
   "Handwriting Development",
   "Oral Motor Intervention",
   "Reflex Integration",
