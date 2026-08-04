@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 
+import { BelieveThriveGraphic } from "@/components/home/believe-thrive-graphic";
 import { FloatingNature } from "@/components/shared/floating-nature";
 import { HeroSoftDecor } from "@/components/home/hero-soft-decor";
 import { Badge } from "@/components/ui/badge";
@@ -56,14 +57,7 @@ export function HeroSection() {
           <h1 className="hero-title font-[family-name:var(--font-serif)] text-4xl leading-[1.08] tracking-tight text-[color:var(--color-sage-dark)] md:text-5xl lg:text-[3.5rem]">
             {copy.headline}
           </h1>
-          <p className="hero-sub mt-7 max-w-xl text-lg leading-relaxed text-[color:var(--color-muted)] md:text-xl">
-            {copy.subheadline}
-          </p>
-          {copy.subheadline2 && (
-            <p className="hero-sub mt-4 max-w-xl text-lg leading-relaxed text-[color:var(--color-muted)] md:text-xl">
-              {copy.subheadline2}
-            </p>
-          )}
+          <BelieveThriveGraphic className="hero-sub mt-8" />
           <p className="hero-tagline mt-5 font-[family-name:var(--font-serif)] text-xl italic text-[color:var(--color-terracotta)] md:text-2xl">
             {copy.tagline}
           </p>
