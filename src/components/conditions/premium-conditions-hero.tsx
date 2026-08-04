@@ -33,7 +33,7 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
       />
 
       {/* Always render the same particle DOM; only animation is gated by reduced-motion */}
-      {Array.from({ length: 12 }).map((_, i) => (
+      {Array.from({ length: 6 }).map((_, i) => (
         <motion.span
           key={i}
           className="pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-[#4A9B73]/30"

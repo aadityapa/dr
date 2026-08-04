@@ -3,10 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { AboutPreviewSection } from "@/components/home/about-preview-section";
 import { HeroSection } from "@/components/home/hero-section";
-import { HowICanHelpSection } from "@/components/home/how-i-can-help-section";
+import { HomeBelowFold } from "@/components/home/home-below-fold";
 import { ParentsReadingSection } from "@/components/home/parents-reading-section";
-import { SuccessStoriesSection } from "@/components/home/success-stories-section";
-import { WhoWeHelpSection } from "@/components/home/who-we-help-section";
 import type { AppLocale } from "@/i18n/routing";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
 
@@ -39,9 +37,7 @@ export default async function Home({ params }: Props) {
       <HeroSection />
       <ParentsReadingSection />
       <AboutPreviewSection />
-      <HowICanHelpSection />
-      <WhoWeHelpSection />
-      <SuccessStoriesSection />
+      <HomeBelowFold />
     </main>
   );
 }

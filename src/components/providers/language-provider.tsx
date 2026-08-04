@@ -39,7 +39,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [transitionLabel, setTransitionLabel] = useState<{ from: string; to: string } | null>(null);
   const [displayLocale, setDisplayLocale] = useState(locale);
 
-  const { content, ...messages } = allMessages;
+  // Destructure once per allMessages identity — a bare rest-spread here would
+  // create a new `messages` object every render and defeat the useMemo below,
+  // re-rendering every useLanguage() consumer on any provider render.
+  const { content, messages } = useMemo(() => {
+    const { content: c, ...rest } = allMessages;
+    return { content: c, messages: rest as Messages };
+  }, [allMessages]);
 
   useEffect(() => {
     localStorage.setItem(LOCALE_STORAGE_KEY, locale);

@@ -331,7 +331,7 @@ export function PlayScene() {
     <HeroArtWrap>
       <motion.svg className="absolute right-10 top-8 h-24 w-24" viewBox="0 0 100 100" {...f(-10, 8)}>
         <circle cx="50" cy="50" r="30" fill={C.sun} />
-        {Array.from({ length: 10 }).map((_, i) => {
+        {Array.from({ length: 6 }).map((_, i) => {
           const a = (i * Math.PI) / 5;
           return <line key={i} x1={50 + Math.cos(a) * 32} y1={50 + Math.sin(a) * 32} x2={50 + Math.cos(a) * 44} y2={50 + Math.sin(a) * 44} stroke={C.sun} strokeWidth="4" strokeLinecap="round" />;
         })}

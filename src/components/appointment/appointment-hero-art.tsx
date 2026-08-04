@@ -32,7 +32,7 @@ export function AppointmentHeroArt() {
           {...float(-10, 8)}
         >
           <g stroke="#f5cf79" strokeWidth="4" strokeLinecap="round">
-            {Array.from({ length: 12 }).map((_, i) => {
+            {Array.from({ length: 6 }).map((_, i) => {
               const a = (i * Math.PI) / 6;
               return (
                 <line

@@ -51,7 +51,7 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
       />
 
       {/* Always render the same particle DOM; only animation is gated by reduced-motion */}
-      {Array.from({ length: 18 }).map((_, i) => (
+      {Array.from({ length: 8 }).map((_, i) => (
         <motion.span
           key={i}
           className="pointer-events-none absolute h-1 w-1 rounded-full bg-[#4A9B73]/35 md:h-1.5 md:w-1.5"
