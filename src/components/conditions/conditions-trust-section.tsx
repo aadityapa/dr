@@ -14,9 +14,9 @@ export function ConditionsTrustSection({ shells }: Pick<ConditionsPageProps, "sh
   const reduced = useReducedMotion();
 
   return (
-    <Section className="relative overflow-hidden bg-[#FAF8F4]/60">
+    <Section className="relative overflow-hidden bg-[color:var(--surface-linen)]/60">
       <div
-        className="pointer-events-none absolute -left-24 top-0 h-64 w-64 rounded-full bg-[#D8F0E4]/40 blur-3xl"
+        className="pointer-events-none absolute -left-24 top-0 h-64 w-64 rounded-full bg-[color:var(--tint-green)]/40 blur-3xl"
         aria-hidden
       />
       <SectionHeading
@@ -38,13 +38,13 @@ export function ConditionsTrustSection({ shells }: Pick<ConditionsPageProps, "sh
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={reduced ? undefined : { y: -4, transition: { duration: 0.2 } }}
             >
-              <div className="mb-4 inline-flex rounded-2xl bg-[#D8F0E4]/60 p-3">
-                <Icon className="h-6 w-6 text-[#4A9B73]" aria-hidden />
+              <div className="mb-4 inline-flex rounded-2xl bg-[color:var(--tint-green)]/60 p-3">
+                <Icon className="h-6 w-6 text-[color:var(--brand-green)]" aria-hidden />
               </div>
-              <h3 className="font-[family-name:var(--font-serif)] text-xl text-[#004d4d]">
+              <h3 className="font-[family-name:var(--font-serif)] text-xl text-[color:var(--ink-teal)]">
                 {card.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[#555] md:text-base">{card.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[color:var(--ink-soft)] md:text-base">{card.description}</p>
             </motion.article>
           );
         })}

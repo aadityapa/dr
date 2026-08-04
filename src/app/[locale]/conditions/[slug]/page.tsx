@@ -56,7 +56,7 @@ export default async function ConditionDetailPage({ params }: Props) {
   const pastel = getCardPastelByKey(slug);
 
   return (
-    <main className="bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F4] to-[#F9FCFB]">
+    <main className="bg-gradient-to-b from-[color:var(--surface-ivory)] via-[color:var(--surface-linen)] to-[color:var(--surface-mist)]">
       <JsonLd
         id="condition-breadcrumb"
         data={breadcrumbSchema([
@@ -79,11 +79,11 @@ export default async function ConditionDetailPage({ params }: Props) {
           aria-hidden
         />
         <div className="relative mx-auto max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-wide text-[#4A9B73]">{labels.forParents}</p>
-          <h1 className="mt-3 font-[family-name:var(--font-serif)] text-3xl font-bold text-[#004d4d] md:text-4xl lg:text-5xl">
+          <p className="text-sm font-semibold uppercase tracking-wide text-[color:var(--brand-green)]">{labels.forParents}</p>
+          <h1 className="mt-3 font-[family-name:var(--font-serif)] text-3xl font-bold text-[color:var(--ink-teal)] md:text-4xl lg:text-5xl">
             {condition.title}
           </h1>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#444] md:text-lg">
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--ink-body)] md:text-lg">
             {condition.understanding.slice(0, 200)}…
           </p>
 
@@ -110,10 +110,10 @@ export default async function ConditionDetailPage({ params }: Props) {
 
 
           <div className="flex flex-wrap gap-3">
-            <Button asChild size="lg" className="bg-[#004d4d] hover:bg-[#2D6047]">
+            <Button asChild size="lg" className="bg-[color:var(--fill-teal)] hover:bg-[color:var(--fill-forest)]">
               <Link href="/appointment">{labels.bookConsultation}</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-[#4A9B73]/30 text-[#004d4d]">
+            <Button asChild variant="outline" size="lg" className="border-[color:var(--brand-green)]/30 text-[color:var(--ink-teal)]">
               <Link href="/expertise">{labels.exploreExpertise}</Link>
             </Button>
           </div>

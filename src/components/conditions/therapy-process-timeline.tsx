@@ -20,7 +20,7 @@ export function TherapyProcessTimeline({ shells }: Pick<ConditionsPageProps, "sh
   const reduced = useReducedMotion();
 
   return (
-    <Section className="rounded-[2rem] bg-gradient-to-br from-[#F9FCFB] to-[#FFFDF9]">
+    <Section className="rounded-[2rem] bg-gradient-to-br from-[color:var(--surface-mist)] to-[color:var(--surface-ivory)]">
       <SectionHeading
         kicker={shells.processKicker}
         title={shells.processTitle}
@@ -29,7 +29,7 @@ export function TherapyProcessTimeline({ shells }: Pick<ConditionsPageProps, "sh
 
       <ol className="relative mx-auto mt-14 max-w-4xl">
         <div
-          className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-[#4A9B73]/40 via-[#4A9B73]/20 to-transparent md:left-1/2 md:block md:-translate-x-px"
+          className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-[color:var(--fill-green)]/40 via-[color:var(--fill-green)]/20 to-transparent md:left-1/2 md:block md:-translate-x-px"
           aria-hidden
         />
 
@@ -48,18 +48,18 @@ export function TherapyProcessTimeline({ shells }: Pick<ConditionsPageProps, "sh
             >
               <div className={`flex-1 ${alignRight ? "md:text-right" : ""}`}>
                 <div
-                  className={`inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-sm font-semibold text-[#2D6047] shadow-sm backdrop-blur-sm ${alignRight ? "md:float-right" : ""}`}
+                  className={`inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-sm font-semibold text-[color:var(--ink-forest)] shadow-sm backdrop-blur-sm ${alignRight ? "md:float-right" : ""}`}
                 >
-                  <Icon className="h-4 w-4 text-[#4A9B73]" aria-hidden />
+                  <Icon className="h-4 w-4 text-[color:var(--brand-green)]" aria-hidden />
                   {step}
                 </div>
-                <p className="mt-3 clear-both text-sm text-[#666] md:text-base">
+                <p className="mt-3 clear-both text-sm text-[color:var(--ink-soft)] md:text-base">
                   {shells.processStepDescriptions[i]}
                 </p>
               </div>
 
               <div className="hidden w-12 shrink-0 items-center justify-center md:flex">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#4A9B73]/30 bg-white text-sm font-bold text-[#004d4d] shadow-md">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[color:var(--brand-green)]/30 bg-white text-sm font-bold text-[color:var(--ink-teal)] shadow-md">
                   {i + 1}
                 </span>
               </div>

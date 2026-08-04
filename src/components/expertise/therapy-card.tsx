@@ -103,7 +103,7 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
             </Link>
           </h2>
 
-          <p className="relative mt-3 flex-1 text-sm leading-[1.7] text-[#444] md:text-[0.95rem]">
+          <p className="relative mt-3 flex-1 text-sm leading-[1.7] text-[color:var(--ink-body)] md:text-[0.95rem]">
             {snippet}
           </p>
 

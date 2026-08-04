@@ -16,7 +16,7 @@ export function ConditionsBottomCta({ shells, labels }: Pick<ConditionsPageProps
   return (
     <Section compact className="relative overflow-hidden">
       <motion.div
-        className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#004d4d] via-[#2D6047] to-[#4A9B73]/90 px-8 py-12 text-center text-white md:px-16 md:py-16"
+        className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[color:var(--fill-teal)] via-[color:var(--fill-forest)] to-[color:var(--fill-green)]/90 px-8 py-12 text-center text-white md:px-16 md:py-16"
         initial={reduced ? false : { opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -37,7 +37,7 @@ export function ConditionsBottomCta({ shells, labels }: Pick<ConditionsPageProps
         <p className="relative mx-auto mt-4 max-w-xl text-base text-white/85">{shells.ctaDescription}</p>
 
         <div className="relative mt-8 flex flex-wrap justify-center gap-3">
-          <Button asChild size="lg" className="bg-white text-[#004d4d] hover:bg-white/90">
+          <Button asChild size="lg" className="bg-white text-[color:var(--ink-teal)] hover:bg-white/90">
             <Link href="/appointment">
               <Calendar className="mr-2 h-4 w-4" aria-hidden />
               {labels.bookConsultation}

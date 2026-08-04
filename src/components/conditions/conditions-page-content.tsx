@@ -31,7 +31,7 @@ export function ConditionsPageContent({ shells, labels }: ConditionsPageProps) {
     <>
       <PremiumConditionsHero shells={shells} />
 
-      <Section className="bg-[#FAF8F4]/40 pt-8">
+      <Section className="bg-[color:var(--surface-linen)]/40 pt-8">
         <ConditionsSearchFilter
           shells={shells}
           searchQuery={searchQuery}
@@ -63,7 +63,7 @@ export function ConditionsPageContent({ shells, labels }: ConditionsPageProps) {
           ) : (
             <motion.p
               key="empty"
-              className="mt-12 text-center text-[#666]"
+              className="mt-12 text-center text-[color:var(--ink-soft)]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

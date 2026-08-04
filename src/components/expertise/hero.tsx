@@ -25,26 +25,26 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-[#FFFDFB] px-4 py-12 md:px-8 md:py-16">
+    <section className="relative overflow-hidden bg-[color:var(--surface-cream)] px-4 py-12 md:px-8 md:py-16">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_20%,#EAF4FF_0%,transparent_55%),radial-gradient(ellipse_70%_50%_at_85%_15%,#EAFBF2_0%,transparent_50%),radial-gradient(ellipse_60%_45%_at_70%_85%,#F4EDFF_0%,transparent_50%)]"
         aria-hidden
       />
 
       <motion.div
-        className="pointer-events-none absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-[#EAFBF2]/70 blur-3xl"
+        className="pointer-events-none absolute -left-40 top-10 h-[28rem] w-[28rem] rounded-full bg-[color:var(--tint-mint)]/70 blur-3xl"
         animate={reduced ? undefined : { scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
       />
       <motion.div
-        className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[#EAF4FF]/60 blur-3xl"
+        className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[color:var(--tint-sky)]/60 blur-3xl"
         animate={reduced ? undefined : { scale: [1, 1.08, 1], opacity: [0.35, 0.6, 0.35] }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
         aria-hidden
       />
       <motion.div
-        className="pointer-events-none absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-[#FFF9DE]/50 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-1/3 h-64 w-64 -translate-x-1/2 rounded-full bg-[color:var(--tint-butter)]/50 blur-3xl"
         animate={reduced ? undefined : { x: [-20, 20, -20], y: [0, -16, 0] }}
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
@@ -54,7 +54,7 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
       {Array.from({ length: 8 }).map((_, i) => (
         <motion.span
           key={i}
-          className="pointer-events-none absolute h-1 w-1 rounded-full bg-[#4A9B73]/35 md:h-1.5 md:w-1.5"
+          className="pointer-events-none absolute h-1 w-1 rounded-full bg-[color:var(--fill-green)]/35 md:h-1.5 md:w-1.5"
           style={{ left: `${6 + (i * 5.2) % 88}%`, top: `${10 + (i * 7.3) % 78}%` }}
           animate={
             reduced ? undefined : { y: [0, -14, 0], opacity: [0.15, 0.55, 0.15] }
@@ -71,19 +71,19 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
           animate="visible"
           transition={{ duration: 0.75, ease: easeOutExpo }}
         >
-          <Badge className="mb-6 border border-white/70 bg-white/60 px-4 py-1.5 text-sm font-medium text-[#2D6047] shadow-sm backdrop-blur-xl">
+          <Badge className="mb-6 border border-white/70 bg-white/60 px-4 py-1.5 text-sm font-medium text-[color:var(--ink-forest)] shadow-sm backdrop-blur-xl">
             {shells.heroBadge}
           </Badge>
 
-          <h1 className="max-w-[18ch] font-[family-name:var(--font-serif)] text-4xl leading-[1.06] tracking-tight text-[#1a4a3a] md:text-5xl lg:text-[3.5rem]">
+          <h1 className="max-w-[18ch] font-[family-name:var(--font-serif)] text-4xl leading-[1.06] tracking-tight text-[color:var(--ink-forest-deep)] md:text-5xl lg:text-[3.5rem]">
             {intro.title}
           </h1>
 
-          <p className="mt-5 max-w-[70ch] font-[family-name:var(--font-serif)] text-lg italic leading-relaxed text-[#3d4a44] md:text-xl">
+          <p className="mt-5 max-w-[70ch] font-[family-name:var(--font-serif)] text-lg italic leading-relaxed text-[color:var(--ink-sage-gray)] md:text-xl">
             {intro.tagline}
           </p>
 
-          <p className="mt-6 max-w-[70ch] whitespace-pre-line text-base leading-[1.75] text-[#444] md:text-lg">
+          <p className="mt-6 max-w-[70ch] whitespace-pre-line text-base leading-[1.75] text-[color:var(--ink-body)] md:text-lg">
             {intro.understanding}
           </p>
 
@@ -96,9 +96,9 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
                   initial={reduced ? false : { opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 + i * 0.09, ease: easeOutExpo }}
-                  className="flex items-center gap-2 rounded-full border border-white/80 bg-white/50 px-4 py-2.5 text-sm font-medium text-[#2D6047] shadow-[0_4px_24px_rgba(74,155,115,0.08)] backdrop-blur-xl"
+                  className="flex items-center gap-2 rounded-full border border-white/80 bg-white/50 px-4 py-2.5 text-sm font-medium text-[color:var(--ink-forest)] shadow-[0_4px_24px_rgba(74,155,115,0.08)] backdrop-blur-xl"
                 >
-                  <Icon className="h-4 w-4 shrink-0 text-[#4A9B73]" aria-hidden />
+                  <Icon className="h-4 w-4 shrink-0 text-[color:var(--brand-green)]" aria-hidden />
                   {label}
                 </motion.li>
               );
@@ -122,7 +122,7 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0" aria-hidden>
-        <svg viewBox="0 0 1440 96" className="w-full text-[#FCFAF8]" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 96" className="w-full text-[color:var(--surface-paper)]" preserveAspectRatio="none">
           <path
             fill="currentColor"
             d="M0,56 C240,96 480,24 720,48 C960,72 1200,88 1440,64 L1440,96 L0,96 Z"

@@ -33,7 +33,7 @@ export function ExpertiseDetailContent({
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#FFFDFB] px-4 pt-12 pb-8 md:px-8 md:pt-16 md:pb-10">
+      <section className="relative overflow-hidden bg-[color:var(--surface-cream)] px-4 pt-12 pb-8 md:px-8 md:pt-16 md:pb-10">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_30%_20%,#EAF4FF_0%,transparent_55%)]"
           aria-hidden
@@ -52,11 +52,11 @@ export function ExpertiseDetailContent({
           transition={{ duration: 0.6 }}
         >
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-[#4A9B73]">{expertiseLabel}</p>
-            <h1 className="mt-3 max-w-[20ch] font-[family-name:var(--font-serif)] text-3xl font-bold leading-[1.08] text-[#1a4a3a] md:text-4xl lg:text-5xl">
+            <p className="text-sm font-semibold uppercase tracking-wide text-[color:var(--brand-green)]">{expertiseLabel}</p>
+            <h1 className="mt-3 max-w-[20ch] font-[family-name:var(--font-serif)] text-3xl font-bold leading-[1.08] text-[color:var(--ink-forest-deep)] md:text-4xl lg:text-5xl">
               {area.title}
             </h1>
-            <p className="mt-5 max-w-[70ch] font-[family-name:var(--font-serif)] text-lg italic leading-relaxed text-[#444] md:text-xl">
+            <p className="mt-5 max-w-[70ch] font-[family-name:var(--font-serif)] text-lg italic leading-relaxed text-[color:var(--ink-body)] md:text-xl">
               {area.tagline}
             </p>
           </div>
@@ -64,7 +64,7 @@ export function ExpertiseDetailContent({
         </motion.div>
       </section>
 
-      <Section compact className="bg-[#FCFAF8]">
+      <Section compact className="bg-[color:var(--surface-paper)]">
         <div className="mx-auto max-w-4xl space-y-8">
           <ExpertiseDetailCard area={area} labels={labels} hideTitle />
 
@@ -76,14 +76,14 @@ export function ExpertiseDetailContent({
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <Button asChild size="lg" className="rounded-full bg-[#1a4a3a] hover:bg-[#2D6047]">
+            <Button asChild size="lg" className="rounded-full bg-[color:var(--fill-forest-deep)] hover:bg-[color:var(--fill-forest)]">
               <Link href="/appointment">{labels.bookConsultation}</Link>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="rounded-full border-[#4A9B73]/35 text-[#1a4a3a]"
+              className="rounded-full border-[color:var(--brand-green)]/35 text-[color:var(--ink-forest-deep)]"
             >
               <Link href="/expertise">
                 <ArrowLeft className="mr-2 h-4 w-4" aria-hidden />

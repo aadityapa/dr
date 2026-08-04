@@ -16,13 +16,13 @@ export function WhyChooseSection({ shells }: Pick<ExpertisePageProps, "shells">)
   const reduced = useReducedMotion();
 
   return (
-    <Section compact className="relative overflow-hidden bg-[#FCFAF8]">
+    <Section compact className="relative overflow-hidden bg-[color:var(--surface-paper)]">
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,#EAFBF2_0%,transparent_60%)]"
         aria-hidden
       />
       <motion.div
-        className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-[#FFF9DE]/40 blur-3xl"
+        className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-[color:var(--tint-butter)]/40 blur-3xl"
         animate={reduced ? undefined : { scale: [1, 1.1, 1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
@@ -51,12 +51,12 @@ export function WhyChooseSection({ shells }: Pick<ExpertisePageProps, "shells">)
                 aria-hidden
               />
               <div className="relative mb-4 inline-flex rounded-[1.25rem] border border-white/80 bg-white/70 p-4 shadow-sm">
-                <Icon className="h-8 w-8 text-[#4A9B73]" aria-hidden />
+                <Icon className="h-8 w-8 text-[color:var(--brand-green)]" aria-hidden />
               </div>
-              <h3 className="relative font-[family-name:var(--font-serif)] text-xl text-[#1a4a3a] md:text-2xl">
+              <h3 className="relative font-[family-name:var(--font-serif)] text-xl text-[color:var(--ink-forest-deep)] md:text-2xl">
                 {card.title}
               </h3>
-              <p className="relative mt-4 text-sm leading-[1.75] text-[#555] md:text-base">
+              <p className="relative mt-4 text-sm leading-[1.75] text-[color:var(--ink-soft)] md:text-base">
                 {card.description}
               </p>
             </motion.article>

@@ -28,6 +28,34 @@
   --pastel-coral: #faded4;
   --pastel-rose: #f5e0e8;
   --pastel-sky: #d9edfa;
+  /* Ink (text) tokens — flip to light values in dark mode */
+  --ink-forest-deep: #1a4a3a;
+  --ink-forest: #2d6047;
+  --ink-teal: #004d4d;
+  --ink-body: #444444;
+  --ink-soft: #5c5c5c;
+  --ink-dim: #888888;
+  --ink-sage-gray: #3d4a44;
+  --brand-green: #4a9b73;
+  /* Fill tokens — stay deep in dark mode (white text sits on them) */
+  --fill-forest-deep: #1a4a3a;
+  --fill-forest: #2d6047;
+  --fill-teal: #004d4d;
+  --fill-green: #4a9b73;
+  /* Surface tokens — page/section backgrounds */
+  --surface-cream: #fffdfb;
+  --surface-paper: #fcfaf8;
+  --surface-linen: #faf8f4;
+  --surface-mist: #f9fcfb;
+  --surface-ivory: #fffdf9;
+  --surface-foam: #fafcfb;
+  /* Tint tokens — decorative pastel washes */
+  --tint-butter: #fff9de;
+  --tint-sky: #eaf4ff;
+  --tint-mint: #eafbf2;
+  --tint-blue: #d6e8f5;
+  --tint-green: #d8f0e4;
+  --tint-gray: #f0f0f0;
 }
 
 @theme inline {
@@ -109,6 +137,30 @@ html.dark {
   --pastel-coral: #3a281f;
   --pastel-rose: #362630;
   --pastel-sky: #223340;
+  --ink-forest-deep: #d8e6dc;
+  --ink-forest: #d8e6dc;
+  --ink-teal: #d8e6dc;
+  --ink-body: #ccd8d0;
+  --ink-soft: #aebfb4;
+  --ink-dim: #95a99c;
+  --ink-sage-gray: #cfdcd3;
+  --brand-green: #82c9a1;
+  --fill-forest-deep: #23392c;
+  --fill-forest: #2a4a37;
+  --fill-teal: #0e3a3a;
+  --fill-green: #3c6b52;
+  --surface-cream: #101613;
+  --surface-paper: #101613;
+  --surface-linen: #151c17;
+  --surface-mist: #101613;
+  --surface-ivory: #101613;
+  --surface-foam: #101613;
+  --tint-butter: #35301c;
+  --tint-sky: #223240;
+  --tint-mint: #1a231d;
+  --tint-blue: #223240;
+  --tint-green: #1e3529;
+  --tint-gray: #1a231d;
 }
 
 /* Dark values for accent themes (light text on dark surfaces) */
@@ -532,15 +584,6 @@ summary:focus-visible {
   border-width: 0;
 }
 
-/* ── Dark-mode fixes: hardcoded light surfaces & gradients ─────────── */
-html.dark [class*="bg-[#D6E8F5]"],
-html.dark [class*="bg-[#D8F0E4]"],
-html.dark [class*="bg-[#EAF4FF]"],
-html.dark [class*="bg-[#EAFBF2]"],
-html.dark [class*="bg-[#F0F0F0]"] {
-  background-color: #1a231d !important;
-}
-
 html.dark .from-white {
   --tw-gradient-from: #18211b var(--tw-gradient-from-position) !important;
 }
@@ -565,91 +608,11 @@ html.dark [class*="text-[color:var(--color-soft-green)"] {
   color: #cfe3d6 !important;
 }
 
-/* ── Dark-mode fixes: hardcoded hex text colours (site-wide) ─────────
-   Many components use arbitrary Tailwind classes with fixed dark hex
-   colours; on dark surfaces they become unreadable. Map them to light
-   equivalents. */
-html.dark [class*="text-[#1a4a3a]"],
-html.dark [class*="text-[#2D6047]"],
-html.dark [class*="text-[#004d4d]"],
-html.dark [class*="text-[#005B5B]"],
-html.dark [class*="text-[#2a3330]"],
-html.dark [class*="text-[#3d4a44]"] {
-  color: #d8e6dc !important;
-}
-
-html.dark [class*="text-[#333]"],
-html.dark [class*="text-[#444]"] {
-  color: #ccd8d0 !important;
-}
-
-html.dark [class*="text-[#555]"],
-html.dark [class*="text-[#666]"] {
-  color: #aebfb4 !important;
-}
-
-html.dark [class*="text-[#888]"] {
-  color: #95a99c !important;
-}
-
-html.dark [class*="text-[#4A9B73]"] {
-  color: #82c9a1 !important;
-}
-
-/* Section-divider waves (SVG fill via currentColor) → match dark surface */
-html.dark [class*="text-[#FCFAF8]"],
-html.dark [class*="text-[#FAF8F4]"] {
-  color: #101613 !important;
-}
-
-/* ── Dark-mode fixes: remaining hardcoded light surfaces ───────────── */
-html.dark [class*="bg-[#FFFDFB]"],
-html.dark [class*="bg-[#FCFAF8]"],
-html.dark [class*="bg-[#FAF8F4]"],
-html.dark [class*="bg-[#F9FCFB]"],
-html.dark [class*="bg-[#FFFDF9]"],
-html.dark [class*="bg-[#FAFCFB]"],
-html.dark [class*="bg-[#f4fafa]"],
-html.dark [class*="bg-[#f4f9f9]"],
-html.dark [class*="bg-[#e8f5f5]"] {
-  background-color: #101613 !important;
-}
-
-html.dark [class*="bg-[#FFF9DE]"] {
-  background-color: rgba(53, 48, 28, 0.55) !important;
-}
-
 /* Soft translucent white panels → dark glass */
 html.dark .bg-white\/45,
 html.dark .bg-white\/30,
 html.dark .bg-white\/25 {
   background-color: rgba(24, 33, 27, 0.55) !important;
-}
-
-/* Light gradient section washes → dark equivalents */
-html.dark [class*="from-[#FFFDF9]"],
-html.dark [class*="from-[#FFFDFB]"],
-html.dark [class*="from-[#F9FCFB]"] {
-  --tw-gradient-from: #101613 var(--tw-gradient-from-position) !important;
-}
-
-html.dark [class*="via-[#FAF8F4]"],
-html.dark [class*="via-[#FCFAF8]"] {
-  --tw-gradient-via: #151c17 var(--tw-gradient-via-position) !important;
-}
-
-html.dark [class*="to-[#F9FCFB]"],
-html.dark [class*="to-[#FFFDF9]"],
-html.dark [class*="to-[#FAFCFB]"] {
-  --tw-gradient-to: #101613 var(--tw-gradient-to-position) !important;
-}
-
-html.dark [class*="from-[#EAFBF2]"] {
-  --tw-gradient-from: rgba(26, 35, 29, 0.7) var(--tw-gradient-from-position) !important;
-}
-
-html.dark [class*="to-[#EAF4FF]"] {
-  --tw-gradient-to: rgba(34, 50, 64, 0.7) var(--tw-gradient-to-position) !important;
 }
 
 /* Decorative light radial washes vanish on dark surfaces */

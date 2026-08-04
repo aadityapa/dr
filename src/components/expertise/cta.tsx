@@ -18,9 +18,9 @@ export function ExpertiseCta({ shells, labels }: CtaProps) {
   const reduced = useReducedMotion();
 
   return (
-    <Section compact className="bg-[#FAFCFB] !pb-8 md:!pb-10">
+    <Section compact className="bg-[color:var(--surface-foam)] !pb-8 md:!pb-10">
       <motion.div
-        className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#1a4a3a] via-[#2D6047] to-[#4A9B73] px-6 py-10 text-center text-white md:px-12 md:py-12"
+        className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[color:var(--fill-forest-deep)] via-[color:var(--fill-forest)] to-[color:var(--fill-green)] px-6 py-10 text-center text-white md:px-12 md:py-12"
         variants={fadeUp}
         {...scrollReveal}
         transition={{ duration: 0.6 }}
@@ -60,7 +60,7 @@ export function ExpertiseCta({ shells, labels }: CtaProps) {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-white px-7 text-[#1a4a3a] shadow-lg hover:bg-white/95"
+              className="rounded-full bg-white px-7 text-[color:var(--ink-forest-deep)] shadow-lg hover:bg-white/95"
             >
               <Link href="/appointment">
                 <Calendar className="mr-2 h-4 w-4" aria-hidden />

@@ -18,15 +18,15 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#FFFDF9] via-[#FAF8F4] to-[#F9FCFB] px-4 py-16 md:px-8 md:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--surface-ivory)] via-[color:var(--surface-linen)] to-[color:var(--surface-mist)] px-4 py-16 md:px-8 md:py-24">
       <motion.div
-        className="pointer-events-none absolute -left-32 top-16 h-96 w-96 rounded-full bg-[#D8F0E4]/60 blur-3xl"
+        className="pointer-events-none absolute -left-32 top-16 h-96 w-96 rounded-full bg-[color:var(--tint-green)]/60 blur-3xl"
         animate={reduced ? undefined : { scale: [1, 1.08, 1], opacity: [0.5, 0.7, 0.5] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         aria-hidden
       />
       <motion.div
-        className="pointer-events-none absolute -right-24 bottom-8 h-80 w-80 rounded-full bg-[#D6E8F5]/50 blur-3xl"
+        className="pointer-events-none absolute -right-24 bottom-8 h-80 w-80 rounded-full bg-[color:var(--tint-blue)]/50 blur-3xl"
         animate={reduced ? undefined : { scale: [1, 1.1, 1], opacity: [0.4, 0.65, 0.4] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         aria-hidden
@@ -36,7 +36,7 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
       {Array.from({ length: 6 }).map((_, i) => (
         <motion.span
           key={i}
-          className="pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-[#4A9B73]/30"
+          className="pointer-events-none absolute h-1.5 w-1.5 rounded-full bg-[color:var(--fill-green)]/30"
           style={{ left: `${8 + (i * 7) % 84}%`, top: `${12 + (i * 11) % 76}%` }}
           animate={
             reduced ? undefined : { y: [0, -12, 0], opacity: [0.2, 0.6, 0.2] }
@@ -52,19 +52,19 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <Badge className="mb-6 border border-white/60 bg-white/70 text-[#2D6047] backdrop-blur-sm">
+          <Badge className="mb-6 border border-white/60 bg-white/70 text-[color:var(--ink-forest)] backdrop-blur-sm">
             {shells.heroBadge}
           </Badge>
 
-          <h1 className="font-[family-name:var(--font-serif)] text-4xl leading-[1.08] tracking-tight text-[#004d4d] md:text-5xl lg:text-[3.25rem]">
+          <h1 className="font-[family-name:var(--font-serif)] text-4xl leading-[1.08] tracking-tight text-[color:var(--ink-teal)] md:text-5xl lg:text-[3.25rem]">
             {copy.kicker}
           </h1>
 
-          <p className="mt-4 font-[family-name:var(--font-serif)] text-lg italic text-[#444] md:text-xl">
+          <p className="mt-4 font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--ink-body)] md:text-xl">
             {copy.title}
           </p>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-[#444] md:text-lg">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--ink-body)] md:text-lg">
             {copy.description}
           </p>
 
@@ -77,9 +77,9 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
                   initial={reduced ? false : { opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + i * 0.1 }}
-                  className="flex items-center gap-2 rounded-full border border-white/70 bg-white/55 px-4 py-2 text-sm font-medium text-[#2D6047] shadow-sm backdrop-blur-md"
+                  className="flex items-center gap-2 rounded-full border border-white/70 bg-white/55 px-4 py-2 text-sm font-medium text-[color:var(--ink-forest)] shadow-sm backdrop-blur-md"
                 >
-                  <Icon className="h-4 w-4 text-[#4A9B73]" aria-hidden />
+                  <Icon className="h-4 w-4 text-[color:var(--brand-green)]" aria-hidden />
                   {label}
                 </motion.li>
               );
@@ -94,7 +94,7 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           aria-hidden
         >
-          <div className="relative h-full min-h-[18rem] w-full rounded-[2.5rem] border border-white/60 bg-white/30 shadow-xl shadow-[#4A9B73]/10 backdrop-blur-md">
+          <div className="relative h-full min-h-[18rem] w-full rounded-[2.5rem] border border-white/60 bg-white/30 shadow-xl shadow-[color:var(--brand-green)]/10 backdrop-blur-md">
             <div className="glossy-frame absolute inset-6 overflow-hidden rounded-[2rem] ring-4 ring-white/70">
               <Image
                 src="/images/gallery/parent-child-connection.jpg"
@@ -110,7 +110,7 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0" aria-hidden>
-        <svg viewBox="0 0 1440 80" className="w-full text-[#FAF8F4]" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 80" className="w-full text-[color:var(--surface-linen)]" preserveAspectRatio="none">
           <path
             fill="currentColor"
             d="M0,48 C360,80 720,0 1080,32 C1260,48 1380,64 1440,56 L1440,80 L0,80 Z"

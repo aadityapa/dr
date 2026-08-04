@@ -50,7 +50,7 @@ export default async function ConditionsPage({ params }: Props) {
   const labels = getLabels(locale);
 
   return (
-    <main className="bg-[#FFFDF9]">
+    <main className="bg-[color:var(--surface-ivory)]">
       <JsonLd
         id="conditions-breadcrumb"
         data={breadcrumbSchema([

@@ -37,7 +37,7 @@ export function TherapyGrid({ areas, shells, noResults }: TherapyGridProps) {
       ) : (
         <motion.p
           key="empty"
-          className="mt-10 text-center text-base text-[#666]"
+          className="mt-10 text-center text-base text-[color:var(--ink-soft)]"
           variants={fadeIn}
           initial="hidden"
           animate="visible"

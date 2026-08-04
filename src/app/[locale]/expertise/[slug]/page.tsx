@@ -46,7 +46,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
   const shells = getPageShells(locale);
 
   return (
-    <main className="bg-gradient-to-b from-[#FFFDFB] via-[#FCFAF8] to-[#FAFCFB]">
+    <main className="bg-gradient-to-b from-[color:var(--surface-cream)] via-[color:var(--surface-paper)] to-[color:var(--surface-foam)]">
       <JsonLd
         id="expertise-detail-breadcrumb"
         data={breadcrumbSchema([

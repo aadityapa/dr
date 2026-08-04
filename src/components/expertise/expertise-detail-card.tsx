@@ -29,15 +29,15 @@ export function ExpertiseDetailCard({ area, labels, hideTitle }: ExpertiseDetail
     >
       <div className="border-b border-white/60 bg-gradient-to-r from-white/40 via-white/20 to-white/40 px-6 py-8 md:px-10 md:py-10">
         {hideTitle ? null : (
-          <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[#1a4a3a] md:text-3xl">
+          <h2 className="font-[family-name:var(--font-serif)] text-2xl text-[color:var(--ink-forest-deep)] md:text-3xl">
             {area.title}
           </h2>
         )}
 
         <div className="mt-8">
-          <h3 className="text-lg font-medium text-[#2D6047] md:text-xl">{labels.whatIsIt}</h3>
+          <h3 className="text-lg font-medium text-[color:var(--ink-forest)] md:text-xl">{labels.whatIsIt}</h3>
           <motion.div
-            className="mt-4 space-y-4 leading-[1.75] text-[#555]"
+            className="mt-4 space-y-4 leading-[1.75] text-[color:var(--ink-soft)]"
             variants={staggerContainer(0.08)}
             initial={reduced ? false : "hidden"}
             whileInView="visible"
@@ -54,15 +54,15 @@ export function ExpertiseDetailCard({ area, labels, hideTitle }: ExpertiseDetail
 
       {area.whatParentsMayNotice.length > 0 ? (
         <div className="border-b border-white/50 px-6 py-8 md:px-10 md:py-10">
-          <h3 className="text-lg font-medium text-[#2D6047] md:text-xl">{labels.whatParentsNotice}</h3>
+          <h3 className="text-lg font-medium text-[color:var(--ink-forest)] md:text-xl">{labels.whatParentsNotice}</h3>
           {area.whatParentsNoticeIntro ? (
-            <p className="mt-3 max-w-[70ch] leading-[1.75] text-[#555]">{area.whatParentsNoticeIntro}</p>
+            <p className="mt-3 max-w-[70ch] leading-[1.75] text-[color:var(--ink-soft)]">{area.whatParentsNoticeIntro}</p>
           ) : null}
           <ul className="mt-5 space-y-3">
             {area.whatParentsMayNotice.map((item, i) => (
               <motion.li
                 key={item}
-                className="flex items-start gap-3 text-sm leading-relaxed text-[#555] md:text-base"
+                className="flex items-start gap-3 text-sm leading-relaxed text-[color:var(--ink-soft)] md:text-base"
                 initial={reduced ? false : { opacity: 0, x: -12 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -82,7 +82,7 @@ export function ExpertiseDetailCard({ area, labels, hideTitle }: ExpertiseDetail
 
       {area.approachSummary?.length ? (
         <div className="border-b border-white/50 px-6 py-8 md:px-10 md:py-10">
-          <div className="space-y-4 leading-[1.75] text-[#555]">
+          <div className="space-y-4 leading-[1.75] text-[color:var(--ink-soft)]">
             {area.approachSummary.map((paragraph) => (
               <p key={paragraph.slice(0, 48)} className="max-w-[70ch]">
                 {paragraph}
@@ -101,14 +101,14 @@ export function ExpertiseDetailCard({ area, labels, hideTitle }: ExpertiseDetail
               boxShadow: `inset 0 1px 0 rgba(255,255,255,0.8)`,
             }}
           >
-            <h3 className="text-lg font-medium text-[#2D6047] md:text-xl">{labels.areasCommonlySupported}</h3>
+            <h3 className="text-lg font-medium text-[color:var(--ink-forest)] md:text-xl">{labels.areasCommonlySupported}</h3>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {area.areasCommonlySupported.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 text-sm leading-relaxed text-[#555] md:text-base"
+                  className="flex items-start gap-2.5 text-sm leading-relaxed text-[color:var(--ink-soft)] md:text-base"
                 >
-                  <span className="mt-0.5 shrink-0 font-semibold text-[#4A9B73]" aria-hidden>
+                  <span className="mt-0.5 shrink-0 font-semibold text-[color:var(--brand-green)]" aria-hidden>
                     ✓
                   </span>
                   {item}
@@ -120,7 +120,7 @@ export function ExpertiseDetailCard({ area, labels, hideTitle }: ExpertiseDetail
       ) : null}
 
       {area.closingLine ? (
-        <p className="border-t border-white/50 px-6 py-8 text-center font-[family-name:var(--font-serif)] text-lg italic text-[#555] md:px-10 md:py-10 md:text-xl">
+        <p className="border-t border-white/50 px-6 py-8 text-center font-[family-name:var(--font-serif)] text-lg italic text-[color:var(--ink-soft)] md:px-10 md:py-10 md:text-xl">
           {area.closingLine}
         </p>
       ) : null}

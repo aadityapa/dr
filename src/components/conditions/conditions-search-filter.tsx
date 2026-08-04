@@ -40,10 +40,10 @@ export function ConditionsSearchFilter({
     >
       <div
         className={`relative flex items-center rounded-2xl border bg-white/70 shadow-sm backdrop-blur-md transition-all ${
-          focused ? "border-[#4A9B73]/50 shadow-md shadow-[#4A9B73]/10" : "border-white/80"
+          focused ? "border-[color:var(--brand-green)]/50 shadow-md shadow-[color:var(--brand-green)]/10" : "border-white/80"
         }`}
       >
-        <Search className="ml-4 h-5 w-5 shrink-0 text-[#4A9B73]" aria-hidden />
+        <Search className="ml-4 h-5 w-5 shrink-0 text-[color:var(--brand-green)]" aria-hidden />
         <input
           type="search"
           value={searchQuery}
@@ -52,13 +52,13 @@ export function ConditionsSearchFilter({
           onBlur={() => setFocused(false)}
           placeholder={shells.searchPlaceholder}
           aria-label={shells.searchPlaceholder}
-          className="w-full bg-transparent px-3 py-4 text-base text-[#333] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-sage)] focus-visible:ring-offset-1 placeholder:text-[#888]"
+          className="w-full bg-transparent px-3 py-4 text-base text-[color:var(--ink-body)] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-sage)] focus-visible:ring-offset-1 placeholder:text-[color:var(--ink-dim)]"
         />
         {searchQuery ? (
           <button
             type="button"
             onClick={clearSearch}
-            className="mr-3 rounded-full p-1.5 text-[#666] transition-colors hover:bg-[#F0F0F0] hover:text-[#333]"
+            className="mr-3 rounded-full p-1.5 text-[color:var(--ink-soft)] transition-colors hover:bg-[color:var(--tint-gray)] hover:text-[color:var(--ink-body)]"
             aria-label={shells.clearSearch}
           >
             <X className="h-4 w-4" />
@@ -100,8 +100,8 @@ function CategoryChip({
       onClick={onClick}
       className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
         active
-          ? "border-[#4A9B73]/40 bg-[#D8F0E4]/80 text-[#2D6047] shadow-sm"
-          : "border-white/70 bg-white/50 text-[#555] hover:border-[#4A9B73]/20 hover:bg-white/80"
+          ? "border-[color:var(--brand-green)]/40 bg-[color:var(--tint-green)]/80 text-[color:var(--ink-forest)] shadow-sm"
+          : "border-white/70 bg-white/50 text-[color:var(--ink-soft)] hover:border-[color:var(--brand-green)]/20 hover:bg-white/80"
       }`}
       aria-pressed={active}
     >
