@@ -154,7 +154,7 @@ export function Navbar() {
           <LanguageSwitcher className="sm:hidden" />
           <a
             href={`tel:${siteConfig.phone}`}
-            className="rounded-xl border border-[color:var(--color-border)] p-2 transition-colors hover:bg-[color:var(--color-soft-green)]/50 2xl:hidden"
+            className="hidden rounded-xl border border-[color:var(--color-border)] p-2 transition-colors hover:bg-[color:var(--color-soft-green)]/50 min-[380px]:block 2xl:hidden"
             aria-label={`Call ${siteConfig.phoneDisplay}`}
           >
             <Phone className="h-4 w-4 text-[color:var(--color-sage-dark)]" />

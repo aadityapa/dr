@@ -24,7 +24,7 @@ export function AppointmentHeroArt() {
       className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 items-center justify-center md:flex lg:w-[46%]"
       aria-hidden
     >
-      <div className="relative h-[360px] w-[420px]">
+      <div className="relative h-[360px] w-full max-w-[420px]">
         {/* Sun */}
         <motion.svg
           className="absolute right-6 top-2 h-24 w-24"
