@@ -60,3 +60,8 @@ scripts/              # Stitch fetch & sync utilities
 Deploy to [Vercel](https://vercel.com) or any Node.js host that supports Next.js 15.
 
 Repository: [github.com/aadityapa/dr](https://github.com/aadityapa/dr)
+
+
+## Deployment checklist
+
+- Set `NEXT_PUBLIC_SITE_URL` to the real production origin (e.g. `https://www.thrivewithsharuja.com`). All canonicals, hreflang alternates, the sitemap, Open Graph URLs and JSON-LD IDs derive from it; without it the site advertises the Vercel preview domain to search engines.

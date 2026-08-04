@@ -1,8 +1,9 @@
 "use client";
 
-import { Moon, Palette, Sun } from "lucide-react";
+import { Moon, Palette, Sparkles, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import { effectsEnabled, setEffectsEnabled } from "@/lib/effects";
 import { cn } from "@/lib/utils";
 
 /**
@@ -34,14 +35,22 @@ export function ThemeControls({ className }: { className?: string }) {
   const [mounted, setMounted] = useState(false);
   const [dark, setDark] = useState(false);
   const [accent, setAccent] = useState<Accent>("sage");
+  const [effects, setEffects] = useState(true);
 
   useEffect(() => {
     const el = document.documentElement;
     setDark(el.classList.contains("dark"));
     const a = el.getAttribute("data-accent") as Accent | null;
     if (a && (ACCENTS as readonly string[]).includes(a)) setAccent(a);
+    setEffects(effectsEnabled());
     setMounted(true);
   }, []);
+
+  const toggleEffects = () => {
+    const next = !effects;
+    setEffects(next);
+    setEffectsEnabled(next);
+  };
 
   const animateThemeChange = () => {
     const el = document.documentElement;
@@ -91,6 +100,22 @@ export function ThemeControls({ className }: { className?: string }) {
         ) : (
           <Moon className="h-4 w-4" aria-hidden="true" />
         )}
+      </button>
+      <button
+        type="button"
+        onClick={toggleEffects}
+        className={cn(btn, "hidden sm:block")}
+        aria-label={effects ? "Reduce visual effects" : "Enable visual effects"}
+        title={effects ? "Effects: on" : "Effects: off"}
+        aria-pressed={effects}
+      >
+        <Sparkles className={cn("h-4 w-4", mounted && !effects && "opacity-40")} aria-hidden="true" />
+        {mounted && !effects ? (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-1.5 top-1/2 h-0.5 -rotate-45 rounded-full bg-[color:var(--color-sage-dark)]"
+          />
+        ) : null}
       </button>
       <button
         type="button"

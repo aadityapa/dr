@@ -29,6 +29,10 @@ const devanagari = Noto_Sans_Devanagari({
   variable: "--font-devanagari",
   subsets: ["devanagari"],
   display: "swap",
+  // No preload: the @font-face carries a Devanagari unicode-range, so
+  // browsers only download this font on hi/mr pages that actually render
+  // Devanagari text — English pages skip the payload entirely.
+  preload: false,
 });
 
 export const metadata: Metadata = {

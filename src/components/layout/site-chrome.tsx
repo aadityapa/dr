@@ -4,10 +4,9 @@ import { Footer } from "@/components/layout/footer";
 import { FloatingWhatsapp } from "@/components/layout/floating-whatsapp";
 import { Navbar } from "@/components/layout/navbar";
 import { StickyCtaBar } from "@/components/layout/sticky-cta-bar";
-import { ClientEnhancements } from "@/components/providers/client-enhancements";
+import { AmbientEffects } from "@/components/providers/ambient-effects";
 import { LanguageProvider, useLanguage } from "@/components/providers/language-provider";
 import { ScrollProgress } from "@/components/providers/scroll-progress";
-import { WatercolorCanvas } from "@/components/providers/watercolor-canvas";
 
 function SkipLink() {
   const { messages } = useLanguage();
@@ -25,9 +24,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
     <LanguageProvider>
       <SkipLink />
-      <WatercolorCanvas />
+      <AmbientEffects />
       <ScrollProgress />
-      <ClientEnhancements />
       <Navbar />
       <div id="main-content" className="pb-16 md:pb-0">
         {children}
