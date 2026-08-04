@@ -261,7 +261,7 @@ const en: Phase3Content = {
         milestone: "Calmer, more attentive, and following instructions better",
       },
       {
-        parent: "Kintu Gandhi (Mother of Ridhan Gandhi)",
+        parent: "Mother of Ridhan Gandhi",
         quote:
           "My son is on the autism spectrum, and we have been taking occupational therapy sessions with Dr. Sharuja for the last 4.5 years. The doctor, her team of trained therapists, and the supporting staff are all helpful, co-operative, and very motivating. They try their best to make my child independent in every way — and they counsel us parents too, giving us the confidence to face the social world outside. Whenever my son enters the session room, he is greeted with a sweet smile and a peppy hello to lift his mood. Me and my child are lucky to have them.",
         milestone: "4.5 years of steady progress towards independence",
