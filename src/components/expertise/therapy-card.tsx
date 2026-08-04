@@ -17,6 +17,7 @@ import { getLocalizedExpertise } from "@/lib/i18n/localize";
 import { cardHover, fadeUp } from "./animations";
 import type { ExpertisePageProps } from "./expertise-types";
 import { getExpertisePastelByKey } from "./expertise-pastels";
+import { TherapyIllustration } from "./therapy-illustrations";
 
 export type TherapyCardProps = Pick<ExpertisePageProps, "shells"> & {
   area: ExpertiseArea;
@@ -61,6 +62,14 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
             style={{ backgroundColor: pastel.bg }}
             aria-hidden
           />
+
+          <div className="relative mb-4 overflow-hidden rounded-2xl border border-white/70 shadow-sm">
+            <TherapyIllustration
+              slug={area.slug}
+              pastel={pastel}
+              className="h-auto w-full transition-transform duration-500 group-hover:scale-[1.04]"
+            />
+          </div>
 
           <div className="relative flex items-start justify-between gap-3">
             {Icon ? (
