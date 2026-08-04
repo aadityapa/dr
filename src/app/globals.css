@@ -565,6 +565,121 @@ html.dark [class*="text-[color:var(--color-soft-green)"] {
   color: #cfe3d6 !important;
 }
 
+/* ── Dark-mode fixes: hardcoded hex text colours (site-wide) ─────────
+   Many components use arbitrary Tailwind classes with fixed dark hex
+   colours; on dark surfaces they become unreadable. Map them to light
+   equivalents. */
+html.dark [class*="text-[#1a4a3a]"],
+html.dark [class*="text-[#2D6047]"],
+html.dark [class*="text-[#004d4d]"],
+html.dark [class*="text-[#005B5B]"],
+html.dark [class*="text-[#2a3330]"],
+html.dark [class*="text-[#3d4a44]"] {
+  color: #d8e6dc !important;
+}
+
+html.dark [class*="text-[#333]"],
+html.dark [class*="text-[#444]"] {
+  color: #ccd8d0 !important;
+}
+
+html.dark [class*="text-[#555]"],
+html.dark [class*="text-[#666]"] {
+  color: #aebfb4 !important;
+}
+
+html.dark [class*="text-[#888]"] {
+  color: #95a99c !important;
+}
+
+html.dark [class*="text-[#4A9B73]"] {
+  color: #82c9a1 !important;
+}
+
+/* Section-divider waves (SVG fill via currentColor) → match dark surface */
+html.dark [class*="text-[#FCFAF8]"],
+html.dark [class*="text-[#FAF8F4]"] {
+  color: #101613 !important;
+}
+
+/* ── Dark-mode fixes: remaining hardcoded light surfaces ───────────── */
+html.dark [class*="bg-[#FFFDFB]"],
+html.dark [class*="bg-[#FCFAF8]"],
+html.dark [class*="bg-[#FAF8F4]"],
+html.dark [class*="bg-[#F9FCFB]"],
+html.dark [class*="bg-[#FFFDF9]"],
+html.dark [class*="bg-[#FAFCFB]"],
+html.dark [class*="bg-[#f4fafa]"],
+html.dark [class*="bg-[#f4f9f9]"],
+html.dark [class*="bg-[#e8f5f5]"] {
+  background-color: #101613 !important;
+}
+
+html.dark [class*="bg-[#FFF9DE]"] {
+  background-color: rgba(53, 48, 28, 0.55) !important;
+}
+
+/* Soft translucent white panels → dark glass */
+html.dark .bg-white\/45,
+html.dark .bg-white\/30,
+html.dark .bg-white\/25 {
+  background-color: rgba(24, 33, 27, 0.55) !important;
+}
+
+/* Light gradient section washes → dark equivalents */
+html.dark [class*="from-[#FFFDF9]"],
+html.dark [class*="from-[#FFFDFB]"],
+html.dark [class*="from-[#F9FCFB]"] {
+  --tw-gradient-from: #101613 var(--tw-gradient-from-position) !important;
+}
+
+html.dark [class*="via-[#FAF8F4]"],
+html.dark [class*="via-[#FCFAF8]"] {
+  --tw-gradient-via: #151c17 var(--tw-gradient-via-position) !important;
+}
+
+html.dark [class*="to-[#F9FCFB]"],
+html.dark [class*="to-[#FFFDF9]"],
+html.dark [class*="to-[#FAFCFB]"] {
+  --tw-gradient-to: #101613 var(--tw-gradient-to-position) !important;
+}
+
+html.dark [class*="from-[#EAFBF2]"] {
+  --tw-gradient-from: rgba(26, 35, 29, 0.7) var(--tw-gradient-from-position) !important;
+}
+
+html.dark [class*="to-[#EAF4FF]"] {
+  --tw-gradient-to: rgba(34, 50, 64, 0.7) var(--tw-gradient-to-position) !important;
+}
+
+/* Decorative light radial washes vanish on dark surfaces */
+html.dark [class*="bg-[radial-gradient"] {
+  background-image: none !important;
+}
+
+/* ── Dark-mode fixes: components with inline pastel styles ─────────── */
+html.dark .therapy-card-surface {
+  --tcs-text: #d8e6dc;
+  --tcs-accent: #8fd0aa;
+  background-color: rgba(24, 33, 27, 0.88) !important;
+}
+
+html.dark .btg-word {
+  color: var(--btg-dark, #e2ece5) !important;
+}
+
+html.dark .btg-wash {
+  opacity: 0.14 !important;
+}
+
+html.dark .btg-chip {
+  background-color: rgba(24, 33, 27, 0.8) !important;
+}
+
+html.dark .btg-chip svg {
+  color: var(--btg-dark, #e2ece5) !important;
+}
+
 /* ── Glass navbar ──────────────────────────────────────────────────── */
 .glass-nav {
   background-image: linear-gradient(

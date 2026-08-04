@@ -34,6 +34,20 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Locale-prefixed variants (localePrefix is "always", so real URLs carry /en|/hi|/mr)
+      { source: "/:locale(en|hi|mr)/therapy-journey", destination: "/:locale/expertise", permanent: true },
+      { source: "/:locale(en|hi|mr)/testimonials", destination: "/:locale/testimonials-milestones", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/sensory-integration", destination: "/:locale/expertise/sensory-integration", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/feeding-therapy", destination: "/:locale/expertise/oral-placement-therapy", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/adl-training", destination: "/:locale/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/parent-counseling", destination: "/:locale/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/group-sessions", destination: "/:locale/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/occupational-therapy", destination: "/:locale/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/handwriting-training", destination: "/:locale/expertise/handwriting-without-tears", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/brain-gym", destination: "/:locale/expertise/brain-gym", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/aquatic-therapy", destination: "/:locale/expertise/aquatic-therapy", permanent: true },
+      { source: "/:locale(en|hi|mr)/services", destination: "/:locale/expertise", permanent: true },
+      { source: "/:locale(en|hi|mr)/services/:slug", destination: "/:locale/expertise/:slug", permanent: true },
       { source: "/therapy-journey", destination: "/expertise", permanent: true },
       { source: "/testimonials", destination: "/testimonials-milestones", permanent: true },
       { source: "/services", destination: "/expertise", permanent: true },
@@ -73,6 +87,8 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 2592000,
     remotePatterns: [
       {
         protocol: "https",
@@ -93,7 +109,7 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: ["lucide-react", "framer-motion"],
   },
 };
 

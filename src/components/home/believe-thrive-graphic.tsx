@@ -15,6 +15,8 @@ import { Bike, Blocks, Heart, Users } from "lucide-react";
 type Row = {
   word: string;
   color: string;
+  /** Light variant used when dark mode is active (see globals.css .btg-*) */
+  darkColor: string;
   wash: string;
   photo: { src: string; alt: string };
   Icon: typeof Heart;
@@ -26,6 +28,7 @@ const ROWS: Row[] = [
   {
     word: "Believe",
     color: "#1a4a3a",
+    darkColor: "#9fd4b5",
     wash: "#DCEFE3",
     photo: {
       src: "/images/gallery/infant-crawling-guidance.jpg",
@@ -38,6 +41,7 @@ const ROWS: Row[] = [
   {
     word: "Build",
     color: "#1E4A6E",
+    darkColor: "#9cc3e8",
     wash: "#DDEAF7",
     photo: {
       src: "/images/gallery/ball-pit-xylophone-play.jpg",
@@ -50,6 +54,7 @@ const ROWS: Row[] = [
   {
     word: "Thrive",
     color: "#5A7A2F",
+    darkColor: "#bcd48a",
     wash: "#E9F2D8",
     photo: {
       src: "/images/gallery/jumping-rings-motor-planning.jpg",
@@ -62,6 +67,7 @@ const ROWS: Row[] = [
   {
     word: "Together",
     color: "#5B3E8E",
+    darkColor: "#c9b3ef",
     wash: "#EBE2F6",
     photo: {
       src: "/images/gallery/therapist-guided-balance-play.jpg",
@@ -85,7 +91,7 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
   return (
     <div className={className} role="img" aria-label="Believe, build, thrive — together">
       <div className="flex max-w-xl flex-col gap-3 md:gap-4">
-        {ROWS.map(({ word, color, wash, photo, Icon, align, blob }, i) => {
+        {ROWS.map(({ word, color, darkColor, wash, photo, Icon, align, blob }, i) => {
           const reverse = align === "right";
 
           return (
@@ -94,6 +100,7 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
               className={`relative flex items-center gap-3 md:gap-4 ${ALIGN_CLASS[align]} ${
                 reverse ? "flex-row-reverse" : ""
               }`}
+              style={{ "--btg-dark": darkColor } as React.CSSProperties}
               initial={reduced ? false : { opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -101,7 +108,7 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
             >
               {/* watercolor wash behind the row */}
               <div
-                className="organic-blob pointer-events-none absolute -inset-y-2 left-1/2 h-[130%] w-3/4 -translate-x-1/2 blur-xl"
+                className="btg-wash organic-blob pointer-events-none absolute -inset-y-2 left-1/2 h-[130%] w-3/4 -translate-x-1/2 blur-xl"
                 style={{ backgroundColor: wash, opacity: 0.7 }}
                 aria-hidden
               />
@@ -121,14 +128,14 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
               </motion.div>
 
               <span
-                className="relative font-[family-name:var(--font-serif)] text-4xl font-bold uppercase leading-none tracking-tight md:text-5xl"
+                className="btg-word relative font-[family-name:var(--font-serif)] text-4xl font-bold uppercase leading-none tracking-tight md:text-5xl"
                 style={{ color }}
               >
                 {word}
               </span>
 
               <span
-                className="relative hidden h-10 w-10 shrink-0 items-center justify-center rounded-full sm:flex md:h-11 md:w-11"
+                className="btg-chip relative hidden h-10 w-10 shrink-0 items-center justify-center rounded-full sm:flex md:h-11 md:w-11"
                 style={{ backgroundColor: wash }}
                 aria-hidden
               >

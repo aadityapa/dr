@@ -46,12 +46,16 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
       <motion.article
         className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] p-[1px]"
         whileHover={reduced ? undefined : cardHover}
-        style={{
-          background: `linear-gradient(135deg, ${pastel.border}88, ${pastel.accent}44, ${pastel.border}66)`,
-        }}
+        style={
+          {
+            background: `linear-gradient(135deg, ${pastel.border}88, ${pastel.accent}44, ${pastel.border}66)`,
+            "--tcs-text": pastel.text,
+            "--tcs-accent": pastel.accent,
+          } as React.CSSProperties
+        }
       >
         <div
-          className="relative flex h-full flex-col rounded-[calc(2rem-1px)] p-5 backdrop-blur-xl md:p-6"
+          className="therapy-card-surface relative flex h-full flex-col rounded-[calc(2rem-1px)] p-5 backdrop-blur-xl md:p-6"
           style={{
             backgroundColor: `${pastel.bg}CC`,
             boxShadow: `0 12px 40px ${pastel.border}33, inset 0 1px 0 rgba(255,255,255,0.85)`,
@@ -75,7 +79,7 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
             {Icon ? (
               <motion.div
                 className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/80 bg-white/70 shadow-sm"
-                style={{ color: pastel.accent }}
+                style={{ color: "var(--tcs-accent)" }}
                 whileHover={reduced ? undefined : { rotate: 8, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 18 }}
               >
@@ -84,7 +88,7 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
             ) : null}
             <span
               className="rounded-full border border-white/70 bg-white/60 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide backdrop-blur-sm"
-              style={{ color: pastel.text }}
+              style={{ color: "var(--tcs-text)" }}
             >
               {therapyFocus ? `${shells.therapyFocusLabel}: ${therapyFocus}` : categoryLabel}
             </span>
@@ -92,7 +96,7 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
 
           <h2
             className="relative mt-4 font-[family-name:var(--font-serif)] text-xl font-medium leading-snug md:text-[1.4rem]"
-            style={{ color: pastel.text }}
+            style={{ color: "var(--tcs-text)" }}
           >
             <Link href={`/expertise/${area.slug}`} className="hover:underline">
               {localized.title}
@@ -106,7 +110,7 @@ export function TherapyCard({ area, index, shells }: TherapyCardProps) {
           <Link
             href={`/expertise/${area.slug}`}
             className="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/80 bg-white/60 px-4 py-2.5 text-sm font-semibold backdrop-blur-sm transition-colors hover:bg-white/90 after:absolute after:inset-0 after:content-['']"
-            style={{ color: pastel.accent }}
+            style={{ color: "var(--tcs-accent)" }}
             aria-label={localized.title}
           >
             <motion.span
