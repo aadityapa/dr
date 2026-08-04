@@ -29,8 +29,18 @@ function NavMoreDropdown({
     function handleClick(e: MouseEvent) {
       if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
     }
+    function handleKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        ref.current?.querySelector("button")?.focus();
+      }
+    }
     document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
   }, []);
 
   return (
@@ -164,6 +174,7 @@ export function Navbar() {
       {/* Mobile / tablet menu */}
       <nav
         aria-label="Mobile navigation"
+        inert={!open}
         className={cn(
           "grid overflow-hidden border-t border-[color:var(--color-border)] bg-[color:var(--color-snow)] transition-[grid-template-rows,opacity] duration-300 xl:hidden",
           open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",

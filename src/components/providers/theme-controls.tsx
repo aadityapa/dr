@@ -74,7 +74,7 @@ export function ThemeControls({ className }: { className?: string }) {
   };
 
   const btn =
-    "relative rounded-xl border border-[color:var(--color-border)] p-2 text-[color:var(--color-sage-dark)] transition-colors hover:bg-[color:var(--color-soft-green)]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[color:var(--color-sage-dark)]";
+    "relative rounded-xl border border-[color:var(--color-border)] p-2.5 text-[color:var(--color-sage-dark)] transition-colors hover:bg-[color:var(--color-soft-green)]/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[color:var(--color-sage-dark)]";
 
   return (
     <div className={cn("flex items-center gap-1.5", className)}>

@@ -82,17 +82,21 @@ export function ScreeningForm() {
 
   const onSubmit = async (values: ScreeningInput) => {
     setError(null);
-    const res = await fetch("/api/screening", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
-    if (!res.ok) {
+    try {
+      const res = await fetch("/api/screening", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) {
+        setError(formCopy.error);
+        return;
+      }
+      setSuccess(true);
+      reset();
+    } catch {
       setError(formCopy.error);
-      return;
     }
-    setSuccess(true);
-    reset();
   };
 
   if (success) {
@@ -108,29 +112,101 @@ export function ScreeningForm() {
     <form className="grid gap-6" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <Input placeholder={formCopy.parentName} {...register("parentName")} />
-          <p className="text-xs text-red-600">{errors.parentName?.message}</p>
+          <label htmlFor="scr-parent" className="sr-only">
+            {formCopy.parentName}
+          </label>
+          <Input
+            id="scr-parent"
+            autoComplete="name"
+            placeholder={formCopy.parentName}
+            aria-invalid={Boolean(errors.parentName)}
+            aria-describedby={errors.parentName ? "scr-parent-error" : undefined}
+            {...register("parentName")}
+          />
+          {errors.parentName ? (
+            <p id="scr-parent-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.parentName.message}
+            </p>
+          ) : null}
         </div>
         <div>
-          <Input placeholder={formCopy.childName} {...register("childName")} />
-          <p className="text-xs text-red-600">{errors.childName?.message}</p>
+          <label htmlFor="scr-child" className="sr-only">
+            {formCopy.childName}
+          </label>
+          <Input
+            id="scr-child"
+            placeholder={formCopy.childName}
+            aria-invalid={Boolean(errors.childName)}
+            aria-describedby={errors.childName ? "scr-child-error" : undefined}
+            {...register("childName")}
+          />
+          {errors.childName ? (
+            <p id="scr-child-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.childName.message}
+            </p>
+          ) : null}
         </div>
         <div>
-          <Input placeholder={formCopy.childAge} {...register("childAge")} />
-          <p className="text-xs text-red-600">{errors.childAge?.message}</p>
+          <label htmlFor="scr-age" className="sr-only">
+            {formCopy.childAge}
+          </label>
+          <Input
+            id="scr-age"
+            placeholder={formCopy.childAge}
+            aria-invalid={Boolean(errors.childAge)}
+            aria-describedby={errors.childAge ? "scr-age-error" : undefined}
+            {...register("childAge")}
+          />
+          {errors.childAge ? (
+            <p id="scr-age-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.childAge.message}
+            </p>
+          ) : null}
         </div>
         <div>
-          <Input type="email" placeholder={formCopy.email} {...register("email")} />
-          <p className="text-xs text-red-600">{errors.email?.message}</p>
+          <label htmlFor="scr-email" className="sr-only">
+            {formCopy.email}
+          </label>
+          <Input
+            id="scr-email"
+            type="email"
+            autoComplete="email"
+            inputMode="email"
+            placeholder={formCopy.email}
+            aria-invalid={Boolean(errors.email)}
+            aria-describedby={errors.email ? "scr-email-error" : undefined}
+            {...register("email")}
+          />
+          {errors.email ? (
+            <p id="scr-email-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.email.message}
+            </p>
+          ) : null}
         </div>
         <div className="md:col-span-2">
-          <Input placeholder={formCopy.phone} {...register("phone")} />
-          <p className="text-xs text-red-600">{errors.phone?.message}</p>
+          <label htmlFor="scr-phone" className="sr-only">
+            {formCopy.phone}
+          </label>
+          <Input
+            id="scr-phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder={formCopy.phone}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? "scr-phone-error" : undefined}
+            {...register("phone")}
+          />
+          {errors.phone ? (
+            <p id="scr-phone-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.phone.message}
+            </p>
+          ) : null}
         </div>
       </div>
 
-      <div>
-        <h3 className="text-sm font-semibold text-[color:var(--color-sage-dark)]">{formCopy.screeningTitle}</h3>
+      <fieldset>
+        <legend className="text-sm font-semibold text-[color:var(--color-sage-dark)]">{formCopy.screeningTitle}</legend>
         <div className="mt-4 space-y-3">
           {formCopy.questions.map((q) => (
             <label
@@ -142,18 +218,32 @@ export function ScreeningForm() {
             </label>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       <div>
-        <Textarea placeholder={formCopy.additionalConcerns} rows={4} {...register("concerns")} />
-        <p className="text-xs text-red-600">{errors.concerns?.message}</p>
+        <label htmlFor="scr-concerns" className="sr-only">
+          {formCopy.additionalConcerns}
+        </label>
+        <Textarea
+          id="scr-concerns"
+          placeholder={formCopy.additionalConcerns}
+          rows={4}
+          aria-invalid={Boolean(errors.concerns)}
+          aria-describedby={errors.concerns ? "scr-concerns-error" : undefined}
+          {...register("concerns")}
+        />
+        {errors.concerns ? (
+          <p id="scr-concerns-error" role="alert" className="mt-1 text-xs text-red-600">
+            {errors.concerns.message}
+          </p>
+        ) : null}
       </div>
 
       <div>
         <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
           {isSubmitting ? formCopy.submitting : formCopy.submit}
         </Button>
-        {error ? <p className="mt-3 text-sm text-red-600">{error}</p> : null}
+        {error ? <p role="alert" className="mt-3 text-sm text-red-600">{error}</p> : null}
         <p className="mt-3 text-xs text-[color:var(--color-muted)]">{formCopy.disclaimer}</p>
       </div>
     </form>

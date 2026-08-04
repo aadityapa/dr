@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Award, ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
 import { Section } from "@/components/shared/section";
 import { SectionHeading } from "@/components/shared/section-heading";
@@ -15,6 +15,8 @@ export function CertCarousel({ shells }: AboutPageProps) {
   const reduced = useReducedMotion();
   const certs = doctorProfile.certifications;
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   const next = useCallback(() => {
     setActive((i) => (i + 1) % certs.length);
@@ -24,11 +26,12 @@ export function CertCarousel({ shells }: AboutPageProps) {
     setActive((i) => (i === 0 ? certs.length - 1 : i - 1));
   }, [certs.length]);
 
+  // WCAG 2.2.2: auto-advance stops on hover/focus and via the pause control.
   useEffect(() => {
-    if (reduced) return;
+    if (reduced || paused || hovered) return;
     const timer = window.setInterval(next, 4500);
     return () => window.clearInterval(timer);
-  }, [next, reduced]);
+  }, [next, reduced, paused, hovered]);
 
   const pastel = getCardPastel(active);
 
@@ -48,11 +51,24 @@ export function CertCarousel({ shells }: AboutPageProps) {
           initial={reduced ? false : { opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onFocus={() => setHovered(true)}
+          onBlur={() => setHovered(false)}
         >
           <Award className="mx-auto mb-4 h-10 w-10 text-[color:var(--color-sage)]" aria-hidden />
-          <p className="font-[family-name:var(--font-serif)] text-xl text-[color:var(--color-sage-dark)] md:text-2xl">
+          <p aria-live="polite" className="font-[family-name:var(--font-serif)] text-xl text-[color:var(--color-sage-dark)] md:text-2xl">
             {certs[active]}
           </p>
+          <button
+            type="button"
+            onClick={() => setPaused((v) => !v)}
+            className="absolute right-3 top-3 rounded-full bg-white/80 p-2.5 shadow-md transition hover:bg-white"
+            aria-pressed={paused}
+            aria-label={paused ? "Play carousel" : "Pause carousel"}
+          >
+            {paused ? <Play className="h-4 w-4" aria-hidden /> : <Pause className="h-4 w-4" aria-hidden />}
+          </button>
           <div className="absolute inset-y-0 left-3 flex items-center">
             <button
               type="button"
@@ -82,6 +98,7 @@ export function CertCarousel({ shells }: AboutPageProps) {
               type="button"
               onClick={() => setActive(i)}
               className="h-2.5 rounded-full transition-all"
+              aria-current={i === active}
               style={{
                 width: i === active ? 24 : 10,
                 backgroundColor: i === active ? "var(--color-sage)" : "var(--color-sage)",

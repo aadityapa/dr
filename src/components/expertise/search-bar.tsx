@@ -47,7 +47,7 @@ export function ExpertiseSearchBar({ shells, searchQuery, onSearchChange }: Sear
           onBlur={() => setFocused(false)}
           placeholder={shells.searchPlaceholder}
           aria-label={shells.searchPlaceholder}
-          className="relative w-full bg-transparent px-4 py-3.5 text-base text-[#2a3330] outline-none placeholder:text-[#888] md:py-4"
+          className="relative w-full bg-transparent px-4 py-3.5 text-base text-[#2a3330] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-sage)] focus-visible:ring-offset-1 placeholder:text-[#888] md:py-4"
         />
         {searchQuery ? (
           <button

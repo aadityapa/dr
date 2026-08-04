@@ -52,17 +52,21 @@ export function AppointmentForm() {
 
   const onSubmit = async (values: AppointmentInput) => {
     setError(null);
-    const res = await fetch("/api/appointment", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
-    if (!res.ok) {
+    try {
+      const res = await fetch("/api/appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      if (!res.ok) {
+        setError(formCopy.error);
+        return;
+      }
+      setSuccess(true);
+      reset();
+    } catch {
       setError(formCopy.error);
-      return;
     }
-    setSuccess(true);
-    reset();
   };
 
   if (success) {
@@ -83,27 +87,83 @@ export function AppointmentForm() {
   return (
     <form className="grid gap-5 md:grid-cols-2" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <Input placeholder={formCopy.parentName} {...register("parentName")} />
-        <p className="text-xs text-red-600">{errors.parentName?.message}</p>
+        <label htmlFor="appt-parent-name" className="sr-only">
+          {formCopy.parentName}
+        </label>
+        <Input
+          id="appt-parent-name"
+          autoComplete="name"
+          placeholder={formCopy.parentName}
+          aria-invalid={Boolean(errors.parentName)}
+          aria-describedby={errors.parentName ? "appt-parent-name-error" : undefined}
+          {...register("parentName")}
+        />
+        {errors.parentName ? (
+          <p id="appt-parent-name-error" role="alert" className="mt-1 text-xs text-red-600">
+            {errors.parentName.message}
+          </p>
+        ) : null}
       </div>
 
       <div>
-        <Input type="tel" inputMode="tel" placeholder={formCopy.phone} {...register("phone")} />
-        <p className="text-xs text-red-600">{errors.phone?.message}</p>
+        <label htmlFor="appt-phone" className="sr-only">
+          {formCopy.phone}
+        </label>
+        <Input
+          id="appt-phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
+          placeholder={formCopy.phone}
+          aria-invalid={Boolean(errors.phone)}
+          aria-describedby={errors.phone ? "appt-phone-error" : undefined}
+          {...register("phone")}
+        />
+        {errors.phone ? (
+          <p id="appt-phone-error" role="alert" className="mt-1 text-xs text-red-600">
+            {errors.phone.message}
+          </p>
+        ) : null}
       </div>
 
       <div>
-        <Input placeholder={formCopy.childName} {...register("childName")} />
-        <p className="text-xs text-red-600">{errors.childName?.message}</p>
+        <label htmlFor="appt-child-name" className="sr-only">
+          {formCopy.childName}
+        </label>
+        <Input
+          id="appt-child-name"
+          placeholder={formCopy.childName}
+          aria-invalid={Boolean(errors.childName)}
+          aria-describedby={errors.childName ? "appt-child-name-error" : undefined}
+          {...register("childName")}
+        />
+        {errors.childName ? (
+          <p id="appt-child-name-error" role="alert" className="mt-1 text-xs text-red-600">
+            {errors.childName.message}
+          </p>
+        ) : null}
       </div>
 
       <div>
-        <Input placeholder={formCopy.age} {...register("age")} />
-        <p className="text-xs text-red-600">{errors.age?.message}</p>
+        <label htmlFor="appt-age" className="sr-only">
+          {formCopy.age}
+        </label>
+        <Input
+          id="appt-age"
+          placeholder={formCopy.age}
+          aria-invalid={Boolean(errors.age)}
+          aria-describedby={errors.age ? "appt-age-error" : undefined}
+          {...register("age")}
+        />
+        {errors.age ? (
+          <p id="appt-age-error" role="alert" className="mt-1 text-xs text-red-600">
+            {errors.age.message}
+          </p>
+        ) : null}
       </div>
 
-      <div className="md:col-span-2">
-        <p className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.gender}</p>
+      <fieldset className="md:col-span-2">
+        <legend className="mb-2 text-sm font-medium text-[color:var(--color-sage-dark)]">{formCopy.gender}</legend>
         <div className="flex flex-wrap gap-4">
           {formCopy.genderOptions.map((opt) => (
             <label key={opt} className="flex items-center gap-2 text-sm text-[color:var(--color-muted)]">
@@ -117,18 +177,32 @@ export function AppointmentForm() {
             </label>
           ))}
         </div>
-      </div>
+      </fieldset>
 
       <div className="md:col-span-2">
-        <Textarea placeholder={formCopy.primaryConcern} rows={4} {...register("primaryConcern")} />
-        <p className="text-xs text-red-600">{errors.primaryConcern?.message}</p>
+        <label htmlFor="appt-concern" className="sr-only">
+          {formCopy.primaryConcern}
+        </label>
+        <Textarea
+          id="appt-concern"
+          placeholder={formCopy.primaryConcern}
+          rows={4}
+          aria-invalid={Boolean(errors.primaryConcern)}
+          aria-describedby={errors.primaryConcern ? "appt-concern-error" : undefined}
+          {...register("primaryConcern")}
+        />
+        {errors.primaryConcern ? (
+          <p id="appt-concern-error" role="alert" className="mt-1 text-xs text-red-600">
+            {errors.primaryConcern.message}
+          </p>
+        ) : null}
       </div>
 
       <div className="md:col-span-2">
         <Button type="submit" disabled={isSubmitting} size="lg" className="w-full sm:w-auto">
           {isSubmitting ? formCopy.submitting : formCopy.submit}
         </Button>
-        {error ? <p className="mt-3 text-sm text-red-600">{error}</p> : null}
+        {error ? <p role="alert" className="mt-3 text-sm text-red-600">{error}</p> : null}
       </div>
     </form>
   );

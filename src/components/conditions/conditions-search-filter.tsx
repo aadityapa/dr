@@ -52,7 +52,7 @@ export function ConditionsSearchFilter({
           onBlur={() => setFocused(false)}
           placeholder={shells.searchPlaceholder}
           aria-label={shells.searchPlaceholder}
-          className="w-full bg-transparent px-3 py-4 text-base text-[#333] outline-none placeholder:text-[#888]"
+          className="w-full bg-transparent px-3 py-4 text-base text-[#333] outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--color-sage)] focus-visible:ring-offset-1 placeholder:text-[#888]"
         />
         {searchQuery ? (
           <button

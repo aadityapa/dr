@@ -85,6 +85,7 @@ export function ClinicMediaShowcase({ slides, videos, copy }: ClinicMediaShowcas
       <Reveal>
         <div
           className="overflow-hidden rounded-[2rem] border border-[color:var(--color-border)]/70 bg-white shadow-xl"
+          role="region"
           aria-label={copy.photoLabel}
           onKeyDown={handleKeyDown}
           tabIndex={0}

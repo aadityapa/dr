@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
 import { Reveal } from "@/components/shared/reveal";
@@ -26,6 +26,23 @@ type GalleryGridProps = {
 export function GalleryGrid({ items, allCategoryLabel, closeLightboxLabel, categoryLabels }: GalleryGridProps) {
   const [activeCategory, setActiveCategory] = useState<string>(allCategoryLabel);
   const [lightbox, setLightbox] = useState<LocalizedGalleryItem | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lastTriggerRef = useRef<HTMLElement | null>(null);
+
+  // Accessible dialog behaviour: focus moves into the lightbox on open,
+  // Escape closes it from anywhere, and focus returns to the trigger.
+  useEffect(() => {
+    if (!lightbox) return;
+    closeButtonRef.current?.focus();
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setLightbox(null);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      lastTriggerRef.current?.focus();
+    };
+  }, [lightbox]);
 
   const categoryKeys = [...new Set(items.map((item) => item.categoryKey))];
   const filterButtons = [
@@ -46,6 +63,7 @@ export function GalleryGrid({ items, allCategoryLabel, closeLightboxLabel, categ
             key={cat.key}
             type="button"
             onClick={() => setActiveCategory(cat.key)}
+            aria-pressed={activeCategory === cat.key}
             className={cn(
               "rounded-full px-5 py-2 text-sm font-medium transition-all",
               activeCategory === cat.key
@@ -58,13 +76,22 @@ export function GalleryGrid({ items, allCategoryLabel, closeLightboxLabel, categ
         ))}
       </div>
 
+      {filtered.length === 0 ? (
+        <p className="mx-auto max-w-md rounded-2xl border border-[color:var(--color-border)] bg-white/70 px-6 py-10 text-center text-sm text-[color:var(--color-muted)]">
+          No photos in this category yet.
+        </p>
+      ) : null}
+
       <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
         {filtered.map((item, i) => (
           <Reveal key={item.title} delay={i * 0.05}>
             <button
               type="button"
               className="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-3xl shadow-sm transition-all hover:shadow-xl"
-              onClick={() => setLightbox(item)}
+              onClick={(e) => {
+                lastTriggerRef.current = e.currentTarget;
+                setLightbox(item);
+              }}
             >
               <Image
                 src={item.image}
@@ -89,22 +116,23 @@ export function GalleryGrid({ items, allCategoryLabel, closeLightboxLabel, categ
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
           role="dialog"
-          aria-modal
+          aria-modal="true"
+          aria-label={lightbox.title}
           onClick={() => setLightbox(null)}
-          onKeyDown={(e) => e.key === "Escape" && setLightbox(null)}
         >
           <button
+            ref={closeButtonRef}
             type="button"
-            className="absolute right-6 top-6 text-white hover:text-[color:var(--color-soft-green)]"
+            className="absolute right-4 top-4 rounded-full p-2.5 text-white transition hover:text-[color:var(--color-soft-green)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
             onClick={() => setLightbox(null)}
             aria-label={closeLightboxLabel}
           >
-            <X className="h-8 w-8" />
+            <X className="h-8 w-8" aria-hidden />
           </button>
           <div className="max-w-4xl" onClick={(e) => e.stopPropagation()}>
             <Image
               src={lightbox.image}
-              alt={lightbox.title}
+              alt={lightbox.alt ?? lightbox.title}
               width={1200}
               height={800}
               className="max-h-[80vh] w-auto rounded-2xl object-contain"

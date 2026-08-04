@@ -27,13 +27,12 @@ export function OutcomeComparison({ areas, beforeLabel, afterLabel, tabListLabel
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label={tabListLabel}>
+      <div className="flex flex-wrap gap-2" aria-label={tabListLabel}>
         {areas.map((area, i) => (
           <button
             key={area.title}
             type="button"
-            role="tab"
-            aria-selected={active === i}
+            aria-pressed={active === i}
             onClick={() => setActive(i)}
             className={cn(
               "rounded-full px-4 py-2 text-sm font-medium transition-colors",
