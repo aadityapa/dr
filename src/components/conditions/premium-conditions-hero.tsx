@@ -105,17 +105,6 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white/45 via-transparent to-transparent" />
             </div>
-
-
-            <motion.div
-              className="absolute inset-x-8 bottom-8 rounded-2xl border border-white/60 bg-white/80 p-4 text-center shadow-md backdrop-blur-sm"
-              initial={reduced ? false : { opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <p className="text-sm font-semibold text-[#004d4d]">{shells.illustrationCaption}</p>
-              <p className="mt-1 text-xs text-[#666]">{shells.illustrationSubcaption}</p>
-            </motion.div>
           </div>
         </motion.div>
       </div>

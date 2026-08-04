@@ -24,13 +24,6 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
   const intro = getLocalizedExpertise(lookingBeyondExpertise.slug, locale) ?? lookingBeyondExpertise;
   const reduced = useReducedMotion();
 
-  const floatingCards = [
-    { title: shells.trustCards[0]!.title, sub: shells.trustCards[0]!.description },
-    { title: shells.trustCards[1]!.title, sub: shells.trustCards[1]!.description },
-    { title: shells.trustCards[2]!.title, sub: shells.trustCards[2]!.description },
-    { title: shells.illustrationCaption, sub: shells.illustrationSubcaption },
-  ] as const;
-
   return (
     <section className="relative overflow-hidden bg-[#FFFDFB] px-4 py-12 md:px-8 md:py-16">
       <div
@@ -123,25 +116,6 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
           <div className="relative h-full min-h-[20rem] w-full overflow-hidden rounded-[2.75rem] border border-white/70 bg-white/25 shadow-[0_24px_80px_rgba(45,96,71,0.12)] backdrop-blur-2xl">
             <div className="absolute inset-4 md:inset-6">
               <PhotoCluster photos={panelClusters.expertise} />
-            </div>
-
-
-            <div className="absolute inset-x-5 bottom-5 grid grid-cols-2 gap-2.5 md:inset-x-7 md:bottom-7 md:gap-3">
-              {floatingCards.map((card, i) => (
-                <motion.div
-                  key={card.title}
-                  className="rounded-2xl border border-white/75 bg-white/75 p-3 shadow-md backdrop-blur-md md:p-3.5"
-                  initial={reduced ? false : { opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + i * 0.1, ease: easeOutExpo }}
-                  whileHover={reduced ? undefined : { y: -3, transition: { duration: 0.2 } }}
-                >
-                  <p className="text-xs font-semibold text-[#1a4a3a] md:text-sm">{card.title}</p>
-                  <p className="mt-0.5 line-clamp-2 text-[10px] leading-snug text-[#666] md:text-xs">
-                    {card.sub}
-                  </p>
-                </motion.div>
-              ))}
             </div>
           </div>
         </motion.div>
