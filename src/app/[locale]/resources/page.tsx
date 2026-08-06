@@ -35,7 +35,16 @@ export default async function ResourcesPage({ params }: Props) {
   setRequestLocale(locale);
   const shells = getPageShells(locale);
   const messages = getMessages(locale);
-  const allArticles = articles.map((a) => localizeArticle(a, locale));
+  // Curated selection shown on the listing page, in this exact order.
+  const FEATURED_SLUGS = [
+    "the-power-of-play",
+    "signs-your-child-may-benefit-from-occupational-therapy",
+    "preparing-your-child-for-first-occupational-therapy-appointment",
+    "why-early-intervention-matters",
+  ];
+  const featuredArticles = FEATURED_SLUGS.map((slug) => articles.find((a) => a.slug === slug))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a))
+    .map((a) => localizeArticle(a, locale));
 
   return (
     <main>
@@ -49,7 +58,7 @@ export default async function ResourcesPage({ params }: Props) {
       />
 
       <Section>
-        <ArticleCards articles={allArticles} locale={locale} readMoreLabel={shells.resources.readGuide} />
+        <ArticleCards articles={featuredArticles} locale={locale} readMoreLabel={shells.resources.readGuide} />
 
         <div className="mt-12">
           <NewsletterSignup className="mx-auto max-w-2xl" />
