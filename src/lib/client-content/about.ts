@@ -16,6 +16,25 @@ export const aboutContent = {
       "My philosophy is simple: every child has a unique way of participating, belonging, and learning. My role is to help families discover and support that potential.",
     ],
   },
+  journey: [
+    {
+      headline: "Empowering unique minds. Building real-world confidence.",
+      detail: "18+ years of specialized developmental & sensory support.",
+    },
+    {
+      headline: "Evidence-based science. Family-centered care.",
+      detail: "Master of OT & PhD Candidate in Pediatric Development.",
+    },
+    {
+      headline: "A multi-faceted clinical toolkit designed for complete child development.",
+      detail:
+        "Certified expertise in Brain Gym\u00ae, Sensory Integration, Reflex Integration, Aquatic Therapy, Handwriting, and Oral Motor Interventions.",
+    },
+    {
+      headline:
+        "Beyond the clinic: Empowering parents, educators, and professionals with research-backed knowledge.",
+    },
+  ],
   inviteSharuja: {
     title: "Invite Sharuja",
     paragraphs: [

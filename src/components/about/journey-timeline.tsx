@@ -12,7 +12,7 @@ const ICONS = [Stethoscope, GraduationCap, Sparkles, Microscope] as const;
 
 export function JourneyTimeline({ about, shells }: AboutPageProps) {
   const reduced = useReducedMotion();
-  const steps = about.aboutMe.paragraphs.slice(0, 4);
+  const steps = about.journey;
 
   return (
     <Section id="my-journey" className="rounded-[2rem] bg-[color:var(--color-almond)]/50">
@@ -29,14 +29,14 @@ export function JourneyTimeline({ about, shells }: AboutPageProps) {
         />
 
         <ol className="space-y-10">
-          {steps.map((paragraph, i) => {
+          {steps.map((step, i) => {
             const Icon = ICONS[i] ?? Stethoscope;
             const title = shells.sections.journeySteps[i] ?? `Step ${i + 1}`;
             const alignRight = i % 2 === 1;
 
             return (
               <motion.li
-                key={paragraph.slice(0, 32)}
+                key={step.headline.slice(0, 32)}
                 className={`relative flex flex-col gap-4 md:flex-row ${alignRight ? "md:flex-row-reverse" : ""}`}
                 initial={reduced ? false : { opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -50,9 +50,14 @@ export function JourneyTimeline({ about, shells }: AboutPageProps) {
                     <Icon className="h-3.5 w-3.5" aria-hidden />
                     {title}
                   </div>
-                  <p className="mt-3 clear-both text-sm leading-relaxed text-[color:var(--color-muted)] md:text-base">
-                    {paragraph}
+                  <p className="mt-3 clear-both font-[family-name:var(--font-serif)] text-lg font-medium leading-snug text-[color:var(--color-sage-dark)] md:text-xl">
+                    {step.headline}
                   </p>
+                  {step.detail ? (
+                    <p className="mt-2 clear-both text-sm leading-relaxed text-[color:var(--color-muted)] md:text-base">
+                      {step.detail}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div className="hidden w-12 shrink-0 items-center justify-center md:flex">
