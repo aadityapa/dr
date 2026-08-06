@@ -3,6 +3,42 @@
 import { Reveal } from "@/components/shared/reveal";
 import { useLanguage } from "@/components/providers/language-provider";
 
+const DIALOGUE = [
+  {
+    parent: "Doctor\u2026 I'm worried.",
+    therapist: ["I know.", "Sometimes the hardest part isn't the diagnosis \u2014 it's the uncertainty."],
+  },
+  {
+    parent: "Will my child be okay?",
+    therapist: [
+      "I can't promise the journey will be easy. But I can promise this\u2026",
+      "Your child is more than a diagnosis, a report, or a milestone checklist.",
+    ],
+  },
+  {
+    parent: "I feel like no one understands my child.",
+    therapist: [
+      "Every behaviour has a reason.",
+      "Before we try to change a behaviour, let's understand what your child is trying to tell us.",
+    ],
+  },
+  {
+    parent: "What if progress is too slow?",
+    therapist: [
+      "Progress isn't measured only by big milestones.",
+      "Sometimes it's trying a new food. Sometimes it's making a friend. Sometimes it's saying one new word. Sometimes it's believing, \u201cI can do this.\u201d",
+      "No step forward is ever too small.",
+    ],
+  },
+  {
+    parent: "So\u2026 where do we begin?",
+    therapist: [
+      "We begin with understanding. We celebrate strengths. We support challenges.",
+      "And together, we help your child participate, grow, and thrive \u2014 one meaningful step at a time.",
+    ],
+  },
+] as const;
+
 export function ParentsReadingSection() {
   const { content, locale } = useLanguage();
 
@@ -30,120 +66,52 @@ export function ParentsReadingSection() {
 
   return (
     <section className="w-full bg-white px-4 py-12 md:px-8 md:py-16">
-      <div className="mx-auto max-w-4xl space-y-4">
+      <div className="mx-auto max-w-3xl">
         <Reveal>
           <h2 className="font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-4xl">
-            To the Parents Reading This...
+            Before We Begin&hellip; A Message from My Heart to Yours
           </h2>
         </Reveal>
 
-        <Reveal delay={0.05}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            Perhaps you&apos;ve noticed your child struggling with things that appear effortless for
-            other children. Maybe you&apos;ve been told to &ldquo;wait and see,&rdquo; while your
-            heart tells you something doesn&apos;t feel quite right.
-          </p>
-        </Reveal>
+        <div className="mt-8 space-y-6">
+          {DIALOGUE.map((turn, i) => (
+            <Reveal key={turn.parent} delay={0.05 + i * 0.05}>
+              <div className="space-y-4">
+                <div className="ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-md bg-[color:var(--color-soft-green)]/40 px-5 py-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-sage-text)]">
+                    Parent
+                  </p>
+                  <p className="mt-1 font-[family-name:var(--font-serif)] text-base italic text-[color:var(--color-sage-dark)] md:text-lg">
+                    &ldquo;{turn.parent}&rdquo;
+                  </p>
+                </div>
 
-        <Reveal delay={0.08}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            You may have spent countless hours searching for answers, attending appointments,
-            reading reports, comparing milestones, or worrying about your child&apos;s future.
-          </p>
-        </Reveal>
+                <div className="w-fit max-w-[85%] rounded-2xl rounded-bl-md border border-[color:var(--color-border)] bg-white px-5 py-3 shadow-sm">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-terracotta)]">
+                    Therapist
+                  </p>
+                  {turn.therapist.map((line) => (
+                    <p key={line} className="mt-1 text-base leading-relaxed text-[color:var(--color-muted)]">
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
 
-        <Reveal delay={0.11}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            You may have wondered:
-          </p>
-          <ul className="mt-2 space-y-1.5 pl-4">
-            {[
-              "Will my child ever catch up?",
-              "Will they make friends?",
-              "Will they be independent?",
-              "Will they be okay?",
-            ].map((q) => (
-              <li
-                key={q}
-                className="font-[family-name:var(--font-serif)] text-base italic text-[color:var(--color-sage-dark)]"
-              >
-                &ldquo;{q}&rdquo;
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-
-        <Reveal delay={0.14}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            As parents, these thoughts come from a place of deep love. And while every child&apos;s
-            journey is different, one thing remains true &ndash; your child is so much more than a
-            diagnosis, a report, or a list of challenges.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.17}>
-          <blockquote className="rounded-2xl border-l-4 border-[color:var(--color-sage)] bg-[color:var(--color-soft-green)]/30 px-5 py-4">
+        <Reveal delay={0.4}>
+          <blockquote className="mt-10 rounded-2xl border-l-4 border-[color:var(--color-sage)] bg-[color:var(--color-soft-green)]/30 px-5 py-4">
             <p className="text-base leading-relaxed text-[color:var(--color-sage-dark)]">
-              Behind every behavior is a child trying to communicate a need.
+              You don&apos;t have to walk this journey alone.
               <br />
-              Behind every struggle is a child with strengths waiting to be discovered.
-              <br />
-              And behind every child is a parent doing the very best they can.
+              I&apos;m here to walk it with you.
             </p>
+            <footer className="mt-3 text-sm text-[color:var(--color-muted)]">
+              &mdash; Dr. Sharuja Sarap, <cite className="not-italic">Paediatric Occupational Therapist</cite>
+            </footer>
           </blockquote>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            My role is not simply to provide therapy. It is to help families understand their child
-            more deeply, celebrate progress that others may overlook, and create opportunities for
-            growth, participation, and success.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.23}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            Some victories may seem small to the outside world &ndash; a child trying a new food,
-            joining a group activity, writing their name, tolerating a haircut, making eye contact,
-            climbing a slide, or expressing a feeling.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.26}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            But as parents, you know these moments are never small.
-          </p>
-          <div className="mt-2 space-y-0.5 pl-4">
-            <p className="font-[family-name:var(--font-serif)] text-base font-medium text-[color:var(--color-sage-dark)]">
-              They are milestones.
-            </p>
-            <p className="font-[family-name:var(--font-serif)] text-base font-medium text-[color:var(--color-sage-dark)]">
-              They are breakthroughs.
-            </p>
-            <p className="font-[family-name:var(--font-serif)] text-base font-medium text-[color:var(--color-sage-dark)]">
-              They are signs of progress.
-            </p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.29}>
-          <p className="text-lg font-semibold text-[color:var(--color-sage-dark)]">
-            You do not have to walk this journey alone.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.32}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            Together, we focus not on what a child cannot do today, but on what they may achieve
-            tomorrow &ndash; with support, understanding, patience, and belief in their potential.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.35}>
-          <p className="text-base leading-relaxed text-[color:var(--color-muted)]">
-            Every child deserves to be understood. Every family deserves to be supported. And every
-            journey deserves hope.
-          </p>
         </Reveal>
       </div>
     </section>

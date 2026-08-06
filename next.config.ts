@@ -61,6 +61,15 @@ const nextConfig: NextConfig = {
       { source: "/services/handwriting-training", destination: "/expertise/handwriting-without-tears", permanent: true },
       { source: "/services/brain-gym", destination: "/expertise/brain-gym", permanent: true },
       { source: "/services/aquatic-therapy", destination: "/expertise/aquatic-therapy", permanent: true },
+      // Old article slugs -> new articles (article library replaced Aug 2026)
+      { source: "/:locale(en|hi|mr)/resources/signs-your-child-may-need-occupational-therapy", destination: "/:locale/resources/signs-your-child-may-benefit-from-occupational-therapy", permanent: true },
+      { source: "/:locale(en|hi|mr)/resources/preparing-child-for-first-ot-appointment", destination: "/:locale/resources/preparing-your-child-for-first-occupational-therapy-appointment", permanent: true },
+      { source: "/:locale(en|hi|mr)/resources/early-intervention-developmental-delay", destination: "/:locale/resources/why-early-intervention-matters", permanent: true },
+      { source: "/:locale(en|hi|mr)/resources/understanding-sensory-processing-in-children", destination: "/:locale/resources", permanent: true },
+      { source: "/:locale(en|hi|mr)/resources/brain-gym-for-children-with-adhd", destination: "/:locale/resources", permanent: true },
+      { source: "/:locale(en|hi|mr)/resources/handwriting-struggles-when-to-seek-help", destination: "/:locale/resources", permanent: true },
+      { source: "/:locale(en|hi|mr)/resources/benefits-of-aquatic-therapy-for-children", destination: "/:locale/resources", permanent: true },
+      { source: "/:locale(en|hi|mr)/resources/autism-and-occupational-therapy-guide", destination: "/:locale/resources", permanent: true },
       // Short condition URLs for SEO
       { source: "/autism", destination: "/conditions/autism-spectrum-disorder", permanent: true },
       { source: "/adhd", destination: "/conditions/adhd", permanent: true },

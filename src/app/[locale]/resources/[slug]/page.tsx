@@ -15,6 +15,28 @@ import { buildPageMetadata } from "@/lib/metadata";
 import { articleSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
 
+type ContentBlock =
+  | { type: "heading"; text: string }
+  | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[] };
+
+/** Groups article content strings into headings, paragraphs, and bullet lists. */
+function groupContent(content: string[]): ContentBlock[] {
+  const blocks: ContentBlock[] = [];
+  for (const line of content) {
+    if (line.startsWith("## ")) {
+      blocks.push({ type: "heading", text: line.slice(3) });
+    } else if (line.startsWith("- ")) {
+      const last = blocks[blocks.length - 1];
+      if (last?.type === "list") last.items.push(line.slice(2));
+      else blocks.push({ type: "list", items: [line.slice(2)] });
+    } else {
+      blocks.push({ type: "paragraph", text: line });
+    }
+  }
+  return blocks;
+}
+
 type Props = { params: Promise<{ locale: AppLocale; slug: string }> };
 
 export const dynamicParams = false;
@@ -95,11 +117,26 @@ export default async function ArticlePage({ params }: Props) {
           </header>
 
           <div className="mt-10 space-y-6">
-            {article.content.map((paragraph, i) => (
-              <p key={i} className="leading-relaxed text-[color:var(--color-muted)]">
-                {paragraph}
-              </p>
-            ))}
+            {groupContent(article.content).map((block, i) =>
+              block.type === "heading" ? (
+                <h2
+                  key={i}
+                  className="pt-4 font-[family-name:var(--font-serif)] text-2xl leading-snug text-[color:var(--color-sage-dark)]"
+                >
+                  {block.text}
+                </h2>
+              ) : block.type === "list" ? (
+                <ul key={i} className="list-disc space-y-2 pl-6 leading-relaxed text-[color:var(--color-muted)]">
+                  {block.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p key={i} className="leading-relaxed text-[color:var(--color-muted)]">
+                  {block.text}
+                </p>
+              ),
+            )}
           </div>
 
           <footer className="mt-12 rounded-2xl bg-[color:var(--color-soft-green)]/40 p-8 text-center">
