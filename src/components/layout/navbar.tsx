@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { Link, usePathname } from "@/i18n/navigation";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -101,12 +103,22 @@ export function Navbar() {
     <header className="glass-nav sticky top-0 z-50 border-b border-[color:var(--color-border)]/60 bg-[color:var(--color-snow)]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-[4.25rem] sm:gap-4 md:px-6 lg:px-8">
         {/* Logo — fixed width, never overlaps nav */}
-        <Link href="/" className="group shrink-0 pr-2 leading-none">
+        <Link href="/" className="group flex shrink-0 items-center gap-2 pr-2 leading-none">
+          <Image
+            src="/images/logo-mark.png"
+            alt=""
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-9 shrink-0 transition-transform duration-300 group-hover:scale-105 sm:h-10 sm:w-10"
+          />
+          <span className="block">
           <span className="block whitespace-nowrap font-[family-name:var(--font-serif)] text-base font-semibold tracking-tight text-[color:var(--color-sage-dark)] transition-colors group-hover:text-[color:var(--color-sage-text)] sm:text-lg">
             {siteConfig.shortName}
           </span>
           <span className="mt-0.5 hidden whitespace-nowrap text-[0.6rem] font-medium uppercase tracking-[0.22em] text-[color:var(--color-muted)] md:block">
             {messages.site.title}
+          </span>
           </span>
         </Link>
 
