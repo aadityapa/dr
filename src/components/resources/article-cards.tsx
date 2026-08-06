@@ -4,14 +4,20 @@ import { Reveal } from "@/components/shared/reveal";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Article } from "@/lib/articles";
 
-/** A small, curated grid of article cards — no search, no pagination. */
+const DATE_LOCALES: Record<string, string> = { en: "en-IN", hi: "hi-IN", mr: "mr-IN" };
+
+/** The full article grid — every published guide, newest first. */
 export function ArticleCards({
   articles,
+  locale = "en",
   readMoreLabel,
 }: {
   articles: Article[];
+  locale?: string;
   readMoreLabel: string;
 }) {
+  const dateLocale = DATE_LOCALES[locale] ?? "en-IN";
+
   return (
     <div className="grid gap-6 sm:grid-cols-2">
       {articles.map((article, i) => (
@@ -31,7 +37,13 @@ export function ArticleCards({
               </p>
               <div className="mt-5 flex items-center justify-between text-xs text-[color:var(--color-muted)]">
                 <span className="font-semibold text-[color:var(--color-sage-text)]">{readMoreLabel}</span>
-                <span>{article.readTime}</span>
+                <time dateTime={article.publishedAt}>
+                  {new Date(article.publishedAt).toLocaleDateString(dateLocale, {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </time>
               </div>
             </CardContent>
           </Card>

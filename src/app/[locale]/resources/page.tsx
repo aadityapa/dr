@@ -35,8 +35,7 @@ export default async function ResourcesPage({ params }: Props) {
   setRequestLocale(locale);
   const shells = getPageShells(locale);
   const messages = getMessages(locale);
-  // Featured selection — the four core parent guides.
-  const featuredArticles = articles.slice(0, 4).map((a) => localizeArticle(a, locale));
+  const allArticles = articles.map((a) => localizeArticle(a, locale));
 
   return (
     <main>
@@ -50,7 +49,7 @@ export default async function ResourcesPage({ params }: Props) {
       />
 
       <Section>
-        <ArticleCards articles={featuredArticles} readMoreLabel={shells.resources.readGuide} />
+        <ArticleCards articles={allArticles} locale={locale} readMoreLabel={shells.resources.readGuide} />
 
         <div className="mt-12">
           <NewsletterSignup className="mx-auto max-w-2xl" />
