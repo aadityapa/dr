@@ -2,8 +2,6 @@
 
 import type { ReactNode } from "react";
 
-import Image from "next/image";
-
 import { Link, usePathname } from "@/i18n/navigation";
 import { Mail, Phone } from "lucide-react";
 
@@ -67,14 +65,10 @@ export function Footer() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-12 lg:items-start lg:gap-8">
             {/* Brand */}
             <div className="lg:col-span-3">
-              <Image
-                src="/images/logo-full.png"
-                alt={siteConfig.name}
-                width={150}
-                height={172}
-                className="h-36 w-auto drop-shadow-[0_2px_12px_rgba(255,255,255,0.25)]"
-              />
-              <p className="mt-2 text-xs text-white/60">{messages.site.title}</p>
+              <h3 className="font-[family-name:var(--font-serif)] text-lg font-semibold text-white">
+                {siteConfig.name}
+              </h3>
+              <p className="mt-0.5 text-xs text-white/60">{messages.site.title}</p>
               <div className="mt-3 flex flex-wrap items-center gap-2">
                 <Button
                   asChild
