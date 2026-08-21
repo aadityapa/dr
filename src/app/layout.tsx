@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter, Noto_Sans_Devanagari, Playfair_Display } from "next/font/google";
+import { Inter, Noto_Sans_Devanagari, Space_Grotesk } from "next/font/google";
 import { getLocale } from "next-intl/server";
 
 import {
@@ -19,8 +19,8 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const heading = Space_Grotesk({
+  variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
@@ -86,7 +86,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} ${devanagari.variable} antialiased`}>
+      <body className={`${inter.variable} ${heading.variable} ${devanagari.variable} antialiased`}>
         <script
           // Applies saved dark/light mode + accent colour before first paint (no flash).
           dangerouslySetInnerHTML={{

@@ -71,7 +71,7 @@
 
 @theme inline {
   --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-serif: var(--font-heading);
 }
 
 html,
