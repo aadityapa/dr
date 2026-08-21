@@ -1110,3 +1110,196 @@ h3 {
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
+
+/* ── Dark-mode fixes for inline light-pastel styles ────────────────────
+   These components set light hex colours via inline style, which CSS token
+   flips can't reach — the !important overrides below win over inline. */
+
+/* Active expertise filter pill: light pastel bg + saturated text → dark glass */
+html.dark .filter-pill-active {
+  background-color: rgba(24, 33, 27, 0.88) !important;
+  color: var(--color-sage-text) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Light gradient info panels (expertise detail) → dark surface */
+html.dark .light-wash-panel {
+  background: rgba(24, 33, 27, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Decorative light blur blobs → dimmed so they glow softly instead of blinding */
+html.dark .light-wash-blob {
+  opacity: 0.16;
+}
+
+/* ── Card pastel palette (see src/lib/pastel-palette.ts) ──
+   Light values here; html.dark flips them to dark surfaces with light text,
+   fixing pastel cards that were unreadable in dark mode. */
+:root {
+  --cp0-bg: #D6E8F5;
+  --cp0-border: #A8CCE8;
+  --cp0-accent: #3D7AB5;
+  --cp0-text: #1E4A6E;
+  --cp1-bg: #C8EEF0;
+  --cp1-border: #9ADEE3;
+  --cp1-accent: #2A9DA8;
+  --cp1-text: #1A5F66;
+  --cp2-bg: #E4DDF5;
+  --cp2-border: #C9BCE8;
+  --cp2-accent: #7B5BB5;
+  --cp2-text: #4A3570;
+  --cp3-bg: #FCE8DC;
+  --cp3-border: #F5C9B0;
+  --cp3-accent: #D4845C;
+  --cp3-text: #8B4A2A;
+  --cp4-bg: #D8F0E4;
+  --cp4-border: #B5E0CC;
+  --cp4-accent: #4A9B73;
+  --cp4-text: #2D6047;
+  --cp5-bg: #FDF3D4;
+  --cp5-border: #F5E09A;
+  --cp5-accent: #C9A020;
+  --cp5-text: #7A6010;
+  --cp6-bg: #FADED4;
+  --cp6-border: #F0B8A8;
+  --cp6-accent: #D47058;
+  --cp6-text: #8B4030;
+  --cp7-bg: #F5E0E8;
+  --cp7-border: #E8B8CC;
+  --cp7-accent: #C45A82;
+  --cp7-text: #7A3048;
+  --cp8-bg: #D9EDFA;
+  --cp8-border: #B3D9F2;
+  --cp8-accent: #4A90C4;
+  --cp8-text: #2A5580;
+  --cp9-bg: #E0EBE0;
+  --cp9-border: #BFD4BF;
+  --cp9-accent: #5A8A5A;
+  --cp9-text: #3A5A3A;
+  --cp10-bg: #FFE8F0;
+  --cp10-border: #F5C0D8;
+  --cp10-accent: #D45A8A;
+  --cp10-text: #8B3058;
+  --cp11-bg: #E8F5E0;
+  --cp11-border: #C8E8B0;
+  --cp11-accent: #6A9B4A;
+  --cp11-text: #3F5E2A;
+  --cp12-bg: #FFF0E0;
+  --cp12-border: #F5D8B0;
+  --cp12-accent: #D49A4A;
+  --cp12-text: #8B5E20;
+  --cp13-bg: #E0E8F5;
+  --cp13-border: #B8CCE8;
+  --cp13-accent: #5A7AB5;
+  --cp13-text: #354A70;
+  --cp14-bg: #F0E8FF;
+  --cp14-border: #D8C0F5;
+  --cp14-accent: #8A5AD4;
+  --cp14-text: #50308B;
+  --cp15-bg: #E8FFF5;
+  --cp15-border: #B8F5D8;
+  --cp15-accent: #4AB58A;
+  --cp15-text: #2A7058;
+  --cp16-bg: #FFF5E8;
+  --cp16-border: #F5E0C0;
+  --cp16-accent: #D4A05A;
+  --cp16-text: #8B6020;
+  --cp17-bg: #F5E8FF;
+  --cp17-border: #E0C0F5;
+  --cp17-accent: #9A5AD4;
+  --cp17-text: #5A308B;
+  --cp18-bg: #E8F8FF;
+  --cp18-border: #C0E8F5;
+  --cp18-accent: #4AA8D4;
+  --cp18-text: #2A688B;
+  --cp19-bg: #FFF8E8;
+  --cp19-border: #F5ECC0;
+  --cp19-accent: #D4B85A;
+  --cp19-text: #8B7820;
+}
+
+html.dark {
+  --cp0-bg: #333c3b;
+  --cp0-border: #495a5d;
+  --cp0-accent: #87add1;
+  --cp0-text: #9fbdd3;
+  --cp1-bg: #313d3a;
+  --cp1-border: #455f5c;
+  --cp1-accent: #7bc2c9;
+  --cp1-text: #97cbcd;
+  --cp2-bg: #353a3b;
+  --cp2-border: #52565d;
+  --cp2-accent: #ad99d1;
+  --cp2-text: #b9b0d3;
+  --cp3-bg: #393c37;
+  --cp3-border: #5f594d;
+  --cp3-accent: #e4b39a;
+  --cp3-text: #dec1ad;
+  --cp4-bg: #333d38;
+  --cp4-border: #4d6055;
+  --cp4-accent: #8fc1a8;
+  --cp4-text: #a4cbb7;
+  --cp5-bg: #393e35;
+  --cp5-border: #5f6047;
+  --cp5-accent: #dec475;
+  --cp5-text: #dacd94;
+  --cp6-bg: #393a35;
+  --cp6-border: #5d554b;
+  --cp6-accent: #e4a697;
+  --cp6-text: #deb8ac;
+  --cp7-bg: #383b38;
+  --cp7-border: #5b5555;
+  --cp7-accent: #da99b2;
+  --cp7-text: #d8afbd;
+  --cp8-bg: #343d3b;
+  --cp8-border: #4c5e60;
+  --cp8-accent: #8fbada;
+  --cp8-text: #a4c6d9;
+  --cp9-bg: #353c37;
+  --cp9-border: #4f5c52;
+  --cp9-accent: #99b699;
+  --cp9-text: #abc3ac;
+  --cp10-bg: #3a3c3a;
+  --cp10-border: #5f5759;
+  --cp10-accent: #e499b6;
+  --cp10-text: #deafc1;
+  --cp11-bg: #363e37;
+  --cp11-border: #52624d;
+  --cp11-accent: #a3c18f;
+  --cp11-text: #b2cba6;
+  --cp12-bg: #3a3d37;
+  --cp12-border: #5f5e4d;
+  --cp12-accent: #e4c08f;
+  --cp12-text: #decaa6;
+  --cp13-bg: #353c3b;
+  --cp13-border: #4d5a5d;
+  --cp13-accent: #99add1;
+  --cp13-text: #abbdd3;
+  --cp14-bg: #373c3c;
+  --cp14-border: #565761;
+  --cp14-accent: #b699e4;
+  --cp14-text: #bfafe0;
+  --cp15-bg: #363f3b;
+  --cp15-border: #4d6659;
+  --cp15-accent: #8fd1b6;
+  --cp15-text: #a4d5c1;
+  --cp16-bg: #3a3e38;
+  --cp16-border: #5f6052;
+  --cp16-accent: #e4c499;
+  --cp16-text: #decdac;
+  --cp17-bg: #383c3c;
+  --cp17-border: #595761;
+  --cp17-accent: #c099e4;
+  --cp17-text: #c6afe0;
+  --cp18-bg: #363e3c;
+  --cp18-border: #506261;
+  --cp18-accent: #8fc9e4;
+  --cp18-text: #a4d0e0;
+  --cp19-bg: #3a3e38;
+  --cp19-border: #5f6352;
+  --cp19-accent: #e4d399;
+  --cp19-text: #ded7ac;
+}

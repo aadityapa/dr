@@ -85,7 +85,7 @@ function FilterPill({
       whileTap={reduced ? undefined : { scale: 0.97 }}
       className={`rounded-full border px-4 py-2.5 text-sm font-medium transition-[box-shadow,background-color,border-color] duration-300 md:px-5 ${
         active
-          ? "border-white/90 text-[color:var(--ink-forest-deep)] shadow-md"
+          ? "filter-pill-active border-white/90 text-[color:var(--ink-forest-deep)] shadow-md"
           : "border-white/70 bg-white/45 text-[color:var(--ink-soft)] hover:border-white/90 hover:bg-white/70"
       }`}
       style={

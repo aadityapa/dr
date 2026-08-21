@@ -43,7 +43,7 @@ export function PremiumConditionCard({ condition, index, shells }: PremiumCondit
         whileHover={reduced ? undefined : { y: -6, scale: 1.02 }}
         transition={{ type: "spring", stiffness: 320, damping: 22 }}
         style={{
-          boxShadow: `0 8px 32px ${pastel.border}33, inset 0 1px 0 rgba(255,255,255,0.8)`,
+          boxShadow: `0 8px 32px color-mix(in srgb, ${pastel.border} 20%, transparent), inset 0 1px 0 rgba(255,255,255,0.8)`,
         }}
       >
         <div
@@ -61,7 +61,7 @@ export function PremiumConditionCard({ condition, index, shells }: PremiumCondit
           {Icon ? (
             <div
               className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/70 shadow-sm"
-              style={{ backgroundColor: `${pastel.bg}CC`, color: pastel.accent }}
+              style={{ backgroundColor: `color-mix(in srgb, ${pastel.bg} 80%, transparent)`, color: pastel.accent }}
             >
               <Icon className="h-6 w-6" aria-hidden />
             </div>
@@ -69,7 +69,7 @@ export function PremiumConditionCard({ condition, index, shells }: PremiumCondit
           {therapyFocus ? (
             <span
               className="rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wide"
-              style={{ backgroundColor: `${pastel.bg}99`, color: pastel.text }}
+              style={{ backgroundColor: `color-mix(in srgb, ${pastel.bg} 60%, transparent)`, color: pastel.text }}
             >
               {shells.therapyFocusLabel}: {therapyFocus}
             </span>

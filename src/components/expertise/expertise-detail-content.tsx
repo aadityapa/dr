@@ -39,7 +39,7 @@ export function ExpertiseDetailContent({
           aria-hidden
         />
         <motion.div
-          className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full blur-3xl"
+          className="light-wash-blob pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full blur-3xl"
           style={{ backgroundColor: `${pastel.bg}99` }}
           animate={reduced ? undefined : { scale: [1, 1.08, 1] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}

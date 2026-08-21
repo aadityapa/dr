@@ -75,7 +75,7 @@ export default async function ConditionDetailPage({ params }: Props) {
       <section className="relative overflow-hidden px-4 py-14 md:px-8 md:py-20">
         <div
           className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full blur-3xl"
-          style={{ backgroundColor: `${pastel.bg}99` }}
+          style={{ backgroundColor: `color-mix(in srgb, ${pastel.bg} 60%, transparent)` }}
           aria-hidden
         />
         <div className="relative mx-auto max-w-4xl">

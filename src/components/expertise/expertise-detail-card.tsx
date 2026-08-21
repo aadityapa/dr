@@ -95,7 +95,7 @@ export function ExpertiseDetailCard({ area, labels, hideTitle }: ExpertiseDetail
       {area.areasCommonlySupported.length > 0 ? (
         <div className="px-6 py-8 md:px-10 md:py-10">
           <div
-            className="rounded-[1.5rem] border border-white/70 p-6 md:p-8"
+            className="light-wash-panel rounded-[1.5rem] border border-white/70 p-6 md:p-8"
             style={{
               background: `linear-gradient(135deg, ${pastel.bg}99, #EAFBF2CC)`,
               boxShadow: `inset 0 1px 0 rgba(255,255,255,0.8)`,
