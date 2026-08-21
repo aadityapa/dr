@@ -31,9 +31,9 @@ export const heroClusters = {
     { src: "/images/gallery/supported-standing-gym.jpg", alt: "Supported standing practice in the spacious pediatric therapy gym" },
   ],
   "contact": [
-    { src: "/images/gallery/supported-swing-session.jpg", alt: "Dr. Sharuja supporting a boy during a therapy swing session" },
-    { src: "/images/gallery/therapist-guided-balance-play.jpg", alt: "A toddler placing objects into colourful cups during a guided game" },
-    { src: "/images/gallery/therapy-swing-vestibular-play.jpg", alt: "A girl on a therapy swing beside the climbing wall with a smiling therapist" },
+    { src: "/images/gallery/workshop-foundations-fluent-handwriting.jpg", alt: "Dr. Sharuja presenting the Foundations to Fluent Handwriting workshop" },
+    { src: "/images/gallery/workshop-handwriting-presentation.jpg", alt: "Dr. Sharuja smiling while presenting a handwriting workshop at the podium" },
+    { src: "/images/gallery/workshop-speaking-session.jpg", alt: "Dr. Sharuja speaking and gesturing during a workshop session" },
   ],
   "faqs": [
     { src: "/images/gallery/trampoline-jumping-gross-motor.jpg", alt: "A girl jumping on a mini trampoline with therapist hand support" },
