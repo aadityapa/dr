@@ -70,8 +70,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-heading);
+  --font-sans: var(--font-body);
+  --font-serif: "Times New Roman", Times, serif;
 }
 
 html,
@@ -83,7 +83,7 @@ body {
 body {
   background-color: var(--color-snow);
   color: var(--color-sage-dark);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-body), var(--font-inter), sans-serif;
 }
 
 html[lang="hi"] body,
@@ -1109,6 +1109,14 @@ h2,
 h3 {
   letter-spacing: -0.015em;
   text-wrap: balance;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Greek-look decorative lettering on badge/kicker labels */
+.badge-premium {
+  font-family: var(--font-greek), var(--font-body), sans-serif;
 }
 
 /* ── Dark-mode fixes for inline light-pastel styles ────────────────────

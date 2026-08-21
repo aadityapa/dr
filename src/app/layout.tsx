@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter, Noto_Sans_Devanagari, Space_Grotesk } from "next/font/google";
+import { Baloo_2, Caesar_Dressing, Inter, Noto_Sans_Devanagari } from "next/font/google";
 import { getLocale } from "next-intl/server";
 
 import {
@@ -19,10 +19,18 @@ const inter = Inter({
   display: "swap",
 });
 
-const heading = Space_Grotesk({
-  variable: "--font-heading",
+const bodyFont = Baloo_2({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
+});
+
+const greekAccent = Caesar_Dressing({
+  variable: "--font-greek",
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 const devanagari = Noto_Sans_Devanagari({
@@ -86,7 +94,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.variable} ${heading.variable} ${devanagari.variable} antialiased`}>
+      <body className={`${inter.variable} ${bodyFont.variable} ${greekAccent.variable} ${devanagari.variable} antialiased`}>
         <script
           // Applies saved dark/light mode + accent colour before first paint (no flash).
           dangerouslySetInnerHTML={{
