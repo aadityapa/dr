@@ -54,7 +54,7 @@ export function HeroSection() {
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <Badge className="hero-badge mb-6">{copy.badge}</Badge>
-          <h1 className="hero-title font-[family-name:var(--font-serif)] text-4xl leading-[1.08] tracking-tight text-[color:var(--color-sage-dark)] md:text-5xl lg:text-[3.5rem]">
+          <h1 className="hero-title heading-gradient font-[family-name:var(--font-serif)] text-4xl leading-[1.08] tracking-tight md:text-5xl lg:text-[3.5rem]">
             {copy.headline}
           </h1>
           <BelieveThriveGraphic className="hero-sub mt-8" />

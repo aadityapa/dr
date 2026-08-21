@@ -45,14 +45,14 @@ export function PageHero({ kicker, title, description, credentials, children, ar
   );
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[color:var(--color-peach)]/50 via-[color:var(--color-cream)] to-[color:var(--color-sky)]/30 py-20 md:py-28">
+    <section className="hero-aurora relative overflow-hidden bg-gradient-to-br from-[color:var(--color-peach)]/50 via-[color:var(--color-cream)] to-[color:var(--color-sky)]/30 py-20 md:py-28">
       <SoftColorWash />
       <FloatingNature />
 
       <div className="relative mx-auto flex max-w-4xl flex-col items-center px-4 text-center md:px-8">
         <Reveal className="flex w-full flex-col items-center">
           {kicker ? <Badge className="mb-4">{kicker}</Badge> : null}
-          <h1 className="font-[family-name:var(--font-serif)] text-4xl leading-tight text-[color:var(--color-sage-dark)] md:text-6xl">
+          <h1 className="heading-gradient font-[family-name:var(--font-serif)] text-4xl leading-tight md:text-6xl">
             {title}
           </h1>
         </Reveal>

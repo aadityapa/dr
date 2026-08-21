@@ -16,7 +16,7 @@ export function SectionHeading({
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {kicker ? <Badge>{kicker}</Badge> : null}
-      <h2 className="mt-4 font-[family-name:var(--font-serif)] text-3xl leading-tight text-[color:var(--color-sage-dark)] md:text-5xl">
+      <h2 className="heading-gradient mt-4 font-[family-name:var(--font-serif)] text-3xl leading-tight md:text-5xl">
         {title}
       </h2>
       {description ? (

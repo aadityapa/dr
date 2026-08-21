@@ -6,7 +6,7 @@ function Badge({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full bg-[color:var(--color-soft-green)] px-3 py-1 text-xs font-medium text-[color:var(--color-sage-dark)]",
+        "badge-premium inline-flex items-center rounded-full px-3.5 py-1 text-xs font-semibold text-[color:var(--color-sage-text)]",
         className,
       )}
       {...props}
