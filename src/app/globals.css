@@ -1114,9 +1114,10 @@ h3 {
   font-style: italic;
 }
 
-/* Greek-look decorative lettering on badge/kicker labels */
+/* Garet-style lettering on badge/kicker labels (Poppins) */
 .badge-premium {
   font-family: var(--font-greek), var(--font-body), sans-serif;
+  letter-spacing: 0.12em;
 }
 
 /* ── Dark-mode fixes for inline light-pastel styles ────────────────────

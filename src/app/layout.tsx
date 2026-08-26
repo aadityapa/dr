@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Baloo_2, Caesar_Dressing, Inter, Noto_Sans_Devanagari } from "next/font/google";
+import { Baloo_2, Inter, Noto_Sans_Devanagari, Poppins } from "next/font/google";
 import { getLocale } from "next-intl/server";
 
 import {
@@ -25,9 +25,11 @@ const bodyFont = Baloo_2({
   display: "swap",
 });
 
-const greekAccent = Caesar_Dressing({
+// Garet-style geometric sans for badge/kicker labels (Poppins is the
+// closest Google Fonts equivalent to Garet).
+const greekAccent = Poppins({
   variable: "--font-greek",
-  weight: "400",
+  weight: "600",
   subsets: ["latin"],
   display: "swap",
   preload: false,
