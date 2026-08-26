@@ -101,12 +101,6 @@ export function GalleryGrid({ items, allCategoryLabel, closeLightboxLabel, categ
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="bg-white/90 px-4 py-3 text-left">
-                <p className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-sage-text)]">
-                  {item.category}
-                </p>
-                <p className="text-sm font-medium text-[color:var(--color-sage-dark)]">{item.title}</p>
-              </div>
             </button>
           </Reveal>
         ))}

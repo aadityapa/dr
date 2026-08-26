@@ -100,12 +100,7 @@ export function ClinicMediaShowcase({ slides, videos, copy }: ClinicMediaShowcas
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 58vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4 text-white">
-                <div aria-live="polite">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/80">{current.category}</p>
-                  <p className="mt-2 text-2xl font-semibold">{current.title}</p>
-                </div>
+              <div className="absolute bottom-5 right-5 flex items-end justify-end">
                 <span className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-[color:var(--color-sage-dark)]">
                   {active + 1}/{slides.length}
                 </span>
