@@ -131,7 +131,6 @@ export function GalleryGrid({ items, allCategoryLabel, closeLightboxLabel, categ
               height={800}
               className="max-h-[80vh] w-auto rounded-2xl object-contain"
             />
-            <p className="mt-4 text-center text-lg text-white">{lightbox.title}</p>
           </div>
         </div>
       ) : null}

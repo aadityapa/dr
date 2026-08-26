@@ -128,11 +128,9 @@ export function ClinicMediaShowcase({ slides, videos, copy }: ClinicMediaShowcas
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--color-sage-text)]">
                   {copy.photoLabel}
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold text-[color:var(--color-sage-dark)]">{current.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[color:var(--color-muted)]">{current.alt ?? current.title}</p>
               </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-2">
+              <div className="mt-8 grid grid-cols-4 gap-2 sm:grid-cols-6 lg:grid-cols-4">
                 {slides.map((slide, index) => (
                   <button
                     key={slide.image}
@@ -147,10 +145,9 @@ export function ClinicMediaShowcase({ slides, videos, copy }: ClinicMediaShowcas
                     aria-label={`${copy.goToSlideLabel}: ${slide.title}`}
                     aria-current={index === active ? "true" : undefined}
                   >
-                    <span className="block text-[10px] uppercase tracking-[0.18em] opacity-75">
+                    <span className="block text-center text-[11px] uppercase tracking-[0.18em]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="mt-1 line-clamp-2 block">{slide.title}</span>
                   </button>
                 ))}
               </div>
