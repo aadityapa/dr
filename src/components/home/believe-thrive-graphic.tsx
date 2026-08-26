@@ -1,15 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Bike, Blocks, Heart, Users } from "lucide-react";
 
 /**
  * BelieveThriveGraphic — a poster-style word stack that replaces the hero
- * paragraphs: BELIEVE / BUILD / THRIVE / TOGETHER, each word paired with a
- * real clinic photo in an organic blob frame, an accent icon chip and a soft
- * watercolor wash — inspired by the reference artwork, rebuilt with the
- * site's own palette and photography.
+ * paragraphs: BELIEVE / BUILD / THRIVE / TOGETHER, each word paired with an
+ * accent icon chip and a soft watercolor wash — inspired by the reference
+ * artwork, rebuilt with the site's own palette.
  */
 
 type Row = {
@@ -18,10 +16,8 @@ type Row = {
   /** Light variant used when dark mode is active (see globals.css .btg-*) */
   darkColor: string;
   wash: string;
-  photo: { src: string; alt: string };
   Icon: typeof Heart;
   align: "left" | "right" | "center";
-  blob: string;
 };
 
 const ROWS: Row[] = [
@@ -30,52 +26,32 @@ const ROWS: Row[] = [
     color: "#1a4a3a",
     darkColor: "#9fd4b5",
     wash: "#DCEFE3",
-    photo: {
-      src: "/images/gallery/infant-crawling-guidance.jpg",
-      alt: "A baby crawling forward with gentle guidance",
-    },
     Icon: Heart,
     align: "left",
-    blob: "blob-frame-a",
   },
   {
     word: "Build",
     color: "#1E4A6E",
     darkColor: "#9cc3e8",
     wash: "#DDEAF7",
-    photo: {
-      src: "/images/gallery/ball-pit-xylophone-play.jpg",
-      alt: "A child playing with a xylophone in a ball pit",
-    },
     Icon: Blocks,
     align: "right",
-    blob: "blob-frame-b",
   },
   {
     word: "Thrive",
     color: "#5A7A2F",
     darkColor: "#bcd48a",
     wash: "#E9F2D8",
-    photo: {
-      src: "/images/gallery/jumping-rings-motor-planning.jpg",
-      alt: "A boy jumping through colourful floor rings",
-    },
     Icon: Bike,
     align: "left",
-    blob: "blob-frame-a",
   },
   {
     word: "Together",
     color: "#5B3E8E",
     darkColor: "#c9b3ef",
     wash: "#EBE2F6",
-    photo: {
-      src: "/images/gallery/therapist-guided-balance-play.jpg",
-      alt: "Therapist and child celebrating a balance game together",
-    },
     Icon: Users,
     align: "center",
-    blob: "blob-frame-b",
   },
 ];
 
@@ -91,7 +67,7 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
   return (
     <div className={className} role="img" aria-label="Believe, build, thrive — together">
       <div className="flex max-w-xl flex-col gap-3 md:gap-4">
-        {ROWS.map(({ word, color, darkColor, wash, photo, Icon, align, blob }, i) => {
+        {ROWS.map(({ word, color, darkColor, wash, Icon, align }, i) => {
           const reverse = align === "right";
 
           return (
@@ -112,20 +88,6 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
                 style={{ backgroundColor: wash, opacity: 0.7 }}
                 aria-hidden
               />
-
-              <motion.div
-                className={`glossy-frame relative h-16 w-20 shrink-0 overflow-hidden ${blob} shadow-[0_10px_28px_rgba(45,96,71,0.18)] ring-2 ring-white/80 md:h-20 md:w-24`}
-                animate={reduced ? undefined : { y: [0, -5, 0] }}
-                transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="96px"
-                  className="object-cover"
-                />
-              </motion.div>
 
               <span
                 className="btg-word relative font-[family-name:var(--font-serif)] text-4xl font-bold uppercase leading-none tracking-tight md:text-5xl"
