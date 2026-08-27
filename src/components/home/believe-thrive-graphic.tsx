@@ -17,7 +17,8 @@ type Row = {
   darkColor: string;
   wash: string;
   Icon: typeof Heart;
-  align: "left" | "right" | "center";
+  /** Staggered left indent, mimicking the original poster arrangement. */
+  offset: string;
 };
 
 const ROWS: Row[] = [
@@ -27,7 +28,7 @@ const ROWS: Row[] = [
     darkColor: "#9fd4b5",
     wash: "#DCEFE3",
     Icon: Heart,
-    align: "left",
+    offset: "ml-12 md:ml-20",
   },
   {
     word: "Build",
@@ -35,7 +36,7 @@ const ROWS: Row[] = [
     darkColor: "#9cc3e8",
     wash: "#DDEAF7",
     Icon: Blocks,
-    align: "right",
+    offset: "ml-0",
   },
   {
     word: "Thrive",
@@ -43,7 +44,7 @@ const ROWS: Row[] = [
     darkColor: "#bcd48a",
     wash: "#E9F2D8",
     Icon: Bike,
-    align: "left",
+    offset: "ml-6 md:ml-10",
   },
   {
     word: "Together",
@@ -51,15 +52,9 @@ const ROWS: Row[] = [
     darkColor: "#c9b3ef",
     wash: "#EBE2F6",
     Icon: Users,
-    align: "center",
+    offset: "ml-20 md:ml-32",
   },
 ];
-
-const ALIGN_CLASS: Record<Row["align"], string> = {
-  left: "justify-start",
-  right: "justify-end",
-  center: "justify-center",
-};
 
 export function BelieveThriveGraphic({ className }: { className?: string }) {
   const reduced = useReducedMotion();
@@ -67,15 +62,11 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
   return (
     <div className={className} role="img" aria-label="Believe, build, thrive — together">
       <div className="flex max-w-xl flex-col gap-3 md:gap-4">
-        {ROWS.map(({ word, color, darkColor, wash, Icon, align }, i) => {
-          const reverse = align === "right";
-
+        {ROWS.map(({ word, color, darkColor, wash, Icon, offset }, i) => {
           return (
             <motion.div
               key={word}
-              className={`relative flex items-center gap-3 md:gap-4 ${ALIGN_CLASS[align]} ${
-                reverse ? "flex-row-reverse" : ""
-              }`}
+              className={`relative flex items-center justify-start gap-3 md:gap-4 ${offset}`}
               style={{ "--btg-dark": darkColor } as React.CSSProperties}
               initial={reduced ? false : { opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +98,7 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
               {/* dotted motion trail */}
               <span
                 className="pointer-events-none absolute -bottom-1 hidden gap-1 sm:flex"
-                style={reverse ? { left: "8%" } : { right: "8%" }}
+                style={{ right: "8%" }}
                 aria-hidden
               >
                 {[0, 1, 2].map((d) => (

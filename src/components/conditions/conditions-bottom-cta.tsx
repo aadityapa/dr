@@ -37,7 +37,7 @@ export function ConditionsBottomCta({ shells, labels }: Pick<ConditionsPageProps
         <p className="relative mx-auto mt-4 max-w-xl text-base text-white/85">{shells.ctaDescription}</p>
 
         <div className="relative mt-8 flex flex-wrap justify-center gap-3">
-          <Button asChild size="lg" className="bg-white text-[color:var(--ink-teal)] hover:bg-white/90">
+          <Button asChild size="lg" className="btn-on-color bg-white text-[color:var(--ink-teal)] hover:bg-white/90">
             <Link href="/appointment">
               <Calendar className="mr-2 h-4 w-4" aria-hidden />
               {labels.bookConsultation}

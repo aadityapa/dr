@@ -41,8 +41,8 @@ export const heroClusters = {
     { src: "/images/equipment/fine-motor.jpg", alt: "Dr. Sharuja playing a chalkboard game one-on-one with a young boy" },
   ],
   "gallery": [
-    { src: "/images/equipment/sensory-tools.jpg", alt: "A toddler on sensory stepping pads with therapist guidance" },
-    { src: "/images/therapy-rooms/climbing-wall.jpg", alt: "A toddler exploring sensory stepping pads by the colourful climbing wall" },
+    { src: "/images/gallery/ball-pit-xylophone-play.jpg", alt: "A baby playing a colourful xylophone in the clinic ball pit" },
+    { src: "/images/gallery/trampoline-jumping-gross-motor.jpg", alt: "A girl jumping on a mini trampoline with therapist hand support" },
     { src: "/images/therapy-rooms/sensory-gym.jpg", alt: "Dr. Sharuja supporting a child on hoop swing equipment in the sensory gym" },
   ],
   "locations": [

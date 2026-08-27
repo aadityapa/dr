@@ -6,7 +6,6 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, PlayCircle } from "lucide-react";
 
 import { Reveal } from "@/components/shared/reveal";
-import { cn } from "@/lib/utils";
 
 export type MediaShowcaseSlide = {
   title: string;
@@ -90,15 +89,15 @@ export function ClinicMediaShowcase({ slides, videos, copy }: ClinicMediaShowcas
           onKeyDown={handleKeyDown}
           tabIndex={0}
         >
-          <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="relative aspect-[4/5] min-h-[420px] bg-[color:var(--color-soft-sage)] sm:aspect-[16/10] lg:aspect-auto">
+          <div>
+            <div className="relative aspect-[4/5] min-h-[420px] bg-[color:var(--color-soft-sage)] sm:aspect-[16/10]">
               <Image
                 key={current.image}
                 src={current.image}
                 alt={current.alt ?? current.title}
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 58vw"
+                sizes="100vw"
               />
               <div className="absolute bottom-5 right-5 flex items-end justify-end">
                 <span className="rounded-full bg-white/90 px-3 py-1.5 text-xs font-semibold text-[color:var(--color-sage-dark)]">
@@ -123,35 +122,6 @@ export function ClinicMediaShowcase({ slides, videos, copy }: ClinicMediaShowcas
               </button>
             </div>
 
-            <div className="flex flex-col justify-between bg-[color:var(--color-almond)] p-6 md:p-8">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--color-sage-text)]">
-                  {copy.photoLabel}
-                </p>
-              </div>
-
-              <div className="mt-8 grid grid-cols-4 gap-2 sm:grid-cols-6 lg:grid-cols-4">
-                {slides.map((slide, index) => (
-                  <button
-                    key={slide.image}
-                    type="button"
-                    onClick={() => setActive(index)}
-                    className={cn(
-                      "rounded-2xl border px-3 py-2 text-left text-xs font-semibold transition",
-                      index === active
-                        ? "border-[color:var(--color-sage)] bg-[color:var(--color-sage)] text-white shadow-md"
-                        : "border-[color:var(--color-border)] bg-white/80 text-[color:var(--color-sage-dark)] hover:border-[color:var(--color-sage)]",
-                    )}
-                    aria-label={`${copy.goToSlideLabel}: ${slide.title}`}
-                    aria-current={index === active ? "true" : undefined}
-                  >
-                    <span className="block text-center text-[11px] uppercase tracking-[0.18em]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </Reveal>
