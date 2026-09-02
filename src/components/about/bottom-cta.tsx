@@ -37,7 +37,7 @@ export function BottomCta({ shells }: AboutPageProps) {
         <p className="relative mx-auto mt-4 max-w-xl text-base text-white/85">{shells.sections.ctaDescription}</p>
 
         <div className="relative mt-8 flex flex-wrap justify-center gap-3">
-          <Button asChild size="lg" className="btn-on-color bg-white text-[color:var(--color-sage-dark)] hover:bg-white/90">
+          <Button asChild size="lg" variant="onColor">
             <Link href="/appointment">
               <Calendar className="mr-2 h-4 w-4" aria-hidden />
               {shells.bookConversation}

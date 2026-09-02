@@ -16,6 +16,10 @@ const buttonVariants = cva(
           "btn-lift border border-[color:var(--color-sage)] text-[color:var(--color-sage-dark)] hover:bg-[color:var(--color-soft-green)]",
         ghost: "btn-lift text-[color:var(--color-sage-dark)] hover:bg-[color:var(--color-soft-green)]",
         warm: "btn-vibrant bg-[color:var(--color-terracotta)] text-white [--grad-a:#b86a4e] [--grad-b:#8a4531] [--grad-glow:rgba(168,90,66,0.4)]",
+        // Cream pill for use on dark / colored backgrounds. Forced values so the
+        // global `html.dark .bg-white` override and `btn-vibrant` gradient can't dim it.
+        onColor:
+          "btn-lift !bg-none !bg-[#fbf7ef] !text-[#1f3a2b] font-semibold shadow-md hover:!bg-[#f1ebdf]",
       },
       size: {
         default: "h-11 px-6",

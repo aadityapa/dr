@@ -73,7 +73,8 @@ export function Footer() {
                 <Button
                   asChild
                   size="sm"
-                  className="h-8 px-3 text-xs font-semibold !bg-none !bg-[#fbf7ef] !text-[#1f3a2b] shadow-md hover:!bg-[#f1ebdf]"
+                  variant="onColor"
+                  className="h-8 px-3 text-xs"
                 >
                   <Link href="/appointment">{messages.cta.book}</Link>
                 </Button>

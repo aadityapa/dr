@@ -60,7 +60,8 @@ export function ExpertiseCta({ shells, labels }: CtaProps) {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-white px-7 text-[color:var(--ink-forest-deep)] shadow-lg hover:bg-white/95"
+              variant="onColor"
+              className="rounded-full px-7 shadow-lg"
             >
               <Link href="/appointment">
                 <Calendar className="mr-2 h-4 w-4" aria-hidden />
