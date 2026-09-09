@@ -255,7 +255,6 @@ export const expertiseAreas: ExpertiseArea[] = [
       "Difficulties with body awareness"
     ],
     approachSummary: [
-      "Parents often notice that children feel more confident, motivated, and successful when learning through water-based experiences.",
       "Sessions are designed to be engaging, goal-directed, and individualized according to each child's needs and abilities."
     ],
     areasCommonlySupported: [

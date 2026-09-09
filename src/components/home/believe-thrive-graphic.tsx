@@ -1,13 +1,12 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Bike, Blocks, Heart, Users } from "lucide-react";
 
 /**
  * BelieveThriveGraphic — a poster-style word stack that replaces the hero
- * paragraphs: BELIEVE / BUILD / THRIVE / TOGETHER, each word paired with an
- * accent icon chip and a soft watercolor wash — inspired by the reference
- * artwork, rebuilt with the site's own palette.
+ * paragraphs: BELIEVE / BUILD / THRIVE / TOGETHER, each word set over a soft
+ * watercolor wash — inspired by the reference artwork, rebuilt with the site's
+ * own palette.
  */
 
 type Row = {
@@ -16,7 +15,6 @@ type Row = {
   /** Light variant used when dark mode is active (see globals.css .btg-*) */
   darkColor: string;
   wash: string;
-  Icon: typeof Heart;
   /** Staggered left indent, mimicking the original poster arrangement. */
   offset: string;
 };
@@ -27,7 +25,6 @@ const ROWS: Row[] = [
     color: "#1a4a3a",
     darkColor: "#9fd4b5",
     wash: "#DCEFE3",
-    Icon: Heart,
     offset: "ml-12 md:ml-20",
   },
   {
@@ -35,7 +32,6 @@ const ROWS: Row[] = [
     color: "#1E4A6E",
     darkColor: "#9cc3e8",
     wash: "#DDEAF7",
-    Icon: Blocks,
     offset: "ml-0",
   },
   {
@@ -43,7 +39,6 @@ const ROWS: Row[] = [
     color: "#5A7A2F",
     darkColor: "#bcd48a",
     wash: "#E9F2D8",
-    Icon: Bike,
     offset: "ml-6 md:ml-10",
   },
   {
@@ -51,7 +46,6 @@ const ROWS: Row[] = [
     color: "#5B3E8E",
     darkColor: "#c9b3ef",
     wash: "#EBE2F6",
-    Icon: Users,
     offset: "ml-20 md:ml-32",
   },
 ];
@@ -62,7 +56,7 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
   return (
     <div className={className} role="img" aria-label="Believe, build, thrive — together">
       <div className="flex max-w-xl flex-col gap-3 md:gap-4">
-        {ROWS.map(({ word, color, darkColor, wash, Icon, offset }, i) => {
+        {ROWS.map(({ word, color, darkColor, wash, offset }, i) => {
           return (
             <motion.div
               key={word}
@@ -85,14 +79,6 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
                 style={{ color }}
               >
                 {word}
-              </span>
-
-              <span
-                className="btg-chip relative hidden h-10 w-10 shrink-0 items-center justify-center rounded-full sm:flex md:h-11 md:w-11"
-                style={{ backgroundColor: wash }}
-                aria-hidden
-              >
-                <Icon className="h-5 w-5" style={{ color }} />
               </span>
 
               {/* dotted motion trail */}

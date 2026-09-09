@@ -53,7 +53,7 @@ export default async function GalleryPage({ params }: Props) {
 
   return (
     <main>
-      <PageHero photoKey="gallery" art={<GalleryScene />} kicker={shells.gallery.kicker} title={shells.gallery.title} description={shells.gallery.description} />
+      <PageHero photoKey="gallery" art={<GalleryScene />} kicker={shells.gallery.kicker} title={shells.gallery.title} />
       <Section>
         <ClinicMediaShowcase slides={items} videos={videos} copy={gallery.mediaShowcase} />
       </Section>

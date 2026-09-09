@@ -91,7 +91,10 @@ export function ParentsReadingSection() {
                     Therapist
                   </p>
                   {turn.therapist.map((line) => (
-                    <p key={line} className="mt-1 text-base leading-relaxed text-[color:var(--color-muted)]">
+                    <p
+                      key={line}
+                      className="mt-1 font-[family-name:var(--font-serif)] text-base leading-relaxed text-[color:var(--color-sage-dark)] md:text-lg"
+                    >
                       {line}
                     </p>
                   ))}
