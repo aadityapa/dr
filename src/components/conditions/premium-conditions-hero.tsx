@@ -94,8 +94,8 @@ export function PremiumConditionsHero({ shells }: Pick<ConditionsPageProps, "she
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           aria-hidden
         >
-          <div className="relative h-full min-h-[18rem] w-full rounded-[2.5rem] border border-white/60 bg-white/30 shadow-xl shadow-[color:var(--brand-green)]/10 backdrop-blur-md">
-            <div className="glossy-frame absolute inset-6 overflow-hidden rounded-[2rem] ring-4 ring-white/70">
+          <div className="relative h-full min-h-[18rem] w-full rounded-[2.5rem]">
+            <div className="glossy-frame absolute inset-6 overflow-hidden rounded-[2rem]">
               <Image
                 src="/images/gallery/parent-child-connection.jpg"
                 alt="A parent lying face to face with her child, sharing a quiet moment of connection"

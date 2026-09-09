@@ -113,7 +113,7 @@ export function ExpertiseHero({ shells }: Pick<ExpertisePageProps, "shells">) {
           transition={{ duration: 0.8, ease: easeOutExpo, delay: 0.12 }}
           aria-hidden
         >
-          <div className="relative h-full min-h-[20rem] w-full overflow-hidden rounded-[2.75rem] border border-white/70 bg-white/25 shadow-[0_24px_80px_rgba(45,96,71,0.12)] backdrop-blur-2xl">
+          <div className="relative h-full min-h-[20rem] w-full overflow-hidden rounded-[2.75rem]">
             <div className="absolute inset-4 md:inset-6">
               <PhotoCluster photos={panelClusters.expertise} />
             </div>
