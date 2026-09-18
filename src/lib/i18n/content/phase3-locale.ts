@@ -379,7 +379,7 @@ const en: Phase3Content = {
         description: "Child navigating a sensory pathway with therapist support, building body awareness, balance, and motor planning.",
       },
       {
-        title: "Climbing Wall Balance Practice",
+        title: "Movement Fun",
         description: "Movement-based therapy on the climbing wall — supporting coordination, strength, and confidence.",
       },
       {
@@ -781,7 +781,7 @@ const hi: Phase3Content = {
         description: "थेरेपिस्ट के सहयोग से सेंसरी पाथवे पार करता बच्चा — शरीर-जागरूकता, संतुलन और मोटर प्लानिंग का विकास।",
       },
       {
-        title: "क्लाइम्बिंग वॉल संतुलन अभ्यास",
+        title: "मस्ती भरी गतिविधि",
         description: "क्लाइम्बिंग वॉल पर गति-आधारित थेरेपी — समन्वय, मजबूती और आत्मविश्वास को सहारा।",
       },
       {
@@ -1183,7 +1183,7 @@ const mr: Phase3Content = {
         description: "थेरपिस्टच्या आधाराने सेन्सरी पाथवे पार करणारे मूल — शरीर-जाणीव, संतुलन आणि मोटर नियोजनाची बांधणी.",
       },
       {
-        title: "क्लाइंबिंग वॉल संतुलन सराव",
+        title: "मस्तीची हालचाल",
         description: "क्लाइंबिंग वॉलवर हालचाल-आधारित थेरपी — समन्वय, ताकद आणि आत्मविश्वासाला आधार.",
       },
       {

@@ -80,21 +80,6 @@ export function BelieveThriveGraphic({ className }: { className?: string }) {
               >
                 {word}
               </span>
-
-              {/* dotted motion trail */}
-              <span
-                className="pointer-events-none absolute -bottom-1 hidden gap-1 sm:flex"
-                style={{ right: "8%" }}
-                aria-hidden
-              >
-                {[0, 1, 2].map((d) => (
-                  <span
-                    key={d}
-                    className="h-1 w-1 rounded-full"
-                    style={{ backgroundColor: color, opacity: 0.35 - d * 0.08 }}
-                  />
-                ))}
-              </span>
             </motion.div>
           );
         })}

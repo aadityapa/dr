@@ -106,7 +106,7 @@ export function ParentsReadingSection() {
 
         <Reveal delay={0.4}>
           <blockquote className="mt-10 rounded-2xl border-l-4 border-[color:var(--color-sage)] bg-[color:var(--color-soft-green)]/30 px-5 py-4">
-            <p className="text-base leading-relaxed text-[color:var(--color-sage-dark)]">
+            <p className="font-[family-name:var(--font-serif)] text-base leading-relaxed text-[color:var(--color-sage-dark)] md:text-lg">
               You don&apos;t have to walk this journey alone.
               <br />
               I&apos;m here to walk it with you.
