@@ -17,7 +17,7 @@ import { getLabels, getLocalizedClientCondition, getPageShells } from "@/lib/i18
 import { clientConditions } from "@/lib/client-content/conditions";
 import { getCardPastelByKey } from "@/lib/pastel-palette";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, speakableSchema } from "@/lib/schema";
 import { getConditionImage } from "@/lib/condition-images";
 import { siteConfig } from "@/lib/site-data";
 
@@ -65,6 +65,11 @@ export default async function ConditionDetailPage({ params }: Props) {
           { name: condition.title, url: `${siteConfig.url}/${locale}/conditions/${slug}` },
         ])}
       />
+      {/* AEO — the passages an answer engine should quote for this condition */}
+      <JsonLd
+        id="condition-speakable"
+        data={speakableSchema(["h1", "[data-speakable]"], `/${locale}/conditions/${slug}`)}
+      />
       <Breadcrumbs
         items={[
           { name: messages.nav.conditions, url: `${siteConfig.url}/${locale}/conditions` },
@@ -83,7 +88,10 @@ export default async function ConditionDetailPage({ params }: Props) {
           <h1 className="mt-3 font-[family-name:var(--font-serif)] text-3xl font-bold text-[color:var(--ink-teal)] md:text-4xl lg:text-5xl">
             {condition.title}
           </h1>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--ink-body)] md:text-lg">
+          <p
+            data-speakable
+            className="mt-5 max-w-3xl text-base leading-relaxed text-[color:var(--ink-body)] md:text-lg"
+          >
             {condition.understanding.slice(0, 200)}…
           </p>
 

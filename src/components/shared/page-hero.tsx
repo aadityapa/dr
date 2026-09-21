@@ -37,7 +37,15 @@ export function PageHero({ kicker, title, description, credentials, children, ar
             ))}
           </ul>
         ) : description ? (
-          <p className="max-w-2xl text-lg leading-relaxed text-[color:var(--color-muted)]">{description}</p>
+          /* data-speakable — AEO target for speakableSchema(); this summary is
+             server-rendered, so answer engines and voice assistants can always
+             read it (unlike collapsed accordion content). */
+          <p
+            data-speakable
+            className="max-w-2xl text-lg leading-relaxed text-[color:var(--color-muted)]"
+          >
+            {description}
+          </p>
         ) : null}
         {children ? <div className="mt-8">{children}</div> : null}
       </Reveal>

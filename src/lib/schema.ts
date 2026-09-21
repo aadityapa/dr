@@ -35,7 +35,14 @@ export function organizationSchema() {
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/opengraph-image`,
+    // Square logo — Google rejects non-square Organization logos, so this must
+    // not point at the 1200x630 OG image.
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/images/logo-512.png`,
+      width: 512,
+      height: 512,
+    },
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
