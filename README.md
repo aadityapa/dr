@@ -2,7 +2,7 @@
 
 Production website for **Thrive with sharuja** — pediatric occupational therapy built with Next.js 15, React 19, and Tailwind CSS v4. Page designs are sourced from [Google Stitch](https://stitch.withgoogle.com) and rendered as optimized Stitch HTML integrated with React forms and site navigation.
 
-**Live:** [drsharujasarap.vercel.app](https://drsharujasarap.vercel.app)
+**Live:** [thrivewithsharuja.com](https://thrivewithsharuja.com)
 
 ## Stack
 
@@ -64,4 +64,8 @@ Repository: [github.com/aadityapa/dr](https://github.com/aadityapa/dr)
 
 ## Deployment checklist
 
-- Set `NEXT_PUBLIC_SITE_URL` to the real production origin (e.g. `https://www.thrivewithsharuja.com`). All canonicals, hreflang alternates, the sitemap, Open Graph URLs and JSON-LD IDs derive from it; without it the site advertises the Vercel preview domain to search engines.
+- Set `NEXT_PUBLIC_SITE_URL` to `https://thrivewithsharuja.com` (no trailing slash) in Vercel → Settings → Environment Variables, for Production. All canonicals, hreflang alternates, the sitemap, Open Graph URLs and JSON-LD IDs derive from it.
+- Add `thrivewithsharuja.com` in Vercel → Settings → Domains and mark it the **primary** domain, so the `.vercel.app` host 308-redirects to it instead of serving duplicate content.
+- Point DNS at Vercel with the registrar: apex `A` record to `76.76.21.21`, plus a `CNAME` for `www` to `cname.vercel-dns.com`.
+- Decide apex vs `www` and keep the other as a redirect only — the canonical host must match `NEXT_PUBLIC_SITE_URL` exactly.
+- After DNS resolves, resubmit the sitemap (`/sitemap.xml`) in Google Search Console under the new property.

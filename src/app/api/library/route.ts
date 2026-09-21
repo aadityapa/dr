@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     const apiKey = process.env.RESEND_API_KEY;
     if (apiKey) {
       const resend = new Resend(apiKey);
-      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharujasarap.vercel.app";
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thrivewithsharuja.com";
 
       await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL ?? "Clinic <onboarding@resend.dev>",

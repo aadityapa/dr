@@ -2,7 +2,7 @@
 
 **Project:** Pediatric Occupational Therapy clinic (Dr. Sharuja Sarap) · Kandivali West, Mumbai
 **Stack:** Next.js 15.5 (App Router, Turbopack) · React 19 · TypeScript · Tailwind v4 · Framer Motion · GSAP · Lenis · react-hook-form · Zod · Resend
-**Live:** https://drsharujasarap.vercel.app/ · **Audited commit base:** `ecd67e1`
+**Live:** https://thrivewithsharuja.com/ · **Audited commit base:** `ecd67e1`
 **Date:** 2026-06-15
 
 > Overall the codebase is mature and high quality: strong SEO/metadata helpers, rich JSON-LD (Organization, WebSite, MedicalClinic, LocalBusiness, Physician, FAQPage, Breadcrumb, Article, AggregateRating, Review), `next/image` everywhere, focus-visible rings on inputs/buttons, skip-link, `prefers-reduced-motion` handling, sitemap + robots + manifest. The findings below are mostly hardening, legal/trust gaps, and contrast tightening — not structural problems.
@@ -20,7 +20,7 @@ Severity legend: **Critical** (legal/security/blocking) · **High** · **Medium*
 | P3 | Low | `src/app/layout.tsx` | Google Fonts (Inter, Playfair) loaded without explicit `display: "swap"` (Next defaults to swap, but not pinned) | Pin `display: "swap"` to guarantee no FOIT |
 | P4 | Low | All remote images | Images served from Google user-content CDN (placeholders); not in repo, cannot be re-encoded to AVIF/WebP locally | Manual: migrate to Cloudinary (already whitelisted) or `/public` for real photos |
 | P5 | Low | `package.json` | `@google/stitch-sdk` dependency only used by `scripts/stitch-*.mjs` build tooling, not app runtime | Acceptable (dev tooling); leave |
-| P6 | Manual | Live URL | Lighthouse not run in CI here | `npx lighthouse https://drsharujasarap.vercel.app --view` — run manually |
+| P6 | Manual | Live URL | Lighthouse not run in CI here | `npx lighthouse https://thrivewithsharuja.com --view` — run manually |
 
 ## 2. SEO
 

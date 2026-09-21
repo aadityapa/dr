@@ -11,7 +11,7 @@ export const siteConfig = {
     "From getting dressed and holding a pencil to joining playtime and making friends — we walk alongside Mumbai families with warmth, patience, and care that meets your child where they are.",
   description:
     "Warm pediatric occupational therapy in Kandivali West, Mumbai. Dr. Sharuja Sarap helps children and parents feel more confident in the little things that matter every day.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://drsharujasarap.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://thrivewithsharuja.com",
   email: "sharujasaraf@gmail.com",
   phone: "+91 9820505197",
   phoneDisplay: "9820505197",

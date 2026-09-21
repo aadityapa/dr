@@ -561,7 +561,7 @@ export const hiFaqCategories: FaqCategory[] = [
       },
       {
         "q": "डॉ. शारुजा सराफ के साथ अपॉइंटमेंट कैसे बुक करूँ?",
-        "a": "9820525197 पर कॉल करें, WhatsApp 919820525197, sharujasaraf@gmail.com पर ईमेल करें, या drsharujasarap.vercel.app/appointment पर ऑनलाइन बुक करें।"
+        "a": "9820525197 पर कॉल करें, WhatsApp 919820525197, sharujasaraf@gmail.com पर ईमेल करें, या thrivewithsharuja.com/appointment पर ऑनलाइन बुक करें।"
       },
       {
         "q": "क्या थ्राइव विथ शारुजा मुफ़्त स्क्रीनिंग उपकरण देता है?",
@@ -1168,7 +1168,7 @@ export const mrFaqCategories: FaqCategory[] = [
       },
       {
         "q": "डॉ. शारुजा सराफ के साथ अपॉइंटमध्येट कसे बुक करूँ?",
-        "a": "9820525197 पर कॉल करें, WhatsApp 919820525197, sharujasaraf@gmail.com पर ईमेल करें, या drsharujasarap.vercel.app/appointment पर ऑनलाइन बुक करें।"
+        "a": "9820525197 पर कॉल करें, WhatsApp 919820525197, sharujasaraf@gmail.com पर ईमेल करें, या thrivewithsharuja.com/appointment पर ऑनलाइन बुक करें।"
       },
       {
         "q": "काय थ्राइव विथ शारुजा मुफ़्त स्क्रीनिंग उपकरण देता आहे?",

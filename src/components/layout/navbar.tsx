@@ -102,8 +102,9 @@ export function Navbar() {
   return (
     <header className="glass-nav sticky top-0 z-50 border-b border-[color:var(--color-border)]/60 bg-[color:var(--color-snow)]/90 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:h-[4.25rem] sm:gap-4 md:px-6 lg:px-8">
-        {/* Logo — fixed width, never overlaps nav */}
-        <Link href="/" className="group flex shrink-0 items-center gap-2.5 pr-2 leading-none">
+        {/* Logo — may shrink on narrow screens so the header never forces the
+            document wider than the viewport (which caused sideways scroll). */}
+        <Link href="/" className="group flex min-w-0 shrink items-center gap-2.5 pr-2 leading-none">
           <Image
             src="/images/logo-full.png"
             alt=""
@@ -112,11 +113,11 @@ export function Navbar() {
             priority
             className="h-12 w-auto shrink-0 transition-transform duration-300 group-hover:scale-105 sm:h-14"
           />
-          <span className="block">
-          <span className="block whitespace-nowrap font-[family-name:var(--font-serif)] text-base font-semibold tracking-tight text-[color:var(--color-sage-dark)] transition-colors group-hover:text-[color:var(--color-sage-text)] sm:text-lg">
+          <span className="block min-w-0">
+          <span className="block truncate font-[family-name:var(--font-serif)] text-base font-semibold tracking-tight text-[color:var(--color-sage-dark)] transition-colors group-hover:text-[color:var(--color-sage-text)] sm:text-lg">
             {siteConfig.shortName}
           </span>
-          <span className="mt-0.5 hidden whitespace-nowrap text-[0.6rem] font-medium uppercase tracking-[0.22em] text-[color:var(--color-muted)] md:block">
+          <span className="mt-0.5 hidden truncate text-[0.6rem] font-medium uppercase tracking-[0.22em] text-[color:var(--color-muted)] md:block">
             {messages.site.title}
           </span>
           </span>

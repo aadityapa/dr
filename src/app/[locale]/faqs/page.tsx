@@ -13,7 +13,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { getMessages } from "@/lib/i18n";
 import { getLocalizedFaqs, getPageShells } from "@/lib/i18n/localize";
 import { buildPageMetadata, mumbaiKeywords } from "@/lib/metadata";
-import { faqPageSchema } from "@/lib/schema";
+import { faqPageSchema, speakableSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site-data";
 
 type Props = { params: Promise<{ locale: AppLocale }> };
@@ -40,6 +40,11 @@ export default async function FaqsPage({ params }: Props) {
   return (
     <main>
       <JsonLd data={faqPageSchema(allFaqs)} id="faq-page-schema" />
+      {/* AEO — tells voice assistants / answer engines which passages to read aloud */}
+      <JsonLd
+        data={speakableSchema(["h1", "[data-speakable]"], `/${locale}/faqs`)}
+        id="faq-speakable-schema"
+      />
       <Breadcrumbs items={[{ name: messages.nav.faqs, url: `${siteConfig.url}/${locale}/faqs` }]} />
       <PageHero photoKey="faqs" art={<QuestionScene />} kicker={shells.faqs.kicker} title={shells.faqs.title} description={shells.faqs.description} />
       <Section>

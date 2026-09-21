@@ -280,7 +280,10 @@ export function reviewListSchema() {
  * AEO — marks the passages an answer engine or voice assistant should read
  * aloud when summarising a page.
  */
-export function speakableSchema(cssSelectors: string[] = ["h1", "h2", "p"]) {
+export function speakableSchema(
+  cssSelectors: string[] = ["h1", "h2", "p"],
+  path = "",
+) {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -288,6 +291,6 @@ export function speakableSchema(cssSelectors: string[] = ["h1", "h2", "p"]) {
       "@type": "SpeakableSpecification",
       cssSelector: cssSelectors,
     },
-    url: siteConfig.url,
+    url: `${siteConfig.url}${path}`,
   };
 }

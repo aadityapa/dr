@@ -58,7 +58,7 @@ const en: AboutContent = {
     },
     {
       q: "How do I book an appointment with Dr. Sharuja Sarap?",
-      a: "Call 9820505197, WhatsApp 919820505197, email sharujasaraf@gmail.com, or book online at drsharujasarap.vercel.app/appointment.",
+      a: "Call 9820505197, WhatsApp 919820505197, email sharujasaraf@gmail.com, or book online at thrivewithsharuja.com/appointment.",
     },
   ],
 };
@@ -168,7 +168,7 @@ const hi: AboutContent = {
     },
     {
       q: "डॉ. शारुजा सराफ के साथ अपॉइंटमेंट कैसे बुक करूँ?",
-      a: "9820505197 पर कॉल करें, WhatsApp 919820505197, sharujasaraf@gmail.com पर ईमेल करें, या drsharujasarap.vercel.app/appointment पर ऑनलाइन बुक करें।",
+      a: "9820505197 पर कॉल करें, WhatsApp 919820505197, sharujasaraf@gmail.com पर ईमेल करें, या thrivewithsharuja.com/appointment पर ऑनलाइन बुक करें।",
     },
   ],
 };
@@ -278,7 +278,7 @@ const mr: AboutContent = {
     },
     {
       q: "डॉ. शरुजा सराफ यांच्यासोबत अपॉइंटमेंट कशी बुक करू?",
-      a: "9820505197 वर कॉल करा, WhatsApp 919820505197, sharujasaraf@gmail.com वर ईमेल करा, किंवा drsharujasarap.vercel.app/appointment वर ऑनलाइन बुक करा.",
+      a: "9820505197 वर कॉल करा, WhatsApp 919820505197, sharujasaraf@gmail.com वर ईमेल करा, किंवा thrivewithsharuja.com/appointment वर ऑनलाइन बुक करा.",
     },
   ],
 };
