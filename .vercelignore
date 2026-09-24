@@ -1,0 +1,6 @@
+# Only affects `vercel` CLI uploads (Git-based deploys clone the repo anyway).
+# Keeps design-source dumps and generated exports out of the build input.
+exports/
+stitch-source/
+AUDIT_REPORT.md
+GROWTH_ROADMAP_100CR.md

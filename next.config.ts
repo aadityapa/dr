@@ -32,6 +32,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      // /favicon.ico was 404ing: the .ico file lives under app/[locale]/, where
+      // Next ignores the favicon convention. Google and many user agents request
+      // /favicon.ico directly, so serve the 192px brand icon at that path.
+      // (Move the file to app/favicon.ico and drop this once convenient.)
+      { source: "/favicon.ico", destination: "/images/logo-192.png" },
+    ];
+  },
   async redirects() {
     return [
       // Locale-prefixed variants (localePrefix is "always", so real URLs carry /en|/hi|/mr)
@@ -48,19 +57,22 @@ const nextConfig: NextConfig = {
       { source: "/:locale(en|hi|mr)/services/aquatic-therapy", destination: "/:locale/expertise/aquatic-therapy", permanent: true },
       { source: "/:locale(en|hi|mr)/services", destination: "/:locale/expertise", permanent: true },
       { source: "/:locale(en|hi|mr)/services/:slug", destination: "/:locale/expertise/:slug", permanent: true },
-      { source: "/therapy-journey", destination: "/expertise", permanent: true },
-      { source: "/testimonials", destination: "/testimonials-milestones", permanent: true },
-      { source: "/services", destination: "/expertise", permanent: true },
-      { source: "/services/:slug", destination: "/expertise/:slug", permanent: true },
-      { source: "/services/sensory-integration", destination: "/expertise/sensory-integration", permanent: true },
-      { source: "/services/feeding-therapy", destination: "/expertise/oral-placement-therapy", permanent: true },
-      { source: "/services/adl-training", destination: "/expertise/looking-beyond-a-diagnosis", permanent: true },
-      { source: "/services/parent-counseling", destination: "/expertise/looking-beyond-a-diagnosis", permanent: true },
-      { source: "/services/group-sessions", destination: "/expertise/looking-beyond-a-diagnosis", permanent: true },
-      { source: "/services/occupational-therapy", destination: "/expertise/looking-beyond-a-diagnosis", permanent: true },
-      { source: "/services/handwriting-training", destination: "/expertise/handwriting-without-tears", permanent: true },
-      { source: "/services/brain-gym", destination: "/expertise/brain-gym", permanent: true },
-      { source: "/services/aquatic-therapy", destination: "/expertise/aquatic-therapy", permanent: true },
+      // Unprefixed legacy URLs — destinations carry /en to avoid a second hop
+      // through the locale middleware. Specific slugs are listed before the
+      // catch-all so they win.
+      { source: "/therapy-journey", destination: "/en/expertise", permanent: true },
+      { source: "/testimonials", destination: "/en/testimonials-milestones", permanent: true },
+      { source: "/services", destination: "/en/expertise", permanent: true },
+      { source: "/services/sensory-integration", destination: "/en/expertise/sensory-integration", permanent: true },
+      { source: "/services/feeding-therapy", destination: "/en/expertise/oral-placement-therapy", permanent: true },
+      { source: "/services/adl-training", destination: "/en/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/services/parent-counseling", destination: "/en/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/services/group-sessions", destination: "/en/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/services/occupational-therapy", destination: "/en/expertise/looking-beyond-a-diagnosis", permanent: true },
+      { source: "/services/handwriting-training", destination: "/en/expertise/handwriting-without-tears", permanent: true },
+      { source: "/services/brain-gym", destination: "/en/expertise/brain-gym", permanent: true },
+      { source: "/services/aquatic-therapy", destination: "/en/expertise/aquatic-therapy", permanent: true },
+      { source: "/services/:slug", destination: "/en/expertise/:slug", permanent: true },
       // Old article slugs -> new articles (article library replaced Aug 2026)
       { source: "/:locale(en|hi|mr)/resources/signs-your-child-may-need-occupational-therapy", destination: "/:locale/resources/signs-your-child-may-benefit-from-occupational-therapy", permanent: true },
       { source: "/:locale(en|hi|mr)/resources/preparing-child-for-first-ot-appointment", destination: "/:locale/resources/preparing-your-child-for-first-occupational-therapy-appointment", permanent: true },
@@ -70,29 +82,32 @@ const nextConfig: NextConfig = {
       { source: "/:locale(en|hi|mr)/resources/handwriting-struggles-when-to-seek-help", destination: "/:locale/resources", permanent: true },
       { source: "/:locale(en|hi|mr)/resources/benefits-of-aquatic-therapy-for-children", destination: "/:locale/resources", permanent: true },
       { source: "/:locale(en|hi|mr)/resources/autism-and-occupational-therapy-guide", destination: "/:locale/resources", permanent: true },
-      // Short condition URLs for SEO
-      { source: "/autism", destination: "/conditions/autism-spectrum-disorder", permanent: true },
-      { source: "/adhd", destination: "/conditions/adhd", permanent: true },
-      { source: "/sensory-processing", destination: "/conditions/sensory-processing-difficulties", permanent: true },
-      { source: "/developmental-delay", destination: "/conditions/developmental-delay", permanent: true },
-      { source: "/learning-difficulties", destination: "/conditions/learning-difficulties", permanent: true },
-      { source: "/handwriting-difficulties", destination: "/conditions/handwriting-difficulties", permanent: true },
-      { source: "/fine-motor-challenges", destination: "/conditions/fine-motor-challenges", permanent: true },
-      { source: "/gross-motor-challenges", destination: "/conditions/gross-motor-difficulties", permanent: true },
-      { source: "/primitive-reflex-retention", destination: "/conditions/primitive-reflex-retention", permanent: true },
-      { source: "/emotional-regulation", destination: "/conditions/emotional-regulation-difficulties", permanent: true },
-      { source: "/school-readiness", destination: "/conditions/school-readiness-concerns", permanent: true },
-      { source: "/cerebral-palsy", destination: "/conditions/cerebral-palsy", permanent: true },
-      { source: "/down-syndrome", destination: "/conditions/down-syndrome", permanent: true },
-      { source: "/feeding-difficulties", destination: "/conditions/feeding-oral-motor-challenges", permanent: true },
-      { source: "/social-participation", destination: "/conditions/social-participation-challenges", permanent: true },
+      // Short condition URLs for SEO.
+      // Destinations carry /en explicitly: an unprefixed destination would be
+      // redirected a second time by the locale middleware (two hops), and Google
+      // would crawl and report the intermediate URL.
+      { source: "/autism", destination: "/en/conditions/autism-spectrum-disorder", permanent: true },
+      { source: "/adhd", destination: "/en/conditions/adhd", permanent: true },
+      { source: "/sensory-processing", destination: "/en/conditions/sensory-processing-difficulties", permanent: true },
+      { source: "/developmental-delay", destination: "/en/conditions/developmental-delay", permanent: true },
+      { source: "/learning-difficulties", destination: "/en/conditions/learning-difficulties", permanent: true },
+      { source: "/handwriting-difficulties", destination: "/en/conditions/handwriting-difficulties", permanent: true },
+      { source: "/fine-motor-challenges", destination: "/en/conditions/fine-motor-challenges", permanent: true },
+      { source: "/gross-motor-challenges", destination: "/en/conditions/gross-motor-difficulties", permanent: true },
+      { source: "/primitive-reflex-retention", destination: "/en/conditions/primitive-reflex-retention", permanent: true },
+      { source: "/emotional-regulation", destination: "/en/conditions/emotional-regulation-difficulties", permanent: true },
+      { source: "/school-readiness", destination: "/en/conditions/school-readiness-concerns", permanent: true },
+      { source: "/cerebral-palsy", destination: "/en/conditions/cerebral-palsy", permanent: true },
+      { source: "/down-syndrome", destination: "/en/conditions/down-syndrome", permanent: true },
+      { source: "/feeding-difficulties", destination: "/en/conditions/feeding-oral-motor-challenges", permanent: true },
+      { source: "/social-participation", destination: "/en/conditions/social-participation-challenges", permanent: true },
       // Local SEO short URLs
-      { source: "/occupational-therapist-mumbai", destination: "/locations/occupational-therapist-mumbai", permanent: true },
-      { source: "/pediatric-occupational-therapist-kandivali", destination: "/locations/pediatric-occupational-therapist-kandivali", permanent: true },
-      { source: "/aquatic-therapy-mumbai", destination: "/locations/aquatic-therapy-mumbai", permanent: true },
-      { source: "/brain-gym-mumbai", destination: "/locations/brain-gym-mumbai", permanent: true },
-      { source: "/handwriting-training-mumbai", destination: "/locations/handwriting-training-mumbai", permanent: true },
-      { source: "/autism-support-mumbai", destination: "/locations/autism-therapy-support-mumbai", permanent: true },
+      { source: "/occupational-therapist-mumbai", destination: "/en/locations/occupational-therapist-mumbai", permanent: true },
+      { source: "/pediatric-occupational-therapist-kandivali", destination: "/en/locations/pediatric-occupational-therapist-kandivali", permanent: true },
+      { source: "/aquatic-therapy-mumbai", destination: "/en/locations/aquatic-therapy-mumbai", permanent: true },
+      { source: "/brain-gym-mumbai", destination: "/en/locations/brain-gym-mumbai", permanent: true },
+      { source: "/handwriting-training-mumbai", destination: "/en/locations/handwriting-training-mumbai", permanent: true },
+      { source: "/autism-support-mumbai", destination: "/en/locations/autism-therapy-support-mumbai", permanent: true },
     ];
   },
   images: {

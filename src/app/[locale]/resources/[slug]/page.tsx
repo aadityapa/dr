@@ -80,6 +80,7 @@ export default async function ArticlePage({ params }: Props) {
           slug: article.slug,
           publishedAt: article.publishedAt,
           updatedAt: article.updatedAt,
+          locale,
         })}
         id="article-schema"
       />

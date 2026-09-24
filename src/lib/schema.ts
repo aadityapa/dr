@@ -43,12 +43,27 @@ export function organizationSchema() {
       width: 512,
       height: 512,
     },
+    alternateName: siteConfig.alternateNames,
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: siteConfig.phone,
     address: postalAddress(),
+    areaServed: SERVICE_AREAS.map((name) => ({ "@type": "Place", name })),
     founder: personSchema(),
-    sameAs: [googleReviews.mapsUrl],
+    // Entity-linking signals. Google builds its picture of a brand largely
+    // from these cross-platform references, so keep them accurate.
+    sameAs: [googleReviews.mapsUrl, ...siteConfig.socialProfiles],
+    knowsAbout: [
+      "Pediatric occupational therapy",
+      "Sensory integration therapy",
+      "Autism spectrum disorder support",
+      "ADHD support",
+      "Developmental delay",
+      "Handwriting difficulties",
+      "Aquatic therapy for children",
+      "Brain Gym",
+      "Primitive reflex integration",
+    ],
   };
 }
 
@@ -58,10 +73,11 @@ export function websiteSchema() {
     "@type": "WebSite",
     "@id": `${siteConfig.url}/#website`,
     name: siteConfig.name,
+    alternateName: siteConfig.alternateNames,
     url: siteConfig.url,
     description: siteConfig.description,
     publisher: { "@id": `${siteConfig.url}/#organization` },
-    inLanguage: "en-IN",
+    inLanguage: ["en-IN", "hi-IN", "mr-IN"],
   };
 }
 
@@ -142,8 +158,14 @@ export function personSchema() {
     name: siteConfig.doctorName,
     jobTitle: siteConfig.title,
     description: doctorProfile.bio,
+    url: `${siteConfig.url}/en/about`,
+    image: `${siteConfig.url}/images/doctor/portrait.jpg`,
     email: siteConfig.email,
     telephone: siteConfig.phone,
+    hasCredential: doctorProfile.qualifications.map((name) => ({
+      "@type": "EducationalOccupationalCredential",
+      name,
+    })),
     knowsAbout: [
       "Pediatric Occupational Therapy",
       "Sensory Integration Therapy",
@@ -152,7 +174,9 @@ export function personSchema() {
       "Handwriting Training",
       ...doctorProfile.certifications,
     ],
+    knowsLanguage: ["en", "hi", "mr"],
     worksFor: { "@id": `${siteConfig.url}/#medicalclinic` },
+    sameAs: siteConfig.socialProfiles,
   };
 }
 
@@ -224,13 +248,25 @@ export function breadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
+const schemaLanguage: Record<string, string> = {
+  en: "en-IN",
+  hi: "hi-IN",
+  mr: "mr-IN",
+};
+
 export function articleSchema(article: {
   title: string;
   description: string;
   slug: string;
   publishedAt: string;
   updatedAt?: string;
+  /** Locale of the page rendering this schema; drives the URL and inLanguage. */
+  locale?: string;
 }) {
+  const locale = article.locale ?? "en";
+  // Must carry the locale prefix — an unprefixed URL here is a redirecting URL,
+  // which Google crawls from every article and reports as "not indexed".
+  const url = `${siteConfig.url}/${locale}/resources/${article.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -240,8 +276,9 @@ export function articleSchema(article: {
     publisher: organizationSchema(),
     datePublished: article.publishedAt,
     dateModified: article.updatedAt ?? article.publishedAt,
-    mainEntityOfPage: `${siteConfig.url}/resources/${article.slug}`,
-    inLanguage: "en-IN",
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: schemaLanguage[locale] ?? "en-IN",
   };
 }
 

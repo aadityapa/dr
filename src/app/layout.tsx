@@ -53,6 +53,17 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: seoKeywords,
+  // Search-result favicon. Google requires a square icon whose side is a
+  // multiple of 48px, linked from the homepage <head>; 192px satisfies that.
+  // The 256px app/icon.png and 180px apple-icon.png file conventions are still
+  // emitted alongside these, so browsers keep their existing icons.
+  icons: {
+    icon: [
+      { url: "/images/logo-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/logo-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.heroSubheadline,

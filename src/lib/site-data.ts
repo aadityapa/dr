@@ -29,6 +29,20 @@ export const siteConfig = {
   },
   timings: "Mon–Fri 9 AM – 5 PM · Sat 9 AM – 12 PM",
   mapsQuery: "Manhar Medical Jeet Child Development Centre Kandivali West Mumbai",
+  /**
+   * Other spellings people search for. Emitted as `alternateName` in the
+   * Organization / WebSite JSON-LD so Google links "thrivewithsharuja" (one
+   * word, as typed in a URL) to the same entity as the spaced brand name.
+   */
+  alternateNames: ["thrivewithsharuja", "Thrive with Sharuja", "Dr. Sharuja Sarap"],
+  /**
+   * Official profiles for the clinic / Dr. Sharuja on other platforms.
+   * Emitted as `sameAs` in JSON-LD — the strongest on-site signal Google uses
+   * to build a brand entity. Add the real URLs here (Google Business Profile
+   * share link, Instagram, Facebook, LinkedIn, YouTube, Practo, Justdial…).
+   * Leave out anything that isn't genuinely yours.
+   */
+  socialProfiles: [] as string[],
   mapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.5!2d72.84!3d19.21!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDEyJzM2LjAiTiA3MsKwNTAnMjQuMCJF!5e0!3m2!1sen!2sin!4v1",
 };

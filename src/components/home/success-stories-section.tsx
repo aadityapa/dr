@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import { useLanguage } from "@/components/providers/language-provider";
 import { Reveal } from "@/components/shared/reveal";

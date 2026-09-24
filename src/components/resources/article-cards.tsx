@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 import { Reveal } from "@/components/shared/reveal";
 import { Card, CardContent } from "@/components/ui/card";
