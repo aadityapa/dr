@@ -46,9 +46,9 @@ function buildLlmsTxt() {
 
   return `# ${siteConfig.name} — ${siteConfig.title}, Kandivali West, Mumbai
 
-> ${siteConfig.description} Led by ${siteConfig.doctorName}, with ${siteConfig.experienceYears}+ years
-> of experience supporting children (${siteConfig.ageRange}) with developmental, sensory,
-> motor and neurological needs. Consultations available in English, Hindi and Marathi.
+> ${siteConfig.description} ${siteConfig.experienceYears}+ years of experience supporting
+> children (${siteConfig.ageRange}) with developmental, sensory, motor and neurological
+> needs. Consultations available in English, Hindi and Marathi.
 
 ## Key facts
 

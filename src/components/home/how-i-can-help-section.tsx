@@ -38,7 +38,7 @@ export function HowICanHelpSection() {
                     className="mt-4 inline-block text-sm font-semibold hover:underline"
                     style={{ color: pastel.accent }}
                   >
-                    {card.link} →
+                    {card.link}
                   </Link>
                 </div>
               </Reveal>

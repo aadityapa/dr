@@ -84,7 +84,7 @@ const enLegal: LegalContent = {
       {
         heading: "Contact us",
         body: [
-          "If you have any questions about this Privacy Policy or how your information is handled, please contact us at drsharujasarap@gmail.com or 9820525197.",
+          "If you have any questions about this Privacy Policy or how your information is handled, please contact us at sharujasaraf@gmail.com or 9820505197.",
         ],
       },
     ],
@@ -138,7 +138,7 @@ const enLegal: LegalContent = {
       },
       {
         heading: "Contact",
-        body: ["For questions about these terms, contact us at drsharujasarap@gmail.com or 9820525197."],
+        body: ["For questions about these terms, contact us at sharujasaraf@gmail.com or 9820505197."],
       },
     ],
   },
@@ -186,7 +186,7 @@ const enLegal: LegalContent = {
       {
         heading: "Contact",
         body: [
-          "For clinical questions, book a consultation with Dr. Sharuja Sarap at our Kandivali West clinic or call 9820525197.",
+          "For clinical questions, book a consultation with Dr. Sharuja Sarap at our Kandivali West clinic or call 9820505197.",
         ],
       },
     ],
@@ -227,7 +227,7 @@ const enLegal: LegalContent = {
       {
         heading: "Feedback and assistance",
         body: [
-          "If you encounter accessibility barriers on our website, please contact us at drsharujasarap@gmail.com or 9820525197. We will do our best to provide information in an alternative format.",
+          "If you encounter accessibility barriers on our website, please contact us at sharujasaraf@gmail.com or 9820505197. We will do our best to provide information in an alternative format.",
         ],
       },
       {
@@ -293,7 +293,7 @@ const hiLegal: LegalContent = {
       },
       {
         heading: "संपर्क करें",
-        body: ["गोपनीयता से संबंधित प्रश्नों के लिए drsharujasarap@gmail.com या 9820525197 पर संपर्क करें।"],
+        body: ["गोपनीयता से संबंधित प्रश्नों के लिए sharujasaraf@gmail.com या 9820505197 पर संपर्क करें।"],
       },
     ],
   },
@@ -333,7 +333,7 @@ const hiLegal: LegalContent = {
       },
       {
         heading: "संपर्क",
-        body: ["शर्तों के बारे में drsharujasarap@gmail.com या 9820525197 पर संपर्क करें।"],
+        body: ["शर्तों के बारे में sharujasaraf@gmail.com या 9820505197 पर संपर्क करें।"],
       },
     ],
   },
@@ -368,7 +368,7 @@ const hiLegal: LegalContent = {
       },
       {
         heading: "संपर्क",
-        body: ["नैदानिक प्रश्नों के लिए कांदिवली क्लिनिक में परामर्श बुक करें या 9820525197 पर कॉल करें।"],
+        body: ["नैदानिक प्रश्नों के लिए कांदिवली क्लिनिक में परामर्श बुक करें या 9820505197 पर कॉल करें।"],
       },
     ],
   },
@@ -401,7 +401,7 @@ const hiLegal: LegalContent = {
       },
       {
         heading: "प्रतिक्रिया और सहायता",
-        body: ["पहुँच बाधाओं के लिए drsharujasarap@gmail.com या 9820525197 पर संपर्क करें। वैकल्पिक प्रारूप में जानकारी देने का प्रयास करेंगे।"],
+        body: ["पहुँच बाधाओं के लिए sharujasaraf@gmail.com या 9820505197 पर संपर्क करें। वैकल्पिक प्रारूप में जानकारी देने का प्रयास करेंगे।"],
       },
       {
         heading: "क्लिनिक में पहुँच",
@@ -461,7 +461,7 @@ const mrLegal: LegalContent = {
       },
       {
         heading: "संपर्क",
-        body: ["गोपनीयतेशी संबंधित प्रश्नांसाठी drsharujasarap@gmail.com किंवा 9820525197 वर संपर्क करा."],
+        body: ["गोपनीयतेशी संबंधित प्रश्नांसाठी sharujasaraf@gmail.com किंवा 9820505197 वर संपर्क करा."],
       },
     ],
   },
@@ -480,7 +480,7 @@ const mrLegal: LegalContent = {
       { heading: "बौद्धिक मालमत्ता", body: ["वेबसाइटवरील सर्व सामग्री थ्राइव विथ शारुजाची आहे. लिखित परवानगीशिवाय पुनर्प्रकाशित करू नका."] },
       { heading: "दायित्वाची मर्यादा", body: ["वेबसाइट वापरामुळे होणाऱ्या नुकसानासाठी आम्ही जबाबदार नाही. तुमच्या मुलाच्या विशिष्ट गरजांसाठी नेहमी व्यावसायिक सल्ला घ्या."] },
       { heading: "अटींमध्ये बदल", body: ["आम्ही वेळोवेळी अटी अपडेट करू शकतो. बदलानंतर वापर म्हणजे अपडेटेड अटींची स्वीकृती."] },
-      { heading: "संपर्क", body: ["अटींबद्दल drsharujasarap@gmail.com किंवा 9820525197 वर संपर्क करा."] },
+      { heading: "संपर्क", body: ["अटींबद्दल sharujasaraf@gmail.com किंवा 9820505197 वर संपर्क करा."] },
     ],
   },
   disclaimer: {
@@ -497,7 +497,7 @@ const mrLegal: LegalContent = {
       { heading: "वैयक्तिक परिणाम वेगळे", body: ["प्रशंसापत्रे आणि उदाहरणे वैयक्तिक अनुभव दर्शवतात. आम्ही विशिष्ट परिणामाची हमी देत नाही."] },
       { heading: "स्क्रीनिंग साधने", body: ["ऑनलाइन स्क्रीनिंग निदान साधने नाहीत — तुमच्या चिंता समजण्यास आणि पुढचे पाऊल सुचवण्यास मदत करतात."] },
       { heading: "आपत्कालीन परिस्थिती", body: ["ही वेबसाइट वैद्यकीय आपत्कालीनसाठी नाही. तातडीच्या धोक्यात 112 वर कॉल करा किंवा जवळच्या रुग्णालयात जा."] },
-      { heading: "संपर्क", body: ["वैद्यकीय प्रश्नांसाठी कांदिवली क्लिनिकमध्ये सल्ला बुक करा किंवा 9820525197 वर कॉल करा."] },
+      { heading: "संपर्क", body: ["वैद्यकीय प्रश्नांसाठी कांदिवली क्लिनिकमध्ये सल्ला बुक करा किंवा 9820505197 वर कॉल करा."] },
     ],
   },
   accessibility: {
@@ -521,7 +521,7 @@ const mrLegal: LegalContent = {
         ],
       },
       { heading: "ज्ञात मर्यादा", body: ["काही तृतीय-पक्ष एम्बेड (जसे नकाशे) पूर्ण प्रवेश मानके पूर्ण करू शकत नाहीत."] },
-      { heading: "अभिप्राय आणि साहाय्य", body: ["प्रवेश अडथळ्यांसाठी drsharujasarap@gmail.com किंवा 9820525197 वर संपर्क करा."] },
+      { heading: "अभिप्राय आणि साहाय्य", body: ["प्रवेश अडथळ्यांसाठी sharujasaraf@gmail.com किंवा 9820505197 वर संपर्क करा."] },
       { heading: "क्लिनिकमध्ये प्रवेश", body: ["आमचे कांदिवली क्लिनिक विविध गरजा असलेल्या कुटुंबांचे स्वागत करते. विशेष सोयी लागल्यास आधी कळवा."] },
     ],
   },

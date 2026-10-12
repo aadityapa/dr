@@ -24,6 +24,16 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.1.87"],
+  // Disable streaming metadata for every user agent.
+  //
+  // Since Next 15.2, metadata from async generateMetadata() is streamed into
+  // the <body> for clients Next considers capable of running JS — which
+  // includes Googlebot. On this site that put <title>, rel="canonical" and the
+  // hreflang alternates ~40-60 KB into the body. Google ignores rel="canonical"
+  // outside <head>, so Search Console reported every page as "Duplicate without
+  // user-selected canonical" and treated /en, /hi and /mr as competing copies.
+  // Matching all UAs here forces metadata into the initial <head>.
+  htmlLimitedBots: /.*/,
   async headers() {
     return [
       {

@@ -66,7 +66,9 @@ export function HeroSection() {
               <Link href="/appointment">{copy.primaryCta ?? messages.cta.bookConsultation}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/expertise">{copy.secondaryCta ?? messages.cta.exploreServices}</Link>
+              <Link href={copy.secondaryCta ? "/about" : "/expertise"}>
+                {copy.secondaryCta ?? messages.cta.exploreServices}
+              </Link>
             </Button>
           </div>
         </div>
